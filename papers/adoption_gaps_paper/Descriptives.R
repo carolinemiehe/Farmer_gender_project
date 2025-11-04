@@ -1,10 +1,8 @@
-
-
 rm(list=ls())
 path <- getwd()
 path
 library(readr)
-baseline_farmers <- read_csv("baseline_farmers.csv")
+baseline_farmers <- read.csv(paste(path,"/../../data/baseline/farmer/baseline_farmers.csv",sep="/"), stringsAsFactors=TRUE)
 
 library(dplyr)
 library(knitr)

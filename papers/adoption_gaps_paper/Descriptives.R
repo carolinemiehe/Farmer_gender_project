@@ -198,8 +198,8 @@ baseline_farmers$relationship <- tolower(as.character(baseline_farmers$Check2.ch
 
 baseline_farmers$relationship[baseline_farmers$relationship %in% c("n/a","na")] <- NA
 
-baseline_farmers$relationship_hh_num <- ifelse(baseline_farmers$relationship == "a", 1,
-                                               ifelse(baseline_farmers$relationship %in% c("b","c","d"), 0, NA))
+baseline_farmers$relationship_hh_num <- ifelse(baseline_farmers$relationship == "a", 1, 0)
+
 table(baseline_farmers$relationship_hh_num, useNA="ifany")
 
 #Q13 the respondent is the household head
@@ -240,6 +240,7 @@ table(baseline_farmers$hh_gender_num, useNA = "ifany")
 #Q16 (status)
 table(baseline_farmers$Check2.check.maize.q16, useNA = "ifany")
 baseline_farmers$Check2.check.maize.q16[baseline_farmers$Check2.check.maize.q16 %in% c("n/a","N/A","NA"," ")] <- NA
+table(baseline_farmers$Check2.check.maize.q16, useNA = "ifany")
 baseline_farmers$hh_marital_status <- tolower(as.character(baseline_farmers$Check2.check.maize.q16))
 
 baseline_farmers$hh_marital_status[baseline_farmers$hh_marital_status %in% c("n/a","na","")] <- NA
@@ -313,6 +314,11 @@ aggregate(yield_per_acre ~ hh_gender_num, data = baseline_farmers, mean, na.rm =
      #col = "lightblue",
      #breaks = 30)
 
+
+
+library(moments)
+skewness(baseline_farmers$yield_per_acre, na.rm = TRUE)
+skewness(baseline_farmers$maize_income, na.rm = TRUE)
 ihs <- function(x) {
   y <- log(x + sqrt(x ^ 2 + 1))
   return(y)
@@ -480,8 +486,8 @@ baseline_farmers$farmer_group_member <- ifelse(baseline_farmers$farmer_group_mem
                                                ifelse(baseline_farmers$farmer_group_member == "No", 0, NA))
 table(baseline_farmers$farmer_group_member)
 
-#ANALYSIS
-output_vars <- c("yield_per_acre", "yield_per_acre_ihs", "maize_income")
+#ANALYSIS - t-test
+output_vars <- c("yield_per_acre", "yield_per_acre_ihs", "maize_income", "maize_income_ihs")
 
 for (var in output_vars) {
   cat("\n---", var, "---\n")
@@ -531,46 +537,29 @@ summary(lm1_full)
 #lm2 IHS TRANSFORMATION OF YIELD PER ACRE - gender is significant until semifull
 lm2 <- lm(yield_per_acre_ihs ~ hh_gender_num, data = baseline_farmers)
 summary(lm2)
-#Semifull
+#Semifull: control for agricultural inputs (it includes the indirect effect of discrimination that it is reflecting in input)
 lm2_semifull <- lm(yield_per_acre_ihs ~ hh_gender_num + education_head_num + household_size +
                      hh_age + quality_seed_used + dap_npk_applied + urea_applied +
                      chemicals_applied + r_maize_plot_area, data = baseline_farmers)
 summary(lm2_semifull)
 resettest(lm2_semifull)
+baseline_farmers$age_sq <- baseline_farmers$hh_age^2
 #crPlots(lm2_semifull)
 lm2_semifull_fix <- lm(yield_per_acre_ihs ~ 
-                         hh_gender_num + education_head_num + household_size +
-                         hh_age + I(hh_age^2) +
-                         quality_seed_used + dap_npk_applied +
-                         urea_applied +
-                         chemicals_applied + log1p(r_maize_plot_area) + organic_manure_applied + weed_times + resow + farmer_group_member + intercropped,
-                       data = baseline_farmers)
+    hh_gender_num + education_head_num + household_size +
+    hh_age +
+    distance_agroshops + num_shops +
+    quality_seed_used + dap_npk_applied +
+    urea_applied +
+    organic_manure_applied +
+    plots_maize +
+    chemicals_applied + weed_times + resow + farmer_group_member,
+  data = baseline_farmers)
+
+
 summary(lm2_semifull_fix)
 resettest(lm2_semifull_fix)
-
-#full
-lm2_full <- lm(yield_per_acre_ihs ~ hh_gender_num + education_head_num + household_size +
-                 hh_age + hh_marital_status_num + relationship_hh_num +
-                 quality_seed_used + dap_npk_applied + urea_applied + chemicals_applied + distance_agroshops + num_shops + 
-                 bags_sold, data = baseline_farmers)
-summary(lm2_full)
-resettest(lm2_full)
-#crPlots(lm2_full)
-
-lm2_full_fix <- lm(yield_per_acre_ihs ~ 
-                     hh_gender_num + education_head_num + household_size +
-                     hh_age + I(hh_age^2) +
-                     hh_marital_status_num + relationship_hh_num +
-                     quality_seed_used + dap_npk_applied +
-                     urea_applied + chemicals_applied +
-                     log1p(distance_agroshops) + num_shops + log1p(bags_sold) + organic_manure_applied + 
-                     weed_times + resow + intercropped + farmer_group_member,
-                   data = baseline_farmers)
-
-summary(lm2_full_fix)
-resettest(lm2_full_fix)
-
-
+#crPlots(lm2_semifull_fix)
 
 #lm3 Maize-income (maybe esclude seed_total_cost_ugx, maize sold and bags sold(plots_maize)) - gender is significant just when there are no control variables
 
@@ -582,7 +571,6 @@ lm3_semifull <- lm(maize_income ~ hh_gender_num + r_maize_plot_area +
                      quality_seed_used + dap_npk_applied + urea_applied +
                      chemicals_applied, data = baseline_farmers)
 summary(lm3_semifull)
-
 lm3_full <- lm(maize_income ~ hh_gender_num + r_maize_plot_area +
                  education_head_num + household_size + hh_age +
                  hh_marital_status_num + relationship_hh_num +
@@ -596,70 +584,234 @@ summary(lm3_full)
 lm4 <- lm(maize_income_ihs ~ hh_gender_num, data = baseline_farmers)
 summary(lm4)
 
-lm4_semifull <- lm(maize_income_ihs ~ hh_gender_num + r_maize_plot_area +
-                     education_head_num + household_size + hh_age +
-                     quality_seed_used + dap_npk_applied + urea_applied +
-                     chemicals_applied, data = baseline_farmers)
-summary(lm4_semifull)
-resettest(lm4_semifull)
-#crPlots(lm4_semifull)
 
 lm4_semifull_fix <- lm(maize_income_ihs ~ 
                          hh_gender_num +
                          log1p(r_maize_plot_area) +
-                         education_head_num + household_size +
-                         hh_age + I(hh_age^2) +
-                         quality_seed_used +
-                         dap_npk_applied +
-                         urea_applied +
-                         chemicals_applied + organic_manure_applied + num_shops + weed_times + resow + intercropped + farmer_group_member,
+                         education_head_num  + household_size + hh_age + quality_seed_used + 
+                         dap_npk_applied + log1p(urea_applied) + chemicals_applied + 
+                         organic_manure_applied + log1p(num_shops) + log1p(distance_agroshops)+ 
+                         log1p(weed_times) + resow + farmer_group_member,
                        data = baseline_farmers)
 summary(lm4_semifull_fix)
-resettest(lm4_semifull_fix) #still something is missing
-
-lm4_full <- lm(maize_income_ihs ~ hh_gender_num + r_maize_plot_area +
-                 education_head_num + household_size + hh_age +
-                 hh_marital_status_num + relationship_hh_num +
-                 quality_seed_used + dap_npk_applied + urea_applied + chemicals_applied + distance_agroshops + num_shops,
-               data = baseline_farmers)
- 
-summary(lm4_full)
-resettest(lm4_full)
-#crPlots(lm4_full)
+resettest(lm4_semifull_fix) 
 
 
-
-lm4_full_fix <- lm(maize_income_ihs ~ 
-                     hh_gender_num + log1p(r_maize_plot_area) +
-                     education_head_num + household_size +
-                     hh_age + I(hh_age^2) +
-                     hh_marital_status_num + relationship_hh_num +
-                     quality_seed_used + dap_npk_applied +
-                     urea_applied +
-                     chemicals_applied + log1p(distance_agroshops) +
-                     num_shops+  log1p(num_shops) + 
-                   organic_manure_applied + weed_times + log1p(weed_times) + resow + intercropped + farmer_group_member,
-                   data = baseline_farmers)
-summary(lm4_full_fix)
-resettest(lm4_full_fix) #still not perfect but better 
 
 #MULTICOLLINEARITY
 vif(lm2_semifull_fix)
-vif(lm2_full_fix)
+
 vif(lm4_semifull_fix)
-vif(lm4_full_fix)
+
 
 
 
 #Etheroskedasticity
 library(sandwich)
 library(lmtest)
-bptest(lm2_semifull_fix)
-bptest(lm2_full_fix)
-bptest(lm4_full_fix)
-bptest(lm4_semifull_fix)
+bptest(lm2_semifull_fix) #there is (moderate)etheroskedasticity
+bptest(lm4_semifull_fix) # there is (strong) etheroskedasticity
 
 
-coeftest(lm4_semifull_fix, vcov = vcovCL(lm4_semifull, cluster = baseline_farmers$catchID))
-coeftest(lm4_full_fix, vcov = vcovCL(lm4_full, cluster = baseline_farmers$catchID))
+coeftest(lm2_semifull_fix, vcov = vcovHC(lm2_semifull_fix, type = "HC3")) #white robust SE
+coeftest(lm4_semifull_fix, vcov = vcovHC(lm4_semifull_fix, type = "HC3"))
 
+
+#Time invariant fixed effect (village or district level)
+names(baseline_farmers)
+summary(baseline_farmers$catchID)
+
+#table OLS 
+library(lmtest)
+library(sandwich)
+
+#PRODUCTIVITY OLS
+library(lmtest)
+library(sandwich)
+
+add_stars <- function(p){
+  if (is.na(p)) return("")
+  if (p < 0.01) return("***")
+  if (p < 0.05) return("**")
+  if (p < 0.1)  return("*")
+  ""
+}
+
+cell_coef_se <- function(model, term){
+  ct <- tryCatch(coeftest(model, vcov = vcovHC(model, type = "HC3")),
+                 error = function(e) NULL)
+  if (is.null(ct) || !term %in% rownames(ct)) return(c("—",""))
+  est <- as.numeric(ct[term,"Estimate"])
+  se  <- as.numeric(ct[term,"Std. Error"])
+  p   <- as.numeric(ct[term,"Pr(>|t|)"])
+  c(
+    paste0(format(round(est,3), nsmall=3), add_stars(p)),
+    paste0("(", format(round(se,3), nsmall=3), ")")
+  )
+}
+
+vars_prod <- c(
+  "hh_gender_num","education_head_num","household_size","hh_age",
+  "distance_agroshops","num_shops","quality_seed_used","dap_npk_applied",
+  "urea_applied","organic_manure_applied","plots_maize","chemicals_applied",
+  "weed_times","resow","farmer_group_member"
+)
+
+lab_prod <- c(
+  "hh_gender_num"="Household head is male (1=yes)",
+  "education_head_num"="Household-head finished primary education",
+  "household_size"="Number of household members",
+  "hh_age"="Age of household head in years",
+  "distance_agroshops"="Distance of homestead to nearest agro-input shop selling maize seed",
+  "num_shops"="Number of agro-input shops in the village or neighborhood",
+  "quality_seed_used"="Quality seed used",
+  "dap_npk_applied"="DAP/NPK applied (1=yes)",
+  "urea_applied"="Urea applied (1=yes)",
+  "organic_manure_applied"="Organic manure applied (1=yes)",
+  "plots_maize"="Number of plots",
+  "chemicals_applied"="Chemicals applied (1=yes)",
+  "weed_times"="Weeding times",
+  "resow"="Resowing (1 = yes)",
+  "farmer_group_member"="Group member (1 = yes)"
+)
+
+form_prod <- as.formula(paste("yield_per_acre_ihs ~", paste(vars_prod, collapse=" + ")))
+
+m_prod_full   <- lm(form_prod, data = baseline_farmers)
+m_prod_male   <- lm(form_prod, data = baseline_farmers, subset = (hh_gender_num==1))
+m_prod_female <- lm(form_prod, data = baseline_farmers, subset = (hh_gender_num==0))
+m_prod_raw    <- lm(yield_per_acre_ihs ~ hh_gender_num, data = baseline_farmers)
+
+tab_prod <- data.frame(Label=character(), Raw=character(), Full=character(), Male=character(), Female=character(), stringsAsFactors=FALSE)
+
+for (v in vars_prod) {
+  raw <- c("—","")
+  if (v=="hh_gender_num") raw <- cell_coef_se(m_prod_raw, "hh_gender_num")
+  
+  full   <- cell_coef_se(m_prod_full, v)
+  male   <- cell_coef_se(m_prod_male, v)
+  female <- cell_coef_se(m_prod_female, v)
+  
+  tab_prod <- rbind(
+    tab_prod,
+    data.frame(Label=lab_prod[v], Raw=raw[1], Full=full[1], Male=male[1], Female=female[1], stringsAsFactors=FALSE),
+    data.frame(Label="",          Raw=raw[2], Full=full[2], Male=male[2], Female=female[2], stringsAsFactors=FALSE)
+  )
+}
+
+
+
+#TABLE 2 - INCOME OLS
+vars_inc <- c(
+  "hh_gender_num","log1p(r_maize_plot_area)","education_head_num","household_size","hh_age",
+  "quality_seed_used","dap_npk_applied","log1p(urea_applied)","chemicals_applied",
+  "organic_manure_applied","log1p(num_shops)","log1p(distance_agroshops)","log1p(weed_times)",
+  "resow","farmer_group_member"
+)
+
+lab_inc <- c(
+  "hh_gender_num"            = "Household head is male (1 = yes)",
+  "log1p(r_maize_plot_area)" = "Plot size (log)",
+  "education_head_num"       = "Household-head finished primary education",
+  "household_size"           = "Number of household members",
+  "hh_age"                   = "Age of household head in years",
+  "quality_seed_used"        = "Quality seed used",
+  "dap_npk_applied"          = "DAP/NPK applied (1 = yes)",
+  "log1p(urea_applied)"      = "Urea applied (log)",
+  "chemicals_applied"        = "Chemicals applied (1 = yes)",
+  "organic_manure_applied"   = "Organic manure applied (1 = yes)",
+  "log1p(num_shops)"         = "Number of agro-input shops in the village or neighborhood (log)",
+  "log1p(distance_agroshops)"= "Distance of homestead to nearest agro-input shop selling maize seed (log)",
+  "log1p(weed_times)"        = "Weeding times (log)",
+  "resow"                    = "Resowing (1 = yes)",
+  "farmer_group_member"      = "Group member (1 = yes)"
+)
+
+
+m_inc_full   <- lm4_semifull_fix
+m_inc_male   <- lm(formula(m_inc_full), data = baseline_farmers, subset = (hh_gender_num==1))
+m_inc_female <- lm(formula(m_inc_full), data = baseline_farmers, subset = (hh_gender_num==0))
+m_inc_raw    <- lm(maize_income_ihs ~ hh_gender_num, data = baseline_farmers)
+
+tab_inc <- data.frame(Label=character(), Raw=character(), Full=character(), Male=character(), Female=character(), stringsAsFactors=FALSE)
+
+for (v in vars_inc) {
+  raw <- c("—","")
+  if (v=="hh_gender_num") raw <- cell_coef_se(m_inc_raw, "hh_gender_num")
+  
+  full   <- cell_coef_se(m_inc_full, v)
+  male   <- cell_coef_se(m_inc_male, v)
+  female <- cell_coef_se(m_inc_female, v)
+  
+  tab_inc <- rbind(
+    tab_inc,
+    data.frame(Label=lab_inc[v], Raw=raw[1], Full=full[1], Male=male[1], Female=female[1], stringsAsFactors=FALSE),
+    data.frame(Label="",         Raw=raw[2], Full=full[2], Male=male[2], Female=female[2], stringsAsFactors=FALSE)
+  )
+}
+
+
+#Oaxaca Blinder 
+install.packages("oaxaca")  
+library(oaxaca)
+
+#PRODUCTIVITY (IHS)
+x_base <- c(
+  "education_head_num",
+  "household_size",
+  "hh_age",
+  "plots_maize",
+  "quality_seed_used",
+  "dap_npk_applied",
+  "urea_applied",
+  "organic_manure_applied",
+  "chemicals_applied"
+)
+
+df_base <- baseline_farmers[
+  complete.cases(baseline_farmers[, c("yield_per_acre_ihs", "hh_gender_num", x_base)]),
+] # for what? The decomposition is performed on a balanced sample (NAs false)
+
+
+oax_prod_base <- oaxaca(
+  formula = as.formula(paste("yield_per_acre_ihs ~", paste(x_base, collapse = " + "), "| hh_gender_num")),
+  data = df_base,
+  R = 500,
+  group.weights = 1,
+  reference = 1
+)
+
+summary(oax_prod_base)
+
+
+#INCOME (IHS)
+# Baseline covariates 
+x_income <- c(
+  "education_head_num",
+  "household_size",
+  "hh_age",
+  "plots_maize",
+  "quality_seed_used",
+  "dap_npk_applied",
+  "urea_applied",
+  "organic_manure_applied",
+  "chemicals_applied"
+)
+
+# Balanced sample
+df_income <- baseline_farmers[
+  complete.cases(baseline_farmers[, c("maize_income_ihs", "hh_gender_num", x_income)]),
+]
+
+# Oaxaca-Blinder decomposition
+oax_income_base <- oaxaca(
+  formula = as.formula(
+    paste("maize_income_ihs ~", paste(x_income, collapse = " + "), "| hh_gender_num")
+  ),
+  data = df_income,
+  R = 500,
+  group.weights = 1,
+  reference = 1
+)
+
+summary(oax_income_base)

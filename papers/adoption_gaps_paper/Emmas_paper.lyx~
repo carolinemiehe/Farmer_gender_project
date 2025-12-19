@@ -205,6 +205,12 @@ RQ2:
  What is the relative importance of endowment versus structural effects to the gender gap in agricultural technology adoption and productivity?
 \end_layout
 
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+RQ3:
+ What is the impact of adopting improved maize seed varieties on farm productivity and income among female-headed households?
+\end_layout
+
 \begin_layout Standard
 First,
  we contribute to the literature on gender gaps in the agricultural sector (incl.
@@ -253,6 +259,50 @@ Second,
  Tanzania,
  and northern Nigeria).
  We contribute to this literature by estimating the relative contributions of endowment and structural effects to gender gaps in agricultural productivity and income in Busoga.
+\end_layout
+
+\begin_layout Standard
+Third,
+ we contribute to research on gender disparities in agricultural technology adoption.
+ Female farmers are generally less likely to adopt modern inputs,
+ and when they do,
+ tend to use them less intensively (Sheahan and Barrett,
+ 2017).
+ Studies report lower fertilizer access and adoption among women in Malawi,
+ Niger,
+ northern Nigeria,
+ and Uganda (O’Sullivan et al.,
+ 2014).
+ In Nigeria,
+ male farmers use over eight times more fertilizer and 50% more herbicide per hectare than women (World Bank,
+ 2022).
+ While most of this literature focuses on fertilizer,
+ we examine gender gaps in the adoption of improved maize seed varieties,
+ a key technology promoted by CGIAR institutions,
+ where evidence remains limited.
+ Moreover,
+ we assess whether adoption disparities are driven more by endowments or by structural barriers.
+\end_layout
+
+\begin_layout Standard
+Lastly,
+ we contribute to evidence on the impacts of agricultural technology adoption by estimating the effect of improved maize seed adoption on productivity and income among female-headed households.
+ While some studies report lower returns from fertilizer use among women (O’Sullivan et al.,
+ 2014),
+ others show that fertilizer subsidies increase productivity for both genders but do little to reduce gender gaps (Giné et al.,
+ 2015;
+ Kilic et al.,
+ 2015;
+ Karamba and Winters,
+ 2015;
+ Ngoma et al.,
+ 2021),
+ and again others suggest women may benefit more from bundled interventions:
+ in Benin,
+ women provided with both inputs and information for Nerica rice cultivation achieved higher yields and incomes (Agboh-Noameshie et al.,
+ 2007).
+ These mixed findings suggest that the productivity impact of agricultural technology adoption may vary by gender.
+ We contribute to this literature by providing evidence on the gender-differentiated returns to modern agricultural technology adoption.
 \end_layout
 
 \begin_layout Section
@@ -2809,7 +2859,7 @@ Qualitative Methods
 \end_layout
 
 \begin_layout Subsection
-Empirical issues(?)
+Empirical issues
 \end_layout
 
 \begin_layout Subsection*
@@ -2830,7 +2880,7 @@ Quantitative Analysis
 \begin_layout Standard
 \begin_inset Float table
 placement H
-alignment left
+alignment document
 wide false
 sideways false
 status collapsed
@@ -2863,7 +2913,33 @@ cat("
 \backslash
 
 \backslash
-footnotesize
+begin{center}
+\backslash
+n")
+\end_layout
+
+\begin_layout Plain Layout
+
+cat("
+\backslash
+
+\backslash
+small
+\backslash
+n")
+\end_layout
+
+\begin_layout Plain Layout
+
+cat("
+\backslash
+
+\backslash
+setlength{
+\backslash
+
+\backslash
+tabcolsep}{4pt}
 \backslash
 n")
 \end_layout
@@ -2948,29 +3024,13 @@ for (i in 1:nrow(tab_prod)) {
 
   cat(tab_prod$Label[i],
  " & ",
-\end_layout
-
-\begin_layout Plain Layout
-
-      tab_prod$Raw[i],
+ tab_prod$Raw[i],
  " & ",
-\end_layout
-
-\begin_layout Plain Layout
-
-      tab_prod$Full[i],
+ tab_prod$Full[i],
  " & ",
-\end_layout
-
-\begin_layout Plain Layout
-
-      tab_prod$Male[i],
+ tab_prod$Male[i],
  " & ",
-\end_layout
-
-\begin_layout Plain Layout
-
-      tab_prod$Female[i],
+ tab_prod$Female[i],
  " 
 \backslash
 
@@ -3021,6 +3081,17 @@ cat("
 \backslash
 
 \backslash
+end{center}
+\backslash
+n")
+\end_layout
+
+\begin_layout Plain Layout
+
+cat("
+\backslash
+
+\backslash
 vspace{0.2cm}
 \backslash
 n")
@@ -3047,7 +3118,7 @@ cat("
 \backslash
 
 \backslash
-footnotesize 
+footnotesize{
 \backslash
 
 \backslash
@@ -3070,7 +3141,7 @@ textit{Note}:
 
 \backslash
 % levels,
- respectively.
+ respectively.}
 \backslash
 n")
 \end_layout
@@ -3095,6 +3166,10 @@ n")
 
 \end_layout
 
+\begin_layout Plain Layout
+
+\end_layout
+
 \end_inset
 
 
@@ -3108,7 +3183,7 @@ n")
 \begin_layout Standard
 \begin_inset Float table
 placement H
-alignment left
+alignment document
 wide false
 sideways false
 status collapsed
@@ -3141,7 +3216,33 @@ cat("
 \backslash
 
 \backslash
-footnotesize
+begin{center}
+\backslash
+n")
+\end_layout
+
+\begin_layout Plain Layout
+
+cat("
+\backslash
+
+\backslash
+small
+\backslash
+n")
+\end_layout
+
+\begin_layout Plain Layout
+
+cat("
+\backslash
+
+\backslash
+setlength{
+\backslash
+
+\backslash
+tabcolsep}{4pt}
 \backslash
 n")
 \end_layout
@@ -3226,29 +3327,13 @@ for (i in 1:nrow(tab_inc)) {
 
   cat(tab_inc$Label[i],
  " & ",
-\end_layout
-
-\begin_layout Plain Layout
-
-      tab_inc$Raw[i],
+ tab_inc$Raw[i],
  " & ",
-\end_layout
-
-\begin_layout Plain Layout
-
-      tab_inc$Full[i],
+ tab_inc$Full[i],
  " & ",
-\end_layout
-
-\begin_layout Plain Layout
-
-      tab_inc$Male[i],
+ tab_inc$Male[i],
  " & ",
-\end_layout
-
-\begin_layout Plain Layout
-
-      tab_inc$Female[i],
+ tab_inc$Female[i],
  " 
 \backslash
 
@@ -3299,6 +3384,17 @@ cat("
 \backslash
 
 \backslash
+end{center}
+\backslash
+n")
+\end_layout
+
+\begin_layout Plain Layout
+
+cat("
+\backslash
+
+\backslash
 vspace{0.2cm}
 \backslash
 n")
@@ -3325,7 +3421,7 @@ cat("
 \backslash
 
 \backslash
-footnotesize 
+footnotesize{
 \backslash
 
 \backslash
@@ -3348,7 +3444,7 @@ textit{Note}:
 
 \backslash
 % levels,
- respectively.
+ respectively.}
 \backslash
 n")
 \end_layout

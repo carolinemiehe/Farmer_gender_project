@@ -95,7 +95,7 @@ knitr
 \begin_body
 
 \begin_layout Title
-Gender gap in Agricultural Productivity and Income from Maize:
+Gender gap in Maize Productivity and Income:
  Evidence from Uganda
 \end_layout
 
@@ -104,22 +104,18 @@ Caroline Miehe and Anusha De
 \end_layout
 
 \begin_layout Abstract
-This study investigates the barriers to effective uptake and impact of modern agricultural technologies among female smallholder farmers,
- using both quantitative and qualitative methods.
- It pursues three objectives.
+This study investigates the gender gaps in maize productivity from maize in Eastern Uganda,
+ focusing on male- and female-headed households in the Busoga region.
+ Using mixed-methods approach,
+ the analysis combines quantitative and qualitative evidence.
  First,
- we estimate gender gaps in the adoption of improved maize varieties,
- in agricultural productivity,
- and in income.
+ Ordinary Least Squares (OLS) regressions are employed to estimate gender differences in maize productivity and income.
  Second,
- we apply the Blinder-Oaxaca decomposition to disentangle the extent to which these gaps are driven by differences in observable endowments versus structural factors.
- Third,
- recognizing that women may realize smaller gains from technology adoption even when adopting the same modern agricultural technology,
- we assess the impact of adopting an improved maize variety on farm productivity and income for female-headed households.
- To address potential endogeneity,
- we employ an instrumental variable strategy that leverages randomized exposure to a prior experiment,
- which influenced adoption behavior but is plausibly exogenous to farm productivity or income.
- The study contributes new evidence on gender-differentiated impacts of modern technologies and sheds light on constraints to equitable productivity gains from agricultural innovations.
+ a Oaxaca- Blinder decomposition is applied to disentangle the extent to which these gaps are explained by differences in observable characteristics and endowments versus structural factors.
+ Qualitative analysis and Focus Group Discussions complement the econometric analysis by providing a contextual understanding of gendered dynamics in maize production.
+ The study contributes to the literature by providing new evidence on gender-differentiated productivity and income outcomes in smallholder maize farming and by identifying the key drivers of possible disparities.
+ The findings offer policy-relevant insights for promoting equitable maize productivity and income in agricultural production in Eastern Uganda.
+ 
 \end_layout
 
 \begin_layout Section
@@ -142,20 +138,25 @@ Agriculture is the backbone of many sub-Saharan African economies,
 \begin_layout Standard
 One of the most persistent and costly inefficiencies is the gender gap in agricultural productivity and income (Buehren,
  2023).
- Structural,
+ Mention endowments and structural constraints.
+ 
+\end_layout
+
+\begin_layout Standard
+Structural,
  institutional,
  and social constraints systematically disadvantage female farmers and female-headed households.
- Women are more likely to farm smaller and lower-quality plots,
+ Women are more likely to farm smaller and lower-quality plots(?),
  face weaker land rights,
  and have more limited access to credit,
  labor,
  inputs,
- and information.
+ and information(source).
  Time constraints due to household and caregiving responsibilities further restrict their productive capacity,
  while limited market access and weaker bargaining power reduce returns and reinvestment opportunities.
  Risk aversion,
  exacerbated by narrower financial safety nets,
- also hampers the adoption of high-return practices.
+ also hampers the adoption of high-return practices(source).
 \end_layout
 
 \begin_layout Standard
@@ -194,21 +195,13 @@ Research Questions and Literature Review (and Theoretical Framework)
 \begin_layout Labeling
 \labelwidthstring 00.00.0000
 RQ1:
- To what extent do gender gaps exist in the adoption of improved maize varieties,
- agricultural productivity,
- and farm income?
+ To what extent do gender gaps exist in the adoption of agricultural productivity and farm income?
 \end_layout
 
 \begin_layout Labeling
 \labelwidthstring 00.00.0000
 RQ2:
  What is the relative importance of endowment versus structural effects to the gender gap in agricultural technology adoption and productivity?
-\end_layout
-
-\begin_layout Labeling
-\labelwidthstring 00.00.0000
-RQ3:
- What is the impact of adopting improved maize seed varieties on farm productivity and income among female-headed households?
 \end_layout
 
 \begin_layout Standard
@@ -239,7 +232,7 @@ Second,
  we advance the literature that disentangles the roles of endowment versus structural effects in driving gender disparities.
  Women face two broad types of constraints:
  limited access to productive inputs (endowment effect) and discriminatory social norms and practices that reduce returns to those inputs (structural effect).
- Existing studies indicate that both play a role.
+ Existing studies indicate that both play a role (mention studies).
  When gender differences in access to inputs are controlled for,
  the estimated productivity gap often narrows (Gilbert et al.,
  2002 in Malawi;
@@ -259,50 +252,6 @@ Second,
  Tanzania,
  and northern Nigeria).
  We contribute to this literature by estimating the relative contributions of endowment and structural effects to gender gaps in agricultural productivity and income in Busoga.
-\end_layout
-
-\begin_layout Standard
-Third,
- we contribute to research on gender disparities in agricultural technology adoption.
- Female farmers are generally less likely to adopt modern inputs,
- and when they do,
- tend to use them less intensively (Sheahan and Barrett,
- 2017).
- Studies report lower fertilizer access and adoption among women in Malawi,
- Niger,
- northern Nigeria,
- and Uganda (O’Sullivan et al.,
- 2014).
- In Nigeria,
- male farmers use over eight times more fertilizer and 50% more herbicide per hectare than women (World Bank,
- 2022).
- While most of this literature focuses on fertilizer,
- we examine gender gaps in the adoption of improved maize seed varieties,
- a key technology promoted by CGIAR institutions,
- where evidence remains limited.
- Moreover,
- we assess whether adoption disparities are driven more by endowments or by structural barriers.
-\end_layout
-
-\begin_layout Standard
-Lastly,
- we contribute to evidence on the impacts of agricultural technology adoption by estimating the effect of improved maize seed adoption on productivity and income among female-headed households.
- While some studies report lower returns from fertilizer use among women (O’Sullivan et al.,
- 2014),
- others show that fertilizer subsidies increase productivity for both genders but do little to reduce gender gaps (Giné et al.,
- 2015;
- Kilic et al.,
- 2015;
- Karamba and Winters,
- 2015;
- Ngoma et al.,
- 2021),
- and again others suggest women may benefit more from bundled interventions:
- in Benin,
- women provided with both inputs and information for Nerica rice cultivation achieved higher yields and incomes (Agboh-Noameshie et al.,
- 2007).
- These mixed findings suggest that the productivity impact of agricultural technology adoption may vary by gender.
- We contribute to this literature by providing evidence on the gender-differentiated returns to modern agricultural technology adoption.
 \end_layout
 
 \begin_layout Section
@@ -2734,7 +2683,47 @@ Qualitative Data
 \end_layout
 
 \begin_layout Standard
-Insert info about qualitative data
+The qualitative component was conducted in the Busoga region (eastern Uganda),
+ in several villages in the districts of Iganga,
+ Bugweri,
+ Bugiri,
+ and Mayuge,
+ over a period of approximately 15 days (two weeks) between November and December 2025.
+ Sixteen focus group discussions (FGDs) were held,
+ each with 10 participants (160 participants in total).
+ The composition of the groups was defined to capture specific gender perspectives,
+ therefore 5 FGDs were women-only,
+ 5 were men-only,
+ and 6 were mixed.
+ The single-gender groups were used to encourage the participants to freely express experiences and opinions by reducing possible effects of bias and power asymmetries that can arise in mixed contexts.
+ On the other hand,
+ mixed groups allowed us to observe how intra-family norms and roles are reproduced in the discussion.
+\end_layout
+
+\begin_layout Standard
+Participants were selected randomly,
+ ensuring a range of ages (all adults).
+ All of them were plot managers but not necessarily the household head.
+\end_layout
+
+\begin_layout Standard
+The discussions were guided by a semi-structured outline consisting mainly of open-ended questions,
+ probes and follow-ups.
+ Moreover,
+ participants were prompted to reflect on concrete examples and real-life situations in order to encourage/foster an open and participatory discussion.
+ The questions (provided in Appendix X) covered topics related to division of labor,
+ economic empowerment,
+ decision-making processes,
+ and intra-household power dynamics.
+ All FGDs were conducted in Lusoga language by two enumerators and lasted an average of about two hours.
+ In all of them it was ensured privacy and confidentiality;
+ in particular,
+ women and male partners/counterparts were not involved in the same session as this could compromise safety or freedom of expression.
+\end_layout
+
+\begin_layout Standard
+The qualitative work aimed to contextualize the quantitative results and explore underlying social mechanisms.
+ The research protocol was approved by ...
 \end_layout
 
 \begin_layout Subsection*
@@ -2788,39 +2777,9 @@ Quantitative Methods
 \end_layout
 
 \begin_layout Enumerate
-We will estimate gender gaps in (i) the adoption of improved maize seed varieties,
- (ii) agricultural productivity (yield),
- and (iii) agricultural income (sales and revenue).
- + Anusha's marginal returns idea 
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-Anusha:
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Quotes eld
-\end_inset
-
-Have you looked into the impact of adoption on marginal returns?
- Maybe also gender-based gaps exist in this regard?
- I am thinking about some behavioral aspects.
- Women are normally better abiders compared to men,
- particularly in the context of cultural norms in developing economies.
- If similar behavioral mechanisms apply to adoption of improved varieties/ agricultural technologies,
- marginal returns maybe higher for women compared to men as a result of adoption over time (even if overall income for women remains lower than men).
- This would mean that women would benefit more if they abided their adoption practices for longer compared to men.
- This could still be interesting and distinct from the approach of looking at differential impacts of adoption on yield?
-\begin_inset Quotes erd
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
+We will estimate gender gaps in (i) agricultural productivity (yield),
+ and (ii) agricultural income (sales and revenue).
+ 
 \end_layout
 
 \begin_layout Enumerate
@@ -2858,8 +2817,14 @@ Structural Effect:
 Qualitative Methods 
 \end_layout
 
+\begin_layout Standard
+A coding structure was developed to analyze the qualitative data and systematically categorize the information.
+ Qualitative data were coded using the analysis software package AtlasTI (?).
+ An interrater reliability test was performed to ensure that data were captured and coded consistently.
+\end_layout
+
 \begin_layout Subsection
-Empirical issues
+Empirical issues(?)
 \end_layout
 
 \begin_layout Subsection*
@@ -2880,7 +2845,7 @@ Quantitative Analysis
 \begin_layout Standard
 \begin_inset Float table
 placement H
-alignment document
+alignment left
 wide false
 sideways false
 status collapsed
@@ -2913,33 +2878,7 @@ cat("
 \backslash
 
 \backslash
-begin{center}
-\backslash
-n")
-\end_layout
-
-\begin_layout Plain Layout
-
-cat("
-\backslash
-
-\backslash
-small
-\backslash
-n")
-\end_layout
-
-\begin_layout Plain Layout
-
-cat("
-\backslash
-
-\backslash
-setlength{
-\backslash
-
-\backslash
-tabcolsep}{4pt}
+footnotesize
 \backslash
 n")
 \end_layout
@@ -3024,13 +2963,29 @@ for (i in 1:nrow(tab_prod)) {
 
   cat(tab_prod$Label[i],
  " & ",
- tab_prod$Raw[i],
+\end_layout
+
+\begin_layout Plain Layout
+
+      tab_prod$Raw[i],
  " & ",
- tab_prod$Full[i],
+\end_layout
+
+\begin_layout Plain Layout
+
+      tab_prod$Full[i],
  " & ",
- tab_prod$Male[i],
+\end_layout
+
+\begin_layout Plain Layout
+
+      tab_prod$Male[i],
  " & ",
- tab_prod$Female[i],
+\end_layout
+
+\begin_layout Plain Layout
+
+      tab_prod$Female[i],
  " 
 \backslash
 
@@ -3081,17 +3036,6 @@ cat("
 \backslash
 
 \backslash
-end{center}
-\backslash
-n")
-\end_layout
-
-\begin_layout Plain Layout
-
-cat("
-\backslash
-
-\backslash
 vspace{0.2cm}
 \backslash
 n")
@@ -3118,7 +3062,7 @@ cat("
 \backslash
 
 \backslash
-footnotesize{
+footnotesize 
 \backslash
 
 \backslash
@@ -3141,7 +3085,7 @@ textit{Note}:
 
 \backslash
 % levels,
- respectively.}
+ respectively.
 \backslash
 n")
 \end_layout
@@ -3166,10 +3110,6 @@ n")
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -3183,7 +3123,7 @@ n")
 \begin_layout Standard
 \begin_inset Float table
 placement H
-alignment document
+alignment left
 wide false
 sideways false
 status collapsed
@@ -3216,33 +3156,7 @@ cat("
 \backslash
 
 \backslash
-begin{center}
-\backslash
-n")
-\end_layout
-
-\begin_layout Plain Layout
-
-cat("
-\backslash
-
-\backslash
-small
-\backslash
-n")
-\end_layout
-
-\begin_layout Plain Layout
-
-cat("
-\backslash
-
-\backslash
-setlength{
-\backslash
-
-\backslash
-tabcolsep}{4pt}
+footnotesize
 \backslash
 n")
 \end_layout
@@ -3327,13 +3241,29 @@ for (i in 1:nrow(tab_inc)) {
 
   cat(tab_inc$Label[i],
  " & ",
- tab_inc$Raw[i],
+\end_layout
+
+\begin_layout Plain Layout
+
+      tab_inc$Raw[i],
  " & ",
- tab_inc$Full[i],
+\end_layout
+
+\begin_layout Plain Layout
+
+      tab_inc$Full[i],
  " & ",
- tab_inc$Male[i],
+\end_layout
+
+\begin_layout Plain Layout
+
+      tab_inc$Male[i],
  " & ",
- tab_inc$Female[i],
+\end_layout
+
+\begin_layout Plain Layout
+
+      tab_inc$Female[i],
  " 
 \backslash
 
@@ -3384,17 +3314,6 @@ cat("
 \backslash
 
 \backslash
-end{center}
-\backslash
-n")
-\end_layout
-
-\begin_layout Plain Layout
-
-cat("
-\backslash
-
-\backslash
 vspace{0.2cm}
 \backslash
 n")
@@ -3421,7 +3340,7 @@ cat("
 \backslash
 
 \backslash
-footnotesize{
+footnotesize 
 \backslash
 
 \backslash
@@ -3444,7 +3363,7 @@ textit{Note}:
 
 \backslash
 % levels,
- respectively.}
+ respectively.
 \backslash
 n")
 \end_layout

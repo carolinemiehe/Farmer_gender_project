@@ -95,7 +95,7 @@ knitr
 \begin_body
 
 \begin_layout Title
-Gender gap in Agricultural Productivity and Income from Maize:
+Gender gap in Productivity and Income from Maize:
  Evidence from Uganda
 \end_layout
 
@@ -104,22 +104,21 @@ Caroline Miehe and Anusha De
 \end_layout
 
 \begin_layout Abstract
-This study investigates the barriers to effective uptake and impact of modern agricultural technologies among female smallholder farmers,
+This study investigates the gender gap in productivity and income from maize in Eastern Uganda,
  using both quantitative and qualitative methods.
- It pursues three objectives.
+ 3500 Male and female headed households are compared in Busoga region .
  First,
- we estimate gender gaps in the adoption of improved maize varieties,
- in agricultural productivity,
+ the study applies the Ordinary Least Square regression in agricultural productivity,
  and in income.
  Second,
  we apply the Blinder-Oaxaca decomposition to disentangle the extent to which these gaps are driven by differences in observable endowments versus structural factors.
- Third,
- recognizing that women may realize smaller gains from technology adoption even when adopting the same modern agricultural technology,
- we assess the impact of adopting an improved maize variety on farm productivity and income for female-headed households.
- To address potential endogeneity,
- we employ an instrumental variable strategy that leverages randomized exposure to a prior experiment,
- which influenced adoption behavior but is plausibly exogenous to farm productivity or income.
- The study contributes new evidence on gender-differentiated impacts of modern technologies and sheds light on constraints to equitable productivity gains from agricultural innovations.
+ Mention qualitative
+\end_layout
+
+\begin_layout Abstract
+The study contributes to the literature with new evidence on gender-differentiated productivity and income outcomes and sheds light on the main drivers .
+ Inform policy to achieve an equitable productivity and income from maize in the area.
+ 
 \end_layout
 
 \begin_layout Section
@@ -142,20 +141,25 @@ Agriculture is the backbone of many sub-Saharan African economies,
 \begin_layout Standard
 One of the most persistent and costly inefficiencies is the gender gap in agricultural productivity and income (Buehren,
  2023).
- Structural,
+ Mention endowments and structural constraints.
+ 
+\end_layout
+
+\begin_layout Standard
+Structural,
  institutional,
  and social constraints systematically disadvantage female farmers and female-headed households.
- Women are more likely to farm smaller and lower-quality plots,
+ Women are more likely to farm smaller and lower-quality plots(?),
  face weaker land rights,
  and have more limited access to credit,
  labor,
  inputs,
- and information.
+ and information(source).
  Time constraints due to household and caregiving responsibilities further restrict their productive capacity,
  while limited market access and weaker bargaining power reduce returns and reinvestment opportunities.
  Risk aversion,
  exacerbated by narrower financial safety nets,
- also hampers the adoption of high-return practices.
+ also hampers the adoption of high-return practices(source).
 \end_layout
 
 \begin_layout Standard
@@ -194,9 +198,7 @@ Research Questions and Literature Review (and Theoretical Framework)
 \begin_layout Labeling
 \labelwidthstring 00.00.0000
 RQ1:
- To what extent do gender gaps exist in the adoption of improved maize varieties,
- agricultural productivity,
- and farm income?
+ To what extent do gender gaps exist in the adoption of agricultural productivity and farm income?
 \end_layout
 
 \begin_layout Labeling
@@ -233,7 +235,7 @@ Second,
  we advance the literature that disentangles the roles of endowment versus structural effects in driving gender disparities.
  Women face two broad types of constraints:
  limited access to productive inputs (endowment effect) and discriminatory social norms and practices that reduce returns to those inputs (structural effect).
- Existing studies indicate that both play a role.
+ Existing studies indicate that both play a role (mention studies).
  When gender differences in access to inputs are controlled for,
  the estimated productivity gap often narrows (Gilbert et al.,
  2002 in Malawi;
@@ -2684,7 +2686,61 @@ Qualitative Data
 \end_layout
 
 \begin_layout Standard
-Insert info about qualitative data
+The qualitative component was conducted in the Busoga region (eastern Uganda),
+ in several villages in the districts of Iganga,
+ Bugweri,
+ Bugiri,
+ and Mayuge,
+ over a period of approximately 15 days (two weeks) between November and December 2025.
+ Sixteen focus group discussions (FGDs) were held,
+ each with 10 participants (160 participants in total).
+ The composition of the groups was defined to capture both specific gender perspectives and interactive dynamics:
+ 5 FGDs were women-only,
+ 5 were men-only,
+ and 6 were mixed.
+ Single-gender groups were used to encourage the emergence of experiences and opinions (particularly female ones) by reducing possible effects of inhibition,
+ bias,
+ and power asymmetries that can arise in mixed contexts;
+ mixed groups,
+ on the other hand,
+ allowed us to observe how intra-family norms,
+ roles,
+ and negotiations are discussed and (re)produced in interaction.
+\end_layout
+
+\begin_layout Standard
+Participants were selected at random,
+ ensuring a range of ages (all adults).
+ They could be household heads or not;
+ in any case,
+ all were plot managers,
+ so as to ensure direct knowledge of agricultural management and related decision-making processes.
+\end_layout
+
+\begin_layout Standard
+The discussions were guided by a semi-structured outline consisting mainly of open-ended questions,
+ probes,
+ and follow-ups,
+ with explicit requests for concrete examples and real-life situations from the past,
+ in order to keep the discussion as open and participatory as possible.
+ The questions covered topics related to gender norms and roles,
+ activities and division of labor,
+ economic empowerment,
+ decision-making processes,
+ and intra-household power dynamics (the guide and questions are provided in Appendix [X]).
+ All FGDs were conducted in Lusoga by two enumerators and lasted an average of about two hours.
+ The sessions were held in conditions that ensured privacy and confidentiality;
+ in particular,
+ women and male partners/counterparts were not involved in the same session when this could compromise freedom of expression or perceived safety.
+\end_layout
+
+\begin_layout Standard
+The qualitative work aimed to contextualize and interpret the quantitative results,
+ explore underlying mechanisms (gender norms,
+ control of resources,
+ decision-making power),
+ and contribute to the triangulation of evidence.
+ The research protocol was approved by Wageningen University and IFPRI.
 \end_layout
 
 \begin_layout Subsection*
@@ -2806,6 +2862,12 @@ Structural Effect:
 \end_deeper
 \begin_layout Subsection
 Qualitative Methods 
+\end_layout
+
+\begin_layout Standard
+A coding structure was developed to analyze the qualitative data and systematically categorize the information.
+ Qualitative data were coded using the analysis software package (...).
+ An interrater reliability test was performed to ensure that data were captured and coded consistently.
 \end_layout
 
 \begin_layout Subsection

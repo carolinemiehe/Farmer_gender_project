@@ -263,15 +263,17 @@ Quantitative Data
 \end_layout
 
 \begin_layout Standard
-We examine the constraints to uptake and the potential impact of improved maize seed varieties using panel data from three survey rounds with approximately 3,500 smallholder maize farmers in southeastern Uganda.
+We use panel data from three survey rounds with approximately 3,500 smallholder maize farmers in southeastern Uganda.
  The data were originally collected for a project focused on agro-dealers and their customers.
- The agro-dealer sample was constructed by listing all agro-dealers operating across eleven districts in the Busoga region.
+ The agro-dealer sample was constructed by listing all agro-dealers operating across eleven districts in the Busoga region,
+ an area characterized by smallholder maize production,
+ where maize serves both as a staple food and a cash crop.
  To link agro-dealers with farmers,
  each agro-dealer was asked to identify the villages where most of their customers reside.
  Enumerators then randomly sampled ten maize-growing households from each of these villages,
- yielding the sample of about 3,500 farmers.
- Baseline data were collected in April 2021,
- followed by midline surveys in January-February 2022 and endline surveys in July-August 2022.
+ yielding the sample of 3,470 farmers.
+ This sampling frame allows us to assume that sampled farmers have reasonable access to improved maize varieties,
+ should they choose to adopt them.
 \end_layout
 
 \begin_layout Standard
@@ -283,6 +285,13 @@ Enumerators interviewed the household member most knowledgeable about maize cult
  from which one was randomly selected for detailed data collection.
  This approach minimized survey duration and respondent burden while preserving representativeness at the household level,
  due to the random selection of plots.
+\end_layout
+
+\begin_layout Standard
+Baseline data were collected in April 2021,
+ followed by midline surveys in January-February 2022 and endline surveys in July-August 2022.
+ Of the 3,470 farmers interviewed at baseline,
+ 3,407 were re-interviewed at midline and 3,441 at endline.
 \end_layout
 
 \begin_layout Standard

@@ -125,67 +125,98 @@ Introduction
 \begin_layout Standard
 Agriculture is the backbone of many sub-Saharan African economies,
  contributing a large share of both output and employment.
- Although increasing agricultural productivity is essential for GDP growth,
- poverty reduction,
- food security,
- and structural transformation,
- progress has remained stubbornly slow,
- with productivity growth lagging well behind other regions (e.g.,
- Suri & Udry,
- 2022).
+ In Uganda the population is predominantly rural (72%) and it substantially relies on agriculture (Uganda Bureau of Statistics [UBOS],
+ 2014)
 \end_layout
 
 \begin_layout Standard
-One of the most persistent and costly inefficiencies is the gender gap in agricultural productivity and income (Buehren,
- 2023).
- Mention endowments and structural constraints.
+employing a high share of women laborers,
+ which constitute .
  
 \end_layout
 
 \begin_layout Standard
-Structural,
- institutional,
- and social constraints systematically disadvantage female farmers and female-headed households.
- Women are more likely to farm smaller and lower-quality plots(?),
- face weaker land rights,
- and have more limited access to credit,
+Increasing the agricultural output of both male and female farmers is essential to the nation's current problems of feeding a growing population and dealing with the dangers of climate change.
+ This is the reason why increasing agricultural production and productivity is one of the goals of Uganda's Agriculture Sector Development Strategy and Investment Plan (DSIP),
+ which aims to improve food security and nutrition for all Ugandans and raise the incomes of rural households.
+ 
+\end_layout
+
+\begin_layout Standard
+The paper focuses on the cultivation of maize,
+ one of the most important crops in Ugandan agriculture.
+ Maize is a central staple crop in Uganda,
+ (together with matoke,
+ cassava and beans) and is cultivated by the majority of rural households in East Africa,
+ making the Ugandan experience broadly comparable to that of other African countries (Sell et al.,
+ 2018).
+ Previous research suggests that climate change is expected to have a significant negative effect on maize production in Uganda,
+ with projected yield losses of around 5% by 2050 relative to levels observed in 2000 (Kikoyo & Norbert,
+ 2016).
+ In an agricultural context with multiple constraints and challenges it is important to use resources as efficiently as possible.
+ For the majority of small-scale farmers,
+ increasing yields through the expansion of cultivated land is not feasible and enhancing productivity is one of the few feasible alternatives (Sell et.
+ all,
+ 2018).
+\end_layout
+
+\begin_layout Standard
+In this context,
+ identifying strategies to enhance agricultural production,
+ and consequently income,
+ becomes essential for GDP growth,
+ poverty reduction,
+ food security,
+ and structural transformation.
+ Despite that,
+ progress has remained stubbornly slow,
+ with productivity growth lagging well behind other regions (e.g.,
+ Suri & Udry,
+ 2022).
+ One of the most persistent and costly inefficiencies is the gender gap in agricultural productivity and income (Buehren,
+ 2023).
+ 
+\end_layout
+
+\begin_layout Standard
+A large body of literature shows that women in agriculture face persistent structural and institutional constraints,
+ including limited access to land,
+ credit,
  labor,
  inputs,
- and information(source).
- Time constraints due to household and caregiving responsibilities further restrict their productive capacity,
- while limited market access and weaker bargaining power reduce returns and reinvestment opportunities.
- Risk aversion,
- exacerbated by narrower financial safety nets,
- also hampers the adoption of high-return practices(source).
-\end_layout
-
-\begin_layout Standard
-Another key constraint on agricultural productivity is the widespread under-adoption of modern agricultural technologies,
- such as improved seeds and fertilizers.
- Despite decades of investment by CGIAR and others,
+ information,
+ and markets,
+ as well as time constraints linked to household and caregiving responsibilities,
+ that prevent them from achieving productivity levels comparable to those of men (source?).
+ Another key constraint on agricultural productivity is the widespread under-adoption of modern agricultural technologies,
+ such as improved seeds and fertilizers(source).
+ Despite decades of investments,
  uptake remains well below potential,
  as outlined in a recent review by Suri and Udry (2022).
- And again,
- women are consistently less likely to adopt productivity-enhancing technologies due to economic,
- social,
- institutional,
- and cultural barriers.
- These include limited access to extension services,
- agricultural networks that facilitate technology diffusion,
- and credit to purchase inputs.
+ Crucially,
+ even when women adopt improved technologies,
+ their productivity and gains are often smaller.
+ This reflects persistent disadvantages in access to complementary resources such as land quality,
+ labor,
+ and market opportunities that further erode potential gains.
+ 
 \end_layout
 
 \begin_layout Standard
-Crucially,
- even when women adopt improved technologies despite those additional constraints,
- their productivity and income gains are often smaller.
- This reflects persistent disadvantages in complementary resources such as fertilizer,
- labor,
- and land quality.
- Inadequate access to agronomic advice,
- labor shortages linked to domestic responsibilities,
- and restricted access to markets further erode potential gains.
- Understanding and addressing these gender-differentiated constraints is essential for achieving inclusive agricultural transformation and realizing the full benefits of modern innovations.
+Gender disparities in agricultural productivity and income are costly and they represent a lost chance to increase national income and alleviate poverty (world bank report).
+ The first objective of this paper is to contribute to the bulk of evidence on gender differentials in agricultural productivity by analyzing context-specific data from Busoga region in Uganda using OLS regression and decomposition techniques.
+\end_layout
+
+\begin_layout Standard
+The findings of this study makes a policy-relevant knowledge contribution to understanding gender-based differences in farm productivity and income from maize.
+ Understanding and addressing these gender-differentiated constraints is essential for achieving inclusive agricultural transformation and realizing the full benefits of modern innovations,
+ as well as for improving well-being and food security.
+ 
+\end_layout
+
+\begin_layout Standard
+The paper is structured as follows.
+ Section 1 
 \end_layout
 
 \begin_layout Section
@@ -205,43 +236,71 @@ RQ2:
 \end_layout
 
 \begin_layout Standard
-First,
- we contribute to the literature on gender gaps in the agricultural sector (incl.
- De,
- Miehe,
- and Van Campenhout,
- 2024).
- While women constitute a substantial share of the African agricultural labor force – over 50% in Malawi,
- Tanzania,
- and Uganda;
- 37% in Nigeria;
- 29% in Ethiopia;
- and 24% in Niger (Palacios-Lopez et al.,
- 2017) – they consistently produce less per unit of land than men.
+While women constitute a substantial share of the agricultural labor force in Sub-Saharan Africa – over 50% Tanzania and Uganda;
+ 29% in Ethiopia (Palacios-Lopez et al.,
+ 2017) – they consistently achieve lower yields than men and the income they get is substantially lower than the one earned by male farmers (FAO,
+ 2011).
  In 2014,
  estimated gender productivity gaps ranged from 6% in Tanzania to 25% in Malawi (O’Sullivan et al.,
  2014).
  More recent estimates indicate a gap of 11% in the Democratic Republic of the Congo (World Bank,
- 2021) and 30% in Nigeria (World Bank,
- 2022).
- We extend this body of work by estimating gender gaps in agricultural productivity and income using plot-level data from the Busoga region of Uganda for 2021–2022.
+ 2021),
+ 30% in Nigeria (World Bank,
+ 2022) and X in Uganda.
 \end_layout
 
 \begin_layout Standard
-Second,
+This paper contributes to the literature on gender gaps in the agricultural sector (incl.
+ De,
+ Miehe,
+ and Van Campenhout,
+ 2024).
+ Building on the intra-household approach,
+ after estimating the gap through simple OLS regressions,
  we advance the literature that disentangles the roles of endowment versus structural effects in driving gender disparities.
  Women face two broad types of constraints:
- limited access to productive inputs (endowment effect) and discriminatory social norms and practices that reduce returns to those inputs (structural effect).
- Existing studies indicate that both play a role (mention studies).
- When gender differences in access to inputs are controlled for,
- the estimated productivity gap often narrows (Gilbert et al.,
+ limited access to assets and productive inputs (endowment effect) and discriminatory social norms and practices that reduce returns to those inputs (structural effect).
+ The most common approach to analyzing such gaps is the Oaxaca–Blinder decomposition of mean differences (Oaxaca,
+ 1973),
+ a method widely used in labor economics.
+ Kilic,
+ Palacios-Lopez,
+ and Goldstein (2015) were the first to apply this approach to the analysis of agricultural productivity.
+ Building on this framework,
+ we employ the Oaxaca–Blinder decomposition to examine gender gaps in both agricultural productivity and farming gross income.
+ The estimation strategy is described in detail in Section X.
+\end_layout
+
+\begin_layout Standard
+The existing literature indicates that both mechanisms play a role in shaping the observed gaps in agricultural productivity and income (World Bank report).
+ With respect to the productivity gap,
+ multiple studies show that once differences in access to productive inputs are accounted for,
+ the estimated gap substantially narrow (Gilbert et al.,
  2002 in Malawi;
  Kinkingninhoun-Mêdagbé et al.,
- 2010 in Benin),
- highlighting the importance of endowments.
- However,
+ 2010 in Benin;
+ Kilic et al.,
+ 2015 in Malawi;
+ Peterman et al.,
+ 2011 in Uganda and Nigeria),
+ highlighting the key importance of access to inputs in observed yields differentials.
+ For example,
+ De la O Campos et al.
+ (2016) demonstrate that the gender gap in agricultural productivity in Uganda diminishes once differences in access to production factors—
+such as fertilizers and pesticides—
+as well as crop choice are taken into account.
+ In this regard,
+ also Kilic et al.
+ suggest that disparities in asset ownership,
+ such as machinery and new technology,
+ substantially contribute to the gender gap in productivity.
+\end_layout
+
+\begin_layout Standard
+However,
  other studies find that productivity gaps persist even after equalizing input access,
- pointing to structural constraints (Ali et al.,
+ pointing to structural constraints,
+ resource allocation and returns to inputs as the main problems (Ali et al.,
  2016 in Uganda;
  Bello et al.,
  2021 in Nigeria;
@@ -250,8 +309,75 @@ Second,
  Niger,
  Uganda,
  Tanzania,
- and northern Nigeria).
- We contribute to this literature by estimating the relative contributions of endowment and structural effects to gender gaps in agricultural productivity and income in Busoga.
+ and northern Nigeria;
+ Kinkingninhoun-Medagb´e et al.,
+ 2010 in Benin).
+ Compared to men,
+ female farmers typically oversee smaller farms on lower-quality land and have weaker land tenure rights.
+ According to Ali et.
+ al (2015) women’s plots in Uganda are 36% smaller than men’s ones and they show less quality.
+ This is usually explained by discriminatory traditional laws that exclude women and favor men in ownership rights and land allocation (World bank report).
+ Several studies have shown that child dependency ratio,
+ social expectation and time poverty play a key role in shaping these differences (Ali et al.,
+ 2016;Pierotti et al.,
+ 2022;
+ Donald et al.,
+ 2023;
+ Sell et al.,
+ 2018).
+ According to Sell et al.,
+ women’s lower level of productivity is negatively associated with the number of household members.
+ Time constraints may be more binding for women as a great proportion of their time is devoted to mansions that do not generate an income,
+ such as childcare,
+ elderly care and food preparation and prevent them from engaging in agricultural activities (world bank report and Pierotti et al).
+ 
+\end_layout
+
+\begin_layout Standard
+Evidence from the literature also suggests that social norms and expectations in market orientation and risk preferences could explain the gender gap in productivity (Ali et al,
+ 2016;
+ Duflo & Udry,
+ 2004;
+ Sell et al.,
+ 2018;
+ Reynolds et al.,
+ 2020).
+ Evidence shows that women placed lower value on cash crops,
+ overlooking income potential and high market prices,
+ while favoring food security (Duflo,
+ Udry,
+ 2004).
+ Other factors that might explain the gender gap in productivity and income from maize are access to labour and credit market (Kilic,
+ Palacios-Lopez & Goldstein,
+ 2015;
+ Palacios-Lopez & Lopez,
+ 2015;
+ Ali et al.,
+ 2016;).
+ Palacios-Lopez and Lopez claim that correcting market failures could positively impact female farmers’ productivity.
+ Several studies identify discrimination in the labor market and off-farm work as drivers of low labor productivity in plots managed by female-headed households (Palacios-Lopez ´ and Lopez ´ (2015),
+ Julien et al.,2023).
+ Limited access to finance further constrains women’s ability to adopt modern technologies,
+ machinery,
+ and improved agricultural practices,
+ reinforcing existing productivity and income disparities (World Bank).
+\end_layout
+
+\begin_layout Standard
+Although these contributions provide a meaningful overview of the context,
+ context-specific analysis is required to effectively guide policy recommendations.
+ We extend this body of work by estimating gender gaps in agricultural productivity and income from maize in male and female headed households using plot-level data from the Busoga region of Uganda for 2021–2022.
+ Gender gap in agricultural productivity,
+ particularly in maize production,
+ usually translates into a gender gap in income,
+ as documented by the World Bank,
+ thereby reinforcing processes of feminization of poverty.
+ However,
+ while gender disparities in agricultural productivity have been extensively studied,
+ evidence on gendered income differentials from farming in Africa remains limited and fragmented (Eliaza et al.,
+ 2023,
+ check it) .
+ This paper contributes to addressing this gap by building on the existing literature on gender gaps in agricultural productivity and by expanding the analysis to include gross income disparities from farming.
 \end_layout
 
 \begin_layout Section
@@ -259,7 +385,7 @@ Data
 \end_layout
 
 \begin_layout Subsection
-Quantitative Data
+Quantitative Data and Descriptive Statistics
 \end_layout
 
 \begin_layout Standard
@@ -283,6 +409,94 @@ Enumerators interviewed the household member most knowledgeable about maize cult
  from which one was randomly selected for detailed data collection.
  This approach minimized survey duration and respondent burden while preserving representativeness at the household level,
  due to the random selection of plots.
+\end_layout
+
+\begin_layout Standard
+In our case,
+ plot-level measures of soil quality and others are missing
+\end_layout
+
+\begin_layout Subsubsection
+Measurement of key variable and Gender Indicator
+\end_layout
+
+\begin_layout Standard
+- Outcome/Dependent Variables :
+ The analysis focuses on two main outcome variables:
+ agricultural productivity and income from maize.
+ Agricultural productivity is measured as maize yield per unit of cultivated land,
+ capturing differences in output across plots.
+ Income from maize is calculated as the gross value of maize sales,
+ defined as the quantity of maize sold multiplied by the unit price received.
+ This measure captures monetary returns from maize production and includes households that did not sell maize,
+ for whom income is recorded as zero.
+ Given the skewed distribution of income and the presence of zero values,
+ maize productivity and income are transformed using the inverse hyperbolic sine (IHS) transformation in the empirical analysis.
+ .
+ Skewness is according to the adjusted Fisher-Pearson coefficient of skewness exceeding 1.96.
+ To address the recent critiques by Mullahy and Norton (2022) and Chen and Roth (2024),
+ we will apply the IHS transformation cautiously when dealing with outcome variables that have many zeros and impacts on the extensive margin.
+\end_layout
+
+\begin_layout Standard
+- Gender Indicator 
+\end_layout
+
+\begin_layout Standard
+The assessment of gender gaps in agriculture generally relies on two empirical approaches and indicators.
+ This choice significantly influences the analysis of gender differences (De la O Campos,
+ year).
+ The first one is the one this paper uses and consists of inter-household analyses,
+ which compare agricultural production in female- and male-headed households,
+ using household headship as a proxy for plot management.
+ The second approach adopts an intra-household perspective,
+ comparing production on female- and male-managed plots within the same household.
+ As mentioned by Ali et al.
+ (2016),
+ inter-household analyses rely on household headship as a proxy for plot management and,
+ since most female-managed plots are located within male-headed households,
+ may draw inferences from a non-representative subset of women farmers and misclassify plots by gender.
+ Intra-household approaches compare female- and male-managed plots within the same household,
+ allowing household characteristics to be held constant,
+ though they require more detailed data and may face limitations in sample size and external validity.
+ 
+\end_layout
+
+\begin_layout Standard
+Moreover,
+ differences between de jure and de facto female-headed households suggest that household headship is an imperfect proxy for gender in agriculture (explain it!!) (Peterman et al.,
+ 2010;
+ de la O Campos,
+ 2023).
+ The use of household headship is further problematic because it does not capture who makes agricultural decisions or controls productive assets,
+ nor does it account for intra-household power dynamics that shape resource allocation (Doss,
+ 2001;
+ Udry,
+ 1996;
+ Quisumbing & Maluccio,
+ 2003).
+ 
+\end_layout
+
+\begin_layout Standard
+In this study,
+ the use of an inter-household approach is driven by data availability,
+ as gender information was collected at the level of the household head,
+ making intra-household quantitative analysis infeasible.
+ Nevertheless,
+ this limitation is partly addressed through qualitative data,
+ which provide insights into intra-household decision-making processes and power relations and complement the inter-household quantitative analysis.
+ The quantitative results are presented in Section X.Building on this framework,
+ the analysis employs an OLS specification combined with an Oaxaca–Blinder decomposition to disentangle the relative contributions of differences in endowments and returns to the observed gender gaps in agricultural productivity and farm income.
+\end_layout
+
+\begin_layout Subsubsection
+Sensitivity analysis and robustness checks
+\end_layout
+
+\begin_layout Standard
+See De La O Campos .
+ (2015)
 \end_layout
 
 \begin_layout Standard
@@ -345,7 +559,9 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Descriptive statistics
+
+\series bold
+Gender disaggregated descriptive statistics
 \end_layout
 
 \end_inset
@@ -359,10 +575,6 @@ status open
 
 \begin_layout Plain Layout
 
-\end_layout
-
-\begin_layout Plain Layout
-
 
 \backslash
 begin{center}
@@ -372,7 +584,7 @@ begin{center}
 
 
 \backslash
-small
+footnotesize
 \end_layout
 
 \begin_layout Plain Layout
@@ -381,7 +593,7 @@ small
 \backslash
 setlength{
 \backslash
-tabcolsep}{2pt} 
+tabcolsep}{1 pt}
 \end_layout
 
 \begin_layout Plain Layout
@@ -397,7 +609,7 @@ arraystretch}{1.1}
 
 
 \backslash
-begin{tabular}{r|ccccc|ccccc}
+begin{tabular}{r|ccccc|ccccc|c}
 \end_layout
 
 \begin_layout Plain Layout
@@ -424,7 +636,9 @@ hline
 \backslash
 multicolumn{5}{c}{Male-headed households} & 
 \backslash
-multicolumn{5}{c}{Female-headed households} 
+multicolumn{5}{c}{Female-headed households} & 
+\backslash
+multicolumn{1}{c}{t-test} 
 \backslash
 
 \backslash
@@ -435,7 +649,7 @@ multicolumn{5}{c}{Female-headed households}
 
 & Mean & Min & Max & SD & Obs.
  & Mean & Min & Max & SD & Obs.
- 
+ & p-value 
 \backslash
 
 \backslash
@@ -454,6 +668,13 @@ cline{2-6}
 
 \backslash
 cline{7-11}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cline{12-12}
 \end_layout
 
 \begin_layout Plain Layout
@@ -533,6 +754,13 @@ Sexpr{format(round(df_descriptives_female[1,4],2),nsmall=2)}
 & 
 \backslash
 Sexpr{format(round(df_descriptives_female[1,5],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{ttest_p_fmt[1]}
 \end_layout
 
 \begin_layout Plain Layout
@@ -625,6 +853,13 @@ Sexpr{format(round(df_descriptives_female[2,5],0),nsmall=0)}
 
 \begin_layout Plain Layout
 
+& 
+\backslash
+Sexpr{ttest_p_fmt[2]}
+\end_layout
+
+\begin_layout Plain Layout
+
 
 \backslash
 
@@ -709,6 +944,13 @@ Sexpr{format(round(df_descriptives_female[3,4],2),nsmall=2)}
 & 
 \backslash
 Sexpr{format(round(df_descriptives_female[3,5],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{ttest_p_fmt[3]}
 \end_layout
 
 \begin_layout Plain Layout
@@ -801,6 +1043,13 @@ Sexpr{format(round(df_descriptives_female[4,5],0),nsmall=0)}
 
 \begin_layout Plain Layout
 
+& 
+\backslash
+Sexpr{ttest_p_fmt[4]}
+\end_layout
+
+\begin_layout Plain Layout
+
 
 \backslash
 
@@ -885,6 +1134,13 @@ Sexpr{format(round(df_descriptives_female[5,4],2),nsmall=2)}
 & 
 \backslash
 Sexpr{format(round(df_descriptives_female[5,5],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{ttest_p_fmt[5]}
 \end_layout
 
 \begin_layout Plain Layout
@@ -984,14 +1240,17 @@ Sexpr{format(round(df_descriptives_female[6,5],0),nsmall=0)}
 
 \begin_layout Plain Layout
 
-
+& 
 \backslash
-
-\backslash
-
+Sexpr{ttest_p_fmt[6]}
 \end_layout
 
 \begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
 
 \end_layout
 
@@ -1072,6 +1331,13 @@ Sexpr{format(round(df_descriptives_female[7,4],2),nsmall=2)}
 & 
 \backslash
 Sexpr{format(round(df_descriptives_female[7,5],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{ttest_p_fmt[7]}
 \end_layout
 
 \begin_layout Plain Layout
@@ -1164,6 +1430,13 @@ Sexpr{format(round(df_descriptives_female[8,5],0),nsmall=0)}
 
 \begin_layout Plain Layout
 
+& 
+\backslash
+Sexpr{ttest_p_fmt[8]}
+\end_layout
+
+\begin_layout Plain Layout
+
 
 \backslash
 
@@ -1248,6 +1521,13 @@ Sexpr{format(round(df_descriptives_female[9,4],2),nsmall=2)}
 & 
 \backslash
 Sexpr{format(round(df_descriptives_female[9,5],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{ttest_p_fmt[9]}
 \end_layout
 
 \begin_layout Plain Layout
@@ -1340,6 +1620,13 @@ Sexpr{format(round(df_descriptives_female[10,5],0),nsmall=0)}
 
 \begin_layout Plain Layout
 
+& 
+\backslash
+Sexpr{ttest_p_fmt[10]}
+\end_layout
+
+\begin_layout Plain Layout
+
 
 \backslash
 
@@ -1428,6 +1715,13 @@ Sexpr{format(round(df_descriptives_female[11,5],0),nsmall=0)}
 
 \begin_layout Plain Layout
 
+& 
+\backslash
+Sexpr{ttest_p_fmt[11]}
+\end_layout
+
+\begin_layout Plain Layout
+
 
 \backslash
 
@@ -1437,18 +1731,11 @@ Sexpr{format(round(df_descriptives_female[11,5],0),nsmall=0)}
 
 \begin_layout Plain Layout
 
-
-\backslash
-hline
 \end_layout
 
 \begin_layout Plain Layout
 
-\end_layout
-
-\begin_layout Plain Layout
-
-Area of the randomly selected plot in acres
+The respondent is part of a farmer group or cooperative (1 = Yes)
 \end_layout
 
 \begin_layout Plain Layout
@@ -1523,6 +1810,13 @@ Sexpr{format(round(df_descriptives_female[12,5],0),nsmall=0)}
 
 \begin_layout Plain Layout
 
+& 
+\backslash
+Sexpr{ttest_p_fmt[12]}
+\end_layout
+
+\begin_layout Plain Layout
+
 
 \backslash
 
@@ -1532,11 +1826,18 @@ Sexpr{format(round(df_descriptives_female[12,5],0),nsmall=0)}
 
 \begin_layout Plain Layout
 
+
+\backslash
+hline
 \end_layout
 
 \begin_layout Plain Layout
 
-Total cost of seed used for the randomly selected plot in UGX
+\end_layout
+
+\begin_layout Plain Layout
+
+Area of the randomly selected plot in acres
 \end_layout
 
 \begin_layout Plain Layout
@@ -1611,6 +1912,13 @@ Sexpr{format(round(df_descriptives_female[13,5],0),nsmall=0)}
 
 \begin_layout Plain Layout
 
+& 
+\backslash
+Sexpr{ttest_p_fmt[13]}
+\end_layout
+
+\begin_layout Plain Layout
+
 
 \backslash
 
@@ -1624,7 +1932,7 @@ Sexpr{format(round(df_descriptives_female[13,5],0),nsmall=0)}
 
 \begin_layout Plain Layout
 
-DAP/NPK applied in the randomly selected plot (1 = Yes)
+Total cost of seed used for the randomly selected plot in UGX
 \end_layout
 
 \begin_layout Plain Layout
@@ -1699,6 +2007,13 @@ Sexpr{format(round(df_descriptives_female[14,5],0),nsmall=0)}
 
 \begin_layout Plain Layout
 
+& 
+\backslash
+Sexpr{ttest_p_fmt[14]}
+\end_layout
+
+\begin_layout Plain Layout
+
 
 \backslash
 
@@ -1712,7 +2027,7 @@ Sexpr{format(round(df_descriptives_female[14,5],0),nsmall=0)}
 
 \begin_layout Plain Layout
 
-Urea applied in the randomly selected plot (1 = Yes)
+DAP/NPK applied in the randomly selected plot (1 = Yes)
 \end_layout
 
 \begin_layout Plain Layout
@@ -1787,6 +2102,13 @@ Sexpr{format(round(df_descriptives_female[15,5],0),nsmall=0)}
 
 \begin_layout Plain Layout
 
+& 
+\backslash
+Sexpr{ttest_p_fmt[15]}
+\end_layout
+
+\begin_layout Plain Layout
+
 
 \backslash
 
@@ -1800,8 +2122,7 @@ Sexpr{format(round(df_descriptives_female[15,5],0),nsmall=0)}
 
 \begin_layout Plain Layout
 
-Pesticides,
- herbicides or fungicides applied in the randomly selected plot (1 = Yes)
+Urea applied in the randomly selected plot (1 = Yes)
 \end_layout
 
 \begin_layout Plain Layout
@@ -1876,6 +2197,13 @@ Sexpr{format(round(df_descriptives_female[16,5],0),nsmall=0)}
 
 \begin_layout Plain Layout
 
+& 
+\backslash
+Sexpr{ttest_p_fmt[16]}
+\end_layout
+
+\begin_layout Plain Layout
+
 
 \backslash
 
@@ -1889,7 +2217,8 @@ Sexpr{format(round(df_descriptives_female[16,5],0),nsmall=0)}
 
 \begin_layout Plain Layout
 
-The household sold maize harvested from the randomly selected plot (1 = Yes)
+Pesticides,
+ herbicides or fungicides applied in the randomly selected plot (1 = Yes)
 \end_layout
 
 \begin_layout Plain Layout
@@ -1964,6 +2293,13 @@ Sexpr{format(round(df_descriptives_female[17,5],0),nsmall=0)}
 
 \begin_layout Plain Layout
 
+& 
+\backslash
+Sexpr{ttest_p_fmt[17]}
+\end_layout
+
+\begin_layout Plain Layout
+
 
 \backslash
 
@@ -1977,7 +2313,7 @@ Sexpr{format(round(df_descriptives_female[17,5],0),nsmall=0)}
 
 \begin_layout Plain Layout
 
-Number of maize bags sold from the randomly selected plot
+Organic manure applied in the randomly selected plot (1 = Yes)
 \end_layout
 
 \begin_layout Plain Layout
@@ -2052,6 +2388,13 @@ Sexpr{format(round(df_descriptives_female[18,5],0),nsmall=0)}
 
 \begin_layout Plain Layout
 
+& 
+\backslash
+Sexpr{ttest_p_fmt[18]}
+\end_layout
+
+\begin_layout Plain Layout
+
 
 \backslash
 
@@ -2065,7 +2408,7 @@ Sexpr{format(round(df_descriptives_female[18,5],0),nsmall=0)}
 
 \begin_layout Plain Layout
 
-Bag price in thousand UGX
+Resowing in the randomly selected plot (1 = Yes)
 \end_layout
 
 \begin_layout Plain Layout
@@ -2140,6 +2483,13 @@ Sexpr{format(round(df_descriptives_female[19,5],0),nsmall=0)}
 
 \begin_layout Plain Layout
 
+& 
+\backslash
+Sexpr{ttest_p_fmt[19]}
+\end_layout
+
+\begin_layout Plain Layout
+
 
 \backslash
 
@@ -2149,18 +2499,11 @@ Sexpr{format(round(df_descriptives_female[19,5],0),nsmall=0)}
 
 \begin_layout Plain Layout
 
-
-\backslash
-hline
 \end_layout
 
 \begin_layout Plain Layout
 
-\end_layout
-
-\begin_layout Plain Layout
-
-Yield from the randomly selected plot in kg
+Number of weeding times in the randomly selected plot
 \end_layout
 
 \begin_layout Plain Layout
@@ -2235,6 +2578,13 @@ Sexpr{format(round(df_descriptives_female[20,5],0),nsmall=0)}
 
 \begin_layout Plain Layout
 
+& 
+\backslash
+Sexpr{ttest_p_fmt[20]}
+\end_layout
+
+\begin_layout Plain Layout
+
 
 \backslash
 
@@ -2248,7 +2598,7 @@ Sexpr{format(round(df_descriptives_female[20,5],0),nsmall=0)}
 
 \begin_layout Plain Layout
 
-Maize productivity of the randomly selected plot in kg/acres
+The household sold maize from the randomly selected plot (1 = Yes)
 \end_layout
 
 \begin_layout Plain Layout
@@ -2323,6 +2673,13 @@ Sexpr{format(round(df_descriptives_female[21,5],0),nsmall=0)}
 
 \begin_layout Plain Layout
 
+& 
+\backslash
+Sexpr{ttest_p_fmt[21]}
+\end_layout
+
+\begin_layout Plain Layout
+
 
 \backslash
 
@@ -2336,7 +2693,7 @@ Sexpr{format(round(df_descriptives_female[21,5],0),nsmall=0)}
 
 \begin_layout Plain Layout
 
-Maize productivity of the randomly selected plot in kg/acre (IHS)
+Number of maize bags sold from the randomly selected plot
 \end_layout
 
 \begin_layout Plain Layout
@@ -2411,6 +2768,13 @@ Sexpr{format(round(df_descriptives_female[22,5],0),nsmall=0)}
 
 \begin_layout Plain Layout
 
+& 
+\backslash
+Sexpr{ttest_p_fmt[22]}
+\end_layout
+
+\begin_layout Plain Layout
+
 
 \backslash
 
@@ -2424,7 +2788,7 @@ Sexpr{format(round(df_descriptives_female[22,5],0),nsmall=0)}
 
 \begin_layout Plain Layout
 
-Income from maize sales from the randomly selected plot in thousand UGX
+Bag price in thousand UGX
 \end_layout
 
 \begin_layout Plain Layout
@@ -2499,6 +2863,400 @@ Sexpr{format(round(df_descriptives_female[23,5],0),nsmall=0)}
 
 \begin_layout Plain Layout
 
+& 
+\backslash
+Sexpr{ttest_p_fmt[23]}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Yield from the randomly selected plot in kg
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[24,1],2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[24,2],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[24,3],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[24,4],2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[24,5],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[24,1],2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[24,2],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[24,3],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[24,4],2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[24,5],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{ttest_p_fmt[24]}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Maize productivity of the randomly selected plot in kg/acres
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[25,1],2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[25,2],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[25,3],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[25,4],2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[25,5],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[25,1],2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[25,2],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[25,3],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[25,4],2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[25,5],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{ttest_p_fmt[25]}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Maize productivity of the randomly selected plot in kg/acre (IHS)
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[26,1],2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[26,2],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[26,3],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[26,4],2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[26,5],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[26,1],2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[26,2],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[26,3],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[26,4],2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[26,5],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{ttest_p_fmt[26]}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Income from maize sales from the randomly selected plot in thousand UGX
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[27,1],2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[27,2],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[27,3],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[27,4],2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[27,5],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[27,1],2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[27,2],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[27,3],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[27,4],2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[27,5],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{ttest_p_fmt[27]}
+\end_layout
+
+\begin_layout Plain Layout
+
 
 \backslash
 
@@ -2519,7 +3277,7 @@ Income from maize sales from the randomly selected plot (IHS-transformed)
 
 & 
 \backslash
-Sexpr{format(round(df_descriptives_male[24,1],2),
+Sexpr{format(round(df_descriptives_male[28,1],2),
  nsmall=2)} 
 \end_layout
 
@@ -2527,7 +3285,7 @@ Sexpr{format(round(df_descriptives_male[24,1],2),
 
 & 
 \backslash
-Sexpr{format(round(df_descriptives_male[24,2],0),
+Sexpr{format(round(df_descriptives_male[28,2],0),
  nsmall=0)} 
 \end_layout
 
@@ -2535,7 +3293,7 @@ Sexpr{format(round(df_descriptives_male[24,2],0),
 
 & 
 \backslash
-Sexpr{format(round(df_descriptives_male[24,3],0),
+Sexpr{format(round(df_descriptives_male[28,3],0),
  nsmall=0)} 
 \end_layout
 
@@ -2543,7 +3301,7 @@ Sexpr{format(round(df_descriptives_male[24,3],0),
 
 & 
 \backslash
-Sexpr{format(round(df_descriptives_male[24,4],2),
+Sexpr{format(round(df_descriptives_male[28,4],2),
  nsmall=2)} 
 \end_layout
 
@@ -2551,7 +3309,7 @@ Sexpr{format(round(df_descriptives_male[24,4],2),
 
 & 
 \backslash
-Sexpr{format(round(df_descriptives_male[24,5],0),
+Sexpr{format(round(df_descriptives_male[28,5],0),
  nsmall=0)} 
 \end_layout
 
@@ -2559,7 +3317,7 @@ Sexpr{format(round(df_descriptives_male[24,5],0),
 
 & 
 \backslash
-Sexpr{format(round(df_descriptives_female[24,1],2),
+Sexpr{format(round(df_descriptives_female[28,1],2),
  nsmall=2)} 
 \end_layout
 
@@ -2567,7 +3325,7 @@ Sexpr{format(round(df_descriptives_female[24,1],2),
 
 & 
 \backslash
-Sexpr{format(round(df_descriptives_female[24,2],0),
+Sexpr{format(round(df_descriptives_female[28,2],0),
  nsmall=0)} 
 \end_layout
 
@@ -2575,7 +3333,7 @@ Sexpr{format(round(df_descriptives_female[24,2],0),
 
 & 
 \backslash
-Sexpr{format(round(df_descriptives_female[24,3],0),
+Sexpr{format(round(df_descriptives_female[28,3],0),
  nsmall=0)} 
 \end_layout
 
@@ -2583,7 +3341,7 @@ Sexpr{format(round(df_descriptives_female[24,3],0),
 
 & 
 \backslash
-Sexpr{format(round(df_descriptives_female[24,4],2),
+Sexpr{format(round(df_descriptives_female[28,4],2),
  nsmall=2)} 
 \end_layout
 
@@ -2591,20 +3349,23 @@ Sexpr{format(round(df_descriptives_female[24,4],2),
 
 & 
 \backslash
-Sexpr{format(round(df_descriptives_female[24,5],0),
+Sexpr{format(round(df_descriptives_female[28,5],0),
  nsmall=0)} 
 \end_layout
 
 \begin_layout Plain Layout
 
-
+& 
 \backslash
-
-\backslash
-
+Sexpr{ttest_p_fmt[28]}
 \end_layout
 
 \begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
 
 \end_layout
 
@@ -2665,6 +3426,11 @@ textit{Male};
  columns (6)–(10) report the same for 
 \backslash
 textit{Female}.
+ Column (11) reports p-values from two-sided t-tests of equality of means (Male vs Female).
+ Significance:
+ *** p<0.01,
+ ** p<0.05,
+ * p<0.10.
  All statistics are measured at baseline.
 \end_layout
 
@@ -2683,7 +3449,7 @@ Qualitative Data
 \end_layout
 
 \begin_layout Standard
-The qualitative component was conducted in the Busoga region (eastern Uganda),
+The qualitative component was conducted in Busoga region (eastern Uganda),
  in several villages in the districts of Iganga,
  Bugweri,
  Bugiri,
@@ -2723,7 +3489,7 @@ The discussions were guided by a semi-structured outline consisting mainly of op
 
 \begin_layout Standard
 The qualitative work aimed to contextualize the quantitative results and explore underlying social mechanisms.
- The research protocol was approved by ...
+ The research protocol was approved by ..
 \end_layout
 
 \begin_layout Subsection*
@@ -2776,43 +3542,16 @@ Methodology
 Quantitative Methods
 \end_layout
 
-\begin_layout Enumerate
-We will estimate gender gaps in (i) agricultural productivity (yield),
- and (ii) agricultural income (sales and revenue).
- 
+\begin_layout Subsubsection
+Assumptions and criticisms
 \end_layout
 
-\begin_layout Enumerate
-To investigate the sources of gender disparities in adoption,
- productivity,
- and income,
- we will apply the Blinder-Oaxaca decomposition (Blinder,
- 1973;
- Oaxaca,
- 1973).
- This method decomposes observed gender gaps into two components:
+\begin_layout Standard
+A number of criticisms characterize the Oaxaca-Blinder decomposition (Fortin,
+ Lemieux and Firpo,
+ 2011).
 \end_layout
 
-\begin_deeper
-\begin_layout Enumerate
-Endowment Effect:
- Captures differences due to observable farmer and farm-household characteristics,
- such as access to land,
- credit,
- education,
- and inputs.
- These are factors that reflect unequal resource access.
-\end_layout
-
-\begin_layout Enumerate
-Structural Effect:
- Captures differences in returns to those resources,
- potentially reflecting discriminatory social norms or practices – for example,
- women receiving lower prices for the same outputs.
- This component accounts for unexplained variation not attributable to observable endowments
-\end_layout
-
-\end_deeper
 \begin_layout Subsection
 Qualitative Methods 
 \end_layout
@@ -2825,6 +3564,11 @@ A coding structure was developed to analyze the qualitative data and systematica
 
 \begin_layout Subsection
 Empirical issues(?)
+\end_layout
+
+\begin_layout Standard
+the variable of choice affects the calculation of the gender gap ((De La O Campos et al.,
+ 2015)
 \end_layout
 
 \begin_layout Subsection*
@@ -2843,6 +3587,10 @@ Quantitative Analysis
 \end_layout
 
 \begin_layout Standard
+Robust standard errors (HC3) are used to account for potential heteroskedasticity and influential observations.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float table
 placement H
 alignment left
@@ -2854,7 +3602,9 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Ordinary least squares regression model results on the determinants of maize productivity by gender
+
+\series bold
+Ordinary least squares regression model results on the determinants of maize productivity(IHS) by gender
 \end_layout
 
 \end_inset
@@ -2868,246 +3618,736 @@ status open
 
 \begin_layout Plain Layout
 
-<<echo=FALSE,
- results='asis'>>=
+
+\backslash
+begin{center}
 \end_layout
 
 \begin_layout Plain Layout
 
-cat("
-\backslash
 
 \backslash
 footnotesize
-\backslash
-n")
 \end_layout
 
 \begin_layout Plain Layout
 
-cat("
+
 \backslash
+setlength{
+\backslash
+tabcolsep}{2pt}
+\end_layout
+
+\begin_layout Plain Layout
+
 
 \backslash
 renewcommand{
 \backslash
-
-\backslash
-arraystretch}{1.1}
-\backslash
-n")
+arraystretch}{1.15}
 \end_layout
 
 \begin_layout Plain Layout
 
-cat("
-\backslash
 
 \backslash
-begin{tabular}{lcccc}
+begin{tabular}{p{6.3cm}|c@{
 \backslash
-n")
+hspace{4pt}}c@{
+\backslash
+hspace{4pt}}c@{
+\backslash
+hspace{4pt}}c}
 \end_layout
 
 \begin_layout Plain Layout
 
-cat("
-\backslash
+\end_layout
+
+\begin_layout Plain Layout
+
 
 \backslash
 hline
 \backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+Variables & Raw gap & 
+\backslash
+shortstack{Total
+\backslash
+
+\backslash
+Baseline} & 
+\backslash
+shortstack{Male
+\backslash
+
+\backslash
+Baseline} & 
+\backslash
+shortstack{Female
+\backslash
+
+\backslash
+Baseline} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
 
 \backslash
 hline
-\backslash
-n")
 \end_layout
 
 \begin_layout Plain Layout
 
-cat("Variables & Raw gap & Full (Pooled) & Full -- Male & Full -- Female 
-\backslash
-
-\backslash
-
-\backslash
-
-\backslash
-
-\backslash
-n")
 \end_layout
 
 \begin_layout Plain Layout
 
-cat("
+
 \backslash
+Sexpr{tab_prod$Label[1]} & 
+\backslash
+Sexpr{tab_prod$Raw[1]} & 
+\backslash
+Sexpr{tab_prod$Full[1]} & 
+\backslash
+Sexpr{tab_prod$Male[1]} & 
+\backslash
+Sexpr{tab_prod$Female[1]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[2]} & 
+\backslash
+Sexpr{tab_prod$Raw[2]} & 
+\backslash
+Sexpr{tab_prod$Full[2]} & 
+\backslash
+Sexpr{tab_prod$Male[2]} & 
+\backslash
+Sexpr{tab_prod$Female[2]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[3]} & 
+\backslash
+Sexpr{tab_prod$Raw[3]} & 
+\backslash
+Sexpr{tab_prod$Full[3]} & 
+\backslash
+Sexpr{tab_prod$Male[3]} & 
+\backslash
+Sexpr{tab_prod$Female[3]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[4]} & 
+\backslash
+Sexpr{tab_prod$Raw[4]} & 
+\backslash
+Sexpr{tab_prod$Full[4]} & 
+\backslash
+Sexpr{tab_prod$Male[4]} & 
+\backslash
+Sexpr{tab_prod$Female[4]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[5]} & 
+\backslash
+Sexpr{tab_prod$Raw[5]} & 
+\backslash
+Sexpr{tab_prod$Full[5]} & 
+\backslash
+Sexpr{tab_prod$Male[5]} & 
+\backslash
+Sexpr{tab_prod$Female[5]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[6]} & 
+\backslash
+Sexpr{tab_prod$Raw[6]} & 
+\backslash
+Sexpr{tab_prod$Full[6]} & 
+\backslash
+Sexpr{tab_prod$Male[6]} & 
+\backslash
+Sexpr{tab_prod$Female[6]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[7]} & 
+\backslash
+Sexpr{tab_prod$Raw[7]} & 
+\backslash
+Sexpr{tab_prod$Full[7]} & 
+\backslash
+Sexpr{tab_prod$Male[7]} & 
+\backslash
+Sexpr{tab_prod$Female[7]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[8]} & 
+\backslash
+Sexpr{tab_prod$Raw[8]} & 
+\backslash
+Sexpr{tab_prod$Full[8]} & 
+\backslash
+Sexpr{tab_prod$Male[8]} & 
+\backslash
+Sexpr{tab_prod$Female[8]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[9]} & 
+\backslash
+Sexpr{tab_prod$Raw[9]} & 
+\backslash
+Sexpr{tab_prod$Full[9]} & 
+\backslash
+Sexpr{tab_prod$Male[9]} & 
+\backslash
+Sexpr{tab_prod$Female[9]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[10]} & 
+\backslash
+Sexpr{tab_prod$Raw[10]} & 
+\backslash
+Sexpr{tab_prod$Full[10]} & 
+\backslash
+Sexpr{tab_prod$Male[10]} & 
+\backslash
+Sexpr{tab_prod$Female[10]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[11]} & 
+\backslash
+Sexpr{tab_prod$Raw[11]} & 
+\backslash
+Sexpr{tab_prod$Full[11]} & 
+\backslash
+Sexpr{tab_prod$Male[11]} & 
+\backslash
+Sexpr{tab_prod$Female[11]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[12]} & 
+\backslash
+Sexpr{tab_prod$Raw[12]} & 
+\backslash
+Sexpr{tab_prod$Full[12]} & 
+\backslash
+Sexpr{tab_prod$Male[12]} & 
+\backslash
+Sexpr{tab_prod$Female[12]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[13]} & 
+\backslash
+Sexpr{tab_prod$Raw[13]} & 
+\backslash
+Sexpr{tab_prod$Full[13]} & 
+\backslash
+Sexpr{tab_prod$Male[13]} & 
+\backslash
+Sexpr{tab_prod$Female[13]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[14]} & 
+\backslash
+Sexpr{tab_prod$Raw[14]} & 
+\backslash
+Sexpr{tab_prod$Full[14]} & 
+\backslash
+Sexpr{tab_prod$Male[14]} & 
+\backslash
+Sexpr{tab_prod$Female[14]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[15]} & 
+\backslash
+Sexpr{tab_prod$Raw[15]} & 
+\backslash
+Sexpr{tab_prod$Full[15]} & 
+\backslash
+Sexpr{tab_prod$Male[15]} & 
+\backslash
+Sexpr{tab_prod$Female[15]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[16]} & 
+\backslash
+Sexpr{tab_prod$Raw[16]} & 
+\backslash
+Sexpr{tab_prod$Full[16]} & 
+\backslash
+Sexpr{tab_prod$Male[16]} & 
+\backslash
+Sexpr{tab_prod$Female[16]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[17]} & 
+\backslash
+Sexpr{tab_prod$Raw[17]} & 
+\backslash
+Sexpr{tab_prod$Full[17]} & 
+\backslash
+Sexpr{tab_prod$Male[17]} & 
+\backslash
+Sexpr{tab_prod$Female[17]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[18]} & 
+\backslash
+Sexpr{tab_prod$Raw[18]} & 
+\backslash
+Sexpr{tab_prod$Full[18]} & 
+\backslash
+Sexpr{tab_prod$Male[18]} & 
+\backslash
+Sexpr{tab_prod$Female[18]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[19]} & 
+\backslash
+Sexpr{tab_prod$Raw[19]} & 
+\backslash
+Sexpr{tab_prod$Full[19]} & 
+\backslash
+Sexpr{tab_prod$Male[19]} & 
+\backslash
+Sexpr{tab_prod$Female[19]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[20]} & 
+\backslash
+Sexpr{tab_prod$Raw[20]} & 
+\backslash
+Sexpr{tab_prod$Full[20]} & 
+\backslash
+Sexpr{tab_prod$Male[20]} & 
+\backslash
+Sexpr{tab_prod$Female[20]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[21]} & 
+\backslash
+Sexpr{tab_prod$Raw[21]} & 
+\backslash
+Sexpr{tab_prod$Full[21]} & 
+\backslash
+Sexpr{tab_prod$Male[21]} & 
+\backslash
+Sexpr{tab_prod$Female[21]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[22]} & 
+\backslash
+Sexpr{tab_prod$Raw[22]} & 
+\backslash
+Sexpr{tab_prod$Full[22]} & 
+\backslash
+Sexpr{tab_prod$Male[22]} & 
+\backslash
+Sexpr{tab_prod$Female[22]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[23]} & 
+\backslash
+Sexpr{tab_prod$Raw[23]} & 
+\backslash
+Sexpr{tab_prod$Full[23]} & 
+\backslash
+Sexpr{tab_prod$Male[23]} & 
+\backslash
+Sexpr{tab_prod$Female[23]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[24]} & 
+\backslash
+Sexpr{tab_prod$Raw[24]} & 
+\backslash
+Sexpr{tab_prod$Full[24]} & 
+\backslash
+Sexpr{tab_prod$Male[24]} & 
+\backslash
+Sexpr{tab_prod$Female[24]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[25]} & 
+\backslash
+Sexpr{tab_prod$Raw[25]} & 
+\backslash
+Sexpr{tab_prod$Full[25]} & 
+\backslash
+Sexpr{tab_prod$Male[25]} & 
+\backslash
+Sexpr{tab_prod$Female[25]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[26]} & 
+\backslash
+Sexpr{tab_prod$Raw[26]} & 
+\backslash
+Sexpr{tab_prod$Full[26]} & 
+\backslash
+Sexpr{tab_prod$Male[26]} & 
+\backslash
+Sexpr{tab_prod$Female[26]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[27]} & 
+\backslash
+Sexpr{tab_prod$Raw[27]} & 
+\backslash
+Sexpr{tab_prod$Full[27]} & 
+\backslash
+Sexpr{tab_prod$Male[27]} & 
+\backslash
+Sexpr{tab_prod$Female[27]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[28]} & 
+\backslash
+Sexpr{tab_prod$Raw[28]} & 
+\backslash
+Sexpr{tab_prod$Full[28]} & 
+\backslash
+Sexpr{tab_prod$Male[28]} & 
+\backslash
+Sexpr{tab_prod$Female[28]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[29]} & 
+\backslash
+Sexpr{tab_prod$Raw[29]} & 
+\backslash
+Sexpr{tab_prod$Full[29]} & 
+\backslash
+Sexpr{tab_prod$Male[29]} & 
+\backslash
+Sexpr{tab_prod$Female[29]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[30]} & 
+\backslash
+Sexpr{tab_prod$Raw[30]} & 
+\backslash
+Sexpr{tab_prod$Full[30]} & 
+\backslash
+Sexpr{tab_prod$Male[30]} & 
+\backslash
+Sexpr{tab_prod$Female[30]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
 
 \backslash
 hline
-\backslash
-n")
 \end_layout
 
 \begin_layout Plain Layout
 
-\end_layout
-
-\begin_layout Plain Layout
-
-for (i in 1:nrow(tab_prod)) {
-\end_layout
-
-\begin_layout Plain Layout
-
-  cat(tab_prod$Label[i],
- " & ",
-\end_layout
-
-\begin_layout Plain Layout
-
-      tab_prod$Raw[i],
- " & ",
-\end_layout
-
-\begin_layout Plain Layout
-
-      tab_prod$Full[i],
- " & ",
-\end_layout
-
-\begin_layout Plain Layout
-
-      tab_prod$Male[i],
- " & ",
-\end_layout
-
-\begin_layout Plain Layout
-
-      tab_prod$Female[i],
- " 
-\backslash
-
-\backslash
-
-\backslash
-
-\backslash
-
-\backslash
-n")
-\end_layout
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-cat("
-\backslash
-
-\backslash
-hline
-\backslash
-n")
-\end_layout
-
-\begin_layout Plain Layout
-
-cat("
-\backslash
 
 \backslash
 end{tabular}
-\backslash
-n")
 \end_layout
 
 \begin_layout Plain Layout
 
-cat("
-\backslash
 
 \backslash
-vspace{0.2cm}
-\backslash
-n")
+end{center}
 \end_layout
 
 \begin_layout Plain Layout
 
-cat("
-\backslash
+\end_layout
+
+\begin_layout Plain Layout
+
 
 \backslash
-begin{minipage}{0.9
-\backslash
-
+begin{minipage}{0.95
 \backslash
 linewidth}
-\backslash
-n")
 \end_layout
 
 \begin_layout Plain Layout
 
-cat("
-\backslash
 
 \backslash
-footnotesize 
-\backslash
+footnotesize
+\end_layout
+
+\begin_layout Plain Layout
+
 
 \backslash
 textit{Note}:
  Robust standard errors (HC3) in parentheses.
- Asterisks ***,
- **,
- * denote significance at the 1
-\backslash
-
-\backslash
-%,
- 5
-\backslash
-
-\backslash
-%,
- and 10
-\backslash
-
-\backslash
-% levels,
- respectively.
-\backslash
-n")
+ 
 \end_layout
 
 \begin_layout Plain Layout
 
-cat("
-\backslash
+*** p<0.01,
+ ** p<0.05,
+ * p<0.10.
+\end_layout
+
+\begin_layout Plain Layout
+
 
 \backslash
 end{minipage}
-\backslash
-n")
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\begin_layout Plain Layout
-
 \end_layout
 
 \end_inset
@@ -3132,7 +4372,9 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Ordinary least squares regression model results on the determinants of maize income by gender
+
+\series bold
+Ordinary least squares regression model results on the determinants of maize income (IHS) by gender
 \end_layout
 
 \end_inset
@@ -3146,250 +4388,732 @@ status open
 
 \begin_layout Plain Layout
 
-<<echo=FALSE,
- results='asis'>>=
+
+\backslash
+begin{center}
 \end_layout
 
 \begin_layout Plain Layout
 
-cat("
-\backslash
 
 \backslash
 footnotesize
-\backslash
-n")
 \end_layout
 
 \begin_layout Plain Layout
 
-cat("
+
 \backslash
+setlength{
+\backslash
+tabcolsep}{2pt}
+\end_layout
+
+\begin_layout Plain Layout
+
 
 \backslash
 renewcommand{
 \backslash
-
-\backslash
-arraystretch}{1.1}
-\backslash
-n")
+arraystretch}{1.15}
 \end_layout
 
 \begin_layout Plain Layout
 
-cat("
-\backslash
 
 \backslash
-begin{tabular}{lcccc}
+begin{tabular}{p{6.3cm}|c@{
 \backslash
-n")
+hspace{4pt}}c@{
+\backslash
+hspace{4pt}}c@{
+\backslash
+hspace{4pt}}c}
 \end_layout
 
 \begin_layout Plain Layout
 
-cat("
-\backslash
 
 \backslash
 hline
 \backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+Variables & Raw gap & 
+\backslash
+shortstack{Total
+\backslash
+
+\backslash
+Baseline} & 
+\backslash
+shortstack{Male
+\backslash
+
+\backslash
+Baseline} & 
+\backslash
+shortstack{Female
+\backslash
+
+\backslash
+Baseline} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
 
 \backslash
 hline
-\backslash
-n")
 \end_layout
 
 \begin_layout Plain Layout
 
-cat("Variables & Raw gap & Full (Pooled) & Full -- Male & Full -- Female 
-\backslash
-
-\backslash
-
-\backslash
-
-\backslash
-
-\backslash
-n")
 \end_layout
 
 \begin_layout Plain Layout
 
-cat("
+
 \backslash
+Sexpr{tab_inc$Label[1]} & 
+\backslash
+Sexpr{tab_inc$Raw[1]} & 
+\backslash
+Sexpr{tab_inc$Full[1]} & 
+\backslash
+Sexpr{tab_inc$Male[1]} & 
+\backslash
+Sexpr{tab_inc$Female[1]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[2]} & 
+\backslash
+Sexpr{tab_inc$Raw[2]} & 
+\backslash
+Sexpr{tab_inc$Full[2]} & 
+\backslash
+Sexpr{tab_inc$Male[2]} & 
+\backslash
+Sexpr{tab_inc$Female[2]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[3]} & 
+\backslash
+Sexpr{tab_inc$Raw[3]} & 
+\backslash
+Sexpr{tab_inc$Full[3]} & 
+\backslash
+Sexpr{tab_inc$Male[3]} & 
+\backslash
+Sexpr{tab_inc$Female[3]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[4]} & 
+\backslash
+Sexpr{tab_inc$Raw[4]} & 
+\backslash
+Sexpr{tab_inc$Full[4]} & 
+\backslash
+Sexpr{tab_inc$Male[4]} & 
+\backslash
+Sexpr{tab_inc$Female[4]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[5]} & 
+\backslash
+Sexpr{tab_inc$Raw[5]} & 
+\backslash
+Sexpr{tab_inc$Full[5]} & 
+\backslash
+Sexpr{tab_inc$Male[5]} & 
+\backslash
+Sexpr{tab_inc$Female[5]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[6]} & 
+\backslash
+Sexpr{tab_inc$Raw[6]} & 
+\backslash
+Sexpr{tab_inc$Full[6]} & 
+\backslash
+Sexpr{tab_inc$Male[6]} & 
+\backslash
+Sexpr{tab_inc$Female[6]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[7]} & 
+\backslash
+Sexpr{tab_inc$Raw[7]} & 
+\backslash
+Sexpr{tab_inc$Full[7]} & 
+\backslash
+Sexpr{tab_inc$Male[7]} & 
+\backslash
+Sexpr{tab_inc$Female[7]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[8]} & 
+\backslash
+Sexpr{tab_inc$Raw[8]} & 
+\backslash
+Sexpr{tab_inc$Full[8]} & 
+\backslash
+Sexpr{tab_inc$Male[8]} & 
+\backslash
+Sexpr{tab_inc$Female[8]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[9]} & 
+\backslash
+Sexpr{tab_inc$Raw[9]} & 
+\backslash
+Sexpr{tab_inc$Full[9]} & 
+\backslash
+Sexpr{tab_inc$Male[9]} & 
+\backslash
+Sexpr{tab_inc$Female[9]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[10]} & 
+\backslash
+Sexpr{tab_inc$Raw[10]} & 
+\backslash
+Sexpr{tab_inc$Full[10]} & 
+\backslash
+Sexpr{tab_inc$Male[10]} & 
+\backslash
+Sexpr{tab_inc$Female[10]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[11]} & 
+\backslash
+Sexpr{tab_inc$Raw[11]} & 
+\backslash
+Sexpr{tab_inc$Full[11]} & 
+\backslash
+Sexpr{tab_inc$Male[11]} & 
+\backslash
+Sexpr{tab_inc$Female[11]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[12]} & 
+\backslash
+Sexpr{tab_inc$Raw[12]} & 
+\backslash
+Sexpr{tab_inc$Full[12]} & 
+\backslash
+Sexpr{tab_inc$Male[12]} & 
+\backslash
+Sexpr{tab_inc$Female[12]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[13]} & 
+\backslash
+Sexpr{tab_inc$Raw[13]} & 
+\backslash
+Sexpr{tab_inc$Full[13]} & 
+\backslash
+Sexpr{tab_inc$Male[13]} & 
+\backslash
+Sexpr{tab_inc$Female[13]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[14]} & 
+\backslash
+Sexpr{tab_inc$Raw[14]} & 
+\backslash
+Sexpr{tab_inc$Full[14]} & 
+\backslash
+Sexpr{tab_inc$Male[14]} & 
+\backslash
+Sexpr{tab_inc$Female[14]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[15]} & 
+\backslash
+Sexpr{tab_inc$Raw[15]} & 
+\backslash
+Sexpr{tab_inc$Full[15]} & 
+\backslash
+Sexpr{tab_inc$Male[15]} & 
+\backslash
+Sexpr{tab_inc$Female[15]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[16]} & 
+\backslash
+Sexpr{tab_inc$Raw[16]} & 
+\backslash
+Sexpr{tab_inc$Full[16]} & 
+\backslash
+Sexpr{tab_inc$Male[16]} & 
+\backslash
+Sexpr{tab_inc$Female[16]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[17]} & 
+\backslash
+Sexpr{tab_inc$Raw[17]} & 
+\backslash
+Sexpr{tab_inc$Full[17]} & 
+\backslash
+Sexpr{tab_inc$Male[17]} & 
+\backslash
+Sexpr{tab_inc$Female[17]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[18]} & 
+\backslash
+Sexpr{tab_inc$Raw[18]} & 
+\backslash
+Sexpr{tab_inc$Full[18]} & 
+\backslash
+Sexpr{tab_inc$Male[18]} & 
+\backslash
+Sexpr{tab_inc$Female[18]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[19]} & 
+\backslash
+Sexpr{tab_inc$Raw[19]} & 
+\backslash
+Sexpr{tab_inc$Full[19]} & 
+\backslash
+Sexpr{tab_inc$Male[19]} & 
+\backslash
+Sexpr{tab_inc$Female[19]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[20]} & 
+\backslash
+Sexpr{tab_inc$Raw[20]} & 
+\backslash
+Sexpr{tab_inc$Full[20]} & 
+\backslash
+Sexpr{tab_inc$Male[20]} & 
+\backslash
+Sexpr{tab_inc$Female[20]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[21]} & 
+\backslash
+Sexpr{tab_inc$Raw[21]} & 
+\backslash
+Sexpr{tab_inc$Full[21]} & 
+\backslash
+Sexpr{tab_inc$Male[21]} & 
+\backslash
+Sexpr{tab_inc$Female[21]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[22]} & 
+\backslash
+Sexpr{tab_inc$Raw[22]} & 
+\backslash
+Sexpr{tab_inc$Full[22]} & 
+\backslash
+Sexpr{tab_inc$Male[22]} & 
+\backslash
+Sexpr{tab_inc$Female[22]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[23]} & 
+\backslash
+Sexpr{tab_inc$Raw[23]} & 
+\backslash
+Sexpr{tab_inc$Full[23]} & 
+\backslash
+Sexpr{tab_inc$Male[23]} & 
+\backslash
+Sexpr{tab_inc$Female[23]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[24]} & 
+\backslash
+Sexpr{tab_inc$Raw[24]} & 
+\backslash
+Sexpr{tab_inc$Full[24]} & 
+\backslash
+Sexpr{tab_inc$Male[24]} & 
+\backslash
+Sexpr{tab_inc$Female[24]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[25]} & 
+\backslash
+Sexpr{tab_inc$Raw[25]} & 
+\backslash
+Sexpr{tab_inc$Full[25]} & 
+\backslash
+Sexpr{tab_inc$Male[25]} & 
+\backslash
+Sexpr{tab_inc$Female[25]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[26]} & 
+\backslash
+Sexpr{tab_inc$Raw[26]} & 
+\backslash
+Sexpr{tab_inc$Full[26]} & 
+\backslash
+Sexpr{tab_inc$Male[26]} & 
+\backslash
+Sexpr{tab_inc$Female[26]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[27]} & 
+\backslash
+Sexpr{tab_inc$Raw[27]} & 
+\backslash
+Sexpr{tab_inc$Full[27]} & 
+\backslash
+Sexpr{tab_inc$Male[27]} & 
+\backslash
+Sexpr{tab_inc$Female[27]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[28]} & 
+\backslash
+Sexpr{tab_inc$Raw[28]} & 
+\backslash
+Sexpr{tab_inc$Full[28]} & 
+\backslash
+Sexpr{tab_inc$Male[28]} & 
+\backslash
+Sexpr{tab_inc$Female[28]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[29]} & 
+\backslash
+Sexpr{tab_inc$Raw[29]} & 
+\backslash
+Sexpr{tab_inc$Full[29]} & 
+\backslash
+Sexpr{tab_inc$Male[29]} & 
+\backslash
+Sexpr{tab_inc$Female[29]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[30]} & 
+\backslash
+Sexpr{tab_inc$Raw[30]} & 
+\backslash
+Sexpr{tab_inc$Full[30]} & 
+\backslash
+Sexpr{tab_inc$Male[30]} & 
+\backslash
+Sexpr{tab_inc$Female[30]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
 
 \backslash
 hline
-\backslash
-n")
 \end_layout
 
 \begin_layout Plain Layout
 
-\end_layout
-
-\begin_layout Plain Layout
-
-for (i in 1:nrow(tab_inc)) {
-\end_layout
-
-\begin_layout Plain Layout
-
-  cat(tab_inc$Label[i],
- " & ",
-\end_layout
-
-\begin_layout Plain Layout
-
-      tab_inc$Raw[i],
- " & ",
-\end_layout
-
-\begin_layout Plain Layout
-
-      tab_inc$Full[i],
- " & ",
-\end_layout
-
-\begin_layout Plain Layout
-
-      tab_inc$Male[i],
- " & ",
-\end_layout
-
-\begin_layout Plain Layout
-
-      tab_inc$Female[i],
- " 
-\backslash
-
-\backslash
-
-\backslash
-
-\backslash
-
-\backslash
-n")
-\end_layout
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-cat("
-\backslash
-
-\backslash
-hline
-\backslash
-n")
-\end_layout
-
-\begin_layout Plain Layout
-
-cat("
-\backslash
 
 \backslash
 end{tabular}
-\backslash
-n")
 \end_layout
 
 \begin_layout Plain Layout
 
-cat("
-\backslash
 
 \backslash
-vspace{0.2cm}
-\backslash
-n")
+end{center}
 \end_layout
 
 \begin_layout Plain Layout
 
-cat("
-\backslash
+\end_layout
+
+\begin_layout Plain Layout
+
 
 \backslash
-begin{minipage}{0.9
-\backslash
-
+begin{minipage}{0.95
 \backslash
 linewidth}
-\backslash
-n")
 \end_layout
 
 \begin_layout Plain Layout
 
-cat("
-\backslash
 
 \backslash
-footnotesize 
-\backslash
+footnotesize
+\end_layout
+
+\begin_layout Plain Layout
+
 
 \backslash
 textit{Note}:
  Robust standard errors (HC3) in parentheses.
- Asterisks ***,
- **,
- * denote significance at the 1
-\backslash
-
-\backslash
-%,
- 5
-\backslash
-
-\backslash
-%,
- and 10
-\backslash
-
-\backslash
-% levels,
- respectively.
-\backslash
-n")
+ 
 \end_layout
 
 \begin_layout Plain Layout
 
-cat("
-\backslash
+*** p<0.01,
+ ** p<0.05,
+ * p<0.10.
+\end_layout
+
+\begin_layout Plain Layout
+
 
 \backslash
 end{minipage}
-\backslash
-n")
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
 \end_layout
 
 \end_inset
@@ -3537,6 +5261,25 @@ Agricultural Systems
 ,
  217,
  Article 103954.
+\end_layout
+
+\begin_layout Itemize
+De La O Campos,
+ A.
+ P.,
+ Covarrubias,
+ K.
+ A.,
+ & Patron,
+ A.
+ P.
+ (2015).
+ How Does the Choice of the Gender Indicator Affect the Analysis of Gender Differences in Agricultural Productivity?
+ Evidence from Uganda.
+ World Development,
+ 77,
+ 17–33.
+ https://doi.org/10.1016/j.worlddev.2015.08.008 
 \end_layout
 
 \begin_layout Itemize

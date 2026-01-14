@@ -401,7 +401,7 @@ table(baseline_farmers$farmer_group_member)
 
 # DESCRIPTIVE TABLE + T-TEST (male vs female) + STARS (BASE)
 
-library(dplyr)  # opzionale, non usato sotto
+library(dplyr)  
 
 options(scipen = 999)
 
@@ -438,6 +438,7 @@ variables <- c(
 
 male_idx   <- baseline_farmers$hh_gender_num == 1
 female_idx <- baseline_farmers$hh_gender_num == 0
+diff_means <- rep(NA_real_, length(variables))
 
 df_descriptives_male   <- array(NA, dim = c(length(variables), 5))
 df_descriptives_female <- array(NA, dim = c(length(variables), 5))
@@ -447,6 +448,7 @@ for (i in seq_along(variables)) {
   
   v_m <- baseline_farmers[[variables[i]]][male_idx]
   v_f <- baseline_farmers[[variables[i]]][female_idx]
+  diff_means[i] <- mean(v_m, na.rm = TRUE) - mean(v_f, na.rm = TRUE)
   
   # MALE descriptives
   df_descriptives_male[i,1] <- mean(v_m, na.rm = TRUE)
@@ -477,9 +479,6 @@ df_descriptives_female <- as.data.frame(lapply(as.data.frame(df_descriptives_fem
 df_descriptives_male   <- as.data.frame(matrix(unlist(df_descriptives_male),   ncol = 5, byrow = FALSE))
 df_descriptives_female <- as.data.frame(matrix(unlist(df_descriptives_female), ncol = 5, byrow = FALSE))
 
-# Add numeric p-values
-df_descriptives_male$ttest_pvalue   <- round(ttest_pvalues, 4)
-df_descriptives_female$ttest_pvalue <- round(ttest_pvalues, 4)
 
 # Create stars and formatted string for LyX (e.g., "0.023**")
 ttest_stars <- ifelse(is.na(ttest_pvalues), "",
@@ -487,23 +486,35 @@ ttest_stars <- ifelse(is.na(ttest_pvalues), "",
                              ifelse(ttest_pvalues < 0.05, "**",
                                     ifelse(ttest_pvalues < 0.10, "*", ""))))
 
-ttest_p_fmt <- ifelse(
-  is.na(ttest_pvalues), "",
-  ifelse(
-    ttest_pvalues < 0.001,
-    paste0("<0.001", ttest_stars),
-    paste0(format(round(ttest_pvalues, 3), nsmall = 3), ttest_stars)
+diff_fmt <- ifelse(
+  is.na(diff_means) | is.na(ttest_pvalues),
+  "",
+  paste0(
+    format(round(diff_means, 2), nsmall = 2),
+    ttest_stars
   )
 )
 
 df_descriptives_male   <<- df_descriptives_male
 df_descriptives_female <<- df_descriptives_female
 ttest_pvalues          <<- ttest_pvalues
-ttest_p_fmt            <<- ttest_p_fmt
+diff_fmt <<- diff_fmt
+
 
 # Checks
 sapply(baseline_farmers[variables], class)
 colSums(is.na(baseline_farmers[, variables]))
+
+
+
+#SEED QUALITY INDEX
+
+#TIMING PRODUCTIVITY
+
+
+
+
+
 
 
 #Analysis OLS REGRESSIONS
@@ -695,6 +706,19 @@ m_full   <- lm(form_prod, data = baseline_farmers)
 m_male   <- lm(form_prod, data = baseline_farmers, subset = (hh_gender_num==1))
 m_female <- lm(form_prod, data = baseline_farmers, subset = (hh_gender_num==0))
 
+
+# N (Observations) coerenti col sample effettivo dei modelli
+N_prod_raw_fmt    <- format(stats::nobs(m_raw),    big.mark = ",")
+N_prod_full_fmt   <- format(stats::nobs(m_full),   big.mark = ",")
+N_prod_male_fmt   <- format(stats::nobs(m_male),   big.mark = ",")
+N_prod_female_fmt <- format(stats::nobs(m_female), big.mark = ",")
+
+N_prod_raw_fmt    <<- N_prod_raw_fmt
+N_prod_full_fmt   <<- N_prod_full_fmt
+N_prod_male_fmt   <<- N_prod_male_fmt
+N_prod_female_fmt <<- N_prod_female_fmt
+
+
 tab_prod <- data.frame(Label=character(), Raw=character(),
                        Full=character(), Male=character(),
                        Female=character(), stringsAsFactors=FALSE)
@@ -782,6 +806,18 @@ m_inc_full   <- lm4_semifull_fix
 m_inc_male   <- lm(formula(m_inc_full), data = baseline_farmers, subset = (hh_gender_num==1))
 m_inc_female <- lm(formula(m_inc_full), data = baseline_farmers, subset = (hh_gender_num==0))
 m_inc_raw    <- lm(maize_income_ihs ~ hh_gender_num, data = baseline_farmers)
+# --- N (Observations) 
+N_inc_raw_fmt    <- format(stats::nobs(m_inc_raw),    big.mark = ",")
+N_inc_full_fmt   <- format(stats::nobs(m_inc_full),   big.mark = ",")
+N_inc_male_fmt   <- format(stats::nobs(m_inc_male),   big.mark = ",")
+N_inc_female_fmt <- format(stats::nobs(m_inc_female), big.mark = ",")
+
+N_inc_raw_fmt    <<- N_inc_raw_fmt
+N_inc_full_fmt   <<- N_inc_full_fmt
+N_inc_male_fmt   <<- N_inc_male_fmt
+N_inc_female_fmt <<- N_inc_female_fmt
+
+
 
 # build table object: 2 rows per regressor (coef + se)
 tab_inc <- data.frame(
@@ -805,74 +841,109 @@ for (v in vars_inc) {
   )
 }
 
-#OAXACA BLINDER
+#OAXACA BLINDER #refErence==1(different from Jann 2008)
 
-install.packages("oaxaca")  
 library(oaxaca)
 
-#PRODUCTIVITY (IHS)
-x_base <- c(
-  "education_head_num",
-  "household_size",
-  "hh_age",
-  "maize_plot_area",
-  "plots_maize",
-  "quality_seed_used",
-  "dap_npk_applied",
-  "urea_applied",
-  "organic_manure_applied",
-  "chemicals_applied"
+
+group_var <- "hh_gender_num"
+
+# ---- Productivity ----
+y_prod <- "yield_per_acre_ihs"
+
+vars_OB_prod <- c(
+  "education_head_num"     = "Household-head finished primary education  (1 = Yes)",
+  "household_size"         = "Number of household members",
+  "hh_age"                 = "Age of household head in years",
+  "distance_agroshops"     = "Distance of homestead to nearest agro-input shop selling maize seed in km",
+  "num_shops"              = "Number of agro-input shops in the village or neighborhood",
+  "quality_seed_used"      = "The respondent used quality seeds (1 = Yes)",
+  "dap_npk_applied"        = "DAP/NPK applied in the randomly selected plot (1 = Yes)",
+  "urea_applied"           = "Urea applied in the randomly selected plot (1 = Yes)",
+  "organic_manure_applied" = "Organic manure applied in the randomly selected plot (1 = Yes)",
+  "maize_plot_area"        = "Available land for crop production in acres",
+  "chemicals_applied"      = "Pesticides, herbicides or fungicides applied in the randomly selected plot (1 = Yes)",
+  "weed_times"             = "Number of weeding times in the randomly selected plot",
+  "resow"                  = "Resowing in the randomly selected plot (1 = Yes)",
+  "farmer_group_member"    = "The respondent is part of a farmer group or cooperative (1 = Yes)"
 )
 
-df_base <- baseline_farmers[
-  complete.cases(baseline_farmers[, c("yield_per_acre_ihs", "hh_gender_num", x_base)]),
-] # for what? The decomposition is performed on a balanced sample (NAs false)
+x_prod <- setdiff(names(vars_OB_prod), group_var)
 
+df_prod <- baseline_farmers[complete.cases(baseline_farmers[, c(y_prod, group_var, x_prod)]),]
 
-oax_prod_base <- oaxaca(
-  formula = as.formula(paste("yield_per_acre_ihs ~", paste(x_base, collapse = " + "), "| hh_gender_num")),
-  data = df_base,
-  R = 500,
-  group.weights = 1,
-  reference = 1
+oax_prod <- oaxaca(
+  formula = as.formula(
+    paste(y_prod, "~", paste(x_prod, collapse = " + "), "|", group_var)
+  ),
+  data = df_prod,
+  R = 500
 )
 
-summary(oax_prod_base)
+extract_oaxaca_aggregate <- function(oax){
+  ov <- oax$twofold$overall
+  explained   <- ov[1, "coef(explained)"]
+  unexplained <- ov[1, "coef(unexplained)"]
+  total_gap   <- explained + unexplained
+  
+  data.frame(
+    N = oax$n$n.pooled,
+    Total_gap = total_gap,
+    Explained = explained,
+    Unexplained = unexplained,
+    Explained_share = explained / total_gap,
+    Unexplained_share = unexplained / total_gap
+  )
+}
+
+prod_sum <- extract_oaxaca_aggregate(oax_prod)
 
 
-#INCOME (IHS)
-# Baseline covariates 
-x_income <- c(
-  "education_head_num",
-  "household_size",
-  "hh_age",
-  "maize_plot_area",
-  "plots_maize",
-  "quality_seed_used",
-  "dap_npk_applied",
-  "urea_applied",
-  "organic_manure_applied",
-  "chemicals_applied"
+baseline_farmers$log_maize_plot_area <- log1p(baseline_farmers$maize_plot_area)
+
+vars_OB_inc <- c(
+  "log_maize_plot_area"      = "Area of the randomly selected plot in acres (log)",
+  "education_head_num"       = "Household-head finished primary education  (1 = Yes)",
+  "household_size"           = "Number of household members",
+  "hh_age"                   = "Age of household head in years",
+  "quality_seed_used"        = "The respondent used quality seeds (1 = Yes)",
+  "dap_npk_applied"          = "DAP/NPK applied in the randomly selected plot (1 = Yes)",
+  "urea_applied"             = "Urea applied in the randomly selected plot (1 = Yes)",
+  "chemicals_applied"        = "Pesticides, herbicides or fungicides applied in the randomly selected plot (1 = Yes)",
+  "organic_manure_applied"   = "Organic manure applied in the randomly selected plot (1 = Yes)",
+  "num_shops"                = "Number of agro-input shops in the village or neighborhood",
+  "distance_agroshops"       = "Distance of homestead to nearest agro-input shop selling maize seed in km",
+  "weed_times"               = "Number of weeding times in the randomly selected plot",
+  "resow"                    = "Resowing in the randomly selected plot (1 = Yes)",
+  "farmer_group_member"      = "The respondent is part of a farmer group or cooperative (1 = Yes)"
 )
 
-# Balanced sample
-df_income <- baseline_farmers[
-  complete.cases(baseline_farmers[, c("maize_income_ihs", "hh_gender_num", x_income)]),
+y_inc <- "maize_income_ihs"
+x_inc <- setdiff(names(vars_OB_inc), group_var)
+
+df_inc <- baseline_farmers[
+  complete.cases(baseline_farmers[, c(y_inc, group_var, x_inc)]),
 ]
 
-# Oaxaca-Blinder decomposition
-oax_income_base <- oaxaca(
-  formula = as.formula(
-    paste("maize_income_ihs ~", paste(x_income, collapse = " + "), "| hh_gender_num")
-  ),
-  data = df_income,
-  R = 500,
-  group.weights = 1,
-  reference = 1
+oax_inc <- oaxaca(
+  formula = as.formula(paste(y_inc, "~", paste(x_inc, collapse = " + "), "|", group_var)), data = df_inc, R = 500)
+oax_inc
+
+inc_sum <- extract_oaxaca_aggregate(oax_inc)
+
+summary_table_clean <- rbind(
+  cbind(Outcome = "Maize Productivity in kg/acres (IHS)", prod_sum),
+  cbind(Outcome = "Maize Income  in thousand UGX (IHS)", inc_sum)
 )
 
-summary(oax_income_base)
-library(car)
+fmt3 <- function(x) format(round(x, 3), nsmall = 3, trim = TRUE)
+tab_oax <- summary_table_clean
+tab_oax$N <- as.integer(tab_oax$N)
+tab_oax$Total_gap <- fmt3(tab_oax$Total_gap)
+tab_oax$Explained <- fmt3(tab_oax$Explained)
+tab_oax$Unexplained <- fmt3(tab_oax$Unexplained)
+tab_oax$Explained_share <- fmt3(tab_oax$Explained_share)
+tab_oax$Unexplained_share <- fmt3(tab_oax$Unexplained_share)
 
 
-
+with(df_prod, tapply(yield_per_acre_ihs, hh_gender_num, mean))

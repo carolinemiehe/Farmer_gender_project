@@ -100,7 +100,9 @@ Gender gap in Maize Productivity and Income:
 \end_layout
 
 \begin_layout Author
-Caroline Miehe and Anusha De
+Emma Prati,
+ Caroline Miehe,
+ Anusha De
 \end_layout
 
 \begin_layout Abstract
@@ -3568,6 +3570,19 @@ Gender gaps in maize productivity and income are first estimated using an ordina
  The baseline specification relates to a simple yield function (Udry,
  1996)(Kilik) in the form:
  
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset Formula 
+\begin{equation}
+Y_{ht}=\alpha+\beta G_{h}+\gamma'X_{ij}+\delta Y_{0ij}+\varepsilon_{ij}\label{eq:one-1}
+\end{equation}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard

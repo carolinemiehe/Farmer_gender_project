@@ -3865,7 +3865,7 @@ Taken together,
 placement H
 alignment left
 wide false
-sideways false
+sideways true
 status collapsed
 
 \begin_layout Plain Layout
@@ -4668,7 +4668,7 @@ end{minipage}
 placement H
 alignment left
 wide false
-sideways false
+sideways true
 status collapsed
 
 \begin_layout Plain Layout

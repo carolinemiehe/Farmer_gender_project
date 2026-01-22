@@ -1,8 +1,14 @@
 rm(list=ls())
 path <- getwd()
 path
+getwd()
+list.files()
+
 library(readr)
-baseline_farmers <- read.csv(paste(path,"/../../data/baseline/farmer/baseline_farmers.csv",sep="/"), stringsAsFactors=TRUE)
+baseline_farmers <- read.csv(paste(path,"/../../data/baseline/farmer/baseline_farmers.csv",sep="/"), stringsAsFactors=FALSE)
+midline_farmers <- read.csv(file.path(getwd(), "../../data/midline/farmer/midline.csv"),stringsAsFactors = FALSE)
+endline_farmers <- read.csv(file.path(getwd(), "../../data/endline/farmer/endline.csv"),stringsAsFactors = FALSE)
+
 
 library(dplyr)
 library(knitr)
@@ -10,6 +16,99 @@ library(knitr)
 trim <- function(var,dataset,trim_perc=.025){
   dataset[var][dataset[var]<quantile(dataset[var],c(trim_perc/2,1-(trim_perc/2)),na.rm=T)[1]|dataset[var]>quantile(dataset[var],c(trim_perc/2,1-(trim_perc/2)),na.rm=T)[2]] <- NA
   return(dataset)}
+
+
+#STUCK DATASET
+baseline_farmers$round <- "baseline"
+midline_farmers$round  <- "midline"
+endline_farmers$round  <- "endline"
+
+farmers_long <- bind_rows(baseline_farmers, midline_farmers, endline_farmers)
+table(farmers_long$round)
+
+
+"farmer_ID" %in% names(farmers_long)
+#Unic ID
+tapply(farmers_long$farmer_ID, farmers_long$round, function(x) length(unique(x)))
+
+# ID in more rounds
+id_counts <- table(farmers_long$farmer_ID)
+table(id_counts)
+
+#GENDER
+baseline_farmers$farmer_ID <- as.character(baseline_farmers$farmer_ID)
+endline_farmers$farmer_ID  <- as.character(endline_farmers$farmer_ID)
+
+
+baseline_farmers$hh_gender_num <- baseline_farmers[["Check2.check.maize.q15"]]
+table(baseline_farmers$hh_gender_num)
+
+baseline_farmers$hh_gender_num <- as.character(baseline_farmers$hh_gender_num)
+baseline_farmers$hh_gender_num[baseline_farmers$hh_gender_num %in% c("999", "n/a", "NA", "", " ")
+] <- NA
+baseline_farmers$hh_gender_num <- ifelse(
+  baseline_farmers$hh_gender_num == "Male", 1,
+  ifelse(baseline_farmers$hh_gender_num == "Female", 0, NA)
+)
+table(baseline_farmers$hh_gender_num )
+
+
+x <- endline_farmers[["check.maize.q5b"]]
+x <- trimws(tolower(as.character(x)))
+endline_farmers$hh_gender_num <- ifelse(x == "male", 1,ifelse(x == "female", 0, NA))
+
+#checks
+cat("\nBaseline hh_gender_num:\n")
+print(table(baseline_farmers$hh_gender_num, useNA = "ifany"))
+
+cat("\nEndline hh_gender_num:\n")
+print(table(endline_farmers$hh_gender_num, useNA = "ifany"))
+
+
+
+#confront bl vs el
+gender_bl <- baseline_farmers[, c("farmer_ID", "hh_gender_num")]
+gender_el <- endline_farmers[,  c("farmer_ID", "hh_gender_num")]
+
+gender_check <- merge(gender_bl, gender_el,
+                      by = "farmer_ID",
+                      suffixes = c("_bl", "_el"))
+
+table(gender_check$hh_gender_num_bl == gender_check$hh_gender_num_el,
+      useNA = "ifany")
+
+#creation of gender_master
+gender_master <- gender_check
+gender_master$hh_gender_num <- gender_master$hh_gender_num_bl
+
+gender_master$gender_inconsistent <- ifelse(
+  !is.na(gender_master$hh_gender_num_bl) &
+    !is.na(gender_master$hh_gender_num_el) &
+    gender_master$hh_gender_num_bl != gender_master$hh_gender_num_el,
+  1, 0
+)
+
+gender_master <- gender_master[, c("farmer_ID", "hh_gender_num", "gender_inconsistent")]
+
+table(gender_master$gender_inconsistent, useNA = "ifany")
+#0=2786  1=655 this means that for 655 farmers gender BL different from gender EL, for 2786 the gender is the same
+
+#stuck
+farmers_long$farmer_ID <- as.character(farmers_long$farmer_ID)
+gender_master$farmer_ID <- as.character(gender_master$farmer_ID)
+
+farmers_long <- merge(farmers_long, gender_master,
+                      by = "farmer_ID",
+                      all.x = TRUE)
+table(farmers_long$round, is.na(farmers_long$hh_gender_num))
+
+# I stacked (appended) the farmer-level baseline, midline, and endline datasets into a long/panel dataset called `farmers_long`,
+# where each row corresponds to a farmer_ID observed in a given survey round (baseline, midline, or endline).
+
+# Household-head gender is treated as a time-invariant characteristic measured at baseline (`hh_gender_num`);
+# a flag `gender_inconsistent` identifies farmers whose reported gender differs between baseline and endline, for robustness checks.
+
+
 
 #Asset ownership - Q10, Q11, Q
 
@@ -225,16 +324,7 @@ summary(baseline_farmers$hh_age)
 
 
 #Q15(Gender of household head)
-baseline_farmers$Check2.check.maize.q15 <- as.character(baseline_farmers$Check2.check.maize.q15)
-baseline_farmers$Check2.check.maize.q15[baseline_farmers$Check2.check.maize.q15 %in% c("999", "n/a", "NA", "", " ")
-] <- NA
 
-baseline_farmers$hh_gender_num <- ifelse(
-  baseline_farmers$Check2.check.maize.q15 == "Male", 1,
-  ifelse(baseline_farmers$Check2.check.maize.q15 == "Female", 0, NA)
-)
-
-table(baseline_farmers$hh_gender_num, useNA = "ifany")
 
 
 #Q16 (status)
@@ -277,14 +367,15 @@ baseline_farmers$bag_price <- as.numeric(as.character(baseline_farmers$bag_price
 summary(baseline_farmers$bag_price)
 baseline_farmers$bag_price <- baseline_farmers$bag_price / 1000
 table(baseline_farmers$bag_price, useNA = "ifany")
-#put 0 for the ones that did not sell anything
-baseline_farmers <- baseline_farmers %>%
-  mutate(
-    bags_sold = ifelse(maize_sold == 0 & is.na(bags_sold), 0, bags_sold),
-    bag_price = ifelse(maize_sold == 0 & is.na(bag_price), 0, bag_price),
-    maize_income = ifelse(is.na(bags_sold) | is.na(bag_price),
-                          0, bags_sold * bag_price)
-  )
+
+
+# maize income: set to 0 only for confirmed non-sellers; keep NA if sold==1 but missing bags/price
+baseline_farmers$maize_income <- NA_real_
+baseline_farmers$maize_income[baseline_farmers$maize_sold == 0] <- 0
+baseline_farmers$maize_income[baseline_farmers$maize_sold == 1] <-
+  baseline_farmers$bags_sold[baseline_farmers$maize_sold == 1] *
+  baseline_farmers$bag_price[baseline_farmers$maize_sold == 1]
+
 
 
 
@@ -399,6 +490,74 @@ baseline_farmers$farmer_group_member <- ifelse(baseline_farmers$farmer_group_mem
 table(baseline_farmers$farmer_group_member)
 
 
+# =========================================================
+# PREPARING MIDLINE & ENDLINE (COMMON VARIABLES ONLY)
+# =========================================================
+
+clean_yesno01 <- function(x){
+  x <- tolower(trimws(as.character(x)))
+  x[x %in% c("999","99","98","n/a","na","", " ")] <- NA
+  ifelse(x %in% c("yes","y","1","true"), 1,
+         ifelse(x %in% c("no","n","0","false"), 0, NA))
+}
+
+clean_num <- function(x){
+  x <- trimws(as.character(x))
+  x[x %in% c("999","99","98","n/a","na","", " ")] <- NA
+  as.numeric(x)
+}
+
+ihs <- function(x) log(x + sqrt(x^2 + 1))
+
+clean_wave_common <- function(df){
+  
+  stopifnot(is.data.frame(df))  # safety check
+  
+  # --- practices / plot controls (common)
+  df$r_maize_plot_area      <- clean_num(df[["check.maize.q29"]])
+  df$quality_seed_used      <- clean_yesno01(df[["check.maize.q25a"]])
+  df$organic_manure_applied <- clean_yesno01(df[["check.maize.q42"]])
+  df$dap_npk_applied        <- clean_yesno01(df[["check.maize.q43"]])
+  df$urea_applied           <- clean_yesno01(df[["check.maize.q44"]])
+  df$chemicals_applied      <- clean_yesno01(df[["check.maize.q47"]])
+  df$weed_times             <- clean_num(df[["check.maize.q45"]])
+  df$resow                  <- clean_yesno01(df[["check.maize.q49"]])
+  
+  # --- outcomes (common)
+  # Yield: q50 (bags harvested) * q51 (kg per bag)
+  df$q50_bags_harvested <- clean_num(df[["check.maize.q50"]])
+  df$q51_kg_per_bag     <- clean_num(df[["check.maize.q51"]])
+  df$yield_inkg         <- df$q50_bags_harvested * df$q51_kg_per_bag
+  
+  # Productivity
+  df$yield_per_acre <- df$yield_inkg / df$r_maize_plot_area
+  df$yield_per_acre[df$yield_per_acre < 0 | is.infinite(df$yield_per_acre)] <- NA
+  df$yield_per_acre_ihs <- ihs(df$yield_per_acre)
+  
+  # Sales participation (q53), quantity (q54), and price (q55)
+  df$maize_sold <- clean_yesno01(df[["check.maize.q53"]])
+  df$bags_sold  <- clean_num(df[["check.maize.q54"]])
+  df$bag_price  <- clean_num(df[["check.maize.q55"]]) / 1000  # keep consistent with baseline if you used /1000
+  
+  # Maize income: 0 only for confirmed non-sellers; NA stays NA if sold==1 but missing bags/price
+  df$maize_income <- NA_real_
+  idx0 <- which(df$maize_sold == 0)
+  idx1 <- which(df$maize_sold == 1)
+  df$maize_income[idx0] <- 0
+  df$maize_income[idx1] <- df$bags_sold[idx1] * df$bag_price[idx1]
+  
+  df$maize_income_ihs <- ihs(df$maize_income)
+  
+  return(df)
+}
+
+# Apply cleaning to each wave
+midline_farmers <- clean_wave_common(midline_farmers)
+endline_farmers <- clean_wave_common(endline_farmers)
+
+
+
+
 # DESCRIPTIVE TABLE + T-TEST (male vs female) + STARS (BASE)
 
 library(dplyr)  
@@ -476,8 +635,11 @@ df_descriptives_male   <- as.data.frame(lapply(as.data.frame(df_descriptives_mal
 df_descriptives_female <- as.data.frame(lapply(as.data.frame(df_descriptives_female), function(x) round(x, 3)))
 
 # Robustness to read (same as your approach)
-df_descriptives_male   <- as.data.frame(matrix(unlist(df_descriptives_male),   ncol = 5, byrow = FALSE))
-df_descriptives_female <- as.data.frame(matrix(unlist(df_descriptives_female), ncol = 5, byrow = FALSE))
+df_descriptives_male   <- as.data.frame(df_descriptives_male)
+df_descriptives_female <- as.data.frame(df_descriptives_female)
+
+df_descriptives_male[]   <- lapply(df_descriptives_male,   function(x) round(as.numeric(x), 3))
+df_descriptives_female[] <- lapply(df_descriptives_female, function(x) round(as.numeric(x), 3))
 
 
 # Create stars and formatted string for LyX (e.g., "0.023**")
@@ -495,6 +657,10 @@ diff_fmt <- ifelse(
   )
 )
 
+#t-test for dummy variables could be diffuicult whn coming to interpretation
+
+
+
 df_descriptives_male   <<- df_descriptives_male
 df_descriptives_female <<- df_descriptives_female
 ttest_pvalues          <<- ttest_pvalues
@@ -507,13 +673,101 @@ colSums(is.na(baseline_farmers[, variables]))
 
 
 
-#SEED QUALITY INDEX
+# =========================================================
+# Mini descriptives for panel sample (round x gender) for LyX
+# Outputs:
+#   - farmers_long
+#   - df_pooled_desc_g
+#   - fmt_cell_g() to be called from \Sexpr in LyX
+# =========================================================
 
-#TIMING PRODUCTIVITY
+library(dplyr)
 
+# ---- 0) Build pooled long dataset from cleaned waves
+baseline_farmers$round <- "baseline"
+midline_farmers$round  <- "midline"
+endline_farmers$round  <- "endline"
 
+farmers_long <- bind_rows(baseline_farmers, midline_farmers, endline_farmers)
 
+# ---- 1) Merge baseline-based gender to all rounds (idempotent + fixes .x/.y)
+farmers_long$farmer_ID   <- as.character(farmers_long$farmer_ID)
+gender_master$farmer_ID  <- as.character(gender_master$farmer_ID)
 
+farmers_long <- merge(
+  farmers_long,
+  gender_master[, c("farmer_ID", "hh_gender_num")],
+  by = "farmer_ID",
+  all.x = TRUE
+)
+
+# Consolidate if merge created hh_gender_num.x / hh_gender_num.y
+if ("hh_gender_num.x" %in% names(farmers_long) && "hh_gender_num.y" %in% names(farmers_long)) {
+  farmers_long$hh_gender_num <- ifelse(
+    is.na(farmers_long$hh_gender_num.x),
+    farmers_long$hh_gender_num.y,
+    farmers_long$hh_gender_num.x
+  )
+  farmers_long$hh_gender_num.x <- NULL
+  farmers_long$hh_gender_num.y <- NULL
+}
+
+# Gender label (safe)
+farmers_long$hh_gender <- NA_character_
+farmers_long$hh_gender[farmers_long$hh_gender_num == 1] <- "Male"
+farmers_long$hh_gender[farmers_long$hh_gender_num == 0] <- "Female"
+
+# ---- 2) Variables to report (panel/common + outcomes)
+vars_pool <- c(
+  "yield_per_acre_ihs",
+  "maize_income_ihs",
+  "r_maize_plot_area",
+  "quality_seed_used",
+  "dap_npk_applied",
+  "urea_applied",
+  "organic_manure_applied",
+  "chemicals_applied",
+  "weed_times",
+  "resow",
+  "maize_sold"
+)
+vars_pool <- intersect(vars_pool, names(farmers_long))
+
+# ---- 3) Long summary table: (variable, round, gender) -> mean, sd, N
+df_pooled_desc_g <- data.frame()
+
+for (v in vars_pool) {
+  tmp <- farmers_long %>%
+    filter(!is.na(hh_gender)) %>%
+    group_by(round, hh_gender) %>%
+    summarise(
+      mean = mean(.data[[v]], na.rm = TRUE),
+      sd   = sd(.data[[v]],   na.rm = TRUE),
+      N    = sum(!is.na(.data[[v]])),
+      .groups = "drop"
+    ) %>%
+    mutate(variable = v) %>%
+    select(variable, round, hh_gender, mean, sd, N)
+  
+  df_pooled_desc_g <- bind_rows(df_pooled_desc_g, tmp)
+}
+
+# Format for LyX
+df_pooled_desc_g$mean <- round(df_pooled_desc_g$mean, 3)
+df_pooled_desc_g$sd   <- round(df_pooled_desc_g$sd,   3)
+
+# ---- 4) Helper for LyX \Sexpr
+fmt_cell_g <- function(var, rnd, g){
+  x <- subset(df_pooled_desc_g, variable == var & round == rnd & hh_gender == g)
+  if (nrow(x) == 0) return("--")
+  paste0(format(x$mean, nsmall = 3),
+         " (", format(x$sd, nsmall = 3), ") [", x$N, "]")
+}
+
+# Export for LyX
+farmers_long       <<- farmers_long
+df_pooled_desc_g   <<- df_pooled_desc_g
+fmt_cell_g         <<- fmt_cell_g
 
 
 
@@ -554,7 +808,7 @@ lm2_semifull_fix <- lm(yield_per_acre_ihs ~
     hh_gender_num + education_head_num + household_size +
     hh_age +
     distance_agroshops + num_shops +
-    quality_seed_used + dap_npk_applied + 
+    quality_seed_used +  dap_npk_applied + 
     urea_applied +
     organic_manure_applied  + maize_plot_area +
     chemicals_applied + weed_times + resow + farmer_group_member,
@@ -592,10 +846,10 @@ summary(lm4)
 lm4_semifull_fix <- lm(maize_income_ihs ~ 
                          hh_gender_num +
                          log1p(r_maize_plot_area) +
-                         education_head_num  + household_size + hh_age + quality_seed_used + 
+                         education_head_num  + household_size + hh_age + quality_seed_used +
                          dap_npk_applied + urea_applied + chemicals_applied + 
                          organic_manure_applied + num_shops + distance_agroshops+ maize_plot_area+
-                         weed_times + resow + farmer_group_member,
+                         weed_times + resow + farmer_group_member +yield_per_acre,
                        data = baseline_farmers)
 summary(lm4_semifull_fix)
 resettest(lm4_semifull_fix) 
@@ -621,9 +875,16 @@ coeftest(lm2_semifull_fix, vcov = vcovHC(lm2_semifull_fix, type = "HC3")) #white
 coeftest(lm4_semifull_fix, vcov = vcovHC(lm4_semifull_fix, type = "HC3"))
 
 
-#Time invariant fixed effect (village or district level)
-names(baseline_farmers)
-summary(baseline_farmers$catchID)
+#intersection between the 3 dataset to see the common variables
+common_vars <- Reduce(intersect, list(
+  names(baseline_farmers),
+  names(midline_farmers),
+  names(endline_farmers)
+))
+
+length(common_vars)
+head(sort(common_vars), 30)
+
 
 #table OLS 
 
@@ -775,9 +1036,9 @@ cell_coef_se <- function(model, term){
 # regressors 
 vars_inc <- c(
   "hh_gender_num","log1p(r_maize_plot_area)","education_head_num","household_size","hh_age",
-  "quality_seed_used","dap_npk_applied","urea_applied","chemicals_applied",
+  "quality_seed_used", "dap_npk_applied","urea_applied","chemicals_applied",
   "organic_manure_applied","num_shops","distance_agroshops","weed_times",
-  "resow","farmer_group_member"
+  "resow","farmer_group_member", "yield_per_acre"
 )
 
 # labels 
@@ -796,7 +1057,8 @@ lab_inc <- c(
   "distance_agroshops"       = "Distance of homestead to nearest agro-input shop selling maize seed in km",
   "weed_times"               = "Number of weeding times in the randomly selected plot",
   "resow"                    = "Resowing in the randomly selected plot (1 = Yes)",
-  "farmer_group_member"      = "The respondent is part of a farmer group or cooperative (1 = Yes)"
+  "farmer_group_member"      = "The respondent is part of a farmer group or cooperative (1 = Yes)",
+  "yield_per_acre"           = "Yield per acre"
 )
 
 
@@ -841,18 +1103,136 @@ for (v in vars_inc) {
   )
 }
 
-#OAXACA BLINDER #refErence==1(different from Jann 2008)
+#OAXACA BLINDER #no refErence( Jann 2008)
 
-library(oaxaca)
+# --- Packages ---
+# (oaxaca non è necessario per questa versione simmetrica;
+#  usiamo lm + bootstrap per essere 100% in controllo)
+# =========================
 
+# ============================================
+# THREEFOLD OAXACA (POOLED / NO REFERENCE) + DETAILED + STARS (AGG + DET)
+# OUTPUT objects for LyX:
+#   - tab_agg_kilic_star      (4 rows, aggregate Kilic style, stars on coef rows)
+#   - tab_det_prod_star       (all vars, stars)
+#   - tab_det_inc_star        (all vars, stars)
+# ============================================
 
-group_var <- "hh_gender_num"
+# ---------- SETTINGS ----------
+group_var   <- "hh_gender_num"
+male_value  <- 1
+female_value <- 0
 
-# ---- Productivity ----
 y_prod <- "yield_per_acre_ihs"
+y_inc  <- "maize_income_ihs"
+
+# income: log plot area
+baseline_farmers$log_maize_plot_area <- log1p(baseline_farmers$maize_plot_area)
+
+# ---------- FORMATTERS ----------
+fmt3_safe <- function(x) {
+  x <- suppressWarnings(as.numeric(x))
+  ifelse(is.na(x), "", format(round(x, 3), nsmall = 3, trim = TRUE))
+}
+
+latex_escape <- function(x) {
+  gsub("([%#$&_{}])", "\\\\\\1", x)
+}
+
+pstars <- function(p) {
+  ifelse(is.na(p), "",
+         ifelse(p < 0.01, "***",
+                ifelse(p < 0.05, "**",
+                       ifelse(p < 0.10, "*", ""))))
+}
+
+stars_from_est_se <- function(est, se) {
+  est <- suppressWarnings(as.numeric(est))
+  se  <- suppressWarnings(as.numeric(se))
+  z <- est / se
+  p <- 2 * pnorm(-abs(z))
+  paste0(fmt3_safe(est), pstars(p))
+}
+
+# ---------- HELPERS ----------
+.get_rhs <- function(x_vars) paste(x_vars, collapse = " + ")
+
+.get_Xbar <- function(df, rhs) {
+  X <- model.matrix(as.formula(paste("~", rhs)), data = df)
+  colMeans(X)
+}
+
+.fit_beta <- function(df, y, rhs) {
+  coef(lm(as.formula(paste(y, "~", rhs)), data = df))
+}
+
+.align_named <- function(x, all_names) {
+  out <- setNames(rep(0, length(all_names)), all_names)
+  out[names(x)] <- x
+  out
+}
+
+# ---------- CORE: threefold pooled returning detailed ----------
+threefold_pooled_detailed <- function(df, y, group_var, x_vars, male_value, female_value) {
+  
+  keep <- complete.cases(df[, c(y, group_var, x_vars)])
+  d <- df[keep, , drop = FALSE]
+  
+  dm   <- d[d[[group_var]] == male_value, , drop = FALSE]
+  dfem <- d[d[[group_var]] == female_value, , drop = FALSE]
+  
+  rhs <- .get_rhs(x_vars)
+  
+  Xbar_m <- .get_Xbar(dm, rhs)
+  Xbar_f <- .get_Xbar(dfem, rhs)
+  
+  beta_m <- .fit_beta(dm, y, rhs)
+  beta_f <- .fit_beta(dfem, y, rhs)
+  beta_p <- .fit_beta(d,  y, rhs)   # pooled
+  
+  all_names <- union(names(beta_p), union(names(beta_m), names(beta_f)))
+  beta_m <- .align_named(beta_m, all_names)
+  beta_f <- .align_named(beta_f, all_names)
+  beta_p <- .align_named(beta_p, all_names)
+  Xbar_m <- Xbar_m[all_names]
+  Xbar_f <- Xbar_f[all_names]
+  
+  Endow_k <- (Xbar_m - Xbar_f) * beta_p
+  Male_k  <- Xbar_m * (beta_m - beta_p)
+  Fem_k   <- Xbar_f * (beta_p - beta_f)
+  
+  Endow <- sum(Endow_k)
+  Male  <- sum(Male_k)
+  Fem   <- sum(Fem_k)
+  Total <- Endow + Male + Fem
+  
+  share <- function(a, tot) if (abs(tot) < 1e-12) NA_real_ else a / tot
+  
+  list(
+    N = nrow(d),
+    Total_gap = Total,
+    Endowment = Endow,
+    Male_adv  = Male,
+    Female_dis = Fem,
+    Share_Endow = share(Endow, Total),
+    Share_Male  = share(Male, Total),
+    Share_Fem   = share(Fem, Total),
+    detailed = data.frame(
+      term = all_names,
+      Endowment  = Endow_k,
+      Male_adv   = Male_k,
+      Female_dis = Fem_k,
+      stringsAsFactors = FALSE
+    )
+  )
+}
+
+# ============================================
+# VARIABLES (define once)
+# ============================================
 
 vars_OB_prod <- c(
-  "education_head_num"     = "Household-head finished primary education  (1 = Yes)",
+  "education_head_num"     = "Household-head finished primary education (1 = Yes)",
   "household_size"         = "Number of household members",
   "hh_age"                 = "Age of household head in years",
   "distance_agroshops"     = "Distance of homestead to nearest agro-input shop selling maize seed in km",
@@ -868,42 +1248,9 @@ vars_OB_prod <- c(
   "farmer_group_member"    = "The respondent is part of a farmer group or cooperative (1 = Yes)"
 )
 
-x_prod <- setdiff(names(vars_OB_prod), group_var)
-
-df_prod <- baseline_farmers[complete.cases(baseline_farmers[, c(y_prod, group_var, x_prod)]),]
-
-oax_prod <- oaxaca(
-  formula = as.formula(
-    paste(y_prod, "~", paste(x_prod, collapse = " + "), "|", group_var)
-  ),
-  data = df_prod,
-  R = 500
-)
-
-extract_oaxaca_aggregate <- function(oax){
-  ov <- oax$twofold$overall
-  explained   <- ov[1, "coef(explained)"]
-  unexplained <- ov[1, "coef(unexplained)"]
-  total_gap   <- explained + unexplained
-  
-  data.frame(
-    N = oax$n$n.pooled,
-    Total_gap = total_gap,
-    Explained = explained,
-    Unexplained = unexplained,
-    Explained_share = explained / total_gap,
-    Unexplained_share = unexplained / total_gap
-  )
-}
-
-prod_sum <- extract_oaxaca_aggregate(oax_prod)
-
-
-baseline_farmers$log_maize_plot_area <- log1p(baseline_farmers$maize_plot_area)
-
 vars_OB_inc <- c(
   "log_maize_plot_area"      = "Area of the randomly selected plot in acres (log)",
-  "education_head_num"       = "Household-head finished primary education  (1 = Yes)",
+  "education_head_num"       = "Household-head finished primary education (1 = Yes)",
   "household_size"           = "Number of household members",
   "hh_age"                   = "Age of household head in years",
   "quality_seed_used"        = "The respondent used quality seeds (1 = Yes)",
@@ -915,35 +1262,134 @@ vars_OB_inc <- c(
   "distance_agroshops"       = "Distance of homestead to nearest agro-input shop selling maize seed in km",
   "weed_times"               = "Number of weeding times in the randomly selected plot",
   "resow"                    = "Resowing in the randomly selected plot (1 = Yes)",
-  "farmer_group_member"      = "The respondent is part of a farmer group or cooperative (1 = Yes)"
+  "farmer_group_member"      = "The respondent is part of a farmer group or cooperative (1 = Yes)",
+  "yield_per_acre"           = "Yield per acre"
 )
 
-y_inc <- "maize_income_ihs"
-x_inc <- setdiff(names(vars_OB_inc), group_var)
+# ============================================
+# RUN point estimates
+# ============================================
+x_prod <- names(vars_OB_prod)
+x_inc  <- names(vars_OB_inc)
 
-df_inc <- baseline_farmers[
-  complete.cases(baseline_farmers[, c(y_inc, group_var, x_inc)]),
-]
+res_prod <- threefold_pooled_detailed(baseline_farmers, y_prod, group_var, x_prod, male_value, female_value)
+res_inc  <- threefold_pooled_detailed(baseline_farmers, y_inc,  group_var, x_inc,  male_value, female_value)
 
-oax_inc <- oaxaca(
-  formula = as.formula(paste(y_inc, "~", paste(x_inc, collapse = " + "), "|", group_var)), data = df_inc, R = 500)
-oax_inc
+# ============================================
+# BOOTSTRAP SE: aggregate + detailed
+# ============================================
+bootstrap_se_all <- function(df, y, group_var, x_vars, male_value, female_value, R = 300, seed = 123) {
+  set.seed(seed)
+  
+  keep <- complete.cases(df[, c(y, group_var, x_vars)])
+  d <- df[keep, , drop = FALSE]
+  
+  dm   <- d[d[[group_var]] == male_value, , drop = FALSE]
+  dfem <- d[d[[group_var]] == female_value, , drop = FALSE]
+  
+  nm <- nrow(dm); nf <- nrow(dfem)
+  
+  base <- threefold_pooled_detailed(d, y, group_var, x_vars, male_value, female_value)
+  terms <- base$detailed$term
+  
+  agg_draws <- matrix(NA_real_, nrow = R, ncol = 3)
+  colnames(agg_draws) <- c("Endowment","Male_adv","Female_dis")
+  
+  detE <- matrix(NA_real_, nrow = R, ncol = length(terms), dimnames = list(NULL, terms))
+  detM <- detE
+  detF <- detE
+  
+  for (r in seq_len(R)) {
+    sm <- dm[sample.int(nm, nm, replace = TRUE), , drop = FALSE]
+    sf <- dfem[sample.int(nf, nf, replace = TRUE), , drop = FALSE]
+    dd <- rbind(sm, sf)
+    
+    rr <- threefold_pooled_detailed(dd, y, group_var, x_vars, male_value, female_value)
+    
+    agg_draws[r, ] <- c(rr$Endowment, rr$Male_adv, rr$Female_dis)
+    
+    det <- rr$detailed
+    det <- det[match(terms, det$term), ]
+    detE[r, ] <- det$Endowment
+    detM[r, ] <- det$Male_adv
+    detF[r, ] <- det$Female_dis
+  }
+  
+  list(
+    base = base,
+    se_agg = apply(agg_draws, 2, sd, na.rm = TRUE),
+    se_det = list(
+      Endowment  = apply(detE, 2, sd, na.rm = TRUE),
+      Male_adv   = apply(detM, 2, sd, na.rm = TRUE),
+      Female_dis = apply(detF, 2, sd, na.rm = TRUE)
+    )
+  )
+}
 
-inc_sum <- extract_oaxaca_aggregate(oax_inc)
+boot_prod <- bootstrap_se_all(baseline_farmers, y_prod, group_var, x_prod, male_value, female_value, R = 300, seed = 123)
+boot_inc  <- bootstrap_se_all(baseline_farmers, y_inc,  group_var, x_inc,  male_value, female_value, R = 300, seed = 123)
 
-summary_table_clean <- rbind(
-  cbind(Outcome = "Maize Productivity in kg/acres (IHS)", prod_sum),
-  cbind(Outcome = "Maize Income  in thousand UGX (IHS)", inc_sum)
+# ============================================
+# AGGREGATE TABLE (Kilic style) WITH STARS
+# ============================================
+tab_agg_kilic_star <- data.frame(
+  Outcome = c("Maize productivity (IHS)", "Share of gender differential",
+              "Maize income (IHS)",       "Share of gender differential"),
+  N = c(as.character(boot_prod$base$N), "", as.character(boot_inc$base$N), ""),
+  Total_gap = c(fmt3_safe(boot_prod$base$Total_gap), "", fmt3_safe(boot_inc$base$Total_gap), ""),
+  
+  Endowment = c(
+    stars_from_est_se(boot_prod$base$Endowment, boot_prod$se_agg["Endowment"]),
+    fmt3_safe(boot_prod$base$Share_Endow * 100),
+    stars_from_est_se(boot_inc$base$Endowment,  boot_inc$se_agg["Endowment"]),
+    fmt3_safe(boot_inc$base$Share_Endow  * 100)
+  ),
+  Male_adv = c(
+    stars_from_est_se(boot_prod$base$Male_adv, boot_prod$se_agg["Male_adv"]),
+    fmt3_safe(boot_prod$base$Share_Male * 100),
+    stars_from_est_se(boot_inc$base$Male_adv,  boot_inc$se_agg["Male_adv"]),
+    fmt3_safe(boot_inc$base$Share_Male  * 100)
+  ),
+  Female_dis = c(
+    stars_from_est_se(boot_prod$base$Female_dis, boot_prod$se_agg["Female_dis"]),
+    fmt3_safe(boot_prod$base$Share_Fem * 100),
+    stars_from_est_se(boot_inc$base$Female_dis,  boot_inc$se_agg["Female_dis"]),
+    fmt3_safe(boot_inc$base$Share_Fem  * 100)
+  ),
+  stringsAsFactors = FALSE
 )
 
-fmt3 <- function(x) format(round(x, 3), nsmall = 3, trim = TRUE)
-tab_oax <- summary_table_clean
-tab_oax$N <- as.integer(tab_oax$N)
-tab_oax$Total_gap <- fmt3(tab_oax$Total_gap)
-tab_oax$Explained <- fmt3(tab_oax$Explained)
-tab_oax$Unexplained <- fmt3(tab_oax$Unexplained)
-tab_oax$Explained_share <- fmt3(tab_oax$Explained_share)
-tab_oax$Unexplained_share <- fmt3(tab_oax$Unexplained_share)
+# LyX safety
+for (cc in names(tab_agg_kilic_star)) tab_agg_kilic_star[[cc]] <- as.character(tab_agg_kilic_star[[cc]])
+tab_agg_kilic_star[is.na(tab_agg_kilic_star)] <- ""
 
+# ============================================
+# DETAILED TABLES WITH STARS
+# ============================================
+make_det_star <- function(boot_obj, vars_map) {
+  det <- boot_obj$base$detailed
+  det <- det[det$term != "(Intercept)", , drop = FALSE]
+  
+  det$Variable <- ifelse(det$term %in% names(vars_map), vars_map[det$term], det$term)
+  det$Variable <- latex_escape(det$Variable)
+  
+  seE <- boot_obj$se_det$Endowment[det$term]
+  seM <- boot_obj$se_det$Male_adv[det$term]
+  seF <- boot_obj$se_det$Female_dis[det$term]
+  
+  data.frame(
+    Variable = det$Variable,
+    Endowment  = mapply(stars_from_est_se, det$Endowment,  seE),
+    Male_adv   = mapply(stars_from_est_se, det$Male_adv,   seM),
+    Female_dis = mapply(stars_from_est_se, det$Female_dis, seF),
+    stringsAsFactors = FALSE
+  )
+}
 
-with(df_prod, tapply(yield_per_acre_ihs, hh_gender_num, mean))
+tab_det_prod_star <- make_det_star(boot_prod, vars_OB_prod)
+tab_det_inc_star  <- make_det_star(boot_inc,  vars_OB_inc)
+
+# quick check
+print(tab_agg_kilic_star)
+head(tab_det_prod_star)
+head(tab_det_inc_star)

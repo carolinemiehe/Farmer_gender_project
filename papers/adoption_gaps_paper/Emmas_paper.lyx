@@ -106,17 +106,18 @@ Emma Prati,
 \end_layout
 
 \begin_layout Abstract
-This study investigates the gender gaps in maize productivity from maize in Eastern Uganda,
- focusing on male- and female-headed households in the Busoga region.
- Using mixed-methods approach,
- the analysis combines quantitative and qualitative evidence.
+This study examines gender differences in maize productivity in Eastern Uganda,
+ focusing on male and female headed households in the Busoga region.
+ The analysis employs a mixed-methods approach,
+ combining quantitative and qualitative evidence.
  First,
- Ordinary Least Squares (OLS) regressions are employed to estimate gender differences in maize productivity and income.
- Second,
- a Oaxaca- Blinder decomposition is applied to disentangle the extent to which these gaps are explained by differences in observable characteristics and endowments versus structural factors.
- Qualitative analysis and Focus Group Discussions complement the econometric analysis by providing a contextual understanding of gendered dynamics in maize production.
- The study contributes to the literature by providing new evidence on gender-differentiated productivity and income outcomes in smallholder maize farming and by identifying the key drivers of possible disparities.
- The findings offer policy-relevant insights for promoting equitable maize productivity and income in agricultural production in Eastern Uganda.
+ OLS regressions are used to assess gender differences in maize productivity and income.
+ Panel data regressions are also introduced to assess differences in time.
+ Following that,
+ an Oaxaca-Blinder decomposition tecnique (Oaxaca,
+ Blinder) is used to decompose the gap in endowments and structural factors.
+ Qualitative analysis and focus group discussions complement econometric analysis by giving contextual information about gendered dynamics in maize production in Busoga region.The study advances the literature by giving new evidence on gender-differentiated productivity and income outcomes in smallholder maize farming and identifying the primary drivers of potential gender disparities.
+ The findings provide policy guidelines for increasing equal maize yield and revenue in agricultural production in Eastern Uganda.
  
 \end_layout
 
@@ -129,23 +130,13 @@ In sub-Saharan Africa,
  agriculture remains a key driver of economic activity and a primary source of employment,
  particularly in rural areas.
  In Uganda the population is predominantly rural and it substantially relies on agriculture (World Bank Development Indicators,
- 2013 not cited,
- see ali;
- (FAO,
- 2020)) 
-\end_layout
-
-\begin_layout Standard
-The paper focuses on the cultivation of maize,
- one of the most important crops in Ugandan agriculture.
- Maize is a central staple crop in Uganda and it is cultivated by the majority of rural households in East Africa,
+ 2013).
+ The following analysis focuses on the cultivation of maize,
+ one of the most important staple crops in Ugandan agriculture.
+ Maize is cultivated by the majority of rural households in East Africa,
  making the Ugandan experience broadly comparable to that of other African countries (Sell et al.,
  2018).
- 
-\end_layout
-
-\begin_layout Standard
-Previous research suggests that climate change is expected to have a significant negative effect on maize production in Uganda,
+ Previous research suggests that climate change is expected to have a significant negative effect on maize production in Uganda,
  with projected yield losses of around 5% by 2050 (Kikoyo & Norbert,
  2016,
  as cited in Sell et al.,
@@ -161,23 +152,24 @@ Previous research suggests that climate change is expected to have a significant
  This is the reason why increasing agricultural productivity and raising incomes of rural households is one of the goals of Uganda's Agriculture Sector Development Strategy and Investment Plan (DSIP),
  which aims to improve food security and nutrition for all Ugandans (De La O Campos et al.,
  2015).
- One of the most persistent and costly inefficiencies is the gender gap in agricultural productivity and income (Buehren,
+ 
+\end_layout
+
+\begin_layout Standard
+One of the most persistent and costly inefficiencies is the gender gap in agricultural productivity (Buehren,
  2023).
  While women constitute a substantial share of the agricultural labor force in Sub-Saharan Africa – over 50% Tanzania,
  Uganda and Malawi (Palacios-Lopez et al.,
  2016) – they consistently achieve lower yields than men and the income they get is substantially lower than the one earned by male farmers (FAO,
  2011).
- A large body of literature shows that women in agriculture face persistent structural and institutional constraints,
- including limited access to land,
- credit,
- labor,
- inputs,
- information,
- and markets,
+ A large body of literature shows that women in agriculture face persistent institutional and structural constraints,
+ including a limited access to land and productive inputs,
+ markets,
+ credit and labour,
  as well as time constraints linked to household and care-giving responsibilities,
  that prevent them from achieving productivity levels comparable to those of men (all the sources).
  Another key constraint on agricultural productivity is the widespread under-adoption of modern agricultural technologies,
- such as improved seeds and fertilizers(Suri & Udry,
+ such as improved seeds and fertilizers (Suri & Udry,
  2022).
  Gender disparities in agricultural productivity and income are costly and they represent a lost chance to increase national income and alleviate poverty (Buheren,
  2023).
@@ -185,35 +177,34 @@ Previous research suggests that climate change is expected to have a significant
 \end_layout
 
 \begin_layout Standard
-The first objective of this paper is to contribute to the bulk of evidence on gender differentials in agricultural maize productivity and gross income by analyzing context-specific household-level data from the Busoga region (Eastern Uganda) for 2021–2022.
- We estimate baseline OLS models and apply Oaxaca–Blinder decomposition to assess the relative contribution of differences in endowments (e.g.,
+The first objective of this paper is to contribute to the bulk of evidence on gender differentials in agricultural maize productivity and gross income by analyzing context-specific household-level data from the Busoga region (Eastern Uganda).
+ The paper mainly relies on panel data from three survey rounds with approximately 3,500 smallholder maize farmers in southeastern Uganda We estimate baseline OLS models and apply Oaxaca–Blinder decomposition to assess the relative contribution of differences in endowments (e.g.,
  land,
  inputs,
  labour,
  credit) versus structural differences in returns to these endowments.
  In parallel,
- we conducted 16 focus group discussions with farmers in the same region.
+ we conducted a qualitative analysis consisting of 16 focus group discussions with smallholder farmers in the same region.
  This mixed-methods approach allows for data triangulation and provide a more comprehensive understanding of gendered constraints in agricultural production.
  By jointly examining productivity and income outcomes,
  the paper provides policy-relevant evidence on the mechanisms through which gender gaps in smallholder maize systems persist.
  Understanding and addressing these gender-differentiated constraints is essential for achieving inclusive agricultural transformation,
  improving well-being and food security.
-\end_layout
-
-\begin_layout Standard
-The paper is structured as follows.
+ The paper is structured as follows.
  Section 2 reviews the relevant literature and outlines the key contributions to the study of gender differentials in agricultural productivity.
  Section 3 describes the data sources,
- including both the quantitative household-level dataset and the qualitative fieldwork consisting of 16 focus group discussions conducted in the Busoga region.
+ including both the quantitative household-level dataset and the qualitative fieldwork.
  Section 4 presents the methodological approach,
  detailing the empirical strategy,
  including the OLS models and the Oaxaca–Blinder decomposition.
- The results are prsented in section 5 and discussed in section 6.
- The last sections concludes the sudy
+ The results,
+ both quantitative and qualitative are presented in section 5 and discussed in section 6.
+ The last sections concludes the study.
+ 
 \end_layout
 
 \begin_layout Section
-Research Questions and Literature Review 
+Literature Review 
 \end_layout
 
 \begin_layout Standard
@@ -241,28 +232,15 @@ This paper contributes to the literature on gender gaps in the agricultural sect
  originally developed by Oaxaca (1973) and Blinder (1973).
  Kilic,
  Palacios-Lopez,
- and Goldstein (2015) were the first to apply this approach to the analysis of agricultural productivity.
- Building on this framework,
- we employ the Oaxaca–Blinder decomposition to examine gender gaps in both agricultural productivity and farming gross income.
- [OR More recently,
- a growing number of studies have employed the Oaxaca–Blinder decomposition to examine gender gaps in agricultural productivity,
- including Kilic et al.
- (2015a),
- Karamba and Winters (2015),
- Kilic et al.
- (2015b),
- Oseni et al.
- (2015),
- Palacios-Lopez and Lopez (2015),
+ and Goldstein (2015) were the first to apply this approach to the analysis of agricultural productivity and a growing number of studies followed (Palacios-Lopez and Lopez (2015),
  Slavchevska (2015),
  Ali et al.
  (2016),
  and De la O Campos et al.
- (2016).]] The estimation strategy is described in detail in Section 4.
-\end_layout
-
-\begin_layout Standard
-The existing literature indicates that both mechanisms play a role in shaping the observed gaps in agricultural productivity and income (Buheren,
+ (2016) .
+ Building on this framework,
+ we employ the Oaxaca–Blinder decomposition to examine gender gaps in both agricultural productivity and farming gross income.
+ The existing literature indicates that both endowments and structural mechanisms play a role in shaping the observed gaps in agricultural productivity and income (Buheren,
  2023).
  With respect to the productivity gap,
  multiple studies show that once differences in access to productive inputs are accounted for,
@@ -305,12 +283,6 @@ However,
  2023;
  Palacios-Lopez ´ and Lopez ´,
  2015).
- Compared to men,
- female farmers typically oversee smaller farms on lower-quality land and have weaker land tenure rights.
- According to Ali et.
- al (2015) women’s plots in Uganda are 36% smaller than men’s ones and they show less quality.
- This is usually explained by discriminatory traditional laws that exclude women and favor men in ownership rights and land allocation (Buheren,
- 2023).
  Several studies have shown that child dependency ratio,
  social expectation and time poverty play a key role in shaping these differences (Ali et al.,
  2016;
@@ -329,14 +301,14 @@ However,
  2022).
  In Uganda,
  for example,
- evidence shows that two fifths of the gender gap are explained by unequal returns to the child dependency ratio(Ali et al.,
+ evidence shows that two fifths of the gender gap are explained by unequal returns to the child dependency ratio (Ali et al.,
  2016).
  Evidence from the literature also suggests that social norms and expectations in market orientation and risk preferences could explain the gender gap in productivity (Ali et al,
  2016;
  Duflo & Udry,
  2004;
  Reynolds et al.,
- 2020.
+ 2020).
  Evidence shows that women placed lower value on cash crops,
  overlooking income potential and high market prices,
  while favoring food security (Duflo,
@@ -350,16 +322,18 @@ However,
  Ali et al.,
  2016;).
  Palacios-Lopez and Lopez (2015) claim that correcting market failures could positively impact female farmers’ productivity.
- Several studies identify discrimination in the labor market and off-farm work as drivers of low labor productivity in plots managed by female-headed households (Palacios-Lopez ´ and Lopez ´ (2015),
+ Several studies identify discrimination in the labor market and off-farm work as drivers of low labor productivity in plots managed by female-headed households (Palacios-Lopez ´ and Lopez ´,
+ 2015;
  Julien et al.,2023).
  Limited access to finance further constrains women’s ability to adopt modern technologies,
  machinery,
  and improved agricultural practices,
- reinforcing existing productivity and income disparities (World Bank).
+ reinforcing existing productivity and income disparities (Buheren,
+ 2023).
 \end_layout
 
 \begin_layout Standard
-Although these contributions provide a meaningful overview of the context,
+Although these contributions provide a meaningful overview,
  context-specific analysis is required to effectively guide policy recommendations.
  We extend this body of work by estimating gender gaps in agricultural productivity and income from maize in male and female headed households using plot-level data from the Busoga region of Uganda for 2021–2022.
  Gender gap in agricultural productivity,
@@ -371,18 +345,29 @@ Although these contributions provide a meaningful overview of the context,
  while gender disparities in agricultural productivity have been extensively studied,
  evidence on gendered income differentials from farming in Africa remains limited and fragmented (Mkuna & Wale,
  2023,
- check it) .
- Mkuna and Wale (2023)records gender income gap of approximately 50% in cabbage farmers in South Africa.
- Previous research suggests that the average agricultural income gap observed between men and women is about 66% (Dandonougbo et al.,
+ check it),
+ especially in maize production in Uganda.
+ Mkuna and Wale (2023) records gender income gap of approximately 50% in cabbage farmers in South Africa.
+ Previous research suggests that the average agricultural farm income gap observed between men and women is about 66% in Togo rural areas (Dandonougbo et al.,
  2023).
- Approximately 17.7% of the average farm income gap can be explained by differences in observable characteristics (endowments),
- while 58.5% is due to structural factors,
- often linked to unobservable elements or discriminatory practices.
- (maybe to be put in Oaxaca results)
+ 
 \end_layout
 
 \begin_layout Standard
 This paper contributes to addressing this gap by building on the existing literature on gender gaps in agricultural productivity and by expanding the analysis to include gross income disparities from farming.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+check literature adoption
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -394,8 +379,8 @@ Quantitative Data and Descriptive Statistics
 \end_layout
 
 \begin_layout Standard
-We use panel data from three survey rounds with approximately 3,500 smallholder maize farmers in southeastern Uganda.
- The data were originally collected for a project focused on agro-dealers and their customers.
+The paper uses panel data from three survey rounds with approximately 3,500 smallholder maize farmers in southeastern Uganda.
+ The data were originally collected for a previous project focused on agro-dealers and their customers(source).
  The agro-dealer sample was constructed by listing all agro-dealers operating across eleven districts in the Busoga region,
  an area characterized by smallholder maize production,
  where maize serves both as a staple food and a cash crop.
@@ -424,7 +409,20 @@ Baseline data were collected in April 2021,
  Of the 3,470 farmers interviewed at baseline,
  3,407 were re-interviewed at midline and 3,441 at endline.
  In our case,
- plot-level measures of soil quality and others are missing
+ plot-level measures of soil quality and others are missing.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Refer to the Descriptive Table ana analyse a little bit 
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -432,8 +430,10 @@ Measurement of key variable
 \end_layout
 
 \begin_layout Standard
-The analysis focuses on two main outcome variables:
- agricultural productivity and income from maize.
+The analysis focuses on three main outcome variables:
+ agricultural productivity,
+ income from maize and the adoption of improved maize seed varieties.
+ All variables are measured on the randomly selected plot.
  Agricultural productivity is measured as maize yield per unit of cultivated land,
  capturing differences in output across plots.
  Maize income is measured as the gross value of maize sales,
@@ -442,13 +442,30 @@ The analysis focuses on two main outcome variables:
  income is set to zero.
  For households that reported selling maize,
  income is calculated as the quantity sold multiplied by the unit price received.
- Observations with missing information on quantities or prices among sellers are left as missing.
- Given the skewed distribution and the presence of zero values in the outcome variables,
+ Observations with missing information on sold quantities or bag prices among sellers are left as missing.
+ Adoption of improved seed varieties is calculated using a binary indicator equal to one if the farmer planted a hybrid maize variety during the reference season,
+ and zero otherwise.
+ This variable captures the uptake of improved seed technology at the farm level.
+\end_layout
+
+\begin_layout Standard
+Given the skewed distribution and the presence of zero values in the outcome variables,
  maize productivity and income are transformed using the inverse hyperbolic sine (IHS) transformation in the empirical analysis.
  .
  Skewness is according to the adjusted Fisher-Pearson coefficient of skewness exceeding 1.96.
  To address the recent critiques by Mullahy and Norton (2022) and Chen and Roth (2024),
- we will apply the IHS transformation cautiously when dealing with outcome variables that have many zeros and impacts on the extensive margin(?).
+ we will apply the IHS transformation cautiously when dealing with outcome variables that have many zeros and impacts on the extensive margin.
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+check skewness for adoption
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -4169,10 +4186,6 @@ textit{Note:} Mean (SD) and non-missing N (in brackets) are reported for the poo
 end{minipage}
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -4188,12 +4201,11 @@ Qualitative Data
 \end_layout
 
 \begin_layout Standard
-The qualitative component of data consisted in a fieldwork conducted in Busoga region (eastern Uganda),
- in several villages in the districts of Iganga,
+The qualitative component of the data is based on fieldwork conducted in the Busoga region in south-east Uganda.
+ Taking place over approximately 15 days between November and December 2025,
+ the fieldwork covered several villages in the districts of Iganga,
  Bugweri,
- Bugiri,
- and Mayuge,
- over a period of approximately 15 days (two weeks) between November and December 2025.
+ Bugiri and Mayuge.
  Sixteen focus group discussions (FGDs) were held,
  each with 10 participants (160 participants in total).
  The composition of the groups was defined to capture specific gender perspectives,
@@ -4203,36 +4215,35 @@ The qualitative component of data consisted in a fieldwork conducted in Busoga r
  The single-gender groups were used to encourage the participants to freely express experiences and opinions by reducing possible effects of bias and power asymmetries that can arise in mixed contexts.
  On the other hand,
  mixed groups allowed us to observe how intra-family norms and roles are reproduced in the discussion.
-\end_layout
-
-\begin_layout Standard
-Participants were selected randomly,
- ensuring a range of ages (all adults).
- All of them were plot managers but not necessarily the household head.
+ Participants were selected randomly,
+ ensuring a range of ages,
+ with all participants being adults.
+ All the people selected were plot managers,
+ but not necessarily the household head.
 \end_layout
 
 \begin_layout Standard
 The discussions were guided by a semi-structured outline consisting mainly of open-ended questions,
  probes and follow-ups.
  Moreover,
- participants were prompted to reflect on concrete examples and real-life situations in order to encourage/foster an open and participatory discussion.
- The questions (provided in Appendix X) covered topics related to division of labor,
+ to stimulate an open and participatory discussion,
+ participants were encouraged to reflect on concrete examples and real-life situations.
+ The questions (provided in Appendix X) covered topics related to gender norms,
+ the division of labour and time use,
  economic empowerment,
  decision-making processes,
- and intra-household power dynamics.
+ power dynamics within the households,
+ the adoption of new technology,
+ and market access.
  All FGDs were conducted in Lusoga language by two enumerators and lasted an average of about two hours.
  In all of them it was ensured privacy and confidentiality;
  in particular,
  women and male partners/counterparts were not involved in the same session as this could compromise safety or freedom of expression.
-\end_layout
-
-\begin_layout Standard
-The qualitative work aimed to contextualize the quantitative results and explore underlying social mechanisms.
- The research protocol was approved by ..
+ The qualitative work aimed to contextualize the quantitative results and explore underlying social mechanisms.
 \end_layout
 
 \begin_layout Subsection
-Data Limitation (quantitative and qualitative)
+Data Limitation
 \end_layout
 
 \begin_layout Subsubsection
@@ -4240,30 +4251,27 @@ Quantitative limitations
 \end_layout
 
 \begin_layout Standard
-The assessment of gender gaps in agriculture generally relies on two empirical approaches and indicators.
- This choice significantly influences the analysis of gender differences (De la O Campos,
- year).
- The first one is the one this paper uses and consists of inter-household analyses,
+The assessment of gender gaps in agriculture generally relies on two different empirical approaches and indicators that significantly influence the analysis of gender differences (De la O Campos et al.,
+ 2015).
+ This paper makes use of inter-household analyses,
  which compare agricultural production in male and female headed households,
  using household headship as a proxy for plot management.
- The second approach adopts an intra-household perspective,
- comparing production on female- and male-managed plots within the same household.
- Intra-household approaches compare female- and male-managed plots within the same household,
- allowing household characteristics to be held constant,
- though they require more detailed data and may face limitations in sample size and external validity.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+(ask caro this proxy and if it's ok to put it in limitations)
+\end_layout
+
+\end_inset
+
+The second approach adopts an intra-household perspective,
+ comparing production on female and male managed plots within the same household,
+ allowing household characteristics to be held constant.
  As mentioned by Ali et al.
  (2016),
  since most female-managed plots are located within male-headed households,
  the first approach may draw inferences from a non-representative subset of women farmers and misclassify plots by gender.
- 
-\end_layout
-
-\begin_layout Standard
-Moreover,
- differences between de jure and de facto female-headed households suggest that household headship is an imperfect proxy for gender in agriculture (explain it!!) (Peterman et al.,
- 2010;
- de la O Campos,
- 2023).
  The use of household headship is further problematic because it does not capture who makes agricultural decisions or controls productive assets,
  nor does it account for intra-household power dynamics that shape resource allocation (Doss,
  2001;
@@ -4271,11 +4279,9 @@ Moreover,
  1996;
  Quisumbing & Maluccio,
  2003).
- 
-\end_layout
-
-\begin_layout Standard
-In this study,
+ Despite that,
+ this approach requires more detailed data and may face limitations in sample size and external validity.
+ In this study,
  the use of an inter-household approach is driven by data availability,
  as gender information was collected at the level of the household head,
  making intra-household quantitative analysis infeasible.
@@ -4285,91 +4291,114 @@ In this study,
  
 \end_layout
 
+\begin_layout Standard
+The paper can rely on relatively few female-headed households,
+ which limits statistical power of the analysis.
+ At baseline,
+ we recorded the gender of the household head,
+ identifying 774 female-headed households (22% of 3,470 farmers).
+ At the endline,
+ we recorded 760 female household heads (23% of 3,299).
+ No information on the gender of the household head was collected at the midline stage;
+ however,
+ it is unlikely that there were any substantial changes during this period.
+ Therefore,
+ for the midline analysis,
+ the gender classification observed at baseline and endline was assumed to remain unchanged.
+\end_layout
+
+\begin_layout Standard
+Additionally,
+ the questionnaire records multiple measures of adoption,
+ including self-reported use of improved seed on any plot,
+ use of seed from an agro-shop on any plot,
+ hybrid seed or OPV on a specific plot,
+ and use of seed from an agro-shop on a specific plot 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+In what way is it a limitation?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+These limitations represent a weakness of the study.
+\end_layout
+
 \begin_layout Subsubsection
 Qualitative Limitations
 \end_layout
 
 \begin_layout Standard
-- The enumerator was a man (bias with only female group) and the chairman was present sometimes
+FGDs were conducted in Lusoga and later translated.
+ Therefore,
+ nuances,
+ humor,
+ and culturally embedded meanings can be lost or reshaped through translation.
 \end_layout
 
 \begin_layout Standard
-- Context specific results
+The enumerator's male gender may have limited openness in women-only groups,
+ particularly on themes like home conflict,
+ threats,
+ and sexual duties.
+ The occasional presence of local leaders (e.g.,
+ chairperson) can further influence answers toward "community-approved" narratives and diminish participants' willingness to criticize norms.
+ Although qualitative findings help explain reasons why disparities may persist,
+ there is no direct correlation between specific FGD participants and survey households.
+ Thus,
+ triangulation is conceptual rather than individual-level causal inference.
+ 
 \end_layout
 
-\begin_layout Subsection*
-Notes
-\end_layout
-
-\begin_layout Itemize
-At baseline,
- we asked for the gender of the household head (though it is likely that the gender of the respondent was recorded instead).
- At midline,
- no gender information was collected,
- but it is unlikely to have changed since baseline.
- At endline,
- we recorded both the gender of the household head and the gender of the respondent (as I became concerned about this issue between midline and endline and added a question).
- While this allows for inter-household analyses,
- we do not always have the gender of the farmer managing the randomly selected plot for which we have data.
- Furthermore,
- most farming takes place on plots jointly managed by men and women.
- These limitations represent a weakness of the study.
-\end_layout
-
-\begin_layout Itemize
-We have relatively few female-headed households,
- which limits statistical power.
- At baseline,
- we supposedly recorded the gender of the household head,
- identifying 774 female-headed households (22% of 3,470 farmers).
- At endline,
- we recorded 760 female respondents (23% of 3,299).
- While we also collected household head gender at endline,
- 2,848 observations are missing,
- suggesting that enumerators may have consistently recorded the gender of the respondent rather than the household head—
-likely at baseline as well.
-\end_layout
-
-\begin_layout Itemize
-We have multiple measures of adoption,
- including self-reported use of improved seed on any plot,
- use of seed from an agro-shop on any plot,
- hybrid seed or OPV on a specific plot,
- and use of seed from an agro-shop on a specific plot.
- We should carefully consider which measure to use.
+\begin_layout Standard
+Moreover,
+ the qualitative findings are highly context-specific,
+ including gender norms,
+ labor arrangements,
+ and market interactions unique to the Busoga region in Eastern Uganda.
+ Nevertheless,
+ the revealed mechanisms may help us to understand gender-based restrictions in similar rural settings,
+ assuming that contextual differences are carefully recognised.
+ (These limitations suggest that the results should be interpreted as descriptive evidence of gender disparities associated with household headship,
+ supported by qualitative insights,
+ rather than causal estimates of gender discrimination.)
 \end_layout
 
 \begin_layout Section
-Methodology
+Methodology /Empirical 
 \end_layout
 
 \begin_layout Subsection
 Quantitative Methods
 \end_layout
 
-\begin_layout Standard
-The analysis focuses on two main outcome variables:
- maize productivity and maize sales revenue.
- Maize productivity is measured as yield per acre from a randomly chosen plot,
- which captures differences in output per unit of cultivated land between households.
- Maize income is calculated as the gross value of maize sales from the same plot,
- which is the number of maize bags sold multiplied by the price received per bag.
- This definition also includes all the households that chose to not sell maize,
- for whom income is recorded as zero.
+\begin_layout Subsubsection
+Ols regression
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Include tests like:
  
 \end_layout
 
-\begin_layout Standard
-Given the highly skewed distribution of both outcomes and the presence of zero values,
- the analysis employs the inverse hyperbolic sine (IHS) transformation of maize productivity and income.
- This transformation retains observations with zero outcomes while approximating logarithmic transformations for larger values.
- 
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Gender gaps in maize productivity and income are first estimated using an ordinary least squares (OLS) framework.
+The analysis focuses on the three main outcome described in detailed section 3.
+ Gender gaps in maize productivity,
+ income and adoption of new maize seeds varieties are first estimated using an Ordinary Least Squares (OLS) regressions.
  The baseline specification relates to a simple yield function (Udry,
- 1996)(Kilik) in the form:
+ 1996) in the form:
  
 \end_layout
 
@@ -4378,7 +4407,7 @@ Gender gaps in maize productivity and income are first estimated using an ordina
 \lang english
 \begin_inset Formula 
 \begin{equation}
-Y_{ht}=\alpha+\beta G_{h}+\gamma'X_{ij}+\varepsilon_{ij}\label{eq:one-1}
+Y_{ht}=\alpha+\beta X_{ij}+\gamma G_{h}+\varepsilon_{ij}\label{eq:one-1}
 \end{equation}
 
 \end_inset
@@ -4387,35 +4416,74 @@ Y_{ht}=\alpha+\beta G_{h}+\gamma'X_{ij}+\varepsilon_{ij}\label{eq:one-1}
 \end_layout
 
 \begin_layout Standard
-where Yh\SpecialChar allowbreak
- denotes the outcome of interest for household h measured alternatively as maize productivity or income from maize.
+where Yh denotes the outcome of interest for household h measured alternatively as maize productivity,
+ income from maize or adoption of hybrid seeds.
  While previous studies model productivity outcomes in logarithmic form (e.g.
  Udry,
  1996),
  we employ the inverse hyperbolic sine transformation to accommodate zero productivity and income observations.
- Gh\SpecialChar allowbreak
- is a binary indicator equal to one if the household head is male and zero otherwise.
+ Gh is a binary indicator equal to one if the household head is male and zero otherwise.
  The coefficient β therefore captures the average difference in outcomes between male and female headed households,
  conditional on observable characteristics.
- The vector X\SpecialChar allowbreak
- includes a set of control variables commonly used in the literature on gender gaps in agricultural outcomes (López,
- 1984;
- López,
- 1986;
+ The vector X includes a set of control variables commonly used in the literature on gender gaps in agricultural outcomes (Palacios-López & López,
+ 2015;
  Peterman et al.,
- 2011).
+ 2011;
+ Wayagi et al.,
+ 2025).
  These controls account for differences in household socio-economic characteristics,
  farm size and input use,
  labor availability,
  and access to markets and agricultural services.
  Due to data limitations,
- the analysis does not include detailed agro-climatic or soil quality indicators,
+ the analysis does not include detailed agro-climatic and soil quality indicators,
  such as rainfall variability or irrigation intensity,
  which may also affect agricultural outcomes.
  The error term εh captures unobserved factors affecting agricultural outcomes.
  The full set of covariates and the corresponding regression specifications are reported in Tables 2 and 3 in the Results section.
- Some variables reported in the descriptive statistics are excluded from the regression analysis either because they are highly collinear with included covariates or because they could create problems of endogeneity.
+ (Some variables reported in the descriptive statistics are excluded from the regression analysis either because they are highly collinear with included covariates or because they could create problems of endogeneity).
+\end_layout
+
+\begin_layout Standard
+In addition to cross-section specifications based solely on the baseline sample,
+ pooled ordinary least squares (OLS) regressions are estimated by combining baseline,
+ midline and endline observations into a single household-level panel dataset.
+ Using pooled sample increases the statistical power of the analysis and allows us to verify whether gender differences in agricultural outcomes persist over time once the observable characteristics of households and agricultural activity have been controlled for.
+ .
+ In the pooled specification,
+ the model takes the form:
  
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset Formula 
+\begin{equation}
+Y_{ht}=\alpha+\beta X_{ij}+\gamma G_{h}+\delta_{t}+\varepsilon_{ij}\label{eq:one-1-2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 𝑡 denotes the survey round and 𝛿𝑡 represents survey-round fixed effects that capture time-specific factors affecting all households simultaneously,
+ such as seasonal conditions,
+ price fluctuations,
+ or other aggregate shocks.
+ Including fixed round effects therefore enables comparisons to be made between male and female households within the same period,
+ preventing average differences between rounds from being mistakenly attributed to gender.
+ Fixed effects at the household level are not included in the analysis:
+ these effects would absorb all the characteristics of the household that remain unchanged over time,
+ including the gender variable.
+ (see Ali et al.
+ that includes it).
+\end_layout
+
+\begin_layout Subsubsection
+Oaxaca-Blinder Decomposition
 \end_layout
 
 \begin_layout Standard
@@ -4439,10 +4507,7 @@ To investigate the sources of gender disparities in adoption,
  potentially reflecting discriminatory social norms or practices.
  The Oaxaca–Blinder decomposition therefore quantifies the contribution of observable characteristics commonly available in household survey data while acknowledging that unobserved data not computed in the equation,
  such as agro-ecological conditions may remain captured in the returns component (source).
-\end_layout
-
-\begin_layout Standard
-Based on the work of Kilic et al.
+ Based on the work of Kilic et al.
  (2015),
  we derived the average gap between men and women "D",
  expressed as the average difference in productivity and income:
@@ -4463,14 +4528,22 @@ D=E(Y_{m})-E(Y_{f})\label{eq:one-1-1}
 \end_layout
 
 \begin_layout Standard
-Where Ym and Yf denote the expected outcomes for male and female headed households,
- obtained from linear estimation of agricoltural productivity and income expressed in inverse hyperbolic sine (IHS) units.
+Where 
+\begin_inset Formula $Y_{m}$
+\end_inset
+
+ and 
+\begin_inset Formula $Y_{f}$
+\end_inset
+
+ denote the expected outcomes for male and female headed households,
+ obtained from linear estimation of agricultural productivity and income expressed in inverse hyperbolic sine (IHS) units.
 \end_layout
 
 \begin_layout Standard
 Equation (1) relies on the restrictive assumption that the returns to observable characteristics are identical for male and female headed households.
  To relax this assumption,
- we follow standard practice in the literature (souces?) and estimate separate linear regressions for each group.
+ we follow standard practice in the literature and estimate separate linear regressions for each group.
  
 \end_layout
 
@@ -4528,7 +4601,7 @@ D=(E(X)-E(X))\beta^{*}+E(X)(\beta_{m}-\beta^{*})+E(X)(\beta^{*}-\beta_{f})\label
 \end_layout
 
 \begin_layout Standard
-The explained component captures the portion of the gender gap attributable to differences in observable endowments,
+(maybe put the expanded version of the formula with covariates k) The explained component captures the portion of the gender gap attributable to differences in observable endowments,
  such as land,
  fertilizer use and access to inputs.
  The unexplained component reflects differences in returns to these endowments,
@@ -4554,40 +4627,42 @@ The decomposition does require strong assumptions (Fortin,
  2011;
  Kilic,
  Palacios-Lopez,
- &
-\end_layout
-
-\begin_layout Standard
-Goldstein,
+ & Goldstein,
  2015).
- Decomposition methods are based on correlations,
- and hence,
- cannot be interpreted as
-\end_layout
-
-\begin_layout Standard
-estimates of underlying causal parameters.
+ Since decomposition techniques rely on correlations,
+ they cannot be understood as estimates of causal parameters.
  However,
- decomposition methods do document the relative
-\end_layout
-
-\begin_layout Standard
-quantitative importance of factors in explaining an observed gap,
- thus suggesting priorities for further
-\end_layout
-
-\begin_layout Standard
-analysis and,
- ultimately,
- policy interventions (Fortin et al.,
- 2011;
- Kilic et al.,
+ these methods can record the relative quantitative significance of components in explaining an observed gap,
+ indicating priority for additional research and policy actions.
+ (Kilic et al.,
  2013).
- (to be changed)
+ 
 \end_layout
 
 \begin_layout Standard
-(i) overlappingsupport and (ii) ignorability.
+The Oaxaca Blinder aggregate decomposition is valid under the assumption of overlapping support.
+ Descriptive statistics (Table 1) suggest sufficient overlap in key observable characteristics between male- and female-headed households.
+ The objective is not causal inference so no ignorability.
+\end_layout
+
+\begin_layout Standard
+The detailed decomposition relies on the standard assumptions of additive linearity and zero conditional mean,
+ namely that unobserved factors are not systematically correlated with gender after conditioning on observable characteristics( Fortin,
+ Lemieux,
+ & Firpo,
+ 2010).
+ To increase the likelihood that zero conditional mean holds,
+ some studies introduce panel-data methods to the O–B decomposition of the gender gap in agricultural productivity to account for unobserved characteristics.(Slavchevska,
+ 2015;
+ Ali).
+ given the time-invariant nature of gender,
+ they are not applicable in the present setting (To partially mitigate concerns related to unobserved heterogeneity,
+ the analysis controls for village-level characteristics;
+ however,
+ unobserved household- and individual-level factors may still affect the estimates.
+ ) Given that the objective of the analysis is not causal inference,
+ detailed decomposition results are interpreted with caution.
+ + qualitative design complement
 \end_layout
 
 \begin_layout Subsection
@@ -4611,7 +4686,7 @@ The final coding structure included themes related to bargaining power,
  time constraints,
  and gender norms and roles.
  We allowed the overlapping of the codes to reflect the interconnected nature of the themes and particular attention was paid to patterns of co-occurrence across codes.
- The results are presented in section 5.2 and discussed in sction 6.
+ The results are presented in section 5.2 and discussed in section 6.
  Selected excerpts were used to illustrate the main themes and support the interpretation of the quantitative results.
 \end_layout
 
@@ -4661,6 +4736,18 @@ Table 2 presents regression results for maize productivity measured as yield per
  Education of the household head is positively associated with maize productivity among female-headed households,
  while the corresponding effect is small and statistically insignificant among male-headed households,
  suggesting that education may play a more important role in increasing plot-level management among female farmers.
+ When pooling observations across survey rounds,
+ the estimated gender coefficient remains positive and statistically significant,
+ confirming that the productivity gap between male- and female-headed households persists over time,
+ even after account for round-fixed effects.
+ In particular,
+ household size and the age of the household head become consistently and negatively associated with maize productivity,
+ when considering the larger sample.
+ The use of quality seeds and fertilizer inputs,
+ including both DAP/NPK and urea,
+ remains strongly and positively associated with productivity,
+ and organic manure application also becomes statistically significant in the pooled estimates,
+ indicating
 \end_layout
 
 \begin_layout Standard
@@ -4692,12 +4779,30 @@ Table 3 reports analogous results for maize income derived from the randomly sel
  Household characteristics also matter.
  Household size is negatively associated with income in the pooled specification,
  with a stronger negative effect observed among female-headed households.
- Age of the household head and the use of quality seeds are positively associated with maize income only among male-headed households,
+ Quality seeds are positively associated with maize income only among male-headed households,
  suggesting that experience and improved inputs translate into higher returns primarily for male farmers.
+ Results from the pooled income specification similarly indicate that the gender gap in maize income persists over time,
+ with the estimated gender coefficient remaining positive and statistically significant.
+ Plot size remains positively and statistically significant in the pooled specification,
+ confirming that scale effects continue to play an important role in explaining differences in maize income across households over time.
+ Compared with the baseline specification,
+ the role of education becomes less pronounced in the pooled sample for female headed households,
+ while age significantly become negatively associated with income.
+ The pooled estimates reveal that time-varying production decisions play a more prominent role:
+ the use of quality seeds,
+ fertilizers and chemical inputs remains positively associated with maize income,
+ with some coefficients increasing in magnitude relative to the baseline specification.
+ In both specifications,
+ higher maize productivity is associated with higher income from maize,
+ confirming the central role of agricultural performance in determining income.
+ However,
+ the persistence of a positive and significant gender coefficient after controlling for productivity suggests that income disparities between men and women may be influenced by other factors beyond production,
+ such as differences in market access,
+ or returns on output.
 \end_layout
 
 \begin_layout Standard
-Taken together,
+Overall,
  the results indicate that while input endowments and plot characteristics contribute to explaining income differences,
  substantial gender disparities persist even after conditioning on observables.
  The heterogeneous returns observed across gender-specific regressions further motivate an explicit decomposition of the income and productivity gaps,
@@ -4772,15 +4877,17 @@ hspace{4pt}}c@{
 \backslash
 hspace{4pt}}c@{
 \backslash
+hspace{4pt}} c@{
+\backslash
+hspace{4pt}} |  c@{
+\backslash
+hspace{4pt}}c@{
+\backslash
 hspace{4pt}}c}
 \end_layout
 
 \begin_layout Plain Layout
 
-\end_layout
-
-\begin_layout Plain Layout
-
 
 \backslash
 hline
@@ -4790,25 +4897,101 @@ hline
 
 \begin_layout Plain Layout
 
-Variables & Raw gap & 
+
 \backslash
-shortstack{Total
+textbf{Variables} & 
+\backslash
+textbf{Raw gap} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+shortstack{
+\backslash
+textbf{Total}
 \backslash
 
 \backslash
-Baseline} & 
+
 \backslash
-shortstack{Male
+textbf{Baseline}} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+shortstack{
+\backslash
+textbf{Male}
 \backslash
 
 \backslash
-Baseline} & 
+
 \backslash
-shortstack{Female
+textbf{Baseline}} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+shortstack{
+\backslash
+textbf{Female}
 \backslash
 
 \backslash
-Baseline} 
+
+\backslash
+textbf{Baseline}} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+shortstack{
+\backslash
+textbf{Total}
+\backslash
+
+\backslash
+
+\backslash
+textbf{Pooled}} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+shortstack{
+\backslash
+textbf{Male}
+\backslash
+
+\backslash
+
+\backslash
+textbf{Pooled}} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+shortstack{
+\backslash
+textbf{Female}
+\backslash
+
+\backslash
+
+\backslash
+textbf{Pooled}} 
 \backslash
 
 \backslash
@@ -4820,10 +5003,6 @@ Baseline}
 
 \backslash
 hline
-\end_layout
-
-\begin_layout Plain Layout
-
 \end_layout
 
 \begin_layout Plain Layout
@@ -4832,13 +5011,29 @@ hline
 \backslash
 Sexpr{tab_prod$Label[1]} & 
 \backslash
-Sexpr{tab_prod$Raw[1]} & 
+Sexpr{tab_prod$Raw[1]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_prod$Full[1]} & 
 \backslash
 Sexpr{tab_prod$Male[1]} & 
 \backslash
-Sexpr{tab_prod$Female[1]} 
+Sexpr{tab_prod$Female[1]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[1]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[1]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[1]} 
 \backslash
 
 \backslash
@@ -4858,13 +5053,29 @@ hline
 \backslash
 Sexpr{tab_prod$Label[2]} & 
 \backslash
-Sexpr{tab_prod$Raw[2]} & 
+Sexpr{tab_prod$Raw[2]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_prod$Full[2]} & 
 \backslash
 Sexpr{tab_prod$Male[2]} & 
 \backslash
-Sexpr{tab_prod$Female[2]} 
+Sexpr{tab_prod$Female[2]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[2]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[2]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[2]} 
 \backslash
 
 \backslash
@@ -4877,13 +5088,29 @@ Sexpr{tab_prod$Female[2]}
 \backslash
 Sexpr{tab_prod$Label[3]} & 
 \backslash
-Sexpr{tab_prod$Raw[3]} & 
+Sexpr{tab_prod$Raw[3]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_prod$Full[3]} & 
 \backslash
 Sexpr{tab_prod$Male[3]} & 
 \backslash
-Sexpr{tab_prod$Female[3]} 
+Sexpr{tab_prod$Female[3]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[3]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[3]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[3]} 
 \backslash
 
 \backslash
@@ -4896,13 +5123,29 @@ Sexpr{tab_prod$Female[3]}
 \backslash
 Sexpr{tab_prod$Label[4]} & 
 \backslash
-Sexpr{tab_prod$Raw[4]} & 
+Sexpr{tab_prod$Raw[4]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_prod$Full[4]} & 
 \backslash
 Sexpr{tab_prod$Male[4]} & 
 \backslash
-Sexpr{tab_prod$Female[4]} 
+Sexpr{tab_prod$Female[4]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[4]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[4]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[4]} 
 \backslash
 
 \backslash
@@ -4915,13 +5158,29 @@ Sexpr{tab_prod$Female[4]}
 \backslash
 Sexpr{tab_prod$Label[5]} & 
 \backslash
-Sexpr{tab_prod$Raw[5]} & 
+Sexpr{tab_prod$Raw[5]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_prod$Full[5]} & 
 \backslash
 Sexpr{tab_prod$Male[5]} & 
 \backslash
-Sexpr{tab_prod$Female[5]} 
+Sexpr{tab_prod$Female[5]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[5]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[5]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[5]} 
 \backslash
 
 \backslash
@@ -4934,13 +5193,29 @@ Sexpr{tab_prod$Female[5]}
 \backslash
 Sexpr{tab_prod$Label[6]} & 
 \backslash
-Sexpr{tab_prod$Raw[6]} & 
+Sexpr{tab_prod$Raw[6]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_prod$Full[6]} & 
 \backslash
 Sexpr{tab_prod$Male[6]} & 
 \backslash
-Sexpr{tab_prod$Female[6]} 
+Sexpr{tab_prod$Female[6]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[6]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[6]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[6]} 
 \backslash
 
 \backslash
@@ -4953,13 +5228,29 @@ Sexpr{tab_prod$Female[6]}
 \backslash
 Sexpr{tab_prod$Label[7]} & 
 \backslash
-Sexpr{tab_prod$Raw[7]} & 
+Sexpr{tab_prod$Raw[7]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_prod$Full[7]} & 
 \backslash
 Sexpr{tab_prod$Male[7]} & 
 \backslash
-Sexpr{tab_prod$Female[7]} 
+Sexpr{tab_prod$Female[7]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[7]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[7]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[7]} 
 \backslash
 
 \backslash
@@ -4972,13 +5263,29 @@ Sexpr{tab_prod$Female[7]}
 \backslash
 Sexpr{tab_prod$Label[8]} & 
 \backslash
-Sexpr{tab_prod$Raw[8]} & 
+Sexpr{tab_prod$Raw[8]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_prod$Full[8]} & 
 \backslash
 Sexpr{tab_prod$Male[8]} & 
 \backslash
-Sexpr{tab_prod$Female[8]} 
+Sexpr{tab_prod$Female[8]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[8]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[8]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[8]} 
 \backslash
 
 \backslash
@@ -4991,13 +5298,29 @@ Sexpr{tab_prod$Female[8]}
 \backslash
 Sexpr{tab_prod$Label[9]} & 
 \backslash
-Sexpr{tab_prod$Raw[9]} & 
+Sexpr{tab_prod$Raw[9]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_prod$Full[9]} & 
 \backslash
 Sexpr{tab_prod$Male[9]} & 
 \backslash
-Sexpr{tab_prod$Female[9]} 
+Sexpr{tab_prod$Female[9]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[9]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[9]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[9]} 
 \backslash
 
 \backslash
@@ -5010,13 +5333,29 @@ Sexpr{tab_prod$Female[9]}
 \backslash
 Sexpr{tab_prod$Label[10]} & 
 \backslash
-Sexpr{tab_prod$Raw[10]} & 
+Sexpr{tab_prod$Raw[10]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_prod$Full[10]} & 
 \backslash
 Sexpr{tab_prod$Male[10]} & 
 \backslash
-Sexpr{tab_prod$Female[10]} 
+Sexpr{tab_prod$Female[10]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[10]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[10]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[10]} 
 \backslash
 
 \backslash
@@ -5029,13 +5368,29 @@ Sexpr{tab_prod$Female[10]}
 \backslash
 Sexpr{tab_prod$Label[11]} & 
 \backslash
-Sexpr{tab_prod$Raw[11]} & 
+Sexpr{tab_prod$Raw[11]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_prod$Full[11]} & 
 \backslash
 Sexpr{tab_prod$Male[11]} & 
 \backslash
-Sexpr{tab_prod$Female[11]} 
+Sexpr{tab_prod$Female[11]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[11]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[11]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[11]} 
 \backslash
 
 \backslash
@@ -5048,13 +5403,29 @@ Sexpr{tab_prod$Female[11]}
 \backslash
 Sexpr{tab_prod$Label[12]} & 
 \backslash
-Sexpr{tab_prod$Raw[12]} & 
+Sexpr{tab_prod$Raw[12]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_prod$Full[12]} & 
 \backslash
 Sexpr{tab_prod$Male[12]} & 
 \backslash
-Sexpr{tab_prod$Female[12]} 
+Sexpr{tab_prod$Female[12]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[12]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[12]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[12]} 
 \backslash
 
 \backslash
@@ -5067,13 +5438,29 @@ Sexpr{tab_prod$Female[12]}
 \backslash
 Sexpr{tab_prod$Label[13]} & 
 \backslash
-Sexpr{tab_prod$Raw[13]} & 
+Sexpr{tab_prod$Raw[13]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_prod$Full[13]} & 
 \backslash
 Sexpr{tab_prod$Male[13]} & 
 \backslash
-Sexpr{tab_prod$Female[13]} 
+Sexpr{tab_prod$Female[13]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[13]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[13]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[13]} 
 \backslash
 
 \backslash
@@ -5086,13 +5473,29 @@ Sexpr{tab_prod$Female[13]}
 \backslash
 Sexpr{tab_prod$Label[14]} & 
 \backslash
-Sexpr{tab_prod$Raw[14]} & 
+Sexpr{tab_prod$Raw[14]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_prod$Full[14]} & 
 \backslash
 Sexpr{tab_prod$Male[14]} & 
 \backslash
-Sexpr{tab_prod$Female[14]} 
+Sexpr{tab_prod$Female[14]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[14]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[14]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[14]} 
 \backslash
 
 \backslash
@@ -5105,13 +5508,29 @@ Sexpr{tab_prod$Female[14]}
 \backslash
 Sexpr{tab_prod$Label[15]} & 
 \backslash
-Sexpr{tab_prod$Raw[15]} & 
+Sexpr{tab_prod$Raw[15]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_prod$Full[15]} & 
 \backslash
 Sexpr{tab_prod$Male[15]} & 
 \backslash
-Sexpr{tab_prod$Female[15]} 
+Sexpr{tab_prod$Female[15]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[15]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[15]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[15]} 
 \backslash
 
 \backslash
@@ -5124,13 +5543,29 @@ Sexpr{tab_prod$Female[15]}
 \backslash
 Sexpr{tab_prod$Label[16]} & 
 \backslash
-Sexpr{tab_prod$Raw[16]} & 
+Sexpr{tab_prod$Raw[16]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_prod$Full[16]} & 
 \backslash
 Sexpr{tab_prod$Male[16]} & 
 \backslash
-Sexpr{tab_prod$Female[16]} 
+Sexpr{tab_prod$Female[16]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[16]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[16]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[16]} 
 \backslash
 
 \backslash
@@ -5143,13 +5578,29 @@ Sexpr{tab_prod$Female[16]}
 \backslash
 Sexpr{tab_prod$Label[17]} & 
 \backslash
-Sexpr{tab_prod$Raw[17]} & 
+Sexpr{tab_prod$Raw[17]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_prod$Full[17]} & 
 \backslash
 Sexpr{tab_prod$Male[17]} & 
 \backslash
-Sexpr{tab_prod$Female[17]} 
+Sexpr{tab_prod$Female[17]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[17]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[17]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[17]} 
 \backslash
 
 \backslash
@@ -5162,13 +5613,29 @@ Sexpr{tab_prod$Female[17]}
 \backslash
 Sexpr{tab_prod$Label[18]} & 
 \backslash
-Sexpr{tab_prod$Raw[18]} & 
+Sexpr{tab_prod$Raw[18]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_prod$Full[18]} & 
 \backslash
 Sexpr{tab_prod$Male[18]} & 
 \backslash
-Sexpr{tab_prod$Female[18]} 
+Sexpr{tab_prod$Female[18]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[18]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[18]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[18]} 
 \backslash
 
 \backslash
@@ -5181,13 +5648,29 @@ Sexpr{tab_prod$Female[18]}
 \backslash
 Sexpr{tab_prod$Label[19]} & 
 \backslash
-Sexpr{tab_prod$Raw[19]} & 
+Sexpr{tab_prod$Raw[19]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_prod$Full[19]} & 
 \backslash
 Sexpr{tab_prod$Male[19]} & 
 \backslash
-Sexpr{tab_prod$Female[19]} 
+Sexpr{tab_prod$Female[19]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[19]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[19]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[19]} 
 \backslash
 
 \backslash
@@ -5200,13 +5683,29 @@ Sexpr{tab_prod$Female[19]}
 \backslash
 Sexpr{tab_prod$Label[20]} & 
 \backslash
-Sexpr{tab_prod$Raw[20]} & 
+Sexpr{tab_prod$Raw[20]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_prod$Full[20]} & 
 \backslash
 Sexpr{tab_prod$Male[20]} & 
 \backslash
-Sexpr{tab_prod$Female[20]} 
+Sexpr{tab_prod$Female[20]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[20]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[20]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[20]} 
 \backslash
 
 \backslash
@@ -5219,13 +5718,29 @@ Sexpr{tab_prod$Female[20]}
 \backslash
 Sexpr{tab_prod$Label[21]} & 
 \backslash
-Sexpr{tab_prod$Raw[21]} & 
+Sexpr{tab_prod$Raw[21]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_prod$Full[21]} & 
 \backslash
 Sexpr{tab_prod$Male[21]} & 
 \backslash
-Sexpr{tab_prod$Female[21]} 
+Sexpr{tab_prod$Female[21]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[21]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[21]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[21]} 
 \backslash
 
 \backslash
@@ -5238,13 +5753,29 @@ Sexpr{tab_prod$Female[21]}
 \backslash
 Sexpr{tab_prod$Label[22]} & 
 \backslash
-Sexpr{tab_prod$Raw[22]} & 
+Sexpr{tab_prod$Raw[22]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_prod$Full[22]} & 
 \backslash
 Sexpr{tab_prod$Male[22]} & 
 \backslash
-Sexpr{tab_prod$Female[22]} 
+Sexpr{tab_prod$Female[22]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[22]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[22]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[22]} 
 \backslash
 
 \backslash
@@ -5257,13 +5788,29 @@ Sexpr{tab_prod$Female[22]}
 \backslash
 Sexpr{tab_prod$Label[23]} & 
 \backslash
-Sexpr{tab_prod$Raw[23]} & 
+Sexpr{tab_prod$Raw[23]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_prod$Full[23]} & 
 \backslash
 Sexpr{tab_prod$Male[23]} & 
 \backslash
-Sexpr{tab_prod$Female[23]} 
+Sexpr{tab_prod$Female[23]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[23]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[23]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[23]} 
 \backslash
 
 \backslash
@@ -5276,13 +5823,29 @@ Sexpr{tab_prod$Female[23]}
 \backslash
 Sexpr{tab_prod$Label[24]} & 
 \backslash
-Sexpr{tab_prod$Raw[24]} & 
+Sexpr{tab_prod$Raw[24]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_prod$Full[24]} & 
 \backslash
 Sexpr{tab_prod$Male[24]} & 
 \backslash
-Sexpr{tab_prod$Female[24]} 
+Sexpr{tab_prod$Female[24]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[24]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[24]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[24]} 
 \backslash
 
 \backslash
@@ -5295,13 +5858,29 @@ Sexpr{tab_prod$Female[24]}
 \backslash
 Sexpr{tab_prod$Label[25]} & 
 \backslash
-Sexpr{tab_prod$Raw[25]} & 
+Sexpr{tab_prod$Raw[25]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_prod$Full[25]} & 
 \backslash
 Sexpr{tab_prod$Male[25]} & 
 \backslash
-Sexpr{tab_prod$Female[25]} 
+Sexpr{tab_prod$Female[25]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[25]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[25]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[25]} 
 \backslash
 
 \backslash
@@ -5314,13 +5893,29 @@ Sexpr{tab_prod$Female[25]}
 \backslash
 Sexpr{tab_prod$Label[26]} & 
 \backslash
-Sexpr{tab_prod$Raw[26]} & 
+Sexpr{tab_prod$Raw[26]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_prod$Full[26]} & 
 \backslash
 Sexpr{tab_prod$Male[26]} & 
 \backslash
-Sexpr{tab_prod$Female[26]} 
+Sexpr{tab_prod$Female[26]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[26]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[26]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[26]} 
 \backslash
 
 \backslash
@@ -5333,13 +5928,29 @@ Sexpr{tab_prod$Female[26]}
 \backslash
 Sexpr{tab_prod$Label[27]} & 
 \backslash
-Sexpr{tab_prod$Raw[27]} & 
+Sexpr{tab_prod$Raw[27]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_prod$Full[27]} & 
 \backslash
 Sexpr{tab_prod$Male[27]} & 
 \backslash
-Sexpr{tab_prod$Female[27]} 
+Sexpr{tab_prod$Female[27]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[27]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[27]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[27]} 
 \backslash
 
 \backslash
@@ -5352,13 +5963,29 @@ Sexpr{tab_prod$Female[27]}
 \backslash
 Sexpr{tab_prod$Label[28]} & 
 \backslash
-Sexpr{tab_prod$Raw[28]} & 
+Sexpr{tab_prod$Raw[28]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_prod$Full[28]} & 
 \backslash
 Sexpr{tab_prod$Male[28]} & 
 \backslash
-Sexpr{tab_prod$Female[28]} 
+Sexpr{tab_prod$Female[28]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[28]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[28]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[28]} 
 \backslash
 
 \backslash
@@ -5371,13 +5998,29 @@ Sexpr{tab_prod$Female[28]}
 \backslash
 Sexpr{tab_prod$Label[29]} & 
 \backslash
-Sexpr{tab_prod$Raw[29]} & 
+Sexpr{tab_prod$Raw[29]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_prod$Full[29]} & 
 \backslash
 Sexpr{tab_prod$Male[29]} & 
 \backslash
-Sexpr{tab_prod$Female[29]} 
+Sexpr{tab_prod$Female[29]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[29]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[29]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[29]} 
 \backslash
 
 \backslash
@@ -5390,13 +6033,29 @@ Sexpr{tab_prod$Female[29]}
 \backslash
 Sexpr{tab_prod$Label[30]} & 
 \backslash
-Sexpr{tab_prod$Raw[30]} & 
+Sexpr{tab_prod$Raw[30]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_prod$Full[30]} & 
 \backslash
 Sexpr{tab_prod$Male[30]} & 
 \backslash
-Sexpr{tab_prod$Female[30]} 
+Sexpr{tab_prod$Female[30]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[30]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[30]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[30]} 
 \backslash
 
 \backslash
@@ -5416,7 +6075,14 @@ hline
 
 \begin_layout Plain Layout
 
-Number of Observations & 
+
+\backslash
+textbf{Number of Observations}  &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{N_prod_raw_fmt} & 
 \backslash
@@ -5424,7 +6090,18 @@ Sexpr{N_prod_full_fmt} &
 \backslash
 Sexpr{N_prod_male_fmt} & 
 \backslash
-Sexpr{N_prod_female_fmt} 
+Sexpr{N_prod_female_fmt} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{N_prod_pool_total_fmt} & 
+\backslash
+Sexpr{N_prod_pool_male_fmt} & 
+\backslash
+Sexpr{N_prod_pool_female_fmt} 
 \backslash
 
 \backslash
@@ -5479,7 +6156,7 @@ footnotesize
 
 \backslash
 textit{Note}:
- Robust standard errors (HC3) in parentheses.
+ Household-clustered standard errors in parentheses.
  
 \end_layout
 
@@ -5575,6 +6252,12 @@ hspace{4pt}}c@{
 \backslash
 hspace{4pt}}c@{
 \backslash
+hspace{4pt}}c@{
+\backslash
+hspace{4pt}}| c@{
+\backslash
+hspace{4pt}}c@{
+\backslash
 hspace{4pt}}c}
 \end_layout
 
@@ -5589,7 +6272,12 @@ hline
 
 \begin_layout Plain Layout
 
-Variables & Raw gap & 
+Variables & Raw gap &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 shortstack{Total
 \backslash
@@ -5607,7 +6295,30 @@ shortstack{Female
 \backslash
 
 \backslash
-Baseline} 
+Baseline} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+shortstack{Total
+\backslash
+
+\backslash
+Pooled} & 
+\backslash
+shortstack{Male
+\backslash
+
+\backslash
+Pooled} & 
+\backslash
+shortstack{Female
+\backslash
+
+\backslash
+Pooled} 
 \backslash
 
 \backslash
@@ -5631,13 +6342,29 @@ hline
 \backslash
 Sexpr{tab_inc$Label[1]} & 
 \backslash
-Sexpr{tab_inc$Raw[1]} & 
+Sexpr{tab_inc$Raw[1]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_inc$Full[1]} & 
 \backslash
 Sexpr{tab_inc$Male[1]} & 
 \backslash
-Sexpr{tab_inc$Female[1]} 
+Sexpr{tab_inc$Female[1]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[1]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[1]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[1]} 
 \backslash
 
 \backslash
@@ -5657,13 +6384,29 @@ hline
 \backslash
 Sexpr{tab_inc$Label[2]} & 
 \backslash
-Sexpr{tab_inc$Raw[2]} & 
+Sexpr{tab_inc$Raw[2]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_inc$Full[2]} & 
 \backslash
 Sexpr{tab_inc$Male[2]} & 
 \backslash
-Sexpr{tab_inc$Female[2]} 
+Sexpr{tab_inc$Female[2]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[2]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[2]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[2]} 
 \backslash
 
 \backslash
@@ -5676,13 +6419,29 @@ Sexpr{tab_inc$Female[2]}
 \backslash
 Sexpr{tab_inc$Label[3]} & 
 \backslash
-Sexpr{tab_inc$Raw[3]} & 
+Sexpr{tab_inc$Raw[3]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_inc$Full[3]} & 
 \backslash
 Sexpr{tab_inc$Male[3]} & 
 \backslash
-Sexpr{tab_inc$Female[3]} 
+Sexpr{tab_inc$Female[3]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[3]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[3]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[3]} 
 \backslash
 
 \backslash
@@ -5695,13 +6454,29 @@ Sexpr{tab_inc$Female[3]}
 \backslash
 Sexpr{tab_inc$Label[4]} & 
 \backslash
-Sexpr{tab_inc$Raw[4]} & 
+Sexpr{tab_inc$Raw[4]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_inc$Full[4]} & 
 \backslash
 Sexpr{tab_inc$Male[4]} & 
 \backslash
-Sexpr{tab_inc$Female[4]} 
+Sexpr{tab_inc$Female[4]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[4]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[4]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[4]} 
 \backslash
 
 \backslash
@@ -5714,13 +6489,29 @@ Sexpr{tab_inc$Female[4]}
 \backslash
 Sexpr{tab_inc$Label[5]} & 
 \backslash
-Sexpr{tab_inc$Raw[5]} & 
+Sexpr{tab_inc$Raw[5]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_inc$Full[5]} & 
 \backslash
 Sexpr{tab_inc$Male[5]} & 
 \backslash
-Sexpr{tab_inc$Female[5]} 
+Sexpr{tab_inc$Female[5]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[5]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[5]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[5]} 
 \backslash
 
 \backslash
@@ -5733,13 +6524,29 @@ Sexpr{tab_inc$Female[5]}
 \backslash
 Sexpr{tab_inc$Label[6]} & 
 \backslash
-Sexpr{tab_inc$Raw[6]} & 
+Sexpr{tab_inc$Raw[6]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_inc$Full[6]} & 
 \backslash
 Sexpr{tab_inc$Male[6]} & 
 \backslash
-Sexpr{tab_inc$Female[6]} 
+Sexpr{tab_inc$Female[6]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[6]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[6]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[6]} 
 \backslash
 
 \backslash
@@ -5752,13 +6559,29 @@ Sexpr{tab_inc$Female[6]}
 \backslash
 Sexpr{tab_inc$Label[7]} & 
 \backslash
-Sexpr{tab_inc$Raw[7]} & 
+Sexpr{tab_inc$Raw[7]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_inc$Full[7]} & 
 \backslash
 Sexpr{tab_inc$Male[7]} & 
 \backslash
-Sexpr{tab_inc$Female[7]} 
+Sexpr{tab_inc$Female[7]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[7]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[7]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[7]} 
 \backslash
 
 \backslash
@@ -5771,13 +6594,29 @@ Sexpr{tab_inc$Female[7]}
 \backslash
 Sexpr{tab_inc$Label[8]} & 
 \backslash
-Sexpr{tab_inc$Raw[8]} & 
+Sexpr{tab_inc$Raw[8]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_inc$Full[8]} & 
 \backslash
 Sexpr{tab_inc$Male[8]} & 
 \backslash
-Sexpr{tab_inc$Female[8]} 
+Sexpr{tab_inc$Female[8]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[8]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[8]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[8]} 
 \backslash
 
 \backslash
@@ -5790,13 +6629,29 @@ Sexpr{tab_inc$Female[8]}
 \backslash
 Sexpr{tab_inc$Label[9]} & 
 \backslash
-Sexpr{tab_inc$Raw[9]} & 
+Sexpr{tab_inc$Raw[9]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_inc$Full[9]} & 
 \backslash
 Sexpr{tab_inc$Male[9]} & 
 \backslash
-Sexpr{tab_inc$Female[9]} 
+Sexpr{tab_inc$Female[9]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[9]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[9]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[9]} 
 \backslash
 
 \backslash
@@ -5809,13 +6664,29 @@ Sexpr{tab_inc$Female[9]}
 \backslash
 Sexpr{tab_inc$Label[10]} & 
 \backslash
-Sexpr{tab_inc$Raw[10]} & 
+Sexpr{tab_inc$Raw[10]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_inc$Full[10]} & 
 \backslash
 Sexpr{tab_inc$Male[10]} & 
 \backslash
-Sexpr{tab_inc$Female[10]} 
+Sexpr{tab_inc$Female[10]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[10]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[10]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[10]} 
 \backslash
 
 \backslash
@@ -5828,13 +6699,29 @@ Sexpr{tab_inc$Female[10]}
 \backslash
 Sexpr{tab_inc$Label[11]} & 
 \backslash
-Sexpr{tab_inc$Raw[11]} & 
+Sexpr{tab_inc$Raw[11]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_inc$Full[11]} & 
 \backslash
 Sexpr{tab_inc$Male[11]} & 
 \backslash
-Sexpr{tab_inc$Female[11]} 
+Sexpr{tab_inc$Female[11]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[11]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[11]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[11]} 
 \backslash
 
 \backslash
@@ -5847,13 +6734,29 @@ Sexpr{tab_inc$Female[11]}
 \backslash
 Sexpr{tab_inc$Label[12]} & 
 \backslash
-Sexpr{tab_inc$Raw[12]} & 
+Sexpr{tab_inc$Raw[12]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_inc$Full[12]} & 
 \backslash
 Sexpr{tab_inc$Male[12]} & 
 \backslash
-Sexpr{tab_inc$Female[12]} 
+Sexpr{tab_inc$Female[12]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[12]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[12]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[12]} 
 \backslash
 
 \backslash
@@ -5866,13 +6769,29 @@ Sexpr{tab_inc$Female[12]}
 \backslash
 Sexpr{tab_inc$Label[13]} & 
 \backslash
-Sexpr{tab_inc$Raw[13]} & 
+Sexpr{tab_inc$Raw[13]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_inc$Full[13]} & 
 \backslash
 Sexpr{tab_inc$Male[13]} & 
 \backslash
-Sexpr{tab_inc$Female[13]} 
+Sexpr{tab_inc$Female[13]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[13]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[13]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[13]} 
 \backslash
 
 \backslash
@@ -5885,13 +6804,29 @@ Sexpr{tab_inc$Female[13]}
 \backslash
 Sexpr{tab_inc$Label[14]} & 
 \backslash
-Sexpr{tab_inc$Raw[14]} & 
+Sexpr{tab_inc$Raw[14]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_inc$Full[14]} & 
 \backslash
 Sexpr{tab_inc$Male[14]} & 
 \backslash
-Sexpr{tab_inc$Female[14]} 
+Sexpr{tab_inc$Female[14]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[14]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[14]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[14]} 
 \backslash
 
 \backslash
@@ -5904,13 +6839,29 @@ Sexpr{tab_inc$Female[14]}
 \backslash
 Sexpr{tab_inc$Label[15]} & 
 \backslash
-Sexpr{tab_inc$Raw[15]} & 
+Sexpr{tab_inc$Raw[15]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_inc$Full[15]} & 
 \backslash
 Sexpr{tab_inc$Male[15]} & 
 \backslash
-Sexpr{tab_inc$Female[15]} 
+Sexpr{tab_inc$Female[15]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[15]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[15]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[15]} 
 \backslash
 
 \backslash
@@ -5923,13 +6874,29 @@ Sexpr{tab_inc$Female[15]}
 \backslash
 Sexpr{tab_inc$Label[16]} & 
 \backslash
-Sexpr{tab_inc$Raw[16]} & 
+Sexpr{tab_inc$Raw[16]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_inc$Full[16]} & 
 \backslash
 Sexpr{tab_inc$Male[16]} & 
 \backslash
-Sexpr{tab_inc$Female[16]} 
+Sexpr{tab_inc$Female[16]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[16]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[16]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[16]} 
 \backslash
 
 \backslash
@@ -5942,13 +6909,29 @@ Sexpr{tab_inc$Female[16]}
 \backslash
 Sexpr{tab_inc$Label[17]} & 
 \backslash
-Sexpr{tab_inc$Raw[17]} & 
+Sexpr{tab_inc$Raw[17]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_inc$Full[17]} & 
 \backslash
 Sexpr{tab_inc$Male[17]} & 
 \backslash
-Sexpr{tab_inc$Female[17]} 
+Sexpr{tab_inc$Female[17]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[17]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[17]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[17]} 
 \backslash
 
 \backslash
@@ -5961,13 +6944,29 @@ Sexpr{tab_inc$Female[17]}
 \backslash
 Sexpr{tab_inc$Label[18]} & 
 \backslash
-Sexpr{tab_inc$Raw[18]} & 
+Sexpr{tab_inc$Raw[18]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_inc$Full[18]} & 
 \backslash
 Sexpr{tab_inc$Male[18]} & 
 \backslash
-Sexpr{tab_inc$Female[18]} 
+Sexpr{tab_inc$Female[18]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[18]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[18]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[18]} 
 \backslash
 
 \backslash
@@ -5980,13 +6979,29 @@ Sexpr{tab_inc$Female[18]}
 \backslash
 Sexpr{tab_inc$Label[19]} & 
 \backslash
-Sexpr{tab_inc$Raw[19]} & 
+Sexpr{tab_inc$Raw[19]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_inc$Full[19]} & 
 \backslash
 Sexpr{tab_inc$Male[19]} & 
 \backslash
-Sexpr{tab_inc$Female[19]} 
+Sexpr{tab_inc$Female[19]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[19]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[19]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[19]} 
 \backslash
 
 \backslash
@@ -5999,13 +7014,29 @@ Sexpr{tab_inc$Female[19]}
 \backslash
 Sexpr{tab_inc$Label[20]} & 
 \backslash
-Sexpr{tab_inc$Raw[20]} & 
+Sexpr{tab_inc$Raw[20]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_inc$Full[20]} & 
 \backslash
 Sexpr{tab_inc$Male[20]} & 
 \backslash
-Sexpr{tab_inc$Female[20]} 
+Sexpr{tab_inc$Female[20]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[20]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[20]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[20]} 
 \backslash
 
 \backslash
@@ -6018,13 +7049,29 @@ Sexpr{tab_inc$Female[20]}
 \backslash
 Sexpr{tab_inc$Label[21]} & 
 \backslash
-Sexpr{tab_inc$Raw[21]} & 
+Sexpr{tab_inc$Raw[21]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_inc$Full[21]} & 
 \backslash
 Sexpr{tab_inc$Male[21]} & 
 \backslash
-Sexpr{tab_inc$Female[21]} 
+Sexpr{tab_inc$Female[21]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[21]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[21]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[21]} 
 \backslash
 
 \backslash
@@ -6037,13 +7084,29 @@ Sexpr{tab_inc$Female[21]}
 \backslash
 Sexpr{tab_inc$Label[22]} & 
 \backslash
-Sexpr{tab_inc$Raw[22]} & 
+Sexpr{tab_inc$Raw[22]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_inc$Full[22]} & 
 \backslash
 Sexpr{tab_inc$Male[22]} & 
 \backslash
-Sexpr{tab_inc$Female[22]} 
+Sexpr{tab_inc$Female[22]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[22]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[22]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[22]} 
 \backslash
 
 \backslash
@@ -6056,13 +7119,29 @@ Sexpr{tab_inc$Female[22]}
 \backslash
 Sexpr{tab_inc$Label[23]} & 
 \backslash
-Sexpr{tab_inc$Raw[23]} & 
+Sexpr{tab_inc$Raw[23]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_inc$Full[23]} & 
 \backslash
 Sexpr{tab_inc$Male[23]} & 
 \backslash
-Sexpr{tab_inc$Female[23]} 
+Sexpr{tab_inc$Female[23]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[23]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[23]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[23]} 
 \backslash
 
 \backslash
@@ -6075,13 +7154,29 @@ Sexpr{tab_inc$Female[23]}
 \backslash
 Sexpr{tab_inc$Label[24]} & 
 \backslash
-Sexpr{tab_inc$Raw[24]} & 
+Sexpr{tab_inc$Raw[24]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_inc$Full[24]} & 
 \backslash
 Sexpr{tab_inc$Male[24]} & 
 \backslash
-Sexpr{tab_inc$Female[24]} 
+Sexpr{tab_inc$Female[24]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[24]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[24]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[24]} 
 \backslash
 
 \backslash
@@ -6094,13 +7189,29 @@ Sexpr{tab_inc$Female[24]}
 \backslash
 Sexpr{tab_inc$Label[25]} & 
 \backslash
-Sexpr{tab_inc$Raw[25]} & 
+Sexpr{tab_inc$Raw[25]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_inc$Full[25]} & 
 \backslash
 Sexpr{tab_inc$Male[25]} & 
 \backslash
-Sexpr{tab_inc$Female[25]} 
+Sexpr{tab_inc$Female[25]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[25]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[25]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[25]} 
 \backslash
 
 \backslash
@@ -6113,13 +7224,29 @@ Sexpr{tab_inc$Female[25]}
 \backslash
 Sexpr{tab_inc$Label[26]} & 
 \backslash
-Sexpr{tab_inc$Raw[26]} & 
+Sexpr{tab_inc$Raw[26]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_inc$Full[26]} & 
 \backslash
 Sexpr{tab_inc$Male[26]} & 
 \backslash
-Sexpr{tab_inc$Female[26]} 
+Sexpr{tab_inc$Female[26]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[26]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[26]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[26]} 
 \backslash
 
 \backslash
@@ -6132,13 +7259,29 @@ Sexpr{tab_inc$Female[26]}
 \backslash
 Sexpr{tab_inc$Label[27]} & 
 \backslash
-Sexpr{tab_inc$Raw[27]} & 
+Sexpr{tab_inc$Raw[27]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_inc$Full[27]} & 
 \backslash
 Sexpr{tab_inc$Male[27]} & 
 \backslash
-Sexpr{tab_inc$Female[27]} 
+Sexpr{tab_inc$Female[27]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[27]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[27]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[27]} 
 \backslash
 
 \backslash
@@ -6151,13 +7294,29 @@ Sexpr{tab_inc$Female[27]}
 \backslash
 Sexpr{tab_inc$Label[28]} & 
 \backslash
-Sexpr{tab_inc$Raw[28]} & 
+Sexpr{tab_inc$Raw[28]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_inc$Full[28]} & 
 \backslash
 Sexpr{tab_inc$Male[28]} & 
 \backslash
-Sexpr{tab_inc$Female[28]} 
+Sexpr{tab_inc$Female[28]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[28]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[28]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[28]} 
 \backslash
 
 \backslash
@@ -6170,13 +7329,29 @@ Sexpr{tab_inc$Female[28]}
 \backslash
 Sexpr{tab_inc$Label[29]} & 
 \backslash
-Sexpr{tab_inc$Raw[29]} & 
+Sexpr{tab_inc$Raw[29]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_inc$Full[29]} & 
 \backslash
 Sexpr{tab_inc$Male[29]} & 
 \backslash
-Sexpr{tab_inc$Female[29]} 
+Sexpr{tab_inc$Female[29]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[29]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[29]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[29]} 
 \backslash
 
 \backslash
@@ -6189,13 +7364,29 @@ Sexpr{tab_inc$Female[29]}
 \backslash
 Sexpr{tab_inc$Label[30]} & 
 \backslash
-Sexpr{tab_inc$Raw[30]} & 
+Sexpr{tab_inc$Raw[30]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_inc$Full[30]} & 
 \backslash
 Sexpr{tab_inc$Male[30]} & 
 \backslash
-Sexpr{tab_inc$Female[30]} 
+Sexpr{tab_inc$Female[30]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[30]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[30]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[30]} 
 \backslash
 
 \backslash
@@ -6208,13 +7399,64 @@ Sexpr{tab_inc$Female[30]}
 \backslash
 Sexpr{tab_inc$Label[31]} & 
 \backslash
-Sexpr{tab_inc$Raw[30]} & 
+Sexpr{tab_inc$Raw[31]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{tab_inc$Full[31]} & 
 \backslash
-Sexpr{tab_inc$Male[30]} & 
+Sexpr{tab_inc$Male[31]} & 
 \backslash
-Sexpr{tab_inc$Female[31]} 
+Sexpr{tab_inc$Female[31]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[31]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[31]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[31]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[32]} & 
+\backslash
+Sexpr{tab_inc$Raw[32]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Full[32]} & 
+\backslash
+Sexpr{tab_inc$Male[32]} & 
+\backslash
+Sexpr{tab_inc$Female[32]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[32]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[32]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[32]} 
 \backslash
 
 \backslash
@@ -6234,7 +7476,12 @@ hline
 
 \begin_layout Plain Layout
 
-Number of Observations & 
+Number of Observations &
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
 Sexpr{N_inc_raw_fmt} & 
 \backslash
@@ -6242,7 +7489,18 @@ Sexpr{N_inc_full_fmt} &
 \backslash
 Sexpr{N_inc_male_fmt} & 
 \backslash
-Sexpr{N_inc_female_fmt} 
+Sexpr{N_inc_female_fmt} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{N_inc_pool_total_fmt} & 
+\backslash
+Sexpr{N_inc_pool_male_fmt} & 
+\backslash
+Sexpr{N_inc_pool_female_fmt} 
 \backslash
 
 \backslash
@@ -6256,10 +7514,6 @@ Sexpr{N_inc_female_fmt}
 hline
 \backslash
 hline
-\end_layout
-
-\begin_layout Plain Layout
-
 \end_layout
 
 \begin_layout Plain Layout
@@ -6301,7 +7555,7 @@ footnotesize
 
 \backslash
 textit{Note}:
- Robust standard errors (HC3) in parentheses.
+ Household-clustered standard errors in parentheses.
  
 \end_layout
 
@@ -6317,6 +7571,10 @@ textit{Note}:
 
 \backslash
 end{minipage}
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \end_inset
@@ -7018,6 +8276,23 @@ Sexpr{tab_det_prod_star$Female_dis[14]}
 
 
 \backslash
+Sexpr{tab_det_prod_star$Variable[15]} & 
+\backslash
+Sexpr{tab_det_prod_star$Endowment[15]} & 
+\backslash
+Sexpr{tab_det_prod_star$Male_adv[15]} & 
+\backslash
+Sexpr{tab_det_prod_star$Female_dis[15]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
 hline
 \end_layout
 
@@ -7434,6 +8709,23 @@ Sexpr{tab_det_inc_star$Female_dis[15]}
 
 
 \backslash
+Sexpr{tab_det_prod_star$Variable[16]} & 
+\backslash
+Sexpr{tab_det_prod_star$Endowment[16]} & 
+\backslash
+Sexpr{tab_det_prod_star$Male_adv[16]} & 
+\backslash
+Sexpr{tab_det_prod_star$Female_dis[16]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
 hline
 \end_layout
 
@@ -7523,10 +8815,312 @@ The gender gap in maize income is substantially larger.
  pointing to persistent gender-based inequalities in market access,
  price realization,
  and the ability to translate production into monetary returns.
+ According to DANDONOUGBO (year),
+ approximately 17.7% of the average farm income gap can be explained by differences in observable characteristics (endowments),
+ while 58.5% is due to structural factors,
+ often linked to unobservable elements or discriminatory practices.
+\end_layout
+
+\begin_layout Standard
+Add feminization of poverty
 \end_layout
 
 \begin_layout Subsection
 Qualitative Analysis 
+\end_layout
+
+\begin_layout Standard
+Interviews opened with participants’ own definitions of a female-headed household (...).
+\end_layout
+
+\begin_layout Standard
+The results are organized around four analytical areas which correspond to the main mechanisms that contribute to the gender gaps observed in the quantitative analysis:
+ 
+\series bold
+Gender norms,
+ labour division and time poverty:
+ 
+\end_layout
+
+\begin_layout Standard
+Across all focus groups,
+ gender norms emerged as a key determinant of labour allocation and time use among maize farmers.
+ Both female and male participants consistently described a fixed and rigid division of labour,
+ with farming roles framed as natural and socially prescribed.
+ As one participant stated,
+ “the roles of men are men’s and the ones for women are women’s” (KAWETE,
+ male).
+ Male participants in particular described women as physically weaker and only suitable for lighter agricultural activities,
+ such as planting,
+ weeding,
+ harvesting,
+ while agricultural tasks requiring physical strength or technical judgment,
+ like slashing and spraying,
+ were explicitly associated with men:
+ “Women are weak and can only manage weeding while the man can do everything” (BULUMWAKI,
+ male),
+ and “the ones that require energy like preparations,
+ slashing,
+ removing the maize wastes (\SpecialChar ldots
+) even the ones that need thinking” (WAMULONGO,
+ male).
+ However,
+ some female participants challenged this narrative emphasizing substantial changes over time.
+ Particularly in female focus groups,
+ women repeatedly stressed that they now take care a wide range of agricultural activities traditionally associated with men.
+ As one participant explained,
+ “Nowadays even the women prepare land,
+ burn grass and even slash” (MAWERERE,
+ female),
+ while another added “what a man can do even the woman can do” (MUGGI,
+ mixed).
+ Across focus groups,
+ women were widely associated with childcare and domestic responsibilities,
+ often working alongside children in the fields.
+ As one female participant noted,
+ “I and the children are the ones who work most because since we are done with his garden then he has not time at all to step on the joint garden (\SpecialChar ldots
+) He returns in the night when you are done working” (BUKAYE,
+ female,
+ but maybe choose ancother one).
+ Women’s agricultural labour remains closely tied to caregiving roles,
+ even as they increasingly take on tasks previously considered male and rather then replacing existing domestic responsabilities,
+ it was added on top of them,
+ leading to widespread time poverty and limiting agricultural productivity.
+ Women described delayed arrival to maize plots,
+ shorter working hours,
+ and early departure due to household obligations.
+ These qualitative insights suggest that social constrains women's time and labour division contribute to gender gaps in maize productivity and income,
+ especially in female-headed household,
+ where husbands are generally abstent less involved in daily farming and household activities.
+ Despite this heavy workload,
+ women repeatedly portrayed these tasks as unavoidable,
+ framing them as natural and inherent to being a woman.
+ As one participant explained,
+ “God prepared us as women that you cannot leave home without sweeping the house,
+ have not cleaned the compound and the kitchen” (BUDHUBYE,
+ female).
+ Similarly,
+ women across different focus groups emphasized the inevitability of these roles:
+ “I see they do affect me but still I have no choice” (MUGGI,
+ mixed),
+ and “those roles are naturally mine and I have to do them whether I want to or do not want to” (MUGGI,
+ mixed).
+ While some men,
+ particularly in mixed focus groups,
+ acknowledged domestic work as labour,
+ others framed household and childcare responsibilities as a way for women to avoid agricultural work.
+ Male focus groups highlighted their own productivity in the fields while portraying women’s care activities as avoidable disruptions:
+ “they want us to have equal share of things but they are lazy (\SpecialChar ldots
+) and tend to cheat us in that way,
+ you may be digging the fourth or fifth row and yet she will do only three rows and say she is heading back home,
+ I am going to prepare home” (ITANDA,
+ mixed).
+ These perceptions were directly linked to agricultural outcomes,
+ with participants concluding that “This leads to poor farm management and low yields” (ITANDA,
+ mixed).
+ Consistent with this framing,
+ male participants often interpreted women’s childcare responsibilities,
+ such as breastfeeding,
+ not as binding constraints but as excuses for rest or reduced effort.
+ As one man put it,
+ “When she holds the baby she will be using it as an excuse to sit (\SpecialChar ldots
+) It helps her to just sit there and rest” (WAMULONGO,
+ male).
+ In more than one interviews with just female we noticed that women’s time constraints extend beyond agricultural and domestic labour to include expectations of sexual availability,
+ revealing how gender norms structure both productive work and bodily autonomy:
+ “By the time you leave the garden then you cook and then bath the children and then you find that you leave the garden when you are tired and eat supper while tired and then go to bed when you are tired and then the man will start saying that I want to have sex.” (BUKAYE,
+ female);
+ (When taken together,
+ these dynamics point to unobserved constraints on women's time and bodily autonomy that shape their productive capacity,
+ helping in understanding underlying mechanism explaining gender gaps in maize productivity and income that standard quantitative measures do not capture).
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+decision making
+\series default
+:
+ From the discussions it came out that gendered norms are also likely to assign rights over inputs and output independently of effort.
+ Across focus groups,
+ decision-making over agricultural inputs and income from maize varied across plot types,
+ between women-managed plots,
+ jointly managed plots,
+ and male-owned plots,
+ reflecting gendered power relations within households.
+ In male-owned plots,
+ women’s contribution rarely translated into decision-making power and usually it's the man that decides on inputs,
+ sometimes after a joint discussion.
+ In women-managed plots,
+ women were generally described as having more autonomy over input decisions,
+ including maize variety and fertilizer use.
+ However,
+ some male participants suggested that men retain decision-making authority even over women’s plots,
+ often referring to the saying “omwami kyakobye” (“what the man says”).
+ In jointly managed plots,
+ decisions over inputs were more frequently described as either jointly discussed or male-led,
+ with men often making the final decision.
+ Income decisions followed similar patterns.
+ Female focus groups stressed that men retain control over harvests despite limited labor contribution.
+ (a sentence about male owned).
+ In jointly managed plots,
+ income from maize sales was often described as discussed within the household,
+ yet men frequently had the final say.
+ As one participant stated:
+ 
+\begin_inset Quotes eld
+\end_inset
+
+My husband is the one who decides because there is no way you can decide for him though.
+ It is not by law that he decides but it depends on how you relate and the togetherness
+\begin_inset Quotes erd
+\end_inset
+
+(BUDHUBYE,
+ female).
+ Along similar lines,
+ some male participants stated that:
+ 
+\begin_inset Quotes eld
+\end_inset
+
+The household decisions are not made by a woman because it becomes a dead household
+\begin_inset Quotes erd
+\end_inset
+
+ reflecting strict norms about male authority over income.
+ In contrast,
+ women more often reported control over income generated from plots they managed independently but as one participant said 
+\begin_inset Quotes eld
+\end_inset
+
+Men are not easy,
+ they tend to come to you and influence you with good behavior until you give them the money
+\begin_inset Quotes erd
+\end_inset
+
+(village,
+ female).
+ Women’s control over maize income is sometimes justified through gendered moral narratives that frame women as more responsible household managers than men.
+ They usually decide to have their own garden to be sure to have control over it and use the money for the family as decisions related to children’s expenses were consistently framed as women’s responsibility.
+ Describing her garden a female participant claim that:
+ 
+\begin_inset Quotes eld
+\end_inset
+
+with that I have the right to decide on my own and that since I have sold this maize let me give this to a certain child and also buy something for the household and for myself because you know as women we do not behave like the men that when they receive they go and get more wives.
+ For us we prepare for the household well-being
+\begin_inset Quotes erd
+\end_inset
+
+.(BUDHUBYE,
+ female).
+\end_layout
+
+\begin_layout Standard
+maybe add:
+ R2:
+ These women are a bit lazy in doing research especially about the farming business they tend to lag behind a bit so in my household I decided and I am the one who decides the maize seed type that I will plant.
+ So they are lazy seeds in this and if you trust their ideas,
+ she might even make you plant soya instead ( WAMULONGO,
+ male)
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Technology adoption and community perception 
+\series default
+:
+ Participants described the adoption of new technologies,
+ such as hybrid seeds or fertilizers,
+ as generating both admiration and suspicion in the community.
+ While some people are recognized and respected for their productivity outcomes,
+ others were viewed as envious and their success was often solely attributed to supernatural means.
+ Throughout all focus groups,
+ witchcraft was mentioned regularly when discussing individuals who achieved higher yields.
+ As one participant explained,
+ “we start to say that one is a ‘mukuluzi’—
+the one who pulls all other people’s yields to his or her own garden” (BUDHUBYE,
+ female),
+ while another added that “they say the woman uses witchcraft to collect all the maize from the neighbor’s gardens” (NALWEGOLOILE,
+ mixed).
+ In particular,
+ female headed households were sometimes portrayed as violating accepted gender roles when adopting new technology.
+ As participants reported,
+ “they say that woman is unmanageable,
+ she is a woman who is a man” (BULUMWAKI,
+ male),
+ and “she is the one wearing the trouser,
+ the man is wearing the skirt” (ITANDA,
+ mixed).
+ In female-only discussions,
+ women underlined that economic success may lead to social scrutiny for women,
+ as the village members could often question whether a woman who earned substantial income through farming would remain manageable within the household (BUKAYE,
+ female).
+ Overall,
+ social reputation and community moral judgment serve as informal constraints on technology adoption for both women and men,
+ resulting in uneven diffusion across households.
+ These narratives imply that technology adoption is viewed as a practice grounded in community norms,
+ rather than a neutral technical choice
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Market
+\series default
+:
+ Across focus groups,
+ participants described a non-neutral market with unequal access,
+ price-setting practices,
+ and with women facing a higher risk of being cheated by maize buyers,
+ even though some respondents reported that prices can be equal for men and women under certain conditions.Both men and women claimed that traders frequently abuse information asymmetries,
+ especially when interacting with women,
+ who are regarded to be less knowledgeable about current market values.
+ As one participant noted,
+ “there is a difference as women are cheated because they think women are not knowledgeable” (Bubeto,
+ male).
+ Others linked this directly to mobility and access to information,
+ stressing that men are believed to be more informed because “men listen to the radios and get latest price updates” (Kigulamo,
+ mixed male).
+ Price discrimination was described not only in terms of lower offered prices,
+ but through manipulation of weighing scales.
+ Participants reported that similar maize bags could be weighed differently depending on the seller’s gender,
+ resulting in systematic losses for women.
+ Consequently,
+ some men explicitly stated that women should not sell maize independently to avoid being cheated,
+ as illustrated by one participant who explained,
+ “my wife does not sell without me being around because I don’t want her to be cheated” (Bulumwaki,
+ male).
+ These market dynamics may lead to structural income discrepancies between female and male-headed families,
+ as maize sales in female-headed homes are inevitably handled by women,
+ who are thus more vulnerable to gendered forms of price discrimination.
+ In these circumstances,
+ collective marketing via farming organizations and cooperatives was widely regarded as a technique for decreasing price discrimination and fraud.
+ While some participants were wary about cooperatives,
+ others emphasized that selling collectively allowed women and men to reach the same consumers,
+ reducing knowledge gaps and limiting opportunistic behavior.
+ As one participant explained,
+ “that is why you see we want to all join groups,
+ in a group\SpecialChar ldots
+ they give you the same price—
+the man and I the woman” (BUKAYE,
+ female).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Add something that is broadly linked to Adoption of new seeds varieties
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -7544,6 +9138,10 @@ Given the substantial benefits of modern agricultural technologies,
 
 \begin_layout Section
 Conclusion
+\end_layout
+
+\begin_layout Section
+Acknoledgements
 \end_layout
 
 \begin_layout Section
@@ -7954,7 +9552,34 @@ Palacios-Lopez,
 \end_layout
 
 \begin_layout Itemize
-Peterman
+Palacios-López,
+ A.,
+ & López,
+ R.
+ (2015).
+ The gender Gap in Agricultural Productivity:
+ The role of market Imperfections.
+ The Journal of Development Studies,
+ 51(9),
+ 1175–1192.
+ 
+\end_layout
+
+\begin_layout Itemize
+Peterman,
+ A.,
+ Quisumbing,
+ A.,
+ Behrman,
+ J.,
+ & Nkonya,
+ E.
+ (2011).
+ Understanding the complexities surrounding gender differences in agricultural productivity in Nigeria and Uganda.
+ The Journal of Development Studies,
+ 47(10),
+ 1482–1509.
+ 
 \end_layout
 
 \begin_layout Itemize
@@ -8032,6 +9657,29 @@ Journal of Economic Perspectives
 ,
  36(1),
  33–56.
+\end_layout
+
+\begin_layout Itemize
+Wayagi,
+ E.
+ O.,
+ Otieno,
+ D.
+ J.,
+ Nyikal,
+ R.
+ A.,
+ Okello,
+ J.
+ J.,
+ & Kawarazuka,
+ N.
+ (2025).
+ Gender gaps in potato productivity and the role of information and communication platforms in Kenya.
+ Development in Practice,
+ 35(7),
+ 1037–1055.
+ 
 \end_layout
 
 \begin_layout Itemize

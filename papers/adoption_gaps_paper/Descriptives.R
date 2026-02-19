@@ -126,6 +126,49 @@ table(farmers_long$round, is.na(farmers_long$hh_gender_num))
 
 
 
+#hybrid SEED - baseline
+baseline_farmers$base_hybrid <- (
+  baseline_farmers$Check2.check.maize.q31 == "Longe_10H" |
+    baseline_farmers$Check2.check.maize.q31 == "Longe_7H" |
+    baseline_farmers$Check2.check.maize.q31 == "Longe_7R_Kayongo-go" |
+    baseline_farmers$Check2.check.maize.q31 == "Bazooka" |
+    baseline_farmers$Check2.check.maize.q31 == "Longe_6H" |
+    baseline_farmers$Check2.check.maize.q31 == "Panner" |
+    baseline_farmers$Check2.check.maize.q31 == "Wema" |
+    baseline_farmers$Check2.check.maize.q31 == "KH_series")
+baseline_farmers$base_hybrid<-ifelse(baseline_farmers$base_hybrid=="TRUE",1,0)
+baseline_farmers$base_hybrid[baseline_farmers$Check2.check.maize.q31=="Other_hybrid"] <- NA #because =Other hybrid or OPV
+#hybrid SEED midline
+midline_farmers$mid_hybrid <- (
+  midline_farmers$check.maize.q31 == "Longe_10H" |
+    midline_farmers$check.maize.q31 == "Longe_7H" |
+    midline_farmers$check.maize.q31 == "Longe_7R_K" |
+    midline_farmers$check.maize.q31 == "Bazooka" |
+    midline_farmers$check.maize.q31 == "Longe_6H" |
+    midline_farmers$check.maize.q31 == "Panner" |
+    midline_farmers$check.maize.q31 == "Wema" |
+    midline_farmers$check.maize.q31 == "KH_series"
+)
+
+midline_farmers$mid_hybrid <- ifelse(midline_farmers$mid_hybrid, 1, 0)
+
+midline_farmers$mid_hybrid[midline_farmers$check.maize.q31 == "Other_hybrid"] <- NA
+
+#hybrid SEED -endline
+endline_farmers$end_hybrid <- (endline_farmers$check.maize.q31 == "Longe_10H" |
+                                 endline_farmers$check.maize.q31 == "Longe_7H" |
+                                 endline_farmers$check.maize.q31 == "Longe_7R_K" |
+                                 endline_farmers$check.maize.q31 == "Bazooka" |
+                                 endline_farmers$check.maize.q31 == "Longe_6H" |
+                                 endline_farmers$check.maize.q31 == "Panner" |
+                                 endline_farmers$check.maize.q31 == "Wema" |
+                                 endline_farmers$check.maize.q31 == "KH_series")
+endline_farmers$end_hybrid<-ifelse(endline_farmers$end_hybrid=="TRUE",1,0)
+endline_farmers$end_hybrid[endline_farmers$check.maize.q31=="Other_hybrid"] <- NA #because =Other hybrid or OPV
+
+
+
+
 #Asset ownership - Q10, Q11, Q
 
 #Q10 and Q11
@@ -503,9 +546,14 @@ baseline_farmers$farmer_group_member <- ifelse(baseline_farmers$farmer_group_mem
 table(baseline_farmers$farmer_group_member)
 
 
+
+
 # =========================================================
 # PREPARING MIDLINE & ENDLINE (COMMON VARIABLES ONLY)
 # =========================================================
+
+
+
 
 clean_yesno01 <- function(x){
   x <- tolower(trimws(as.character(x)))
@@ -605,7 +653,8 @@ variables <- c(
   "yield_per_acre",
   "yield_per_acre_ihs",
   "maize_income",
-  "maize_income_ihs"
+  "maize_income_ihs",
+  "base_hybrid"
 )
 
 male_idx   <- baseline_farmers$hh_gender_num == 1
@@ -916,8 +965,6 @@ vif(lm2_semifull_fix)
 vif(lm4_semifull_fix)
 
 
-
-
 #Etheroskedasticity
 library(sandwich)
 library(lmtest)
@@ -940,13 +987,7 @@ length(common_vars)
 head(sort(common_vars), 30)
 
 
-#table OLS 
-#check for adoption
-#hybrid
-baseline_farmers$end_Check2.check.maize.q31 <- baseline_farmers$Check2.check.maize.q31
-baseline_farmers$end_hybrid<-((baseline_farmers$end_Check2.check.maize.q31=="Longe_10H")|(baseline_farmers$end_Check2.check.maize.q31=="Longe_7H")|(baseline_farmers$end_Check2.check.maize.q31=="Longe_7R_Kayongo-go")|(baseline_farmers$end_Check2.check.maize.q31=="Bazooka")|(baseline_farmers$end_Check2.check.maize.q31=="Longe_6H")|(baseline_farmers$end_Check2.check.maize.q31=="Panner")|(baseline_farmers$end_Check2.check.maize.q31=="Wema")|(baseline_farmers$end_Check2.check.maize.q31=="KH_series"))
-baseline_farmers$end_hybrid<-ifelse(baseline_farmers$end_hybrid=="TRUE",1,0)
-baseline_farmers$end_hybrid[baseline_farmers$end_Check2.check.maize.q31=="Other_hybrid"] <- NA #because =Other hybrid or OPV
+#TABLES OLS 
 
 
 #PRODUCTIVITY TABLE with robust SE
@@ -1031,6 +1072,23 @@ vars_inc <- c(
   "resow",
   "farmer_group_member",
   "yield_per_acre"
+)
+
+vars_hybrid <- c(
+  "hh_gender_num",
+  "education_head_num",
+  "household_size",
+  "hh_age",
+  "distance_agroshops",
+  "num_shops",
+  "dap_npk_applied",
+  "urea_applied",
+  "organic_manure_applied",
+  "chemicals_applied",
+  "maize_plot_area",
+  "weed_times",
+  "resow",
+  "farmer_group_member"
 )
 
 # Baseline covariates to carry forward (raw vars, not transformations)
@@ -1224,6 +1282,136 @@ for(v in vars_inc){
   )
 }
 
+# =========================
+# HYBRID SEED — POOLED VARIABLE + OLS TABLE
+# =========================
+
+# ---------- CREATE POOLED HYBRID VARIABLE ----------
+farmers_long$hybrid_seed <- NA
+
+farmers_long$hybrid_seed[farmers_long$round == "baseline"] <-
+  farmers_long$base_hybrid[farmers_long$round == "baseline"]
+
+farmers_long$hybrid_seed[farmers_long$round == "midline"] <-
+  farmers_long$mid_hybrid[farmers_long$round == "midline"]
+
+farmers_long$hybrid_seed[farmers_long$round == "endline"] <-
+  farmers_long$end_hybrid[farmers_long$round == "endline"]
+
+table(farmers_long$hybrid_seed,
+      farmers_long$round,
+      useNA = "ifany")
+
+
+# ---------- FORMULAS ----------
+form_hybrid_bl <- as.formula(
+  paste("base_hybrid ~", paste(vars_hybrid, collapse = " + "))
+)
+
+form_hybrid_pool <- as.formula(
+  paste("hybrid_seed ~", paste(vars_hybrid, collapse = " + "), "+ factor(round)")
+)
+
+
+# ---------- LABELS ----------
+labels_hybrid <- c(
+  "hh_gender_num"          = "Household head is male (1 = yes)",
+  "education_head_num"     = "Household-head finished primary education (1 = Yes)",
+  "household_size"         = "Number of household members",
+  "hh_age"                 = "Age of household head in years",
+  "distance_agroshops"     = "Distance to nearest agro-input shop (km)",
+  "num_shops"              = "Number of agro-input shops in village",
+  "dap_npk_applied"        = "DAP/NPK applied (1 = Yes)",
+  "urea_applied"           = "Urea applied (1 = Yes)",
+  "organic_manure_applied" = "Organic manure applied (1 = Yes)",
+  "maize_plot_area"        = "Available land for crop production (acres)",
+  "chemicals_applied"      = "Chemicals applied (1 = Yes)",
+  "weed_times"             = "Number of weeding times",
+  "resow"                  = "Resowing (1 = Yes)",
+  "farmer_group_member"    = "Member of farmer group (1 = Yes)"
+)
+
+
+# ---------- MODELS ----------
+m_hybrid_raw_bl    <- lm(base_hybrid ~ hh_gender_num, data = baseline_farmers)
+m_hybrid_full_bl   <- lm(form_hybrid_bl, data = baseline_farmers)
+m_hybrid_male_bl   <- lm(form_hybrid_bl, data = baseline_farmers,
+                         subset = (hh_gender_num == 1))
+m_hybrid_female_bl <- lm(form_hybrid_bl, data = baseline_farmers,
+                         subset = (hh_gender_num == 0))
+
+m_hybrid_pool_total  <- lm(form_hybrid_pool, data = farmers_long)
+m_hybrid_pool_male   <- lm(form_hybrid_pool, data = farmers_long,
+                           subset = (hh_gender_num == 1))
+m_hybrid_pool_female <- lm(form_hybrid_pool, data = farmers_long,
+                           subset = (hh_gender_num == 0))
+
+
+# ---------- N OBS ----------
+N_hybrid_raw_fmt         <- format(nobs(m_hybrid_raw_bl), big.mark=",")
+N_hybrid_full_fmt        <- format(nobs(m_hybrid_full_bl), big.mark=",")
+N_hybrid_male_fmt        <- format(nobs(m_hybrid_male_bl), big.mark=",")
+N_hybrid_female_fmt      <- format(nobs(m_hybrid_female_bl), big.mark=",")
+N_hybrid_pool_total_fmt  <- format(nobs(m_hybrid_pool_total), big.mark=",")
+N_hybrid_pool_male_fmt   <- format(nobs(m_hybrid_pool_male), big.mark=",")
+N_hybrid_pool_female_fmt <- format(nobs(m_hybrid_pool_female), big.mark=",")
+
+
+# ---------- TABLE ----------
+tab_hybrid <- data.frame(
+  Label=character(), Raw=character(),
+  Full=character(), Male=character(), Female=character(),
+  Pooled_Total=character(), Pooled_Male=character(), Pooled_Female=character(),
+  stringsAsFactors=FALSE
+)
+
+for(v in vars_hybrid){
+  
+  raw <- c("—","")
+  if(v == "hh_gender_num"){
+    raw <- cell_coef_se(m_hybrid_raw_bl, "hh_gender_num",
+                        data = baseline_farmers,
+                        cluster_id = CLUSTER_ID)
+  }
+  
+  full   <- cell_coef_se(m_hybrid_full_bl,   v,
+                         data = baseline_farmers,
+                         cluster_id = CLUSTER_ID)
+  
+  male   <- cell_coef_se(m_hybrid_male_bl,   v,
+                         data = baseline_farmers,
+                         cluster_id = CLUSTER_ID)
+  
+  female <- cell_coef_se(m_hybrid_female_bl, v,
+                         data = baseline_farmers,
+                         cluster_id = CLUSTER_ID)
+  
+  poolT  <- cell_coef_se(m_hybrid_pool_total,  v,
+                         data = farmers_long,
+                         cluster_id = CLUSTER_ID)
+  
+  poolM  <- cell_coef_se(m_hybrid_pool_male,   v,
+                         data = farmers_long,
+                         cluster_id = CLUSTER_ID)
+  
+  poolF  <- cell_coef_se(m_hybrid_pool_female, v,
+                         data = farmers_long,
+                         cluster_id = CLUSTER_ID)
+  
+  tab_hybrid <- rbind(
+    tab_hybrid,
+    data.frame(Label=labels_hybrid[v], Raw=raw[1],
+               Full=full[1], Male=male[1], Female=female[1],
+               Pooled_Total=poolT[1],
+               Pooled_Male=poolM[1],
+               Pooled_Female=poolF[1]),
+    data.frame(Label="", Raw=raw[2],
+               Full=full[2], Male=male[2], Female=female[2],
+               Pooled_Total=poolT[2],
+               Pooled_Male=poolM[2],
+               Pooled_Female=poolF[2])
+  )
+}
 
 #OAXACA BLINDER #no refErence( Jann 2008)
 
@@ -1365,7 +1553,7 @@ vars_OB_prod <- c(
   "weed_times"             = "Number of weeding times in the randomly selected plot",
   "resow"                  = "Resowing in the randomly selected plot (1 = Yes)",
   "farmer_group_member"    = "The respondent is part of a farmer group or cooperative (1 = Yes)",
-  "end_hybrid"             = "The respondent adopted hybrid seed in the randomly selected plot (1=yes)"
+  "base_hybrid"             = "The respondent adopted hybrid seed in the randomly selected plot (1=yes)"
 )
 
 vars_OB_inc <- c(
@@ -1384,7 +1572,7 @@ vars_OB_inc <- c(
   "resow"                    = "Resowing in the randomly selected plot (1 = Yes)",
   "farmer_group_member"      = "The respondent is part of a farmer group or cooperative (1 = Yes)",
   "yield_per_acre"           = "Yield per acre",
-  "end_hybrid"               = "The respondent adopted hybrid seed in the randomly selected plot (1=yes)"
+  "base_hybrid"               = "The respondent adopted hybrid seed in the randomly selected plot (1=yes)"
 )
 
 # ============================================
@@ -1520,9 +1708,9 @@ head(tab_det_inc_star)
 #check for adoption
 #hybrid
 baseline_farmers$end_Check2.check.maize.q31 <- baseline_farmers$Check2.check.maize.q31
-baseline_farmers$end_hybrid<-((baseline_farmers$end_Check2.check.maize.q31=="Longe_10H")|(baseline_farmers$end_Check2.check.maize.q31=="Longe_7H")|(baseline_farmers$end_Check2.check.maize.q31=="Longe_7R_Kayongo-go")|(baseline_farmers$end_Check2.check.maize.q31=="Bazooka")|(baseline_farmers$end_Check2.check.maize.q31=="Longe_6H")|(baseline_farmers$end_Check2.check.maize.q31=="Panner")|(baseline_farmers$end_Check2.check.maize.q31=="Wema")|(baseline_farmers$end_Check2.check.maize.q31=="KH_series"))
-baseline_farmers$end_hybrid<-ifelse(baseline_farmers$end_hybrid=="TRUE",1,0)
-baseline_farmers$end_hybrid[baseline_farmers$end_Check2.check.maize.q31=="Other_hybrid"] <- NA #because =Other hybrid or OPV
+baseline_farmers$base_hybrid<-((baseline_farmers$end_Check2.check.maize.q31=="Longe_10H")|(baseline_farmers$end_Check2.check.maize.q31=="Longe_7H")|(baseline_farmers$end_Check2.check.maize.q31=="Longe_7R_Kayongo-go")|(baseline_farmers$end_Check2.check.maize.q31=="Bazooka")|(baseline_farmers$end_Check2.check.maize.q31=="Longe_6H")|(baseline_farmers$end_Check2.check.maize.q31=="Panner")|(baseline_farmers$end_Check2.check.maize.q31=="Wema")|(baseline_farmers$end_Check2.check.maize.q31=="KH_series"))
+baseline_farmers$base_hybrid<-ifelse(baseline_farmers$base_hybrid=="TRUE",1,0)
+baseline_farmers$base_hybrid[baseline_farmers$end_Check2.check.maize.q31=="Other_hybrid"] <- NA #because =Other hybrid or OPV
 #opv
 baseline_farmers$end_OPV<-(baseline_farmers$end_Check2.check.maize.q31=="Longe_5")|(baseline_farmers$end_Check2.check.maize.q31=="Longe_4")
 baseline_farmers$end_OPV<-ifelse(baseline_farmers$end_OPV=="TRUE",1,0)
@@ -1538,10 +1726,10 @@ baseline_farmers$end_Bought_from_agro_input_shop<-ifelse(baseline_farmers$end_Ch
 
 #new
 #7. adoption
-baseline_farmers$end_hybridbutsaved <- NA
-baseline_farmers$end_hybridbutsaved[baseline_farmers$end_hybrid == 1 & baseline_farmers$end_farmer_saved_seed == 1] <- 1
-baseline_farmers$end_hybridbutsaved[baseline_farmers$end_hybrid == 1 & baseline_farmers$end_farmer_saved_seed == 0] <- 0
-baseline_farmers$end_hybridbutsaved[baseline_farmers$end_hybrid == 0] <- 0
+baseline_farmers$base_hybridbutsaved <- NA
+baseline_farmers$base_hybridbutsaved[baseline_farmers$base_hybrid == 1 & baseline_farmers$end_farmer_saved_seed == 1] <- 1
+baseline_farmers$base_hybridbutsaved[baseline_farmers$base_hybrid == 1 & baseline_farmers$end_farmer_saved_seed == 0] <- 0
+baseline_farmers$base_hybridbutsaved[baseline_farmers$base_hybrid == 0] <- 0
 
 baseline_farmers$end_OPVbutsaved <- NA
 baseline_farmers$end_OPVbutsaved[baseline_farmers$end_OPV == 1 & baseline_farmers$end_farmer_saved_seed == 1] <- 1
@@ -1562,11 +1750,11 @@ baseline_farmers$end_OPVbutfourthormore_timeused[baseline_farmers$end_OPV == 0] 
 
 
 ## Define end_adoption_onfield based on end_improved,
-# but set adoption to 0 when end_hybridbutsaved == 1
+# but set adoption to 0 when base_hybridbutsaved == 1
 # or when end_OPVbutfourthormore_timeused == 1
 baseline_farmers$end_improved<-((baseline_farmers$end_Check2.check.maize.q31=="Longe_10H")|(baseline_farmers$end_Check2.check.maize.q31=="Longe_7H")|(baseline_farmers$end_Check2.check.maize.q31=="Longe_7R_Kayongo-go")|(baseline_farmers$end_Check2.check.maize.q31=="Bazooka")|(baseline_farmers$end_Check2.check.maize.q31=="Longe_6H")|(baseline_farmers$end_Check2.check.maize.q31=="Panner")|(baseline_farmers$end_Check2.check.maize.q31=="Wema")|(baseline_farmers$end_Check2.check.maize.q31=="KH_series"|baseline_farmers$end_Check2.check.maize.q31=="Longe_5")|(baseline_farmers$end_Check2.check.maize.q31=="Longe_4")|(baseline_farmers$end_Check2.check.maize.q31=="Other_hybrid"))
 baseline_farmers$end_improved<-ifelse(baseline_farmers$end_improved=="TRUE",1,0)
 baseline_farmers$end_adoption_onfield <- baseline_farmers$end_improved
-baseline_farmers$end_adoption_onfield[baseline_farmers$end_hybridbutsaved==1] <- 0
+baseline_farmers$end_adoption_onfield[baseline_farmers$base_hybridbutsaved==1] <- 0
 baseline_farmers$end_adoption_onfield[baseline_farmers$end_OPVbutfourthormore_timeused==1] <- 0
 #baseline_farmers$end_adoption_onfield[baseline_farmers$end_OPVbutsaved==1] <- 0

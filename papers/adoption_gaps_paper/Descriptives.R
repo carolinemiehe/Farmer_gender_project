@@ -483,15 +483,6 @@ aggregate(maize_income ~ hh_gender_num, data = baseline_farmers, mean, na.rm = T
 baseline_farmers$maize_income_ihs <- asinh(baseline_farmers$maize_income)
 summary(baseline_farmers$maize_income_ihs)
 table(baseline_farmers$maize_income_ihs)
-#DIVIDED per gender Q15
-# hh_gender_num <- trimws(tolower(as.character(baseline_farmers$Check2.check.maize.q15)))  # rimuove spazi e mette in minuscolo
-# 
-# baseline_farmers$gender <- ifelse(
-#   hh_gender_num %in% c("1", "male", "m"), "male",
-#   ifelse(hh_gender_num %in% c("0", "female", "f"), "female", NA)
-# )
-# 
-# table(baseline_farmers$gender, useNA = "ifany")
 
 
 
@@ -761,9 +752,6 @@ diff_fmt <- ifelse(
 )
 
 #t-test for dummy variables could be diffuicult whn coming to interpretation
-
-
-
 df_descriptives_male   <<- df_descriptives_male
 df_descriptives_female <<- df_descriptives_female
 ttest_pvalues          <<- ttest_pvalues
@@ -1001,6 +989,9 @@ options(scipen = 999)
 # SETTINGS
 # =========================
 CLUSTER_ID <- "farmer_ID"   # change to household_ID if you have it
+#check if it's a good cluster
+length(unique(farmers_long$farmer_ID))
+table(table(farmers_long$farmer_ID))
 
 add_stars <- function(p){
   if (is.na(p)) return("")
@@ -1218,8 +1209,7 @@ lab_inc <- c(
   "distance_agroshops"       = "Distance of homestead to nearest agro-input shop selling maize seed in km",
   "weed_times"               = "Number of weeding times in the randomly selected plot",
   "resow"                    = "Resowing in the randomly selected plot (1 = Yes)",
-  "farmer_group_member"      = "The respondent is part of a farmer group or cooperative (1 = Yes)",
-  "yield_per_acre"           = "Yield per acre"
+  "farmer_group_member"      = "The respondent is part of a farmer group or cooperative (1 = Yes)"
 )
 
 form_inc_bl <- as.formula(paste("maize_income_ihs ~", paste(vars_inc, collapse = " + ")))
@@ -1254,6 +1244,8 @@ tab_inc <- data.frame(
   stringsAsFactors=FALSE
 )
 
+resettest(m_inc_full_bl)
+
 # For display: use the var names from vars_inc, but note that the model term is log1p(r_maize_plot_area)
 for(v in vars_inc){
   
@@ -1281,6 +1273,50 @@ for(v in vars_inc){
                Pooled_Total=poolT[2], Pooled_Male=poolM[2], Pooled_Female=poolF[2])
   )
 }
+
+
+#correcting the misspecification found with the reset test
+#  INCOME – Flexible Specification (Spec 2)
+
+
+form_inc_bl_flex <- as.formula(
+  paste(
+    "maize_income_ihs ~",
+    paste(vars_inc, collapse = " + "),
+    "+ I(log1p(r_maize_plot_area)^2)",
+    "+ I(distance_agroshops^2)",
+    "+ I(hh_age^2)",
+    "+ log1p(r_maize_plot_area):quality_seed_used",
+    "+ log1p(r_maize_plot_area):dap_npk_applied"
+  )
+)
+
+m_inc_full_bl_flex <- lm(form_inc_bl_flex, data = baseline_farmers)
+
+# RESET test on flexible spec
+resettest(m_inc_full_bl_flex)
+
+#check again income because problematic
+mean(baseline_farmers$maize_income == 0, na.rm = TRUE) * 100
+mean(baseline_farmers$maize_income_ihs == 0, na.rm = TRUE) * 100
+mean(baseline_farmers$bags_sold == 0, na.rm = TRUE) * 100
+
+tapply(baseline_farmers$maize_income_ihs == 0,
+       baseline_farmers$hh_gender_num,
+       mean, na.rm = TRUE)
+
+#quick checcke: compare with non-sellers model
+# Subset sellers
+m_inc_full_sellers <- lm(
+  form_inc_bl,
+  data = baseline_farmers,
+  subset = (maize_sold == 1)
+)
+sum(baseline_farmers$maize_sold == 1, na.rm = TRUE)
+# RESET test
+resettest(m_inc_full_sellers)
+
+
 
 # =========================
 # HYBRID SEED — POOLED VARIABLE + OLS TABLE
@@ -1413,14 +1449,39 @@ for(v in vars_hybrid){
   )
 }
 
-#OAXACA BLINDER #no refErence( Jann 2008)
+
+
+#various tests - multicollinearity not present
+library(car)
+vif(m_prod_full_bl)
+vif(m_inc_full_bl)
+vif(m_hybrid_full_bl)
+
+
+#etheroskedasticity is trong but it it corrected with clustered st errors
+library(lmtest)
+bptest(m_prod_full_bl)
+bptest(m_inc_full_bl)
+bptest(m_hybrid_full_bl)
+
+#reset tests: the model is not correctly specified for income shall I do smt?
+library(lmtest)
+resettest(m_prod_full_bl)
+resettest(m_inc_full_bl)
+resettest(m_hybrid_full_bl)
+resettest(m_inc_full_bl)
+
+
+
+
+
+
+#OAXACA BLINDER #no reference - pooled( Jann 2008)
 
 # --- Packages ---
 # (oaxaca non è necessario per questa versione simmetrica;
-#  usiamo lm + bootstrap per essere 100% in controllo)
-# =========================
+#  I use lm + bootstrap 
 
-# ============================================
 # THREEFOLD OAXACA (POOLED / NO REFERENCE) + DETAILED + STARS (AGG + DET)
 # OUTPUT objects for LyX:
 #   - tab_agg_kilic_star      (4 rows, aggregate Kilic style, stars on coef rows)
@@ -1428,7 +1489,7 @@ for(v in vars_hybrid){
 #   - tab_det_inc_star        (all vars, stars)
 # ============================================
 
-# ---------- SETTINGS ----------
+#  GENERAL SETTINGS 
 group_var   <- "hh_gender_num"
 male_value  <- 1
 female_value <- 0
@@ -1464,7 +1525,7 @@ stars_from_est_se <- function(est, se) {
   paste0(fmt3_safe(est), pstars(p))
 }
 
-# ---------- HELPERS ----------
+# HELPERS (chat)
 .get_rhs <- function(x_vars) paste(x_vars, collapse = " + ")
 
 .get_Xbar <- function(df, rhs) {
@@ -1482,7 +1543,7 @@ stars_from_est_se <- function(est, se) {
   out
 }
 
-# ---------- CORE: threefold pooled returning detailed ----------
+# CORE: threefold pooled detailed - pooled reference for coefficients
 threefold_pooled_detailed <- function(df, y, group_var, x_vars, male_value, female_value) {
   
   keep <- complete.cases(df[, c(y, group_var, x_vars)])
@@ -1758,3 +1819,31 @@ baseline_farmers$end_adoption_onfield <- baseline_farmers$end_improved
 baseline_farmers$end_adoption_onfield[baseline_farmers$base_hybridbutsaved==1] <- 0
 baseline_farmers$end_adoption_onfield[baseline_farmers$end_OPVbutfourthormore_timeused==1] <- 0
 #baseline_farmers$end_adoption_onfield[baseline_farmers$end_OPVbutsaved==1] <- 0
+
+
+#try logit model for hybrid seeds  (pooled)
+m_hybrid_logit_pool <- glm(
+  hybrid_seed ~ hh_gender_num + education_head_num + household_size +
+    hh_age + distance_agroshops + num_shops +
+    dap_npk_applied + urea_applied + organic_manure_applied +
+    chemicals_applied + maize_plot_area +
+    weed_times + resow + farmer_group_member +
+    factor(round),
+  data = farmers_long,
+  family = binomial(link = "logit")
+)
+
+summary(m_hybrid_logit_pool)
+exp(coef(m_hybrid_logit_pool))
+
+
+
+#check Oaxaca assumptions
+#1 - common support and comparability
+library(ggplot2)
+
+ggplot(baseline_farmers,
+       aes(x = maize_plot_area,
+           fill = factor(hh_gender_num))) +
+  geom_density(alpha = 0.4) +
+  theme_minimal()

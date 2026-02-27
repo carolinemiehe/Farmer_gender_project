@@ -1209,7 +1209,8 @@ lab_inc <- c(
   "distance_agroshops"       = "Distance of homestead to nearest agro-input shop selling maize seed in km",
   "weed_times"               = "Number of weeding times in the randomly selected plot",
   "resow"                    = "Resowing in the randomly selected plot (1 = Yes)",
-  "farmer_group_member"      = "The respondent is part of a farmer group or cooperative (1 = Yes)"
+  "farmer_group_member"      = "The respondent is part of a farmer group or cooperative (1 = Yes)",
+  "yield_per_acre"           = "Maize productivity of the randomly selected plot in kg/acre"
 )
 
 form_inc_bl <- as.formula(paste("maize_income_ihs ~", paste(vars_inc, collapse = " + ")))
@@ -1237,6 +1238,7 @@ N_inc_pool_total_fmt  <- format(nobs(m_inc_pool_total), big.mark=",")
 N_inc_pool_male_fmt   <- format(nobs(m_inc_pool_male), big.mark=",")
 N_inc_pool_female_fmt <- format(nobs(m_inc_pool_female), big.mark=",")
 
+setdiff(vars_inc, names(lab_inc))
 tab_inc <- data.frame(
   Label=character(), Raw=character(),
   Full=character(), Male=character(), Female=character(),
@@ -1763,7 +1765,6 @@ tab_det_inc_star  <- make_det_star(boot_inc,  vars_OB_inc)
 print(tab_agg_kilic_star)
 head(tab_det_prod_star)
 head(tab_det_inc_star)
-
 
 
 #check for adoption

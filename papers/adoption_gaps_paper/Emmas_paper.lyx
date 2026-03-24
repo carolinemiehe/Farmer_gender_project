@@ -174,8 +174,15 @@ literal "false"
 One of the most persistent and costly inefficiencies is the gender gap in agricultural productivity (Buehren,
  2023).
  While women constitute a substantial share of the agricultural labor force in Sub-Saharan Africa – over 50% Tanzania,
- Uganda and Malawi (Palacios-López et al.,
- 2016) – they tend to achieve lower yields and earn lower income in comparison to their male counterparts (FAO,
+ Uganda and Malawi 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Palacios-López02092015"
+literal "false"
+
+\end_inset
+
+ – they tend to achieve lower yields and earn lower income in comparison to their male counterparts (FAO,
  2011).
  A large body of literature shows that women in agriculture face persistent institutional and structural constraints,
  including a limited access to land and productive inputs,

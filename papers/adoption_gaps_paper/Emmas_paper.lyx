@@ -7,6 +7,14 @@
 \textclass article
 \begin_preamble
 \usepackage{rotating}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,      % internal links (sections, equations)
+    citecolor=red,       % citations
+    urlcolor=magenta     % URLs
+}
 \end_preamble
 \use_default_options true
 \begin_modules
@@ -53,9 +61,9 @@ knitr
 \use_package stackrel 1
 \use_package stmaryrd 1
 \use_package undertilde 1
-\cite_engine basic
-\cite_engine_type default
-\biblio_style plain
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plainnat
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
@@ -130,7 +138,8 @@ Introduction
 In sub-Saharan Africa,
  agriculture remains a key driver of economic activity and a primary source of employment,
  particularly in rural areas.
- In Uganda the population is predominantly rural and it substantially relies on agriculture (FAO,
+ In Uganda,
+ the population is predominantly rural and relies substantially on agriculture (FAO,
  2011).
  The following analysis focuses on the cultivation of maize,
  one of the most important staple crops in Ugandan agriculture.
@@ -147,12 +156,18 @@ In sub-Saharan Africa,
  becomes essential for poverty reduction and food security.
  Despite that,
  progress has remained stubbornly slow,
- with productivity growth lagging well behind other regions (Suri & Udry,
- 2022).
+ with productivity growth lagging well behind other regions 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Suri2022"
+literal "false"
+
+\end_inset
+
+.
  This is the reason why increasing agricultural productivity and raising incomes of rural households is one of the goals of Uganda's Agriculture Sector Development Strategy and Investment Plan (DSIP),
  which aims to improve food security and nutrition for all Ugandans (De La O Campos et al.,
  2015).
- 
 \end_layout
 
 \begin_layout Standard
@@ -177,7 +192,6 @@ One of the most persistent and costly inefficiencies is the gender gap in agricu
  2015;
  Ali et al.,
  2016).
- 
 \end_layout
 
 \begin_layout Standard
@@ -185,7 +199,7 @@ Agricultural income is also not distributed evenly.
  Despite income discrimination differing geographically,
  female-headed households remain among the poorest of the poor (Djurfeldt,
  2013).
- The literature shows that the unequal access to productive input and strong discriminatory barriers contribute to enhancing gender gaps in income from farm activities (Kinkingninhoun-Mêdagbé et al.,
+ The literature shows that the unequal access to productive inputs and strong discriminatory barriers contribute to enhancing gender gaps in income from farm activities (Kinkingninhoun-Mêdagbé et al.,
  2010;
  Dandonougbo et al.,
  2023;
@@ -196,7 +210,8 @@ Agricultural income is also not distributed evenly.
 \begin_layout Standard
 Another key constraint for agricultural productivity and income is the widespread under-adoption of modern agricultural technologies,
  such as improved seed varieties,
- fertilizers and pesticides (Suri & Udry,
+ fertilizers,
+ and pesticides (Suri & Udry,
  2022).
  Despite input mechanization expanding especially in maize production (Williamson,
  2008),
@@ -206,7 +221,7 @@ Another key constraint for agricultural productivity and income is the widesprea
  2017).
  
 \begin_inset Note Comment
-status open
+status collapsed
 
 \begin_layout Plain Layout
 However,
@@ -217,22 +232,21 @@ However,
 
 \end_inset
 
-Understanding adoption of hybrid maize seeds varieties is important not only because it affects productivity and income,
+Understanding adoption of hybrid maize seed varieties is important not only because it affects productivity and income,
  but also because it can cause and perpetuate gender gaps.
- 
 \end_layout
 
 \begin_layout Standard
 The first objective of this paper is to contribute to the bulk of evidence on gender differentials in agricultural maize productivity,
  gross income,
- and adoption of imroved seed varieties by analyzing context-specific household-level data from the Busoga region,
+ and adoption of improved seed varieties by analyzing context-specific household-level data from the Busoga region,
  in Eastern Uganda.
  The paper mainly relies on panel data from three survey rounds with approximately 3,500 smallholder maize farmers in southeastern Uganda.
  We estimate baseline OLS models and apply Oaxaca–Blinder decomposition to assess the relative contribution of differences in endowments versus structural differences in returns to these endowments.
  The analysis also examines the adoption of improved maize seed varieties,
  considering it both as an outcome of interest and as a key mechanism that could influence productivity and income disparities among households.
  To address the potential endogeneity of adoption decisions,
- an instrumental variables (IV) strategy was used to estimate the causal impact of adopting imroved seed on maize productivity and income.
+ an instrumental variables (IV) strategy was used to estimate the causal impact of adopting improved seed on maize productivity and income.
  In parallel,
  we conducted a qualitative analysis consisting of 16 focus group discussions with smallholder farmers in the same region.
  This mixed-methods approach allows for data triangulation and provide a comprehensive understanding of gendered constraints in agricultural production.
@@ -240,8 +254,22 @@ The first objective of this paper is to contribute to the bulk of evidence on ge
  the paper provides policy relevant evidence on the mechanisms through which gender gaps in smallholder maize systems persist.
  Understanding these gender differentiated constraints is essential for achieving an inclusive agricultural transformation,
  improving welfare and food security.
- The paper is structured as follows.
- Section 2 reviews the relevant literature and outlines the key contributions to the study of gender differentials in agricultural production.
+\end_layout
+
+\begin_layout Standard
+The paper is structured as follows.
+ Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Literature Review"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ reviews the relevant literature and outlines the key contributions to the study of gender differentials in agricultural production.
  Section 3 describes the data sources,
  including both the quantitative household-level dataset and the qualitative fieldwork.
  Section 4 presents the methodological approach,
@@ -250,12 +278,22 @@ The first objective of this paper is to contribute to the bulk of evidence on ge
  the Oaxaca–Blinder decomposition,
  and the causal specification.
  The results,
- both quantitative and qualitative are presented in Section 5 and discussed in Section 6.
+ both quantitative and qualitative,
+ are presented in Section 5 and discussed in Section 6.
  The last section concludes the study.
 \end_layout
 
 \begin_layout Section
-Literature Review 
+Literature Review
+\lang english
+
+\begin_inset CommandInset label
+LatexCommand label
+name "Literature Review"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -405,7 +443,7 @@ Although these contributions provide a meaningful overview,
  These findings motivate further investigation into the income gap in maize production in Uganda.
  
 \begin_inset Note Comment
-status open
+status collapsed
 
 \begin_layout Plain Layout
 The literature shows that prevailing cultural norms and local systems of land access often disadvantage women,
@@ -443,7 +481,7 @@ While decomposition methods identify the relative contribution of observable cha
  differences in adoption rates between male and female farmers largely disappear.
  
 \begin_inset Note Comment
-status open
+status collapsed
 
 \begin_layout Plain Layout
 According to several studies,
@@ -10100,6 +10138,34 @@ Acknoledgements
 
 \begin_layout Standard
 This section will be further developed in the final version of the MSc thesis.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "../../literature/Farmer_gender"
+options "/Users/carolinemiehe/Desktop/from_now_on/prof/GitHub_repositories/Farmer_gender_project/literature/IFPRI_Style"
+encoding "default"
+
+\end_inset
+
+
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section

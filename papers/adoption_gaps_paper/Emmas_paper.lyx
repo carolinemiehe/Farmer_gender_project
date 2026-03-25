@@ -527,6 +527,10 @@ Data and Context
 Quantitative Data
 \end_layout
 
+\begin_layout Subsubsection
+Quantitative Sample
+\end_layout
+
 \begin_layout Standard
 The paper uses panel data from three survey rounds with approximately 3,500 smallholder maize farmers in southeastern Uganda.
  The data were originally collected within a broader research project examining agro-input dealers and farmer interactions in Uganda (De,
@@ -7574,7 +7578,6 @@ The assessment of gender gaps in agriculture generally relies on two different e
  Nevertheless,
  this limitation is partly addressed through qualitative data,
  which provide insights into intra-household decision-making processes and power relations and complement the inter-household quantitative analysis.
- 
 \end_layout
 
 \begin_layout Standard
@@ -7602,6 +7605,10 @@ These limitations represent a weakness of the study.
 Qualitative Data
 \end_layout
 
+\begin_layout Subsubsection
+Qualitative Sample
+\end_layout
+
 \begin_layout Standard
 The qualitative component of the data is based on fieldwork conducted in the Busoga region in south-east Uganda.
  Taking place over approximately 15 days between November and December 2025,
@@ -7610,18 +7617,28 @@ The qualitative component of the data is based on fieldwork conducted in the Bus
  Bugiri and Mayuge.
  Sixteen focus group discussions (FGDs) were held,
  each with 10 participants (160 participants in total).
- The composition of the groups was defined to capture specific gender perspectives,
+\end_layout
+
+\begin_layout Standard
+The composition of the groups was defined to capture specific gender perspectives,
  therefore 5 FGDs were women-only,
  5 were men-only,
  and 6 were mixed.
  The single-gender groups were used to encourage the participants to freely express experiences and opinions by reducing possible effects of bias and power asymmetries that can arise in mixed contexts.
  On the other hand,
  mixed groups allowed us to observe how intra-family norms and roles are reproduced in the discussion.
- Participants were selected randomly,
+\end_layout
+
+\begin_layout Standard
+Participants were selected randomly,
  ensuring a range of ages,
  with all participants being adults.
  All the people selected were plot managers,
  but not necessarily the household head.
+\end_layout
+
+\begin_layout Subsubsection
+Qualitative Content and Approach
 \end_layout
 
 \begin_layout Standard
@@ -7645,7 +7662,7 @@ The discussions were guided by a semi-structured outline consisting mainly of op
 \end_layout
 
 \begin_layout Subsubsection
-Qualitative Data limitations
+Qualitative Data Limitations
 \end_layout
 
 \begin_layout Standard
@@ -7719,15 +7736,46 @@ Y_{ht}=\alpha+\beta X_{ij}+\gamma G_{h}+\varepsilon_{ij}\label{eq:one-1}
 \end_inset
 
 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\lang english
+Caro:
+\begin_inset Formula 
+\begin{equation}
+Y_{h}=\alpha+\beta G_{h}+\gamma X_{h}+\varepsilon_{h}\label{eq:one-1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-where Yh denotes the outcome of interest for household h measured alternatively as maize productivity,
- income from maize and adoption of hybrid seeds.
+where
+\lang english
+
+\begin_inset Formula $Y_{h}$
+\end_inset
+
+
+\lang american
+ denotes the outcome of interest for household h measured alternatively as maize productivity,
+ gross income from maize and adoption of hybrid seeds.
  While previous studies model productivity outcomes in logarithmic form (Udry,
  1996),
  we employ the inverse hyperbolic sine transformation to accommodate zero productivity and income observations.
- When considering the adoption of hybrid seed as outcome variable,
+\end_layout
+
+\begin_layout Standard
+When considering the adoption of hybrid seed as an outcome variable,
  the OLS specification corresponds to a Linear Probability Model (LPM).
  While nonlinear models such as logit or probit are often used for binary outcomes,
  the LPM provides a straightforward interpretation and facilitates comparison with the continuous outcomes analyzed in this study.
@@ -7737,7 +7785,7 @@ where Yh denotes the outcome of interest for household h measured alternatively 
  2021).
  Robustness checks using logit specifications that follow logistic cumulative distribution are reported in the Appendix and present similar results.
 \begin_inset Note Comment
-status open
+status collapsed
 
 \begin_layout Plain Layout
 logit used by (Banerjee and Martin,
@@ -7755,7 +7803,10 @@ logit used by (Banerjee and Martin,
 
  Using the LPM,
  in Section 5 coefficients are interpreted as percentage-point changes in the probability of adoption.
- In equation (1),
+\end_layout
+
+\begin_layout Standard
+In equation (1),
  β measures the conditional effect of X on the outcome (or,
  in the case of adoption,
  in the probability of adoption) between male and female headed households.
@@ -7780,7 +7831,7 @@ logit used by (Banerjee and Martin,
  The full set of covariates and the corresponding regression specifications are reported in Tables 2 and 3 in the results section.
  
 \begin_inset Note Comment
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Some variables reported in the descriptive statistics are excluded from the regression analysis either because they are highly collinear with included covariates or because they could create problems of endogeneity.
@@ -7823,7 +7874,7 @@ where 𝑡 denotes the survey round and 𝛿𝑡 represents survey-round fixed e
  preventing average differences between rounds from being mistakenly attributed to gender.
  
 \begin_inset Note Comment
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Fixed effects at the household level are not included in the analysis as these effects would absorb all the characteristics of the household that remain unchanged over time,
@@ -7833,7 +7884,11 @@ Fixed effects at the household level are not included in the analysis as these e
 
 \end_inset
 
- Some of the covariates collected at baseline were not re-measured in the midline and endline surveys.
+
+\end_layout
+
+\begin_layout Standard
+Some of the covariates collected at baseline were not re-measured in the midline and endline surveys.
  These variables capture household characteristics,
  which we assume remain constant over the study period.
  Accordingly,
@@ -7936,7 +7991,15 @@ E(Y_{f})=\alpha_{f}+\beta_{f}E(X_{f})\label{eq:one-1-1-2}
 
 \lang american
 Where X denotes a vector of observable household and farm characteristics,
- and 𝛽𝑚 and 𝛽𝑓 represent the associated vectors of coefficients for male and female headed households,
+ and 
+\begin_inset Formula $𝛽_{m}$
+\end_inset
+
+ and 
+\begin_inset Formula $𝛽_{f}$
+\end_inset
+
+ represent the associated vectors of coefficients for male and female headed households,
  respectively.
 \end_layout
 
@@ -8050,13 +8113,19 @@ The Oaxaca Blinder decomposition relies on a set of identifying assumptions (For
  which requires sufficient similarity in the distribution of observable characteristics across male and female headed households.
  This condition was carefully assessed by inspecting the distribution of key covariates across male and female headed households.
  The Kernel density plots (reported in the Appendix) indicate substantial overlap in the main covariates.
- The detailed decomposition additionally depends on the assumptions of additive linearity (Fortin et al.,
+\end_layout
+
+\begin_layout Standard
+The detailed decomposition additionally depends on the assumptions of additive linearity (Fortin et al.,
  2011).
  Additive linearity assumes that the outcome can be expressed as a linear combination of observed covariates.
  In our setting,
  the specification tests do not indicate major functional form problems,
  indicating that a linear model provide a reasonable description of the outcomes.
- The credibility of the decomposition also relies on the plausibility of the ignorability and zero conditional mean assumptions.
+\end_layout
+
+\begin_layout Standard
+The credibility of the decomposition also relies on the plausibility of the ignorability and zero conditional mean assumptions.
  Ignorability requires that,
  conditional on the observed covariates,
  the gender of the household head is not correlated with unobserved factors affecting productivity and income.
@@ -8071,7 +8140,10 @@ The Oaxaca Blinder decomposition relies on a set of identifying assumptions (For
  2015;
  Wayagi et al.,
  2025) thereby reducing the scope for omitted variable bias.
- Panel-data extensions of the Oaxaca–Blinder decomposition have been used to further address unobserved heterogeneity in other settings (Slavchevska,
+\end_layout
+
+\begin_layout Standard
+Panel-data extensions of the Oaxaca–Blinder decomposition have been used to further address unobserved heterogeneity in other settings (Slavchevska,
  2015;
  Ali et al.,
  2016),
@@ -8097,7 +8169,7 @@ As stated previously,
 
 \begin_layout Standard
 \begin_inset Note Comment
-status open
+status collapsed
 
 \begin_layout Plain Layout
 A further empirical issue concerns the distribution of maize income,
@@ -8139,7 +8211,8 @@ Qualitative Analytical Approach
 \begin_layout Standard
 Qualitative data were analyzed using a thematic coding approach aimed at identifying recurring patterns related to gendered constraints in maize production and commercialization.
  Qualitative data were coded using the analysis software package ATLAS.ti,
- which facilitated systematic data organization A coding structure was developed based on the interviews questions and the study’s analytical focus,
+ which facilitated systematic data organization.
+ A coding structure was developed based on the interviews questions and the study’s analytical focus,
  while remaining open to themes emerging during the analysis of the data.
  
 \end_layout

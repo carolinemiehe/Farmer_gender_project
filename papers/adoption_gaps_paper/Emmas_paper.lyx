@@ -672,6 +672,17 @@ source(paste(path,
 
 \begin_layout Plain Layout
 
+options(encoding = "UTF-8")
+\end_layout
+
+\begin_layout Plain Layout
+
+Sys.setlocale("LC_ALL",
+ "en_US.UTF-8")
+\end_layout
+
+\begin_layout Plain Layout
+
 @
 \end_layout
 
@@ -752,7 +763,7 @@ arraystretch}{1.1}
 
 
 \backslash
-begin{tabular}{lccccc|ccccc|c}
+begin{tabular}{l|ccccc|ccccc|c}
 \end_layout
 
 \begin_layout Plain Layout
@@ -775,7 +786,9 @@ hline
 
 \begin_layout Plain Layout
 
-& 
+
+\backslash
+multicolumn{1}{c}{} & 
 \backslash
 multicolumn{5}{c}{Male-headed households} & 
 \backslash
@@ -804,21 +817,7 @@ multicolumn{1}{c}{T-test}
 
 
 \backslash
-cline{2-6}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cline{7-11}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cline{12-12}
+hline
 \end_layout
 
 \begin_layout Plain Layout
@@ -1218,7 +1217,7 @@ Sexpr{diff_fmt[6]}
 
 \begin_layout Plain Layout
 
-Household head finished primary education (1 = Yes)
+Household head finished primary education (1=yes)
 \end_layout
 
 \begin_layout Plain Layout
@@ -1313,7 +1312,7 @@ Sexpr{diff_fmt[7]}
 
 \begin_layout Plain Layout
 
-Respondent is household head's spouse (1 = Yes)
+Respondent is household head's spouse (1=yes)
 \end_layout
 
 \begin_layout Plain Layout
@@ -1408,7 +1407,7 @@ Sexpr{diff_fmt[8]}
 
 \begin_layout Plain Layout
 
-Respondent is household head (1 = Yes)
+Respondent is household head (1=yes)
 \end_layout
 
 \begin_layout Plain Layout
@@ -1503,7 +1502,7 @@ Sexpr{diff_fmt[9]}
 
 \begin_layout Plain Layout
 
-Household head is married (1 = Yes)
+Household head is married (1=yes)
 \end_layout
 
 \begin_layout Plain Layout
@@ -1799,7 +1798,7 @@ Sexpr{diff_fmt[4]}
 
 \begin_layout Plain Layout
 
-Farmer used quality seed (1 = Yes)
+Farmer used quality seed (1=yes)
 \end_layout
 
 \begin_layout Plain Layout
@@ -1894,7 +1893,7 @@ Sexpr{diff_fmt[11]}
 
 \begin_layout Plain Layout
 
-Member of a maize farmer group/cooperative (1 = Yes)
+Farmer is member of maize farmer group/cooperative (1=yes)
 \end_layout
 
 \begin_layout Plain Layout
@@ -2190,7 +2189,7 @@ Sexpr{diff_fmt[14]}
 
 \begin_layout Plain Layout
 
-Farmer applied DAP/NPK on this plot (1 = Yes)
+Farmer applied DAP/NPK on this plot (1=yes)
 \end_layout
 
 \begin_layout Plain Layout
@@ -2285,7 +2284,7 @@ Sexpr{diff_fmt[15]}
 
 \begin_layout Plain Layout
 
-Farmer applied Urea on this plot (1 = Yes)
+Farmer applied Urea on this plot (1=yes)
 \end_layout
 
 \begin_layout Plain Layout
@@ -2380,7 +2379,7 @@ Sexpr{diff_fmt[16]}
 
 \begin_layout Plain Layout
 
-Farmer applied pesticides/herbicides/fungicides on this plot (1 = Yes)
+Farmer applied pesticides/herbicides/fungicides on this plot (1=yes)
 \end_layout
 
 \begin_layout Plain Layout
@@ -2475,7 +2474,7 @@ Sexpr{diff_fmt[17]}
 
 \begin_layout Plain Layout
 
-Farmer applied organic manure on this plot (1 = Yes)
+Farmer applied organic manure on this plot (1=yes)
 \end_layout
 
 \begin_layout Plain Layout
@@ -2570,7 +2569,7 @@ Sexpr{diff_fmt[18]}
 
 \begin_layout Plain Layout
 
-Farmer re-sowed seeds on this plot (1 = Yes)
+Farmer re-sowed seeds on this plot (1=yes)
 \end_layout
 
 \begin_layout Plain Layout
@@ -2771,7 +2770,7 @@ hline
 
 \begin_layout Plain Layout
 
-Farmer sold maize from this plot (1 = Yes)
+Farmer sold maize from this plot (1=yes)
 \end_layout
 
 \begin_layout Plain Layout
@@ -3063,7 +3062,7 @@ hline
 
 \begin_layout Plain Layout
 
-Farmer used hybrid seed on this plot (1 = Yes)
+Farmer used hybrid seed on this plot (1=yes)
 \end_layout
 
 \begin_layout Plain Layout
@@ -4461,7 +4460,7 @@ Sexpr{diff_fmt[6]}
 
 \begin_layout Plain Layout
 
-Household-head finished primary education (1 = Yes)
+Household-head finished primary education (1=yes)
 \end_layout
 
 \begin_layout Plain Layout
@@ -4556,7 +4555,7 @@ Sexpr{diff_fmt[7]}
 
 \begin_layout Plain Layout
 
-Respondent is the spouse of the household head (1 = Yes)
+Respondent is the spouse of the household head (1=yes)
 \end_layout
 
 \begin_layout Plain Layout
@@ -4651,7 +4650,7 @@ Sexpr{diff_fmt[8]}
 
 \begin_layout Plain Layout
 
-The respondent is household head (1 = Yes)
+The respondent is household head (1=yes)
 \end_layout
 
 \begin_layout Plain Layout
@@ -4746,7 +4745,7 @@ Sexpr{diff_fmt[9]}
 
 \begin_layout Plain Layout
 
-Household head is married (1 = Yes)
+Household head is married (1=yes)
 \end_layout
 
 \begin_layout Plain Layout
@@ -4841,7 +4840,7 @@ Sexpr{diff_fmt[10]}
 
 \begin_layout Plain Layout
 
-The respondent used quality seeds (1 = Yes)
+The respondent used quality seeds (1=yes)
 \end_layout
 
 \begin_layout Plain Layout
@@ -4936,7 +4935,7 @@ Sexpr{diff_fmt[11]}
 
 \begin_layout Plain Layout
 
-The respondent is part of a farmer group or cooperative (1 = Yes)
+The respondent is part of a farmer group or cooperative (1=yes)
 \end_layout
 
 \begin_layout Plain Layout
@@ -5228,7 +5227,7 @@ Sexpr{diff_fmt[14]}
 
 \begin_layout Plain Layout
 
-DAP/NPK applied in the randomly selected plot (1 = Yes)
+DAP/NPK applied in the randomly selected plot (1=yes)
 \end_layout
 
 \begin_layout Plain Layout
@@ -5323,7 +5322,7 @@ Sexpr{diff_fmt[15]}
 
 \begin_layout Plain Layout
 
-Urea applied in the randomly selected plot (1 = Yes)
+Urea applied in the randomly selected plot (1=yes)
 \end_layout
 
 \begin_layout Plain Layout
@@ -5419,7 +5418,7 @@ Sexpr{diff_fmt[16]}
 \begin_layout Plain Layout
 
 Pesticides,
- herbicides or fungicides applied in the randomly selected plot (1 = Yes)
+ herbicides or fungicides applied in the randomly selected plot (1=yes)
 \end_layout
 
 \begin_layout Plain Layout
@@ -5514,7 +5513,7 @@ Sexpr{diff_fmt[17]}
 
 \begin_layout Plain Layout
 
-Organic manure applied in the randomly selected plot (1 = Yes)
+Organic manure applied in the randomly selected plot (1=yes)
 \end_layout
 
 \begin_layout Plain Layout
@@ -5609,7 +5608,7 @@ Sexpr{diff_fmt[18]}
 
 \begin_layout Plain Layout
 
-Resowing in the randomly selected plot (1 = Yes)
+Resowing in the randomly selected plot (1=yes)
 \end_layout
 
 \begin_layout Plain Layout
@@ -5799,7 +5798,7 @@ Sexpr{diff_fmt[20]}
 
 \begin_layout Plain Layout
 
-The household sold maize from the randomly selected plot (1 = Yes)
+The household sold maize from the randomly selected plot (1=yes)
 \end_layout
 
 \begin_layout Plain Layout
@@ -8240,7 +8239,8 @@ OLS Estimates of Gender Differences
 
 \begin_layout Standard
 Tables 2,
- 3 and 4 report ordinary least squares (OLS) regression results on the determinants of maize productivity,
+ 3,
+ and 4 report OLS regression results on the determinants of maize productivity,
  maize income,
  and adoption of hybrid maize seeds varieties respectively,
  disaggregated by gender of the household head.
@@ -8264,7 +8264,10 @@ Table 2 presents regression results for maize productivity measured as yield per
  Importantly,
  this gap remains statistically significant and of similar magnitude after controlling for a comprehensive set of household- and plot-level characteristics (Column 2),
  indicating that observable endowments explain only a limited share of the productivity differential and pointing instead to differences in returns and unobserved constraints disproportionately affecting female farmers.
- Several plot-level inputs are positively associated with maize productivity.
+\end_layout
+
+\begin_layout Standard
+Several plot-level inputs are positively associated with maize productivity.
  Fertilizer use,
  particularly Urea,
  DAP/NPK application,
@@ -8274,7 +8277,10 @@ Table 2 presents regression results for maize productivity measured as yield per
  Education of the household head is positively associated with maize productivity among female-headed households,
  while the corresponding effect is small and statistically insignificant among male-headed households,
  suggesting that education may play a more important role in increasing productivity among female farmers.
- When pooling observations across survey rounds,
+\end_layout
+
+\begin_layout Standard
+When pooling observations across survey rounds,
  the estimated gender coefficient remains positive and statistically significant,
  confirming that the productivity gap between male and female headed households persists over time,
  even after accounting for round-fixed effects.
@@ -8284,7 +8290,6 @@ Table 2 presents regression results for maize productivity measured as yield per
  The use of quality seeds and fertilizer inputs,
  including both DAP/NPK and urea,
  remains strongly and positively associated with productivity.
- 
 \end_layout
 
 \begin_layout Standard
@@ -8303,7 +8308,10 @@ Table 3 reports analogous results for maize income derived from the randomly sel
  The use of quality seeds,
  fertilizers,
  and chemical inputs is positively associated with maize income.
- However,
+\end_layout
+
+\begin_layout Standard
+However,
  gender-specific regressions reveal heterogeneity in returns across different inputs.
  While urea application is significantly associated with higher maize income among female-headed households,
  chemical inputs are significant only among male-headed households,
@@ -8314,13 +8322,16 @@ Table 3 reports analogous results for maize income derived from the randomly sel
  indicating higher returns to human capital for female farmers.
  Household characteristics also matter.
  The household size and the age of the household head are negatively associated with income.
- The results from the pooled income specification indicate that the gender gap in maize income persists over time,
+\end_layout
+
+\begin_layout Standard
+The results from the pooled income specification indicate that the gender gap in maize income persists over time,
  with the estimated gender coefficient remaining positive and statistically significant.
  Plot size remains positively and statistically significant in the pooled specification,
  confirming that scale effects continue to play an important role in explaining differences in maize income across households over time.
  
 \begin_inset Note Comment
-status open
+status collapsed
 
 \begin_layout Plain Layout
 The pooled estimates reveal that time-varying production decisions play a more prominent role:
@@ -8338,7 +8349,6 @@ The pooled estimates reveal that time-varying production decisions play a more p
  However,
  substantial gender disparities persist even after conditioning on productivity.
  This suggests that income gender disparities may be influenced by other factors beyond production.
- 
 \end_layout
 
 \begin_layout Standard
@@ -8390,10 +8400,3962 @@ Although comparing raw and controlled specifications shows the extent to which o
  this empirical technique does not identify the underlying mechanisms that drive differences between male and female headed households.
  The heterogeneous returns observed across the regressions motivate an explicit decomposition of productivity and income gaps,
  which we undertake in the following section using the Oaxaca–Blinder framework.
- 
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float table
+placement H
+alignment left
+wide false
+sideways true
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+OLS estimates of the determinants of maize productivity by gender
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+small
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{r|cccc|ccc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+multicolumn{1}{c}{} & 
+\backslash
+multicolumn{4}{c}{
+\backslash
+textit{Baseline}} & 
+\backslash
+multicolumn{3}{c}{
+\backslash
+textit{Pooled}} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& Raw gap & All & Male & Female & All & Male & Female 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{
+\backslash
+Sexpr{tab_prod$Label[1]}} & 
+\backslash
+Sexpr{tab_prod$Raw[1]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Full[1]} & 
+\backslash
+Sexpr{tab_prod$Male[1]} & 
+\backslash
+Sexpr{tab_prod$Female[1]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[1]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[1]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[1]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[2]} & 
+\backslash
+Sexpr{tab_prod$Raw[2]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Full[2]} & 
+\backslash
+Sexpr{tab_prod$Male[2]} & 
+\backslash
+Sexpr{tab_prod$Female[2]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[2]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[2]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[2]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[3]} & 
+\backslash
+Sexpr{tab_prod$Raw[3]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Full[3]} & 
+\backslash
+Sexpr{tab_prod$Male[3]} & 
+\backslash
+Sexpr{tab_prod$Female[3]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[3]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[3]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[3]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[4]} & 
+\backslash
+Sexpr{tab_prod$Raw[4]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Full[4]} & 
+\backslash
+Sexpr{tab_prod$Male[4]} & 
+\backslash
+Sexpr{tab_prod$Female[4]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[4]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[4]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[4]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[5]} & 
+\backslash
+Sexpr{tab_prod$Raw[5]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Full[5]} & 
+\backslash
+Sexpr{tab_prod$Male[5]} & 
+\backslash
+Sexpr{tab_prod$Female[5]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[5]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[5]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[5]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[6]} & 
+\backslash
+Sexpr{tab_prod$Raw[6]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Full[6]} & 
+\backslash
+Sexpr{tab_prod$Male[6]} & 
+\backslash
+Sexpr{tab_prod$Female[6]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[6]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[6]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[6]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[7]} & 
+\backslash
+Sexpr{tab_prod$Raw[7]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Full[7]} & 
+\backslash
+Sexpr{tab_prod$Male[7]} & 
+\backslash
+Sexpr{tab_prod$Female[7]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[7]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[7]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[7]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[8]} & 
+\backslash
+Sexpr{tab_prod$Raw[8]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Full[8]} & 
+\backslash
+Sexpr{tab_prod$Male[8]} & 
+\backslash
+Sexpr{tab_prod$Female[8]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[8]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[8]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[8]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[9]} & 
+\backslash
+Sexpr{tab_prod$Raw[9]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Full[9]} & 
+\backslash
+Sexpr{tab_prod$Male[9]} & 
+\backslash
+Sexpr{tab_prod$Female[9]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[9]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[9]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[9]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[10]} & 
+\backslash
+Sexpr{tab_prod$Raw[10]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Full[10]} & 
+\backslash
+Sexpr{tab_prod$Male[10]} & 
+\backslash
+Sexpr{tab_prod$Female[10]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[10]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[10]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[10]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[11]} & 
+\backslash
+Sexpr{tab_prod$Raw[11]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Full[11]} & 
+\backslash
+Sexpr{tab_prod$Male[11]} & 
+\backslash
+Sexpr{tab_prod$Female[11]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[11]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[11]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[11]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[12]} & 
+\backslash
+Sexpr{tab_prod$Raw[12]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Full[12]} & 
+\backslash
+Sexpr{tab_prod$Male[12]} & 
+\backslash
+Sexpr{tab_prod$Female[12]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[12]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[12]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[12]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[13]} & 
+\backslash
+Sexpr{tab_prod$Raw[13]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Full[13]} & 
+\backslash
+Sexpr{tab_prod$Male[13]} & 
+\backslash
+Sexpr{tab_prod$Female[13]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[13]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[13]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[13]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[14]} & 
+\backslash
+Sexpr{tab_prod$Raw[14]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Full[14]} & 
+\backslash
+Sexpr{tab_prod$Male[14]} & 
+\backslash
+Sexpr{tab_prod$Female[14]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[14]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[14]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[14]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[15]} & 
+\backslash
+Sexpr{tab_prod$Raw[15]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Full[15]} & 
+\backslash
+Sexpr{tab_prod$Male[15]} & 
+\backslash
+Sexpr{tab_prod$Female[15]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[15]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[15]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[15]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[16]} & 
+\backslash
+Sexpr{tab_prod$Raw[16]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Full[16]} & 
+\backslash
+Sexpr{tab_prod$Male[16]} & 
+\backslash
+Sexpr{tab_prod$Female[16]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[16]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[16]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[16]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[17]} & 
+\backslash
+Sexpr{tab_prod$Raw[17]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Full[17]} & 
+\backslash
+Sexpr{tab_prod$Male[17]} & 
+\backslash
+Sexpr{tab_prod$Female[17]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[17]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[17]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[17]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[18]} & 
+\backslash
+Sexpr{tab_prod$Raw[18]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Full[18]} & 
+\backslash
+Sexpr{tab_prod$Male[18]} & 
+\backslash
+Sexpr{tab_prod$Female[18]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[18]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[18]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[18]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[19]} & 
+\backslash
+Sexpr{tab_prod$Raw[19]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Full[19]} & 
+\backslash
+Sexpr{tab_prod$Male[19]} & 
+\backslash
+Sexpr{tab_prod$Female[19]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[19]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[19]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[19]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[20]} & 
+\backslash
+Sexpr{tab_prod$Raw[20]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Full[20]} & 
+\backslash
+Sexpr{tab_prod$Male[20]} & 
+\backslash
+Sexpr{tab_prod$Female[20]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[20]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[20]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[20]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[21]} & 
+\backslash
+Sexpr{tab_prod$Raw[21]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Full[21]} & 
+\backslash
+Sexpr{tab_prod$Male[21]} & 
+\backslash
+Sexpr{tab_prod$Female[21]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[21]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[21]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[21]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[22]} & 
+\backslash
+Sexpr{tab_prod$Raw[22]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Full[22]} & 
+\backslash
+Sexpr{tab_prod$Male[22]} & 
+\backslash
+Sexpr{tab_prod$Female[22]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[22]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[22]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[22]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[23]} & 
+\backslash
+Sexpr{tab_prod$Raw[23]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Full[23]} & 
+\backslash
+Sexpr{tab_prod$Male[23]} & 
+\backslash
+Sexpr{tab_prod$Female[23]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[23]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[23]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[23]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[24]} & 
+\backslash
+Sexpr{tab_prod$Raw[24]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Full[24]} & 
+\backslash
+Sexpr{tab_prod$Male[24]} & 
+\backslash
+Sexpr{tab_prod$Female[24]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[24]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[24]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[24]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[25]} & 
+\backslash
+Sexpr{tab_prod$Raw[25]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Full[25]} & 
+\backslash
+Sexpr{tab_prod$Male[25]} & 
+\backslash
+Sexpr{tab_prod$Female[25]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[25]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[25]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[25]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[26]} & 
+\backslash
+Sexpr{tab_prod$Raw[26]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Full[26]} & 
+\backslash
+Sexpr{tab_prod$Male[26]} & 
+\backslash
+Sexpr{tab_prod$Female[26]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[26]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[26]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[26]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[27]} & 
+\backslash
+Sexpr{tab_prod$Raw[27]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Full[27]} & 
+\backslash
+Sexpr{tab_prod$Male[27]} & 
+\backslash
+Sexpr{tab_prod$Female[27]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[27]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[27]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[27]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[28]} & 
+\backslash
+Sexpr{tab_prod$Raw[28]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Full[28]} & 
+\backslash
+Sexpr{tab_prod$Male[28]} & 
+\backslash
+Sexpr{tab_prod$Female[28]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[28]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[28]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[28]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[29]} & 
+\backslash
+Sexpr{tab_prod$Raw[29]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Full[29]} & 
+\backslash
+Sexpr{tab_prod$Male[29]} & 
+\backslash
+Sexpr{tab_prod$Female[29]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[29]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[29]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[29]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Label[30]} & 
+\backslash
+Sexpr{tab_prod$Raw[30]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Full[30]} & 
+\backslash
+Sexpr{tab_prod$Male[30]} & 
+\backslash
+Sexpr{tab_prod$Female[30]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_prod$Pooled_Total[30]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Male[30]} & 
+\backslash
+Sexpr{tab_prod$Pooled_Female[30]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Number of observations}  &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{N_prod_raw_fmt} & 
+\backslash
+Sexpr{N_prod_full_fmt} & 
+\backslash
+Sexpr{N_prod_male_fmt} & 
+\backslash
+Sexpr{N_prod_female_fmt} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{N_prod_pool_total_fmt} & 
+\backslash
+Sexpr{N_prod_pool_male_fmt} & 
+\backslash
+Sexpr{N_prod_pool_female_fmt} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+footnotesize
+\end_layout
+
+\begin_layout Plain Layout
+
+Note:
+ Column (1) reports estimates from a regression including only an indicator for male-headed households.
+ Column (2) reports estimates for the baseline sample,
+ adding household- and plot-level controls;
+ standard errors,
+ clustered at the household level,
+ are reported below in parentheses.
+ Columns (3) and (4) report estimates for the baseline sample separately for male- and female-headed households.
+ Columns (5)-(7) report analogous estimates using the pooled sample across all survey rounds and include round fixed effects.
+ Maize productivity is transformed using the IHS.
+ ***,
+ **,
+ and * denote significance at the 1
+\backslash
+%,
+ 5
+\backslash
+%,
+ and 10
+\backslash
+% levels.
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment left
+wide false
+sideways true
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+OLS estimates of the determinants of maize income by gender
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+small
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{r|cccc|ccc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+multicolumn{1}{c}{} & 
+\backslash
+multicolumn{4}{c}{
+\backslash
+textit{Baseline}} & 
+\backslash
+multicolumn{3}{c}{
+\backslash
+textit{Pooled}} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& Raw gap & All & Male & Female & All & Male & Female 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{
+\backslash
+Sexpr{tab_inc$Label[1]}} & 
+\backslash
+Sexpr{tab_inc$Raw[1]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Full[1]} & 
+\backslash
+Sexpr{tab_inc$Male[1]} & 
+\backslash
+Sexpr{tab_inc$Female[1]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[1]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[1]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[1]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[2]} & 
+\backslash
+Sexpr{tab_inc$Raw[2]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Full[2]} & 
+\backslash
+Sexpr{tab_inc$Male[2]} & 
+\backslash
+Sexpr{tab_inc$Female[2]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[2]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[2]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[2]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[3]} & 
+\backslash
+Sexpr{tab_inc$Raw[3]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Full[3]} & 
+\backslash
+Sexpr{tab_inc$Male[3]} & 
+\backslash
+Sexpr{tab_inc$Female[3]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[3]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[3]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[3]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[4]} & 
+\backslash
+Sexpr{tab_inc$Raw[4]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Full[4]} & 
+\backslash
+Sexpr{tab_inc$Male[4]} & 
+\backslash
+Sexpr{tab_inc$Female[4]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[4]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[4]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[4]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[5]} & 
+\backslash
+Sexpr{tab_inc$Raw[5]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Full[5]} & 
+\backslash
+Sexpr{tab_inc$Male[5]} & 
+\backslash
+Sexpr{tab_inc$Female[5]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[5]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[5]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[5]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[6]} & 
+\backslash
+Sexpr{tab_inc$Raw[6]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Full[6]} & 
+\backslash
+Sexpr{tab_inc$Male[6]} & 
+\backslash
+Sexpr{tab_inc$Female[6]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[6]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[6]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[6]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[7]} & 
+\backslash
+Sexpr{tab_inc$Raw[7]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Full[7]} & 
+\backslash
+Sexpr{tab_inc$Male[7]} & 
+\backslash
+Sexpr{tab_inc$Female[7]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[7]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[7]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[7]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[8]} & 
+\backslash
+Sexpr{tab_inc$Raw[8]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Full[8]} & 
+\backslash
+Sexpr{tab_inc$Male[8]} & 
+\backslash
+Sexpr{tab_inc$Female[8]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[8]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[8]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[8]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[9]} & 
+\backslash
+Sexpr{tab_inc$Raw[9]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Full[9]} & 
+\backslash
+Sexpr{tab_inc$Male[9]} & 
+\backslash
+Sexpr{tab_inc$Female[9]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[9]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[9]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[9]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[10]} & 
+\backslash
+Sexpr{tab_inc$Raw[10]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Full[10]} & 
+\backslash
+Sexpr{tab_inc$Male[10]} & 
+\backslash
+Sexpr{tab_inc$Female[10]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[10]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[10]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[10]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[11]} & 
+\backslash
+Sexpr{tab_inc$Raw[11]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Full[11]} & 
+\backslash
+Sexpr{tab_inc$Male[11]} & 
+\backslash
+Sexpr{tab_inc$Female[11]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[11]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[11]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[11]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[12]} & 
+\backslash
+Sexpr{tab_inc$Raw[12]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Full[12]} & 
+\backslash
+Sexpr{tab_inc$Male[12]} & 
+\backslash
+Sexpr{tab_inc$Female[12]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[12]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[12]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[12]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[13]} & 
+\backslash
+Sexpr{tab_inc$Raw[13]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Full[13]} & 
+\backslash
+Sexpr{tab_inc$Male[13]} & 
+\backslash
+Sexpr{tab_inc$Female[13]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[13]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[13]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[13]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[14]} & 
+\backslash
+Sexpr{tab_inc$Raw[14]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Full[14]} & 
+\backslash
+Sexpr{tab_inc$Male[14]} & 
+\backslash
+Sexpr{tab_inc$Female[14]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[14]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[14]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[14]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[15]} & 
+\backslash
+Sexpr{tab_inc$Raw[15]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Full[15]} & 
+\backslash
+Sexpr{tab_inc$Male[15]} & 
+\backslash
+Sexpr{tab_inc$Female[15]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[15]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[15]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[15]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[16]} & 
+\backslash
+Sexpr{tab_inc$Raw[16]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Full[16]} & 
+\backslash
+Sexpr{tab_inc$Male[16]} & 
+\backslash
+Sexpr{tab_inc$Female[16]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[16]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[16]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[16]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[17]} & 
+\backslash
+Sexpr{tab_inc$Raw[17]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Full[17]} & 
+\backslash
+Sexpr{tab_inc$Male[17]} & 
+\backslash
+Sexpr{tab_inc$Female[17]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[17]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[17]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[17]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[18]} & 
+\backslash
+Sexpr{tab_inc$Raw[18]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Full[18]} & 
+\backslash
+Sexpr{tab_inc$Male[18]} & 
+\backslash
+Sexpr{tab_inc$Female[18]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[18]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[18]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[18]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[19]} & 
+\backslash
+Sexpr{tab_inc$Raw[19]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Full[19]} & 
+\backslash
+Sexpr{tab_inc$Male[19]} & 
+\backslash
+Sexpr{tab_inc$Female[19]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[19]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[19]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[19]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[20]} & 
+\backslash
+Sexpr{tab_inc$Raw[20]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Full[20]} & 
+\backslash
+Sexpr{tab_inc$Male[20]} & 
+\backslash
+Sexpr{tab_inc$Female[20]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[20]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[20]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[20]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[21]} & 
+\backslash
+Sexpr{tab_inc$Raw[21]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Full[21]} & 
+\backslash
+Sexpr{tab_inc$Male[21]} & 
+\backslash
+Sexpr{tab_inc$Female[21]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[21]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[21]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[21]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[22]} & 
+\backslash
+Sexpr{tab_inc$Raw[22]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Full[22]} & 
+\backslash
+Sexpr{tab_inc$Male[22]} & 
+\backslash
+Sexpr{tab_inc$Female[22]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[22]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[22]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[22]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[23]} & 
+\backslash
+Sexpr{tab_inc$Raw[23]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Full[23]} & 
+\backslash
+Sexpr{tab_inc$Male[23]} & 
+\backslash
+Sexpr{tab_inc$Female[23]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[23]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[23]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[23]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[24]} & 
+\backslash
+Sexpr{tab_inc$Raw[24]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Full[24]} & 
+\backslash
+Sexpr{tab_inc$Male[24]} & 
+\backslash
+Sexpr{tab_inc$Female[24]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[24]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[24]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[24]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[25]} & 
+\backslash
+Sexpr{tab_inc$Raw[25]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Full[25]} & 
+\backslash
+Sexpr{tab_inc$Male[25]} & 
+\backslash
+Sexpr{tab_inc$Female[25]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[25]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[25]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[25]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[26]} & 
+\backslash
+Sexpr{tab_inc$Raw[26]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Full[26]} & 
+\backslash
+Sexpr{tab_inc$Male[26]} & 
+\backslash
+Sexpr{tab_inc$Female[26]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[26]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[26]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[26]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[27]} & 
+\backslash
+Sexpr{tab_inc$Raw[27]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Full[27]} & 
+\backslash
+Sexpr{tab_inc$Male[27]} & 
+\backslash
+Sexpr{tab_inc$Female[27]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[27]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[27]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[27]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[28]} & 
+\backslash
+Sexpr{tab_inc$Raw[28]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Full[28]} & 
+\backslash
+Sexpr{tab_inc$Male[28]} & 
+\backslash
+Sexpr{tab_inc$Female[28]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[28]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[28]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[28]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[29]} & 
+\backslash
+Sexpr{tab_inc$Raw[29]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Full[29]} & 
+\backslash
+Sexpr{tab_inc$Male[29]} & 
+\backslash
+Sexpr{tab_inc$Female[29]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[29]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[29]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[29]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[30]} & 
+\backslash
+Sexpr{tab_inc$Raw[30]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Full[30]} & 
+\backslash
+Sexpr{tab_inc$Male[30]} & 
+\backslash
+Sexpr{tab_inc$Female[30]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[30]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[30]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[30]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[31]} & 
+\backslash
+Sexpr{tab_inc$Raw[31]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Full[31]} & 
+\backslash
+Sexpr{tab_inc$Male[31]} & 
+\backslash
+Sexpr{tab_inc$Female[31]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[31]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[31]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[31]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Label[32]} & 
+\backslash
+Sexpr{tab_inc$Raw[32]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Full[32]} & 
+\backslash
+Sexpr{tab_inc$Male[32]} & 
+\backslash
+Sexpr{tab_inc$Female[32]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_inc$Pooled_Total[32]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Male[32]} & 
+\backslash
+Sexpr{tab_inc$Pooled_Female[32]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Number of observations &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{N_inc_raw_fmt} & 
+\backslash
+Sexpr{N_inc_full_fmt} & 
+\backslash
+Sexpr{N_inc_male_fmt} & 
+\backslash
+Sexpr{N_inc_female_fmt} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{N_inc_pool_total_fmt} & 
+\backslash
+Sexpr{N_inc_pool_male_fmt} & 
+\backslash
+Sexpr{N_inc_pool_female_fmt} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Note:
+ Column (1) reports estimates from a regression including only an indicator for male-headed households.
+ Column (2) reports estimates for the baseline sample,
+ adding household- and plot-level controls;
+ standard errors,
+ clustered at the household level,
+ are reported below in parentheses.
+ Columns (3) and (4) report estimates for the baseline sample separately for male- and female-headed households.
+ Columns (5)-(7) report analogous estimates using the pooled sample across all survey rounds and include round fixed effects.
+ Maize income is transformed using the IHS.
+ ***,
+ **,
+ and * denote significance at the 1
+\backslash
+%,
+ 5
+\backslash
+%,
+ and 10
+\backslash
+% levels.
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment left
+wide false
+sideways true
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+OLS estimates of the determinants of hybrid maize seed adoption by gender
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+small
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{r|cccc|ccc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+multicolumn{1}{c}{} & 
+\backslash
+multicolumn{4}{c}{
+\backslash
+textit{Baseline}} & 
+\backslash
+multicolumn{3}{c}{
+\backslash
+textit{Pooled}} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& Raw gap & All & Male & Female & All & Male & Female 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{
+\backslash
+Sexpr{tab_hybrid$Label[1]}} & 
+\backslash
+Sexpr{tab_hybrid$Raw[1]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Full[1]} & 
+\backslash
+Sexpr{tab_hybrid$Male[1]} & 
+\backslash
+Sexpr{tab_hybrid$Female[1]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Pooled_Total[1]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Male[1]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Female[1]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Label[2]} & 
+\backslash
+Sexpr{tab_hybrid$Raw[2]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Full[2]} & 
+\backslash
+Sexpr{tab_hybrid$Male[2]} & 
+\backslash
+Sexpr{tab_hybrid$Female[2]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Pooled_Total[2]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Male[2]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Female[2]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Label[3]} & 
+\backslash
+Sexpr{tab_hybrid$Raw[3]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Full[3]} & 
+\backslash
+Sexpr{tab_hybrid$Male[3]} & 
+\backslash
+Sexpr{tab_hybrid$Female[3]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Pooled_Total[3]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Male[3]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Female[3]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Label[4]} & 
+\backslash
+Sexpr{tab_hybrid$Raw[4]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Full[4]} & 
+\backslash
+Sexpr{tab_hybrid$Male[4]} & 
+\backslash
+Sexpr{tab_hybrid$Female[4]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Pooled_Total[4]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Male[4]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Female[4]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Label[5]} & 
+\backslash
+Sexpr{tab_hybrid$Raw[5]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Full[5]} & 
+\backslash
+Sexpr{tab_hybrid$Male[5]} & 
+\backslash
+Sexpr{tab_hybrid$Female[5]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Pooled_Total[5]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Male[5]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Female[5]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Label[6]} & 
+\backslash
+Sexpr{tab_hybrid$Raw[6]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Full[6]} & 
+\backslash
+Sexpr{tab_hybrid$Male[6]} & 
+\backslash
+Sexpr{tab_hybrid$Female[6]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Pooled_Total[6]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Male[6]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Female[6]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Label[7]} & 
+\backslash
+Sexpr{tab_hybrid$Raw[7]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Full[7]} & 
+\backslash
+Sexpr{tab_hybrid$Male[7]} & 
+\backslash
+Sexpr{tab_hybrid$Female[7]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Pooled_Total[7]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Male[7]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Female[7]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Label[8]} & 
+\backslash
+Sexpr{tab_hybrid$Raw[8]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Full[8]} & 
+\backslash
+Sexpr{tab_hybrid$Male[8]} & 
+\backslash
+Sexpr{tab_hybrid$Female[8]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Pooled_Total[8]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Male[8]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Female[8]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Label[9]} & 
+\backslash
+Sexpr{tab_hybrid$Raw[9]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Full[9]} & 
+\backslash
+Sexpr{tab_hybrid$Male[9]} & 
+\backslash
+Sexpr{tab_hybrid$Female[9]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Pooled_Total[9]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Male[9]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Female[9]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Label[10]} & 
+\backslash
+Sexpr{tab_hybrid$Raw[10]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Full[10]} & 
+\backslash
+Sexpr{tab_hybrid$Male[10]} & 
+\backslash
+Sexpr{tab_hybrid$Female[10]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Pooled_Total[10]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Male[10]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Female[10]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Label[11]} & 
+\backslash
+Sexpr{tab_hybrid$Raw[11]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Full[11]} & 
+\backslash
+Sexpr{tab_hybrid$Male[11]} & 
+\backslash
+Sexpr{tab_hybrid$Female[11]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Pooled_Total[11]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Male[11]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Female[11]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Label[12]} & 
+\backslash
+Sexpr{tab_hybrid$Raw[12]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Full[12]} & 
+\backslash
+Sexpr{tab_hybrid$Male[12]} & 
+\backslash
+Sexpr{tab_hybrid$Female[12]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Pooled_Total[12]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Male[12]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Female[12]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Label[13]} & 
+\backslash
+Sexpr{tab_hybrid$Raw[13]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Full[13]} & 
+\backslash
+Sexpr{tab_hybrid$Male[13]} & 
+\backslash
+Sexpr{tab_hybrid$Female[13]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Pooled_Total[13]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Male[13]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Female[13]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Label[14]} & 
+\backslash
+Sexpr{tab_hybrid$Raw[14]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Full[14]} & 
+\backslash
+Sexpr{tab_hybrid$Male[14]} & 
+\backslash
+Sexpr{tab_hybrid$Female[14]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Pooled_Total[14]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Male[14]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Female[14]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Label[15]} & 
+\backslash
+Sexpr{tab_hybrid$Raw[15]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Full[15]} & 
+\backslash
+Sexpr{tab_hybrid$Male[15]} & 
+\backslash
+Sexpr{tab_hybrid$Female[15]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Pooled_Total[15]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Male[15]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Female[15]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Label[16]} & 
+\backslash
+Sexpr{tab_hybrid$Raw[16]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Full[16]} & 
+\backslash
+Sexpr{tab_hybrid$Male[16]} & 
+\backslash
+Sexpr{tab_hybrid$Female[16]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Pooled_Total[16]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Male[16]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Female[16]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Label[17]} & 
+\backslash
+Sexpr{tab_hybrid$Raw[17]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Full[17]} & 
+\backslash
+Sexpr{tab_hybrid$Male[17]} & 
+\backslash
+Sexpr{tab_hybrid$Female[17]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Pooled_Total[17]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Male[17]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Female[17]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Label[18]} & 
+\backslash
+Sexpr{tab_hybrid$Raw[18]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Full[18]} & 
+\backslash
+Sexpr{tab_hybrid$Male[18]} & 
+\backslash
+Sexpr{tab_hybrid$Female[18]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Pooled_Total[18]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Male[18]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Female[18]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Label[19]} & 
+\backslash
+Sexpr{tab_hybrid$Raw[19]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Full[19]} & 
+\backslash
+Sexpr{tab_hybrid$Male[19]} & 
+\backslash
+Sexpr{tab_hybrid$Female[19]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Pooled_Total[19]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Male[19]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Female[19]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Label[20]} & 
+\backslash
+Sexpr{tab_hybrid$Raw[20]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Full[20]} & 
+\backslash
+Sexpr{tab_hybrid$Male[20]} & 
+\backslash
+Sexpr{tab_hybrid$Female[20]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Pooled_Total[20]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Male[20]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Female[20]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Label[21]} & 
+\backslash
+Sexpr{tab_hybrid$Raw[21]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Full[21]} & 
+\backslash
+Sexpr{tab_hybrid$Male[21]} & 
+\backslash
+Sexpr{tab_hybrid$Female[21]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Pooled_Total[21]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Male[21]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Female[21]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Label[22]} & 
+\backslash
+Sexpr{tab_hybrid$Raw[22]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Full[22]} & 
+\backslash
+Sexpr{tab_hybrid$Male[22]} & 
+\backslash
+Sexpr{tab_hybrid$Female[22]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Pooled_Total[22]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Male[22]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Female[22]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Label[23]} & 
+\backslash
+Sexpr{tab_hybrid$Raw[23]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Full[23]} & 
+\backslash
+Sexpr{tab_hybrid$Male[23]} & 
+\backslash
+Sexpr{tab_hybrid$Female[23]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Pooled_Total[23]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Male[23]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Female[23]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Label[24]} & 
+\backslash
+Sexpr{tab_hybrid$Raw[24]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Full[24]} & 
+\backslash
+Sexpr{tab_hybrid$Male[24]} & 
+\backslash
+Sexpr{tab_hybrid$Female[24]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Pooled_Total[24]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Male[24]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Female[24]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Label[25]} & 
+\backslash
+Sexpr{tab_hybrid$Raw[25]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Full[25]} & 
+\backslash
+Sexpr{tab_hybrid$Male[25]} & 
+\backslash
+Sexpr{tab_hybrid$Female[25]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Pooled_Total[25]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Male[25]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Female[25]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Label[26]} & 
+\backslash
+Sexpr{tab_hybrid$Raw[26]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Full[26]} & 
+\backslash
+Sexpr{tab_hybrid$Male[26]} & 
+\backslash
+Sexpr{tab_hybrid$Female[26]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Pooled_Total[26]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Male[26]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Female[26]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Label[27]} & 
+\backslash
+Sexpr{tab_hybrid$Raw[27]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Full[27]} & 
+\backslash
+Sexpr{tab_hybrid$Male[27]} & 
+\backslash
+Sexpr{tab_hybrid$Female[27]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Pooled_Total[27]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Male[27]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Female[27]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Label[28]} & 
+\backslash
+Sexpr{tab_hybrid$Raw[28]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Full[28]} & 
+\backslash
+Sexpr{tab_hybrid$Male[28]} & 
+\backslash
+Sexpr{tab_hybrid$Female[28]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_hybrid$Pooled_Total[28]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Male[28]} & 
+\backslash
+Sexpr{tab_hybrid$Pooled_Female[28]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Number of observations &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{N_hybrid_raw_fmt} & 
+\backslash
+Sexpr{N_hybrid_full_fmt} & 
+\backslash
+Sexpr{N_hybrid_male_fmt} & 
+\backslash
+Sexpr{N_hybrid_female_fmt} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{N_hybrid_pool_total_fmt} & 
+\backslash
+Sexpr{N_hybrid_pool_male_fmt} & 
+\backslash
+Sexpr{N_hybrid_pool_female_fmt} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Note:
+ Column (1) reports estimates from a regression including only an indicator for male-headed households.
+ Column (2) reports estimates for the baseline sample,
+ adding household- and plot-level controls;
+ standard errors,
+ clustered at the household level,
+ are reported below in parentheses.
+ Columns (3) and (4) report estimates for the baseline sample separately for male- and female-headed households.
+ Columns (5)-(7) report analogous estimates using the pooled sample across all survey rounds and include round fixed effects.
+ ***,
+ **,
+ and * denote significance at the 1
+\backslash
+%,
+ 5
+\backslash
+%,
+ and 10
+\backslash
+% levels.
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+original tables:
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Float table
 placement H
 alignment left
@@ -9768,7 +13730,7 @@ end{minipage}
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 \begin_inset Float table
 placement H
 alignment left
@@ -11219,7 +15181,7 @@ end{minipage}
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 \begin_inset Float table
 placement H
 alignment left
@@ -12518,6 +16480,11 @@ textit{Note}:
 
 \backslash
 end{minipage}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset

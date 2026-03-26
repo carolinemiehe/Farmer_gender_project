@@ -1359,7 +1359,7 @@ labels_hybrid <- c(
   "hh_age"                 = "Household head’s age in years",
   "distance_agroshops"     = "Homestead’s distance to nearest agro-input shop in km",
   "num_shops"              = "Number of agro-input shops in village or neighborhood",
-  "dap_npk_applied"        = "Farmer applied DAP/NPK on this plot (1=yes)",
+  "dap_npk_applied"        = "Farmer applied DAP/NPK on randomly selected plot (1=yes)",
   "urea_applied"           = "Farmer applied Urea on this plot (1=yes)",
   "organic_manure_applied" = "Farmer applied organic manure on this plot (1=yes)",
   "maize_plot_area"        = "Land for crop production in acres",
@@ -1602,40 +1602,40 @@ threefold_pooled_detailed <- function(df, y, group_var, x_vars, male_value, fema
 # VARIABLES (define once)
 
 vars_OB_prod <- c(
-  "education_head_num"     = "Household-head finished primary education (1=yes)",
+  "education_head_num"     = "Household head finished primary education (1=yes)",
   "household_size"         = "Number of household members",
-  "hh_age"                 = "Age of household head in years",
-  "distance_agroshops"     = "Distance of homestead to nearest agro-input shop selling maize seed in km",
-  "num_shops"              = "Number of agro-input shops in the village or neighborhood",
-  "quality_seed_used"      = "The respondent used quality seeds (1=yes)",
-  "dap_npk_applied"        = "DAP/NPK applied in the randomly selected plot (1=yes)",
-  "urea_applied"           = "Urea applied in the randomly selected plot (1=yes)",
-  "organic_manure_applied" = "Organic manure applied in the randomly selected plot (1=yes)",
-  "maize_plot_area"        = "Available land for crop production in acres",
-  "chemicals_applied"      = "Pesticides, herbicides or fungicides applied in the randomly selected plot (1=yes)",
-  "weed_times"             = "Number of weeding times in the randomly selected plot",
-  "resow"                  = "Resowing in the randomly selected plot (1=yes)",
-  "farmer_group_member"    = "The respondent is part of a farmer group or cooperative (1=yes)",
-  "base_hybrid"             = "The respondent adopted hybrid seed in the randomly selected plot (1=yes)"
+  "hh_age"                 = "Household head’s age in years",
+  "distance_agroshops"     = "Homestead’s distance to nearest agro-input shop in km",
+  "num_shops"              = "Number of agro-input shops in village or neighborhood",
+  "quality_seed_used"      = "Farmer used quality seed (1=yes)",
+  "dap_npk_applied"        = "Farmer applied DAP/NPK on the randomly selected plot (1=yes)",
+  "urea_applied"           = "Farmer applied Urea on this plot (1=yes)",
+  "organic_manure_applied" = "Farmer applied organic manure on this plot (1=yes)",
+  "maize_plot_area"        = "Land for crop production in acres",
+  "chemicals_applied"      = "Farmer applied agro-chemicals on this plot (1=yes)",
+  "weed_times"             = "Number of times the farmer weeded this plot",
+  "resow"                  = "Farmer re-sowed seeds on this plot (1=yes)",
+  "farmer_group_member"    = "Farmer is member of maize farmer group/cooperative (1=yes)",
+  "base_hybrid"            = "Farmer used hybrid seed on this plot (1=yes)"
 )
 
 vars_OB_inc <- c(
-  "log_maize_plot_area"      = "Area of the randomly selected plot in acres (log)",
-  "education_head_num"       = "Household-head finished primary education (1=yes)",
+  "log_maize_plot_area"      = "Area of randomly selected plot in acres (log)",
+  "education_head_num"       = "Household head finished primary education (1=yes)",
   "household_size"           = "Number of household members",
-  "hh_age"                   = "Age of household head in years",
-  "quality_seed_used"        = "The respondent used quality seeds (1=yes)",
-  "dap_npk_applied"          = "DAP/NPK applied in the randomly selected plot (1=yes)",
-  "urea_applied"             = "Urea applied in the randomly selected plot (1=yes)",
-  "chemicals_applied"        = "Pesticides, herbicides or fungicides applied in the randomly selected plot (1=yes)",
-  "organic_manure_applied"   = "Organic manure applied in the randomly selected plot (1=yes)",
-  "num_shops"                = "Number of agro-input shops in the village or neighborhood",
-  "distance_agroshops"       = "Distance of homestead to nearest agro-input shop selling maize seed in km",
-  "weed_times"               = "Number of weeding times in the randomly selected plot",
-  "resow"                    = "Resowing in the randomly selected plot (1=yes)",
-  "farmer_group_member"      = "The respondent is part of a farmer group or cooperative (1=yes)",
-  "yield_per_acre"           = "Yield per acre",
-  "base_hybrid"               = "The respondent adopted hybrid seed in the randomly selected plot (1=yes)"
+  "hh_age"                   = "Household head’s age in years",
+  "quality_seed_used"        = "Farmer used quality seed (1=yes)",
+  "dap_npk_applied"          = "Farmer applied DAP/NPK on this plot (1=yes)",
+  "urea_applied"             = "Farmer applied Urea on this plot (1=yes)",
+  "chemicals_applied"        = "Farmer applied agro-chemicals on this plot (1=yes)",
+  "organic_manure_applied"   = "Farmer applied organic manure on this plot (1=yes)",
+  "num_shops"                = "Number of agro-input shops in village or neighborhood",
+  "distance_agroshops"       = "Homestead’s distance to nearest agro-input shop in km",
+  "weed_times"               = "Number of times the farmer weeded this plot",
+  "resow"                    = "Farmer re-sowed seeds on this plot (1=yes)",
+  "farmer_group_member"      = "Farmer is member of maize farmer group/cooperative (1=yes)",
+  "yield_per_acre"           = "Maize productivity on this plot in kg/acre",
+  "base_hybrid"              = "Farmer used hybrid seed on this plot (1=yes)"
 )
 
 # ============================================

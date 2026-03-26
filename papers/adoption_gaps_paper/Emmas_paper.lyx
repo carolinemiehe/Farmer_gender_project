@@ -738,7 +738,7 @@ begin{center}
 
 
 \backslash
-footnotesize
+small
 \end_layout
 
 \begin_layout Plain Layout
@@ -6799,7 +6799,7 @@ begin{center}
 
 
 \backslash
-footnotesize
+small
 \end_layout
 
 \begin_layout Plain Layout
@@ -8408,7 +8408,7 @@ placement H
 alignment left
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -11098,6 +11098,13 @@ end{center}
 
 \begin_layout Plain Layout
 
+
+\backslash
+footnotesize
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -12303,6 +12310,17 @@ end{tabular}
 
 \backslash
 end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+footnotesize
 \end_layout
 
 \begin_layout Plain Layout
@@ -16507,6 +16525,358 @@ placement H
 alignment left
 wide false
 sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+Aggregate decomposition in maize productivity and income
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+small
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{lrrccc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& $N$ & Total & Endowment & Male structural & Female structural 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+&&gap& effect & advantage & disadvantage 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_agg_kilic_star$Outcome[1]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_agg_kilic_star$N[1]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_agg_kilic_star$Total_gap[1]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_agg_kilic_star$Endowment[1]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_agg_kilic_star$Male_adv[1]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_agg_kilic_star$Female_dis[1]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_agg_kilic_star$Outcome[2]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+{} & {} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_agg_kilic_star$Endowment[2]}
+\backslash
+% &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_agg_kilic_star$Male_adv[2]}
+\backslash
+% &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_agg_kilic_star$Female_dis[2]}
+\backslash
+% 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_agg_kilic_star$Outcome[3]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_agg_kilic_star$N[3]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_agg_kilic_star$Total_gap[3]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_agg_kilic_star$Endowment[3]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_agg_kilic_star$Male_adv[3]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_agg_kilic_star$Female_dis[3]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_agg_kilic_star$Outcome[4]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+{} & {} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_agg_kilic_star$Endowment[4]}
+\backslash
+% &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_agg_kilic_star$Male_adv[4]}
+\backslash
+% &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_agg_kilic_star$Female_dis[4]}
+\backslash
+% 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+footnotesize
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Note:
+ Shares are expressed in 
+\backslash
+%.
+ Standard errors are bootstrapped;
+ ***,
+ **,
+ and * denote significance at the 1
+\backslash
+%,
+ 5
+\backslash
+%,
+ and 10
+\backslash
+% levels.
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+original:
+ 
+\begin_inset Float table
+placement H
+alignment left
+wide false
+sideways false
 status collapsed
 
 \begin_layout Plain Layout
@@ -16831,6 +17201,11 @@ end{tabular}
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 Given that both maize productivity and maize income are expressed in inverse hyperbolic sine (IHS) units,
  the estimated gaps can be interpreted approximately as percentage differences.
@@ -16842,7 +17217,10 @@ The estimated productivity gap of 0.201 implies that on average female-headed ho
  (2016),
  who report a difference in mean log productivity between plots managed by male and female headed households of 0.177,
  corresponding to a gap of approximately 19.4%.
- The Oaxaca–Blinder decomposition indicates that only a small fraction of the productivity gap (0.034,
+\end_layout
+
+\begin_layout Standard
+The Oaxaca–Blinder decomposition indicates that only a small fraction of the productivity gap (0.034,
  approximately 17%) is explained by observable differences in endowments,
  such as land size,
  input use,
@@ -16851,7 +17229,10 @@ The estimated productivity gap of 0.201 implies that on average female-headed ho
  suggesting that gender disparities in maize productivity could be driven primarily by structural factors,
  differential returns to inputs,
  and gender-specific constraints rather than by unequal access to productive resources alone.
- Through the threefold decomposition,
+\end_layout
+
+\begin_layout Standard
+Through the threefold decomposition,
  the structural component reflects both male structural advantage and female structural disadvantage,
  with the latter accounting for the larger share of the unexplained gap.
  As highlighted in the literature,
@@ -16888,7 +17269,7 @@ The detailed decomposition provides additional insight into which specific covar
 
 \begin_layout Standard
 \begin_inset Note Comment
-status open
+status collapsed
 
 \begin_layout Plain Layout
 In the literature,
@@ -16904,7 +17285,7 @@ In the literature,
 
 \begin_layout Standard
 \begin_inset Note Comment
-status open
+status collapsed
 
 \begin_layout Plain Layout
 The detailed decomposition provides additional insight into which specific covariates contribute the most to the explained and unexplained components of the gap.
@@ -16957,7 +17338,7 @@ Qualitative Evidence
 
 \begin_layout Standard
 \begin_inset Note Comment
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Interviews opened with participants’ own definitions of a female-headed household (...).
@@ -16974,7 +17355,10 @@ The qualitative results are organized around four analytical areas which corresp
  decision making processes;
  technology adoption and community perception;
  market dynamics.
- 
+\end_layout
+
+\begin_layout Paragraph
+Social norms and labor division
 \end_layout
 
 \begin_layout Standard
@@ -17009,7 +17393,10 @@ Across all focus groups,
  female FGD),
  while another added “what a man can do even the woman can do” (MUGGI,
  mixed FGD).
- Across focus groups,
+\end_layout
+
+\begin_layout Standard
+Across focus groups,
  women were widely associated with childcare and domestic responsibilities,
  often working alongside children in the fields.
  As one female participant noted,
@@ -17017,7 +17404,7 @@ Across all focus groups,
 ) He returns in the night when you are done working” (BUKAYE,
  female FGD).
  Women’s agricultural labour remains closely tied to care-giving roles,
- even as they increasingly take on tasks previously considered male and rather than replacing existing domestic responsabilities,
+ even as they increasingly take on tasks previously considered male and rather than replacing existing domestic responsibilities,
  it was added on top of them,
  leading to widespread time poverty and limiting agricultural productivity.
  Women described delayed arrival to maize plots,
@@ -17026,7 +17413,10 @@ Across all focus groups,
  These qualitative insights suggest that social constraints women's time and labour division contribute to gender gaps in maize productivity and income,
  especially in female-headed households,
  where husbands are generally absent less involved in daily farming and household activities.
- Despite this heavy workload,
+\end_layout
+
+\begin_layout Standard
+Despite this heavy workload,
  women repeatedly portrayed these tasks as unavoidable,
  framing them as natural and inherent to being a woman.
  As one participant explained,
@@ -17039,7 +17429,10 @@ Across all focus groups,
  mixed FGD),
  and “those roles are naturally mine and I have to do them whether I want to or do not want to” (MUGGI,
  mixed FGD).
- While some men,
+\end_layout
+
+\begin_layout Standard
+While some men,
  particularly in mixed focus groups,
  acknowledged domestic work as labour,
  others framed household and childcare responsibilities as a way for women to avoid agricultural work.
@@ -17052,7 +17445,10 @@ Across all focus groups,
  These perceptions were directly linked to agricultural outcomes,
  with participants concluding that “This leads to poor farm management and low yields” (ITANDA,
  mixed FGD).
- Consistent with this framing,
+\end_layout
+
+\begin_layout Standard
+Consistent with this framing,
  male participants often interpreted women’s childcare responsibilities,
  such as breastfeeding,
  not as binding constraints but as excuses for rest or reduced effort.
@@ -17070,6 +17466,10 @@ Across all focus groups,
  helping in understanding underlying mechanism explaining gender gaps in maize productivity and income that standard quantitative measures do not capture.
  The qualitative evidence on women’s time constraints and care responsibilities helps contextualize the differential returns component identified for female-headed households in the decomposition,
  as similar input levels may translate into lower effective supervision and productivity outcomes.
+\end_layout
+
+\begin_layout Paragraph
+Decision making processes
 \end_layout
 
 \begin_layout Standard
@@ -17093,7 +17493,10 @@ The discussions with the smallholder farmers also suggest that gendered norms ar
  In jointly managed plots,
  decisions over inputs were more frequently described as either jointly discussed or male-led,
  with men often making the final decision.
- Income decisions followed similar patterns.
+\end_layout
+
+\begin_layout Standard
+Income decisions followed similar patterns.
  Female focus groups stressed that men retain control over harvests despite limited labor contribution.
  In jointly managed plots,
  income from maize sales was often described as discussed within the household,
@@ -17139,6 +17542,10 @@ with that I have the right to decide on my own and that since I have sold this m
  female FGD).
 \end_layout
 
+\begin_layout Paragraph
+Technology adoption and community perception
+\end_layout
+
 \begin_layout Standard
 Participants described the adoption of new technologies,
  such as hybrid seeds or fertilizers,
@@ -17171,6 +17578,10 @@ the one who pulls all other people’s yields to his or her own garden” (BUDHU
  resulting in uneven diffusion across households.
  These narratives imply that technology adoption is viewed as a practice grounded in community norms,
  rather than a neutral technical choice.
+\end_layout
+
+\begin_layout Paragraph
+Market dynamics
 \end_layout
 
 \begin_layout Standard
@@ -17238,7 +17649,7 @@ This section will be further developed in the final version of the MSc thesis.
 
 \begin_layout Standard
 \begin_inset Note Comment
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Given the substantial benefits of modern agricultural technologies,
@@ -17263,7 +17674,7 @@ This section will be further developed in the final version of the MSc thesis.
 \end_layout
 
 \begin_layout Section
-Acknoledgements
+Acknowledgments
 \end_layout
 
 \begin_layout Standard
@@ -18042,12 +18453,834 @@ sideways true
 status collapsed
 
 \begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+Detailed decomposition in maize productivity
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+small
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}  
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{lccc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& Endowment & Male structural & Female structural  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& effect & advantage & disadvantage 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_det_prod_star$Variable[1]}  & 
+\backslash
+Sexpr{tab_det_prod_star$Endowment[1]}  & 
+\backslash
+Sexpr{tab_det_prod_star$Male_adv[1]}  & 
+\backslash
+Sexpr{tab_det_prod_star$Female_dis[1]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_det_prod_star$Variable[2]}  & 
+\backslash
+Sexpr{tab_det_prod_star$Endowment[2]}  & 
+\backslash
+Sexpr{tab_det_prod_star$Male_adv[2]}  & 
+\backslash
+Sexpr{tab_det_prod_star$Female_dis[2]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_det_prod_star$Variable[3]}  & 
+\backslash
+Sexpr{tab_det_prod_star$Endowment[3]}  & 
+\backslash
+Sexpr{tab_det_prod_star$Male_adv[3]}  & 
+\backslash
+Sexpr{tab_det_prod_star$Female_dis[3]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_det_prod_star$Variable[4]}  & 
+\backslash
+Sexpr{tab_det_prod_star$Endowment[4]}  & 
+\backslash
+Sexpr{tab_det_prod_star$Male_adv[4]}  & 
+\backslash
+Sexpr{tab_det_prod_star$Female_dis[4]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_det_prod_star$Variable[5]}  & 
+\backslash
+Sexpr{tab_det_prod_star$Endowment[5]}  & 
+\backslash
+Sexpr{tab_det_prod_star$Male_adv[5]}  & 
+\backslash
+Sexpr{tab_det_prod_star$Female_dis[5]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_det_prod_star$Variable[6]}  & 
+\backslash
+Sexpr{tab_det_prod_star$Endowment[6]}  & 
+\backslash
+Sexpr{tab_det_prod_star$Male_adv[6]}  & 
+\backslash
+Sexpr{tab_det_prod_star$Female_dis[6]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_det_prod_star$Variable[7]}  & 
+\backslash
+Sexpr{tab_det_prod_star$Endowment[7]}  & 
+\backslash
+Sexpr{tab_det_prod_star$Male_adv[7]}  & 
+\backslash
+Sexpr{tab_det_prod_star$Female_dis[7]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_det_prod_star$Variable[8]}  & 
+\backslash
+Sexpr{tab_det_prod_star$Endowment[8]}  & 
+\backslash
+Sexpr{tab_det_prod_star$Male_adv[8]}  & 
+\backslash
+Sexpr{tab_det_prod_star$Female_dis[8]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_det_prod_star$Variable[9]}  & 
+\backslash
+Sexpr{tab_det_prod_star$Endowment[9]}  & 
+\backslash
+Sexpr{tab_det_prod_star$Male_adv[9]}  & 
+\backslash
+Sexpr{tab_det_prod_star$Female_dis[9]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_det_prod_star$Variable[10]} & 
+\backslash
+Sexpr{tab_det_prod_star$Endowment[10]} & 
+\backslash
+Sexpr{tab_det_prod_star$Male_adv[10]} & 
+\backslash
+Sexpr{tab_det_prod_star$Female_dis[10]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_det_prod_star$Variable[11]} & 
+\backslash
+Sexpr{tab_det_prod_star$Endowment[11]} & 
+\backslash
+Sexpr{tab_det_prod_star$Male_adv[11]} & 
+\backslash
+Sexpr{tab_det_prod_star$Female_dis[11]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_det_prod_star$Variable[12]} & 
+\backslash
+Sexpr{tab_det_prod_star$Endowment[12]} & 
+\backslash
+Sexpr{tab_det_prod_star$Male_adv[12]} & 
+\backslash
+Sexpr{tab_det_prod_star$Female_dis[12]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_det_prod_star$Variable[13]} & 
+\backslash
+Sexpr{tab_det_prod_star$Endowment[13]} & 
+\backslash
+Sexpr{tab_det_prod_star$Male_adv[13]} & 
+\backslash
+Sexpr{tab_det_prod_star$Female_dis[13]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_det_prod_star$Variable[14]} & 
+\backslash
+Sexpr{tab_det_prod_star$Endowment[14]} & 
+\backslash
+Sexpr{tab_det_prod_star$Male_adv[14]} & 
+\backslash
+Sexpr{tab_det_prod_star$Female_dis[14]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_det_prod_star$Variable[15]} & 
+\backslash
+Sexpr{tab_det_prod_star$Endowment[15]} & 
+\backslash
+Sexpr{tab_det_prod_star$Male_adv[15]} & 
+\backslash
+Sexpr{tab_det_prod_star$Female_dis[15]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+footnotesize
+\end_layout
+
+\begin_layout Plain Layout
+
+Note:
+  Maize productivity is transformed using the IHS.
+ Standard errors are bootstrapped;
+ ***,
+ **,
+ and * denote significance at the 1
+\backslash
+%,
+ 5
+\backslash
+%,
+ and 10
+\backslash
+% levels.
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float table
 placement class
 alignment document
 wide false
 sideways true
 status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+Detailed decomposition in maize income
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+small
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}  
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{lccc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& Endowment & Male structural & Female structural  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& effect & advantage & disadvantage 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_det_inc_star$Variable[1]}  & 
+\backslash
+Sexpr{tab_det_inc_star$Endowment[1]}  & 
+\backslash
+Sexpr{tab_det_inc_star$Male_adv[1]}  & 
+\backslash
+Sexpr{tab_det_inc_star$Female_dis[1]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_det_inc_star$Variable[2]}  & 
+\backslash
+Sexpr{tab_det_inc_star$Endowment[2]}  & 
+\backslash
+Sexpr{tab_det_inc_star$Male_adv[2]}  & 
+\backslash
+Sexpr{tab_det_inc_star$Female_dis[2]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_det_inc_star$Variable[3]}  & 
+\backslash
+Sexpr{tab_det_inc_star$Endowment[3]}  & 
+\backslash
+Sexpr{tab_det_inc_star$Male_adv[3]}  & 
+\backslash
+Sexpr{tab_det_inc_star$Female_dis[3]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_det_inc_star$Variable[4]}  & 
+\backslash
+Sexpr{tab_det_inc_star$Endowment[4]}  & 
+\backslash
+Sexpr{tab_det_inc_star$Male_adv[4]}  & 
+\backslash
+Sexpr{tab_det_inc_star$Female_dis[4]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_det_inc_star$Variable[5]}  & 
+\backslash
+Sexpr{tab_det_inc_star$Endowment[5]}  & 
+\backslash
+Sexpr{tab_det_inc_star$Male_adv[5]}  & 
+\backslash
+Sexpr{tab_det_inc_star$Female_dis[5]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_det_inc_star$Variable[6]}  & 
+\backslash
+Sexpr{tab_det_inc_star$Endowment[6]}  & 
+\backslash
+Sexpr{tab_det_inc_star$Male_adv[6]}  & 
+\backslash
+Sexpr{tab_det_inc_star$Female_dis[6]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_det_inc_star$Variable[7]}  & 
+\backslash
+Sexpr{tab_det_inc_star$Endowment[7]}  & 
+\backslash
+Sexpr{tab_det_inc_star$Male_adv[7]}  & 
+\backslash
+Sexpr{tab_det_inc_star$Female_dis[7]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_det_inc_star$Variable[8]}  & 
+\backslash
+Sexpr{tab_det_inc_star$Endowment[8]}  & 
+\backslash
+Sexpr{tab_det_inc_star$Male_adv[8]}  & 
+\backslash
+Sexpr{tab_det_inc_star$Female_dis[8]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_det_inc_star$Variable[9]}  & 
+\backslash
+Sexpr{tab_det_inc_star$Endowment[9]}  & 
+\backslash
+Sexpr{tab_det_inc_star$Male_adv[9]}  & 
+\backslash
+Sexpr{tab_det_inc_star$Female_dis[9]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_det_inc_star$Variable[10]} & 
+\backslash
+Sexpr{tab_det_inc_star$Endowment[10]} & 
+\backslash
+Sexpr{tab_det_inc_star$Male_adv[10]} & 
+\backslash
+Sexpr{tab_det_inc_star$Female_dis[10]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_det_inc_star$Variable[11]} & 
+\backslash
+Sexpr{tab_det_inc_star$Endowment[11]} & 
+\backslash
+Sexpr{tab_det_inc_star$Male_adv[11]} & 
+\backslash
+Sexpr{tab_det_inc_star$Female_dis[11]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_det_inc_star$Variable[12]} & 
+\backslash
+Sexpr{tab_det_inc_star$Endowment[12]} & 
+\backslash
+Sexpr{tab_det_inc_star$Male_adv[12]} & 
+\backslash
+Sexpr{tab_det_inc_star$Female_dis[12]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_det_inc_star$Variable[13]} & 
+\backslash
+Sexpr{tab_det_inc_star$Endowment[13]} & 
+\backslash
+Sexpr{tab_det_inc_star$Male_adv[13]} & 
+\backslash
+Sexpr{tab_det_inc_star$Female_dis[13]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_det_inc_star$Variable[14]} & 
+\backslash
+Sexpr{tab_det_inc_star$Endowment[14]} & 
+\backslash
+Sexpr{tab_det_inc_star$Male_adv[14]} & 
+\backslash
+Sexpr{tab_det_inc_star$Female_dis[14]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_det_inc_star$Variable[15]} & 
+\backslash
+Sexpr{tab_det_inc_star$Endowment[15]} & 
+\backslash
+Sexpr{tab_det_inc_star$Male_adv[15]} & 
+\backslash
+Sexpr{tab_det_inc_star$Female_dis[15]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+footnotesize
+\end_layout
+
+\begin_layout Plain Layout
+
+Note:
+  Maize income is transformed using the IHS.
+ Standard errors are bootstrapped;
+ ***,
+ **,
+ and * denote significance at the 1
+\backslash
+%,
+ 5
+\backslash
+%,
+ and 10
+\backslash
+% levels.
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+original:
+ 
+\begin_inset Float table
+placement class
+alignment document
+wide false
+sideways true
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Float table
+placement class
+alignment document
+wide false
+sideways true
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -18839,6 +20072,11 @@ hline
 
 \backslash
 end{tabular}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset

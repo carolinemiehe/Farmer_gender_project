@@ -103,8 +103,7 @@ knitr
 \begin_body
 
 \begin_layout Title
-Determinants of the Gender Gap in Maize Productivity and Income in Eastern Uganda:
- The Role of Improved Seed Varieties
+Determinants of the Gender Gap in Maize Productivity and Income in Eastern Uganda
 \end_layout
 
 \begin_layout Author
@@ -117,17 +116,20 @@ This study investigates gender differences in maize productivity and income in E
  Using a mixed-methods approach,
  the analysis combines quantitative and qualitative data with a focus on male and female headed households in the Busoga region.
  First,
- ordinary least squares (OLS) models are estimated to descriptively examine gender gaps across outcomes.
- Both baseline and pooled panel data are used,
- covering three rounds of data collection and allowing gender gaps to be assessed both cross-sectionally and over time.
+ ordinary least squares models are estimated to descriptively examine gender gaps across productivity,
+ income,
+ and adoption.
+ Both baseline and pooled panel data covering three rounds of data collection are used.
  Following that,
  a threefold Oaxaca-Blinder decomposition technique is employed at baseline to decompose gender gaps in productivity and income into differences in endowments and differences in returns to those endowments.
  To further examine the role of technology adoption,
- an instrumental variables (IV) approach is implemented to estimate the causal impact of improved seed adoption on maize productivity and income.
- Qualitative analysis and focus group discussions complement econometric analysis by giving contextual information about gendered dynamics in maize production in Busoga region.
- The study advances the literature by giving new context-specific evidence on potential gender-differentiated outcomes in smallholder maize farming,
- with particular attention to the role of hybrid seed varieties adoption as a key driver of agricultural performance.
- The findings have policy implications for equitable productivity and income outcomes in maize production in Eastern Uganda.
+ an instrumental variables (IV) approach is implemented to estimate the causal impact of improved seed adoption on maize productivity and income for female and male headed households.
+ Qualitative analysis and focus group discussions complement econometric analysis by giving contextual information about gendered dynamics in maize production in the Busoga region.
+ 
+\end_layout
+
+\begin_layout Abstract
+Briefly ADD FINDINGS!
 \end_layout
 
 \begin_layout Section
@@ -135,12 +137,11 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-In sub-Saharan Africa,
+In Sub-Saharan Africa,
  agriculture remains a key driver of economic activity and a primary source of employment,
  particularly in rural areas.
  In Uganda,
- the population is predominantly rural and relies substantially on agriculture (FAO,
- 2011).
+ the population is predominantly rural and relies substantially on agriculture (source).
  The following analysis focuses on the cultivation of maize,
  one of the most important staple crops in Ugandan agriculture.
  Maize is cultivated by the majority of rural households in East Africa,
@@ -151,9 +152,7 @@ In sub-Saharan Africa,
  2016).
  In an agricultural context with such constraints and challenges,
  where increasing yields through cultivated area is not possible,
- identifying strategies to enhance agricultural production,
- and consequently income,
- becomes essential for poverty reduction and food security.
+ understanding underlying causes behind low income and productivity becomes essential for food security.
  Despite that,
  progress has remained stubbornly slow,
  with productivity growth lagging well behind other regions 
@@ -174,7 +173,8 @@ literal "false"
 One of the most persistent and costly inefficiencies is the gender gap in agricultural productivity (Buehren,
  2023).
  While women constitute a substantial share of the agricultural labor force in Sub-Saharan Africa – over 50% Tanzania,
- Uganda and Malawi 
+ Uganda,
+ Malawi (add more regions!) 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Palacios-López02092015"
@@ -202,7 +202,8 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-Agricultural income is also not distributed evenly.
+In addition to the gender gap in agricultural productivity,
+ agricultural income is also not distributed evenly.
  Despite income discrimination differing geographically,
  female-headed households remain among the poorest of the poor (Djurfeldt,
  2013).
@@ -215,13 +216,13 @@ Agricultural income is also not distributed evenly.
 \end_layout
 
 \begin_layout Standard
-Another key constraint for agricultural productivity and income is the widespread under-adoption of modern agricultural technologies,
+Another key constraint for female- headed households' agricultural productivity and income is the widespread under-adoption of modern agricultural technologies,
  such as improved seed varieties,
  fertilizers,
- and pesticides (Suri & Udry,
- 2022).
+ and pesticides (source).
  Despite input mechanization expanding especially in maize production (Williamson,
- 2008),
+ 2008,
+ more recent),
  adoption remains gendered with male-headed households being more likely to use modern inputs (Peterman et al.,
  2010;
  Sheahan & Barrett,
@@ -239,25 +240,27 @@ However,
 
 \end_inset
 
-Understanding adoption of hybrid maize seed varieties is important not only because it affects productivity and income,
+Understanding adoption of modern maize seed varieties is important not only because it affects productivity and income,
  but also because it can cause and perpetuate gender gaps.
+ (remove maybe?)
 \end_layout
 
 \begin_layout Standard
-The first objective of this paper is to contribute to the bulk of evidence on gender differentials in agricultural maize productivity,
+The paper contributes to the bulk of evidence on gender differentials in agricultural maize productivity,
  gross income,
- and adoption of improved seed varieties by analyzing context-specific household-level data from the Busoga region,
+ and adoption of improved seed varieties by analyzing household-level panel data from 3,500 smallholder maize farmers from the Busoga region,
  in Eastern Uganda.
- The paper mainly relies on panel data from three survey rounds with approximately 3,500 smallholder maize farmers in southeastern Uganda.
- We estimate baseline OLS models and apply Oaxaca–Blinder decomposition to assess the relative contribution of differences in endowments versus structural differences in returns to these endowments.
- The analysis also examines the adoption of improved maize seed varieties,
- considering it both as an outcome of interest and as a key mechanism that could influence productivity and income disparities among households.
+ We estimate baseline and pooled OLS models and apply Oaxaca–Blinder decomposition to assess the relative contribution of differences in endowments versus structural differences in returns to these endowments in determining productivity and income gaps from maize.
+ Furthermore,
+ the analysis quantifies the impact of adoption of improved maize seed varieties on productivity and income gaps between female and male headeded households.
  To address the potential endogeneity of adoption decisions,
- an instrumental variables (IV) strategy was used to estimate the causal impact of adopting improved seed on maize productivity and income.
+ an instrumental variables (IV) strategy was used to estimate the causal impact of adopting improved seed on maize productivity and income for female-headed households and male-headed households.
  In parallel,
  we conducted a qualitative analysis consisting of 16 focus group discussions with smallholder farmers in the same region.
- This mixed-methods approach allows for data triangulation and provide a comprehensive understanding of gendered constraints in agricultural production.
- By jointly examining the descriptive outcomes and the causal components,
+ This mixed-methods approach provide a comprehensive understanding of gendered constraints in agricultural production.
+ By jointly examining the descriptive outcomes,
+ the causal components,
+ and the qualitative data,
  the paper provides policy relevant evidence on the mechanisms through which gender gaps in smallholder maize systems persist.
  Understanding these gender differentiated constraints is essential for achieving an inclusive agricultural transformation,
  improving welfare and food security.
@@ -276,14 +279,14 @@ nolink "false"
 
 \end_inset
 
- reviews the relevant literature and outlines the key contributions to the study of gender differentials in agricultural production.
+ reviews the relevant literature and outlines the key contributions to the study of gender differentials in agricultural production in Sub-Saharan Africa.
  Section 3 describes the data sources,
  including both the quantitative household-level dataset and the qualitative fieldwork.
  Section 4 presents the methodological approach,
  detailing the empirical strategy,
  including the OLS regressions,
  the Oaxaca–Blinder decomposition,
- and the causal specification.
+ the causal specification and the qualitative analysis.
  The results,
  both quantitative and qualitative,
  are presented in Section 5 and discussed in Section 6.
@@ -301,14 +304,6 @@ name "Literature Review"
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-While women constitute a substantial share of the agricultural labor force in Sub-Saharan Africa – over 50% in Tanzania,
- Uganda and Malawi (Palacios-López et al.,
- 2017) – they consistently achieve lower yields than men and the income they get is substantially lower than the one earned by male farmers (FAO,
- 2011).
- 
 \end_layout
 
 \begin_layout Standard
@@ -17671,6 +17666,12 @@ Conclusion
 
 \begin_layout Standard
 This section will be further developed in the final version of the MSc thesis.
+\end_layout
+
+\begin_layout Standard
+The study advances the literature by giving new context-specific evidence on potential gender-differentiated outcomes in smallholder maize farming,
+ with particular attention to the role of hybrid seed varieties adoption as a key driver of agricultural performance.
+ The findings have policy implications for equitable productivity and income outcomes in maize production in Eastern Uganda.
 \end_layout
 
 \begin_layout Section

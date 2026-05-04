@@ -1768,15 +1768,6 @@ head(tab_det_inc_star)
 
 
 #check for adoption
-#hybrid
-baseline_farmers$end_Check2.check.maize.q31 <- baseline_farmers$Check2.check.maize.q31
-baseline_farmers$base_hybrid<-((baseline_farmers$end_Check2.check.maize.q31=="Longe_10H")|(baseline_farmers$end_Check2.check.maize.q31=="Longe_7H")|(baseline_farmers$end_Check2.check.maize.q31=="Longe_7R_Kayongo-go")|(baseline_farmers$end_Check2.check.maize.q31=="Bazooka")|(baseline_farmers$end_Check2.check.maize.q31=="Longe_6H")|(baseline_farmers$end_Check2.check.maize.q31=="Panner")|(baseline_farmers$end_Check2.check.maize.q31=="Wema")|(baseline_farmers$end_Check2.check.maize.q31=="KH_series"))
-baseline_farmers$base_hybrid<-ifelse(baseline_farmers$base_hybrid=="TRUE",1,0)
-baseline_farmers$base_hybrid[baseline_farmers$end_Check2.check.maize.q31=="Other_hybrid"] <- NA #because =Other hybrid or OPV
-#opv
-baseline_farmers$end_OPV<-(baseline_farmers$end_Check2.check.maize.q31=="Longe_5")|(baseline_farmers$end_Check2.check.maize.q31=="Longe_4")
-baseline_farmers$end_OPV<-ifelse(baseline_farmers$end_OPV=="TRUE",1,0)
-baseline_farmers$end_OPV[baseline_farmers$end_Check2.check.maize.q31=="Other_hybrid"] <- NA
 
 #farmer saved seed
 baseline_farmers$end_Check2.check.maize.q32 <- baseline_farmers$Check2.check.maize.q32
@@ -1822,29 +1813,283 @@ baseline_farmers$end_adoption_onfield[baseline_farmers$end_OPVbutfourthormore_ti
 #baseline_farmers$end_adoption_onfield[baseline_farmers$end_OPVbutsaved==1] <- 0
 
 
-#try logit model for hybrid seeds  (pooled)
-m_hybrid_logit_pool <- glm(
-  hybrid_seed ~ hh_gender_num + education_head_num + household_size +
-    hh_age + distance_agroshops + num_shops +
-    dap_npk_applied + urea_applied + organic_manure_applied +
-    chemicals_applied + maize_plot_area +
-    weed_times + resow + farmer_group_member +
-    factor(round),
-  data = farmers_long,
-  family = binomial(link = "logit")
+
+
+#other checks for IV
+
+#1 OPV - endline
+endline_farmers$end_OPV<-(endline_farmers$check.maize.q31=="Longe_5")|(endline_farmers$check.maize.q31=="Longe_4")
+endline_farmers$end_OPV<-ifelse(endline_farmers$end_OPV=="TRUE",1,0)
+endline_farmers$end_OPV[endline_farmers$check.maize.q31=="Other_hybrid"] <- NA
+
+#1 OPV - midline
+midline_farmers$mid_OPV<-(midline_farmers$check.maize.q31=="Longe_5")|(midline_farmers$check.maize.q31=="Longe_4")
+midline_farmers$mid_OPV<-ifelse(midline_farmers$mid_OPV=="TRUE",1,0)
+midline_farmers$mid_OPV[midline_farmers$check.maize.q31=="Other_hybrid"] <- NA
+
+
+#1 OPV test of Iv and exclusion restictrion 
+lm(end_OPV ~ clearing, data = endline_farmers)
+lm(mid_OPV ~ clearing, data = midline_farmers)
+lm(yield_per_acre ~ end_OPV + clearing, data = endline_farmers)
+lm(maize_income ~ end_OPV + clearing, data = endline_farmers)
+
+
+
+#2bought-from agroinput shop - endline 
+endline_farmers$end_Bought_from_agro_input_shop<-ifelse(endline_farmers$check.maize.q32=="d",1,0)
+#2bought-from agroinput shop - midline 
+midline_farmers$mid_Bought_from_agro_input_shop<-ifelse(midline_farmers$check.maize.q32=="d",1,0)
+
+#2boughtfrom agroinput shop test of Iv and exclusion restictrion 
+lm(yield_per_acre ~ end_OPV + clearing, data = endline_farmers)
+lm(maize_income ~ end_OPV + clearing, data = endline_farmers)
+lm(yield_per_acre ~ end_Bought_from_agro_input_shop + clearing, data = endline_farmers)
+lm(maize_income ~ end_Bought_from_agro_input_shop + clearing, data = endline_farmers)
+
+#3 improved seed - midline
+midline_farmers$mid_improved <- (
+  midline_farmers$check.maize.q31 == "Longe_10H" |
+    midline_farmers$check.maize.q31 == "Longe_7H" |
+    midline_farmers$check.maize.q31 == "Longe_7R_K" |
+    midline_farmers$check.maize.q31 == "Bazooka" |
+    midline_farmers$check.maize.q31 == "Longe_6H" |
+    midline_farmers$check.maize.q31 == "Panner" |
+    midline_farmers$check.maize.q31 == "Wema" |
+    midline_farmers$check.maize.q31 == "KH_series" |
+    midline_farmers$check.maize.q31 == "Longe_5" |
+    midline_farmers$check.maize.q31 == "Longe_4" |
+    midline_farmers$check.maize.q31 == "Other_hybrid"
 )
 
-summary(m_hybrid_logit_pool)
-exp(coef(m_hybrid_logit_pool))
+midline_farmers$mid_improved <- ifelse(midline_farmers$mid_improved, 1, 0)
+
+#3improved seeds endline
+endline_farmers$end_improved <- (
+  endline_farmers$check.maize.q31 == "Longe_10H" |
+    endline_farmers$check.maize.q31 == "Longe_7H" |
+    endline_farmers$check.maize.q31 == "Longe_7R_K" |
+    endline_farmers$check.maize.q31 == "Bazooka" |
+    endline_farmers$check.maize.q31 == "Longe_6H" |
+    endline_farmers$check.maize.q31 == "Panner" |
+    endline_farmers$check.maize.q31 == "Wema" |
+    endline_farmers$check.maize.q31 == "KH_series" |
+    endline_farmers$check.maize.q31 == "Longe_5" |
+    endline_farmers$check.maize.q31 == "Longe_4" |
+    endline_farmers$check.maize.q31 == "Other_hybrid"
+)
+
+endline_farmers$end_improved <- ifelse(endline_farmers$end_improved, 1, 0)
+
+
+#3IMPROVED test relevance and Exclusion
+lm(end_improved ~ clearing, data = endline_farmers)
+lm(mid_improved ~ clearing, data = midline_farmers)
+
+lm(yield_per_acre ~ end_improved + clearing, data = endline_farmers)
+lm(maize_income ~ end_improved + clearing, data = endline_farmers)
+
+
+#4 farmer saved seed - midline
+midline_farmers$mid_farmer_saved_seed <- (
+  midline_farmers$check.maize.q32 == "a" |
+    midline_farmers$check.maize.q32 == "b"
+)
+
+midline_farmers$mid_farmer_saved_seed <- ifelse(
+  midline_farmers$mid_farmer_saved_seed, 1, 0
+)
+
+table(midline_farmers$mid_farmer_saved_seed, useNA = "ifany")
+
+
+#4 farmer saved seed - endline
+endline_farmers$end_farmer_saved_seed <- (
+  endline_farmers$check.maize.q32 == "a" |
+    endline_farmers$check.maize.q32 == "b"
+)
+
+endline_farmers$end_farmer_saved_seed <- ifelse(
+  endline_farmers$end_farmer_saved_seed, 1, 0
+)
+
+table(endline_farmers$end_farmer_saved_seed, useNA = "ifany")
+
+#4SAVEDSEED - relevance exlusion
+lm(mid_farmer_saved_seed ~ clearing, data = midline_farmers)
+lm(end_farmer_saved_seed ~ clearing, data = endline_farmers)
+lm(yield_per_acre ~ mid_farmer_saved_seed + clearing, data = midline_farmers)
+
+lm(maize_income ~ mid_farmer_saved_seed + clearing, data = midline_farmers)
+lm(yield_per_acre ~ end_farmer_saved_seed + clearing, data = endline_farmers)
+lm(maize_income ~ end_farmer_saved_seed + clearing, data = endline_farmers)
 
 
 
-#check Oaxaca assumptions
-#1 - common support and comparability
-library(ggplot2)
 
-ggplot(baseline_farmers,
-       aes(x = maize_plot_area,
-           fill = factor(hh_gender_num))) +
-  geom_density(alpha = 0.4) +
-  theme_minimal()
+#5 adoption of field required OPV saved fourtormore_time used and improved
+# =========================
+# MIDLINE adoption_onfield
+# =========================
+
+# hybrid but saved - midline
+midline_farmers$mid_hybridbutsaved <- NA
+midline_farmers$mid_hybridbutsaved[
+  midline_farmers$mid_hybrid == 1 & midline_farmers$mid_farmer_saved_seed == 1
+] <- 1
+midline_farmers$mid_hybridbutsaved[
+  midline_farmers$mid_hybrid == 1 & midline_farmers$mid_farmer_saved_seed == 0
+] <- 0
+midline_farmers$mid_hybridbutsaved[
+  midline_farmers$mid_hybrid == 0
+] <- 0
+
+
+# fourth or more time used - midline
+midline_farmers$mid_fourthormore_timeused <- (
+  midline_farmers$check.maize.q34 == "d" |
+    midline_farmers$check.maize.q34 == "e" |
+    midline_farmers$check.maize.q34 == "f"
+)
+
+midline_farmers$mid_fourthormore_timeused <- ifelse(
+  midline_farmers$mid_fourthormore_timeused, 1, 0
+)
+
+
+# OPV but fourth or more time used - midline
+midline_farmers$mid_OPVbutfourthormore_timeused <- NA
+midline_farmers$mid_OPVbutfourthormore_timeused[
+  midline_farmers$mid_OPV == 1 &
+    midline_farmers$mid_farmer_saved_seed == 1 &
+    midline_farmers$mid_fourthormore_timeused == 1
+] <- 1
+midline_farmers$mid_OPVbutfourthormore_timeused[
+  midline_farmers$mid_OPV == 1 &
+    midline_farmers$mid_farmer_saved_seed == 1 &
+    midline_farmers$mid_fourthormore_timeused == 0
+] <- 0
+midline_farmers$mid_OPVbutfourthormore_timeused[
+  midline_farmers$mid_OPV == 1 &
+    midline_farmers$mid_farmer_saved_seed == 0
+] <- 0
+midline_farmers$mid_OPVbutfourthormore_timeused[
+  midline_farmers$mid_OPV == 0
+] <- 0
+
+
+# improved - midline
+midline_farmers$mid_improved <- (
+  midline_farmers$check.maize.q31 == "Longe_10H" |
+    midline_farmers$check.maize.q31 == "Longe_7H" |
+    midline_farmers$check.maize.q31 == "Longe_7R_K" |
+    midline_farmers$check.maize.q31 == "Bazooka" |
+    midline_farmers$check.maize.q31 == "Longe_6H" |
+    midline_farmers$check.maize.q31 == "Panner" |
+    midline_farmers$check.maize.q31 == "Wema" |
+    midline_farmers$check.maize.q31 == "KH_series" |
+    midline_farmers$check.maize.q31 == "Longe_5" |
+    midline_farmers$check.maize.q31 == "Longe_4" |
+    midline_farmers$check.maize.q31 == "Other_hybrid"
+)
+
+midline_farmers$mid_improved <- ifelse(midline_farmers$mid_improved, 1, 0)
+
+
+# adoption on field - midline
+midline_farmers$mid_adoption_onfield <- midline_farmers$mid_improved
+midline_farmers$mid_adoption_onfield[
+  midline_farmers$mid_hybridbutsaved == 1
+] <- 0
+midline_farmers$mid_adoption_onfield[
+  midline_farmers$mid_OPVbutfourthormore_timeused == 1
+] <- 0
+
+table(midline_farmers$mid_adoption_onfield, useNA = "ifany")
+
+# =========================
+# ENDLINE adoption_onfield
+# =========================
+
+# hybrid but saved - endline
+endline_farmers$end_hybridbutsaved <- NA
+endline_farmers$end_hybridbutsaved[
+  endline_farmers$end_hybrid == 1 & endline_farmers$end_farmer_saved_seed == 1
+] <- 1
+endline_farmers$end_hybridbutsaved[
+  endline_farmers$end_hybrid == 1 & endline_farmers$end_farmer_saved_seed == 0
+] <- 0
+endline_farmers$end_hybridbutsaved[
+  endline_farmers$end_hybrid == 0
+] <- 0
+
+
+# fourth or more time used - endline
+endline_farmers$end_fourthormore_timeused <- (
+  endline_farmers$check.maize.q34 == "d" |
+    endline_farmers$check.maize.q34 == "e" |
+    endline_farmers$check.maize.q34 == "f"
+)
+
+endline_farmers$end_fourthormore_timeused <- ifelse(
+  endline_farmers$end_fourthormore_timeused, 1, 0
+)
+
+
+# OPV but fourth or more time used - endline
+endline_farmers$end_OPVbutfourthormore_timeused <- NA
+endline_farmers$end_OPVbutfourthormore_timeused[
+  endline_farmers$end_OPV == 1 &
+    endline_farmers$end_farmer_saved_seed == 1 &
+    endline_farmers$end_fourthormore_timeused == 1
+] <- 1
+endline_farmers$end_OPVbutfourthormore_timeused[
+  endline_farmers$end_OPV == 1 &
+    endline_farmers$end_farmer_saved_seed == 1 &
+    endline_farmers$end_fourthormore_timeused == 0
+] <- 0
+endline_farmers$end_OPVbutfourthormore_timeused[
+  endline_farmers$end_OPV == 1 &
+    endline_farmers$end_farmer_saved_seed == 0
+] <- 0
+endline_farmers$end_OPVbutfourthormore_timeused[
+  endline_farmers$end_OPV == 0
+] <- 0
+
+
+# improved - endline
+endline_farmers$end_improved <- (
+  endline_farmers$check.maize.q31 == "Longe_10H" |
+    endline_farmers$check.maize.q31 == "Longe_7H" |
+    endline_farmers$check.maize.q31 == "Longe_7R_K" |
+    endline_farmers$check.maize.q31 == "Bazooka" |
+    endline_farmers$check.maize.q31 == "Longe_6H" |
+    endline_farmers$check.maize.q31 == "Panner" |
+    endline_farmers$check.maize.q31 == "Wema" |
+    endline_farmers$check.maize.q31 == "KH_series" |
+    endline_farmers$check.maize.q31 == "Longe_5" |
+    endline_farmers$check.maize.q31 == "Longe_4" |
+    endline_farmers$check.maize.q31 == "Other_hybrid"
+)
+
+endline_farmers$end_improved <- ifelse(endline_farmers$end_improved, 1, 0)
+
+
+# adoption on field - endline
+endline_farmers$end_adoption_onfield <- endline_farmers$end_improved
+endline_farmers$end_adoption_onfield[
+  endline_farmers$end_hybridbutsaved == 1
+] <- 0
+endline_farmers$end_adoption_onfield[
+  endline_farmers$end_OPVbutfourthormore_timeused == 1
+] <- 0
+
+table(endline_farmers$end_adoption_onfield, useNA = "ifany")
+#TEST RELEVANCE AND EXLUSION
+lm(mid_adoption_onfield ~ clearing, data = midline_farmers)
+lm(end_adoption_onfield ~ clearing, data = endline_farmers)
+lm(yield_per_acre ~ mid_adoption_onfield + clearing, data = midline_farmers)
+
+lm(maize_income ~ mid_adoption_onfield + clearing, data = midline_farmers)
+lm(yield_per_acre ~ end_adoption_onfield + clearing, data = endline_farmers)
+lm(maize_income ~ end_adoption_onfield + clearing, data = endline_farmers)

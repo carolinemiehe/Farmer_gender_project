@@ -1475,621 +1475,756 @@ resettest(m_inc_full_bl)
 
 
 
+# ============================================================
+# OAXACA-BLINDER DECOMPOSITION WITH catchID FIXED EFFECTS
+# Twofold + Threefold | Aggregate + Detailed
+# Pooled benchmark WITHOUT gender dummy
+# Bootstrap SE clustered at catchID level
+# LyX-ready tables
+# ============================================================
 
+library(dplyr)
 
+# ============================================================
+# 0. SETTINGS
+# ============================================================
 
-#OAXACA BLINDER #no reference - pooled( Jann 2008)
-
-# --- Packages ---
-# (oaxaca non è necessario per questa versione simmetrica;
-#  I use lm + bootstrap 
-
-# THREEFOLD OAXACA (POOLED / NO REFERENCE) + DETAILED + STARS (AGG + DET)
-# OUTPUT objects for LyX:
-#   - tab_agg_kilic_star      (4 rows, aggregate Kilic style, stars on coef rows)
-#   - tab_det_prod_star       (all vars, stars)
-#   - tab_det_inc_star        (all vars, stars)
-# ============================================
-
-#  GENERAL SETTINGS 
-group_var   <- "hh_gender_num"
-male_value  <- 1
+y_prod       <- "yield_per_acre_ihs"
+y_inc        <- "maize_income_ihs"
+group_var    <- "hh_gender_num"
+male_value   <- 1
 female_value <- 0
 
-y_prod <- "yield_per_acre_ihs"
-y_inc  <- "maize_income_ihs"
+R_boot    <- 300
+seed_boot <- 123
 
-# income: log plot area
+# Important: make sure income transformation is updated
+baseline_farmers$maize_income_ihs <- asinh(baseline_farmers$maize_income)
+
+# Log plot area for income decomposition
 baseline_farmers$log_maize_plot_area <- log1p(baseline_farmers$maize_plot_area)
 
-# ---------- FORMATTERS ----------
-fmt3_safe <- function(x) {
-  x <- suppressWarnings(as.numeric(x))
-  ifelse(is.na(x), "", format(round(x, 3), nsmall = 3, trim = TRUE))
+# Productivity variables
+x_prod <- c(
+  "education_head_num",
+  "household_size",
+  "hh_age",
+  "distance_agroshops",
+  "num_shops",
+  "quality_seed_used",
+  "dap_npk_applied",
+  "urea_applied",
+  "organic_manure_applied",
+  "maize_plot_area",
+  "chemicals_applied",
+  "weed_times",
+  "resow",
+  "farmer_group_member",
+  "base_hybrid"
+)
+
+# Income variables
+# Main version: without yield_per_acre, because productivity is an intermediate mechanism
+x_inc <- c(
+  "log_maize_plot_area",
+  "education_head_num",
+  "household_size",
+  "hh_age",
+  "quality_seed_used",
+  "dap_npk_applied",
+  "urea_applied",
+  "chemicals_applied",
+  "organic_manure_applied",
+  "num_shops",
+  "distance_agroshops",
+  "weed_times",
+  "resow",
+  "farmer_group_member",
+  "base_hybrid"
+)
+
+# Variable labels
+labels_prod <- c(
+  "education_head_num"     = "HH head finished primary education (1=yes)",
+  "household_size"         = "Number of HH members",
+  "hh_age"                 = "HH head age in years",
+  "distance_agroshops"     = "Distance to nearest agro-input shop (km)",
+  "num_shops"              = "Number of agro-input shops in village",
+  "quality_seed_used"      = "Used quality seed (1=yes)",
+  "dap_npk_applied"        = "Applied DAP/NPK (1=yes)",
+  "urea_applied"           = "Applied Urea (1=yes)",
+  "organic_manure_applied" = "Applied organic manure (1=yes)",
+  "maize_plot_area"        = "Land for crop production (acres)",
+  "chemicals_applied"      = "Applied agro-chemicals (1=yes)",
+  "weed_times"             = "Number of times weeded",
+  "resow"                  = "Re-sowed seeds (1=yes)",
+  "farmer_group_member"    = "Member of farmer group/cooperative (1=yes)",
+  "base_hybrid"            = "Used hybrid seed (1=yes)"
+)
+
+labels_inc <- c(
+  "log_maize_plot_area"    = "Plot area (log acres)",
+  "education_head_num"     = "HH head finished primary education (1=yes)",
+  "household_size"         = "Number of HH members",
+  "hh_age"                 = "HH head age in years",
+  "quality_seed_used"      = "Used quality seed (1=yes)",
+  "dap_npk_applied"        = "Applied DAP/NPK (1=yes)",
+  "urea_applied"           = "Applied Urea (1=yes)",
+  "chemicals_applied"      = "Applied agro-chemicals (1=yes)",
+  "organic_manure_applied" = "Applied organic manure (1=yes)",
+  "num_shops"              = "Number of agro-input shops in village",
+  "distance_agroshops"     = "Distance to nearest agro-input shop (km)",
+  "weed_times"             = "Number of times weeded",
+  "resow"                  = "Re-sowed seeds (1=yes)",
+  "farmer_group_member"    = "Member of farmer group/cooperative (1=yes)",
+  "base_hybrid"            = "Used hybrid seed (1=yes)"
+)
+
+# ============================================================
+# 1. KEEP ONLY catchID WITH BOTH MALE AND FEMALE HHs
+# ============================================================
+
+valid_catch <- baseline_farmers %>%
+  group_by(catchID) %>%
+  summarise(
+    n_male   = sum(hh_gender_num == male_value, na.rm = TRUE),
+    n_female = sum(hh_gender_num == female_value, na.rm = TRUE),
+    .groups  = "drop"
+  ) %>%
+  filter(n_male > 0 & n_female > 0) %>%
+  pull(catchID)
+
+baseline_fe <- baseline_farmers %>%
+  filter(catchID %in% valid_catch)
+
+cat("FE sample N:", nrow(baseline_fe), "\n")
+cat("Number of catchIDs:", length(valid_catch), "\n")
+
+# ============================================================
+# 2. WITHIN TRANSFORMATION
+# ============================================================
+
+within_transform <- function(df, vars, group_var = "catchID") {
+  df_w <- df
+  
+  for (v in vars) {
+    if (!v %in% names(df_w)) next
+    if (!is.numeric(df_w[[v]])) next
+    
+    group_mean <- ave(
+      df_w[[v]],
+      df_w[[group_var]],
+      FUN = function(z) mean(z, na.rm = TRUE)
+    )
+    
+    overall_mean <- mean(df_w[[v]], na.rm = TRUE)
+    
+    df_w[[v]] <- df_w[[v]] - group_mean + overall_mean
+  }
+  
+  df_w
 }
 
-latex_escape <- function(x) {
-  gsub("([%#$&_{}])", "\\\\\\1", x)
+vars_to_demean <- unique(c(y_prod, y_inc, x_prod, x_inc))
+vars_to_demean <- vars_to_demean[vars_to_demean %in% names(baseline_fe)]
+
+baseline_fe_within <- within_transform(
+  baseline_fe,
+  vars = vars_to_demean,
+  group_var = "catchID"
+)
+
+# Keep catchID unchanged for bootstrap clustering
+baseline_fe_within$catchID <- baseline_fe$catchID
+
+# ============================================================
+# 3. FORMATTERS
+# ============================================================
+
+fmt3 <- function(x) {
+  x <- suppressWarnings(as.numeric(x))
+  if (length(x) == 0 || is.na(x)) return("")
+  format(round(x, 3), nsmall = 3, trim = TRUE)
 }
 
 pstars <- function(p) {
-  ifelse(is.na(p), "",
-         ifelse(p < 0.01, "***",
-                ifelse(p < 0.05, "**",
-                       ifelse(p < 0.10, "*", ""))))
+  if (is.na(p)) return("")
+  if (p < 0.01) return("***")
+  if (p < 0.05) return("**")
+  if (p < 0.10) return("*")
+  ""
 }
 
-stars_from_est_se <- function(est, se) {
+star_cell <- function(est, se) {
   est <- suppressWarnings(as.numeric(est))
   se  <- suppressWarnings(as.numeric(se))
+  
+  if (is.na(est)) return("")
+  if (is.na(se) || se == 0) return(fmt3(est))
+  
   z <- est / se
   p <- 2 * pnorm(-abs(z))
-  paste0(fmt3_safe(est), pstars(p))
-}
-
-# HELPERS (chat)
-.get_rhs <- function(x_vars) paste(x_vars, collapse = " + ")
-
-.get_Xbar <- function(df, rhs) {
-  X <- model.matrix(as.formula(paste("~", rhs)), data = df)
-  colMeans(X)
-}
-
-.fit_beta <- function(df, y, rhs) {
-  coef(lm(as.formula(paste(y, "~", rhs)), data = df))
-}
-
-.align_named <- function(x, all_names) {
-  out <- setNames(rep(0, length(all_names)), all_names)
-  out[names(x)] <- x
-  out
-}
-
-# CORE: threefold pooled detailed - pooled reference for coefficients
-threefold_pooled_detailed <- function(df, y, group_var, x_vars, male_value, female_value) {
   
-  keep <- complete.cases(df[, c(y, group_var, x_vars)])
+  paste0(fmt3(est), pstars(p))
+}
+
+latex_esc <- function(x) {
+  gsub("([%#$&_{}])", "\\\\\\1", x)
+}
+
+safe_share <- function(a, total) {
+  if (is.na(total) || abs(total) < 1e-12) return(NA_real_)
+  a / total
+}
+
+# ============================================================
+# 4. CORE OAXACA FUNCTION
+# Pooled benchmark WITHOUT gender dummy
+# ============================================================
+
+oaxaca_decomp_nogender <- function(df, y, x_vars,
+                                   group_var = "hh_gender_num",
+                                   male_val = 1,
+                                   female_val = 0) {
+  
+  vars_need <- c(y, group_var, x_vars)
+  miss <- setdiff(vars_need, names(df))
+  if (length(miss) > 0) {
+    stop("Missing variables: ", paste(miss, collapse = ", "))
+  }
+  
+  keep <- complete.cases(df[, vars_need])
   d <- df[keep, , drop = FALSE]
   
-  dm   <- d[d[[group_var]] == male_value, , drop = FALSE]
-  dfem <- d[d[[group_var]] == female_value, , drop = FALSE]
+  dm <- d[d[[group_var]] == male_val, , drop = FALSE]
+  dfem <- d[d[[group_var]] == female_val, , drop = FALSE]
   
-  rhs <- .get_rhs(x_vars)
+  rhs <- paste(x_vars, collapse = " + ")
   
-  Xbar_m <- .get_Xbar(dm, rhs)
-  Xbar_f <- .get_Xbar(dfem, rhs)
+  # Group-specific coefficients
+  beta_m <- coef(lm(as.formula(paste(y, "~", rhs)), data = dm))
+  beta_f <- coef(lm(as.formula(paste(y, "~", rhs)), data = dfem))
   
-  beta_m <- .fit_beta(dm, y, rhs)
-  beta_f <- .fit_beta(dfem, y, rhs)
-  beta_p <- .fit_beta(d,  y, rhs)   # pooled
+  # Pooled coefficients WITHOUT gender dummy
+  beta_p <- coef(lm(as.formula(paste(y, "~", rhs)), data = d))
   
-  all_names <- union(names(beta_p), union(names(beta_m), names(beta_f)))
-  beta_m <- .align_named(beta_m, all_names)
-  beta_f <- .align_named(beta_f, all_names)
-  beta_p <- .align_named(beta_p, all_names)
-  Xbar_m <- Xbar_m[all_names]
-  Xbar_f <- Xbar_f[all_names]
+  # Means of covariates
+  X_m <- colMeans(model.matrix(as.formula(paste("~", rhs)), data = dm))
+  X_f <- colMeans(model.matrix(as.formula(paste("~", rhs)), data = dfem))
   
-  Endow_k <- (Xbar_m - Xbar_f) * beta_p
-  Male_k  <- Xbar_m * (beta_m - beta_p)
-  Fem_k   <- Xbar_f * (beta_p - beta_f)
+  # Align all vectors
+  all_names <- Reduce(union, list(
+    names(beta_m),
+    names(beta_f),
+    names(beta_p),
+    names(X_m),
+    names(X_f)
+  ))
   
-  Endow <- sum(Endow_k)
-  Male  <- sum(Male_k)
-  Fem   <- sum(Fem_k)
-  Total <- Endow + Male + Fem
+  align <- function(x) {
+    out <- setNames(rep(0, length(all_names)), all_names)
+    common <- intersect(names(x), all_names)
+    out[common] <- x[common]
+    out
+  }
   
-  share <- function(a, tot) if (abs(tot) < 1e-12) NA_real_ else a / tot
+  beta_m <- align(beta_m)
+  beta_f <- align(beta_f)
+  beta_p <- align(beta_p)
+  X_m    <- align(X_m)
+  X_f    <- align(X_f)
+  
+  # Threefold decomposition
+  Endow_k        <- (X_m - X_f) * beta_p
+  Male_coef_k    <- X_m * (beta_m - beta_p)
+  Female_coef_k  <- X_f * (beta_p - beta_f)
+  
+  # Twofold decomposition
+  Explained_k   <- Endow_k
+  Coefficients_k <- Male_coef_k + Female_coef_k
+  
+  Endow       <- sum(Endow_k)
+  Male_coef   <- sum(Male_coef_k)
+  Female_coef <- sum(Female_coef_k)
+  
+  Explained    <- sum(Explained_k)
+  Coefficients <- sum(Coefficients_k)
+  
+  Total_gap <- Endow + Male_coef + Female_coef
+  
+  detailed <- data.frame(
+    term            = all_names,
+    Endow_k         = Endow_k,
+    Male_coef_k     = Male_coef_k,
+    Female_coef_k   = Female_coef_k,
+    Explained_k     = Explained_k,
+    Coefficients_k  = Coefficients_k,
+    stringsAsFactors = FALSE
+  )
   
   list(
-    N = nrow(d),
-    Total_gap = Total,
-    Endowment = Endow,
-    Male_adv  = Male,
-    Female_dis = Fem,
-    Share_Endow = share(Endow, Total),
-    Share_Male  = share(Male, Total),
-    Share_Fem   = share(Fem, Total),
-    detailed = data.frame(
-      term = all_names,
-      Endowment  = Endow_k,
-      Male_adv   = Male_k,
-      Female_dis = Fem_k,
-      stringsAsFactors = FALSE
-    ))}
+    N          = nrow(d),
+    N_male     = nrow(dm),
+    N_female   = nrow(dfem),
+    Total_gap  = Total_gap,
+    
+    # Twofold aggregate
+    Explained    = Explained,
+    Coefficients = Coefficients,
+    Share_Explained    = safe_share(Explained, Total_gap),
+    Share_Coefficients = safe_share(Coefficients, Total_gap),
+    
+    # Threefold aggregate
+    Endowment     = Endow,
+    Male_coef     = Male_coef,
+    Female_coef   = Female_coef,
+    Share_Endowment   = safe_share(Endow, Total_gap),
+    Share_Male_coef   = safe_share(Male_coef, Total_gap),
+    Share_Female_coef = safe_share(Female_coef, Total_gap),
+    
+    detailed = detailed
+  )
+}
 
+# ============================================================
+# 5. BOOTSTRAP CLUSTERED AT catchID LEVEL
+# ============================================================
 
-# VARIABLES (define once)
-
-vars_OB_prod <- c(
-  "education_head_num"     = "Household head finished primary education (1=yes)",
-  "household_size"         = "Number of household members",
-  "hh_age"                 = "Household head’s age in years",
-  "distance_agroshops"     = "Homestead’s distance to nearest agro-input shop in km",
-  "num_shops"              = "Number of agro-input shops in village or neighborhood",
-  "quality_seed_used"      = "Farmer used quality seed (1=yes)",
-  "dap_npk_applied"        = "Farmer applied DAP/NPK on the randomly selected plot (1=yes)",
-  "urea_applied"           = "Farmer applied Urea on this plot (1=yes)",
-  "organic_manure_applied" = "Farmer applied organic manure on this plot (1=yes)",
-  "maize_plot_area"        = "Land for crop production in acres",
-  "chemicals_applied"      = "Farmer applied agro-chemicals on this plot (1=yes)",
-  "weed_times"             = "Number of times the farmer weeded this plot",
-  "resow"                  = "Farmer re-sowed seeds on this plot (1=yes)",
-  "farmer_group_member"    = "Farmer is member of maize farmer group/cooperative (1=yes)",
-  "base_hybrid"            = "Farmer used hybrid seed on this plot (1=yes)"
-)
-
-vars_OB_inc <- c(
-  "log_maize_plot_area"      = "Area of randomly selected plot in acres (log)",
-  "education_head_num"       = "Household head finished primary education (1=yes)",
-  "household_size"           = "Number of household members",
-  "hh_age"                   = "Household head’s age in years",
-  "quality_seed_used"        = "Farmer used quality seed (1=yes)",
-  "dap_npk_applied"          = "Farmer applied DAP/NPK on this plot (1=yes)",
-  "urea_applied"             = "Farmer applied Urea on this plot (1=yes)",
-  "chemicals_applied"        = "Farmer applied agro-chemicals on this plot (1=yes)",
-  "organic_manure_applied"   = "Farmer applied organic manure on this plot (1=yes)",
-  "num_shops"                = "Number of agro-input shops in village or neighborhood",
-  "distance_agroshops"       = "Homestead’s distance to nearest agro-input shop in km",
-  "weed_times"               = "Number of times the farmer weeded this plot",
-  "resow"                    = "Farmer re-sowed seeds on this plot (1=yes)",
-  "farmer_group_member"      = "Farmer is member of maize farmer group/cooperative (1=yes)",
-  "yield_per_acre"           = "Maize productivity on this plot in kg/acre",
-  "base_hybrid"              = "Farmer used hybrid seed on this plot (1=yes)"
-)
-
-# ============================================
-# RUN point estimates
-# ============================================
-x_prod <- names(vars_OB_prod)
-x_inc  <- names(vars_OB_inc)
-
-res_prod <- threefold_pooled_detailed(baseline_farmers, y_prod, group_var, x_prod, male_value, female_value)
-res_inc  <- threefold_pooled_detailed(baseline_farmers, y_inc,  group_var, x_inc,  male_value, female_value)
-
-# ============================================
-# BOOTSTRAP SE: aggregate + detailed
-# ============================================
-bootstrap_se_all <- function(df, y, group_var, x_vars, male_value, female_value, R = 300, seed = 123) {
+bootstrap_oaxaca_fe <- function(df, y, x_vars,
+                                group_var = "hh_gender_num",
+                                male_val = 1,
+                                female_val = 0,
+                                cluster = "catchID",
+                                R = 300,
+                                seed = 123) {
+  
   set.seed(seed)
   
-  keep <- complete.cases(df[, c(y, group_var, x_vars)])
+  vars_need <- c(y, group_var, x_vars, cluster)
+  keep <- complete.cases(df[, vars_need])
   d <- df[keep, , drop = FALSE]
   
-  dm   <- d[d[[group_var]] == male_value, , drop = FALSE]
-  dfem <- d[d[[group_var]] == female_value, , drop = FALSE]
+  base <- oaxaca_decomp_nogender(
+    d, y, x_vars,
+    group_var = group_var,
+    male_val = male_val,
+    female_val = female_val
+  )
   
-  nm <- nrow(dm); nf <- nrow(dfem)
-  
-  base <- threefold_pooled_detailed(d, y, group_var, x_vars, male_value, female_value)
   terms <- base$detailed$term
   
-  agg_draws <- matrix(NA_real_, nrow = R, ncol = 3)
-  colnames(agg_draws) <- c("Endowment","Male_adv","Female_dis")
+  clusters <- unique(d[[cluster]])
+  n_cl <- length(clusters)
   
-  detE <- matrix(NA_real_, nrow = R, ncol = length(terms), dimnames = list(NULL, terms))
-  detM <- detE
-  detF <- detE
+  agg_draws <- matrix(
+    NA_real_,
+    nrow = R,
+    ncol = 5,
+    dimnames = list(
+      NULL,
+      c("Explained", "Coefficients", "Endowment", "Male_coef", "Female_coef")
+    )
+  )
+  
+  det_Explained   <- matrix(NA_real_, R, length(terms), dimnames = list(NULL, terms))
+  det_Coefficients <- det_Explained
+  det_Endowment   <- det_Explained
+  det_Male_coef   <- det_Explained
+  det_Female_coef <- det_Explained
   
   for (r in seq_len(R)) {
-    sm <- dm[sample.int(nm, nm, replace = TRUE), , drop = FALSE]
-    sf <- dfem[sample.int(nf, nf, replace = TRUE), , drop = FALSE]
-    dd <- rbind(sm, sf)
     
-    rr <- threefold_pooled_detailed(dd, y, group_var, x_vars, male_value, female_value)
+    sampled_clusters <- sample(clusters, n_cl, replace = TRUE)
     
-    agg_draws[r, ] <- c(rr$Endowment, rr$Male_adv, rr$Female_dis)
+    dd <- do.call(rbind, lapply(seq_along(sampled_clusters), function(i) {
+      tmp <- d[d[[cluster]] == sampled_clusters[i], , drop = FALSE]
+      tmp$boot_cluster_id <- paste0(sampled_clusters[i], "_", i)
+      tmp
+    }))
+    
+    rr <- tryCatch(
+      oaxaca_decomp_nogender(
+        dd, y, x_vars,
+        group_var = group_var,
+        male_val = male_val,
+        female_val = female_val
+      ),
+      error = function(e) NULL
+    )
+    
+    if (is.null(rr)) next
+    
+    agg_draws[r, ] <- c(
+      rr$Explained,
+      rr$Coefficients,
+      rr$Endowment,
+      rr$Male_coef,
+      rr$Female_coef
+    )
     
     det <- rr$detailed
     det <- det[match(terms, det$term), ]
-    detE[r, ] <- det$Endowment
-    detM[r, ] <- det$Male_adv
-    detF[r, ] <- det$Female_dis
+    
+    det_Explained[r, ]    <- det$Explained_k
+    det_Coefficients[r, ] <- det$Coefficients_k
+    det_Endowment[r, ]    <- det$Endow_k
+    det_Male_coef[r, ]    <- det$Male_coef_k
+    det_Female_coef[r, ]  <- det$Female_coef_k
   }
   
   list(
     base = base,
     se_agg = apply(agg_draws, 2, sd, na.rm = TRUE),
     se_det = list(
-      Endowment  = apply(detE, 2, sd, na.rm = TRUE),
-      Male_adv   = apply(detM, 2, sd, na.rm = TRUE),
-      Female_dis = apply(detF, 2, sd, na.rm = TRUE)
+      Explained    = apply(det_Explained, 2, sd, na.rm = TRUE),
+      Coefficients = apply(det_Coefficients, 2, sd, na.rm = TRUE),
+      Endowment    = apply(det_Endowment, 2, sd, na.rm = TRUE),
+      Male_coef    = apply(det_Male_coef, 2, sd, na.rm = TRUE),
+      Female_coef  = apply(det_Female_coef, 2, sd, na.rm = TRUE)
     )
   )
 }
 
-boot_prod <- bootstrap_se_all(baseline_farmers, y_prod, group_var, x_prod, male_value, female_value, R = 300, seed = 123)
-boot_inc  <- bootstrap_se_all(baseline_farmers, y_inc,  group_var, x_inc,  male_value, female_value, R = 300, seed = 123)
+# ============================================================
+# 6. RUN DECOMPOSITIONS WITH FIXED EFFECTS
+# ============================================================
 
-# ============================================
-# AGGREGATE TABLE (Kilic style) WITH STARS
-# ============================================
-tab_agg_kilic_star <- data.frame(
-  Outcome = c("Maize productivity (IHS)", "Share of gender differential",
-              "Maize income (IHS)",       "Share of gender differential"),
-  N = c(as.character(boot_prod$base$N), "", as.character(boot_inc$base$N), ""),
-  Total_gap = c(fmt3_safe(boot_prod$base$Total_gap), "", fmt3_safe(boot_inc$base$Total_gap), ""),
-  
-  Endowment = c(
-    stars_from_est_se(boot_prod$base$Endowment, boot_prod$se_agg["Endowment"]),
-    fmt3_safe(boot_prod$base$Share_Endow * 100),
-    stars_from_est_se(boot_inc$base$Endowment,  boot_inc$se_agg["Endowment"]),
-    fmt3_safe(boot_inc$base$Share_Endow  * 100)
-  ),
-  Male_adv = c(
-    stars_from_est_se(boot_prod$base$Male_adv, boot_prod$se_agg["Male_adv"]),
-    fmt3_safe(boot_prod$base$Share_Male * 100),
-    stars_from_est_se(boot_inc$base$Male_adv,  boot_inc$se_agg["Male_adv"]),
-    fmt3_safe(boot_inc$base$Share_Male  * 100)
-  ),
-  Female_dis = c(
-    stars_from_est_se(boot_prod$base$Female_dis, boot_prod$se_agg["Female_dis"]),
-    fmt3_safe(boot_prod$base$Share_Fem * 100),
-    stars_from_est_se(boot_inc$base$Female_dis,  boot_inc$se_agg["Female_dis"]),
-    fmt3_safe(boot_inc$base$Share_Fem  * 100)
-  ),
-  stringsAsFactors = FALSE
+boot_prod_fe <- bootstrap_oaxaca_fe(
+  baseline_fe_within,
+  y = y_prod,
+  x_vars = x_prod,
+  group_var = group_var,
+  male_val = male_value,
+  female_val = female_value,
+  cluster = "catchID",
+  R = R_boot,
+  seed = seed_boot
 )
 
-# LyX safety
-for (cc in names(tab_agg_kilic_star)) tab_agg_kilic_star[[cc]] <- as.character(tab_agg_kilic_star[[cc]])
-tab_agg_kilic_star[is.na(tab_agg_kilic_star)] <- ""
+boot_inc_fe <- bootstrap_oaxaca_fe(
+  baseline_fe_within,
+  y = y_inc,
+  x_vars = x_inc,
+  group_var = group_var,
+  male_val = male_value,
+  female_val = female_value,
+  cluster = "catchID",
+  R = R_boot,
+  seed = seed_boot
+)
 
-# ============================================
-# DETAILED TABLES WITH STARS
-# ============================================
-make_det_star <- function(boot_obj, vars_map) {
-  det <- boot_obj$base$detailed
-  det <- det[det$term != "(Intercept)", , drop = FALSE]
+# ============================================================
+# 7. TABLE 1: TWOFOLD AGGREGATE WITH FIXED EFFECTS
+# ============================================================
+
+make_twofold_agg_fe <- function(boot_prod, boot_inc) {
   
-  det$Variable <- ifelse(det$term %in% names(vars_map), vars_map[det$term], det$term)
-  det$Variable <- latex_escape(det$Variable)
-  
-  seE <- boot_obj$se_det$Endowment[det$term]
-  seM <- boot_obj$se_det$Male_adv[det$term]
-  seF <- boot_obj$se_det$Female_dis[det$term]
+  bp <- boot_prod$base
+  bi <- boot_inc$base
+  sp <- boot_prod$se_agg
+  si <- boot_inc$se_agg
   
   data.frame(
-    Variable = det$Variable,
-    Endowment  = mapply(stars_from_est_se, det$Endowment,  seE),
-    Male_adv   = mapply(stars_from_est_se, det$Male_adv,   seM),
-    Female_dis = mapply(stars_from_est_se, det$Female_dis, seF),
+    Outcome = c(
+      "Maize productivity (IHS)",
+      "Share of total gap (%)",
+      "Maize income (IHS)",
+      "Share of total gap (%)"
+    ),
+    N = c(
+      as.character(bp$N),
+      "",
+      as.character(bi$N),
+      ""
+    ),
+    Total_gap = c(
+      fmt3(bp$Total_gap),
+      "",
+      fmt3(bi$Total_gap),
+      ""
+    ),
+    Explained = c(
+      star_cell(bp$Explained, sp["Explained"]),
+      fmt3(bp$Share_Explained * 100),
+      star_cell(bi$Explained, si["Explained"]),
+      fmt3(bi$Share_Explained * 100)
+    ),
+    Coefficients = c(
+      star_cell(bp$Coefficients, sp["Coefficients"]),
+      fmt3(bp$Share_Coefficients * 100),
+      star_cell(bi$Coefficients, si["Coefficients"]),
+      fmt3(bi$Share_Coefficients * 100)
+    ),
     stringsAsFactors = FALSE
   )
 }
 
-tab_det_prod_star <- make_det_star(boot_prod, vars_OB_prod)
-tab_det_inc_star  <- make_det_star(boot_inc,  vars_OB_inc)
-
-# quick check
-print(tab_agg_kilic_star)
-head(tab_det_prod_star)
-head(tab_det_inc_star)
-
-
-#check for adoption
-
-#farmer saved seed
-baseline_farmers$end_Check2.check.maize.q32 <- baseline_farmers$Check2.check.maize.q32
-baseline_farmers$end_farmer_saved_seed<-((baseline_farmers$end_Check2.check.maize.q32=="a")|(baseline_farmers$end_Check2.check.maize.q32=="b"))
-baseline_farmers$end_farmer_saved_seed<-ifelse(baseline_farmers$end_farmer_saved_seed=="TRUE",1,0)
-
-#6. farmer bought from agro input shop (didn't save)
-baseline_farmers$end_Bought_from_agro_input_shop<-ifelse(baseline_farmers$end_Check2.check.maize.q32=="d",1,0)
-
-#new
-#7. adoption
-baseline_farmers$base_hybridbutsaved <- NA
-baseline_farmers$base_hybridbutsaved[baseline_farmers$base_hybrid == 1 & baseline_farmers$end_farmer_saved_seed == 1] <- 1
-baseline_farmers$base_hybridbutsaved[baseline_farmers$base_hybrid == 1 & baseline_farmers$end_farmer_saved_seed == 0] <- 0
-baseline_farmers$base_hybridbutsaved[baseline_farmers$base_hybrid == 0] <- 0
-
-baseline_farmers$end_OPVbutsaved <- NA
-baseline_farmers$end_OPVbutsaved[baseline_farmers$end_OPV == 1 & baseline_farmers$end_farmer_saved_seed == 1] <- 1
-baseline_farmers$end_OPVbutsaved[baseline_farmers$end_OPV == 1 & baseline_farmers$end_farmer_saved_seed == 0] <- 0
-baseline_farmers$end_OPVbutsaved[baseline_farmers$end_OPV == 0] <- 0
-
-#Check2.check.maize.q34 - How often 
-baseline_farmers$end_Check2.check.maize.q34 <- baseline_farmers$Check2.check.maize.q34
-baseline_farmers$end_fourthormore_timeused<-((baseline_farmers$end_Check2.check.maize.q34=="d")|(baseline_farmers$end_Check2.check.maize.q34=="e")|(baseline_farmers$end_Check2.check.maize.q34=="f"))
-baseline_farmers$end_fourthormore_timeused<-ifelse(baseline_farmers$end_fourthormore_timeused=="TRUE",1,0)
-#end_improved=1 non-improved=0
-baseline_farmers$end_OPVbutfourthormore_timeused <- NA
-baseline_farmers$end_OPVbutfourthormore_timeused[baseline_farmers$end_OPV==1 & baseline_farmers$end_farmer_saved_seed==1 & baseline_farmers$end_fourthormore_timeused==1] <- 1
-baseline_farmers$end_OPVbutfourthormore_timeused[baseline_farmers$end_OPV==1 & baseline_farmers$end_farmer_saved_seed==1 & baseline_farmers$end_fourthormore_timeused==0] <- 0
-baseline_farmers$end_OPVbutfourthormore_timeused[baseline_farmers$end_OPV==1 & baseline_farmers$end_farmer_saved_seed==0] <- 0
-baseline_farmers$end_OPVbutfourthormore_timeused[baseline_farmers$end_OPV == 0] <- 0
-
-
-
-## Define end_adoption_onfield based on end_improved,
-# but set adoption to 0 when base_hybridbutsaved == 1
-# or when end_OPVbutfourthormore_timeused == 1
-baseline_farmers$end_improved<-((baseline_farmers$end_Check2.check.maize.q31=="Longe_10H")|(baseline_farmers$end_Check2.check.maize.q31=="Longe_7H")|(baseline_farmers$end_Check2.check.maize.q31=="Longe_7R_Kayongo-go")|(baseline_farmers$end_Check2.check.maize.q31=="Bazooka")|(baseline_farmers$end_Check2.check.maize.q31=="Longe_6H")|(baseline_farmers$end_Check2.check.maize.q31=="Panner")|(baseline_farmers$end_Check2.check.maize.q31=="Wema")|(baseline_farmers$end_Check2.check.maize.q31=="KH_series"|baseline_farmers$end_Check2.check.maize.q31=="Longe_5")|(baseline_farmers$end_Check2.check.maize.q31=="Longe_4")|(baseline_farmers$end_Check2.check.maize.q31=="Other_hybrid"))
-baseline_farmers$end_improved<-ifelse(baseline_farmers$end_improved=="TRUE",1,0)
-baseline_farmers$end_adoption_onfield <- baseline_farmers$end_improved
-baseline_farmers$end_adoption_onfield[baseline_farmers$base_hybridbutsaved==1] <- 0
-baseline_farmers$end_adoption_onfield[baseline_farmers$end_OPVbutfourthormore_timeused==1] <- 0
-#baseline_farmers$end_adoption_onfield[baseline_farmers$end_OPVbutsaved==1] <- 0
-
-
-
-
-#other checks for IV
-
-#1 OPV - endline
-endline_farmers$end_OPV<-(endline_farmers$check.maize.q31=="Longe_5")|(endline_farmers$check.maize.q31=="Longe_4")
-endline_farmers$end_OPV<-ifelse(endline_farmers$end_OPV=="TRUE",1,0)
-endline_farmers$end_OPV[endline_farmers$check.maize.q31=="Other_hybrid"] <- NA
-
-#1 OPV - midline
-midline_farmers$mid_OPV<-(midline_farmers$check.maize.q31=="Longe_5")|(midline_farmers$check.maize.q31=="Longe_4")
-midline_farmers$mid_OPV<-ifelse(midline_farmers$mid_OPV=="TRUE",1,0)
-midline_farmers$mid_OPV[midline_farmers$check.maize.q31=="Other_hybrid"] <- NA
-
-
-#1 OPV test of Iv and exclusion restictrion 
-lm(end_OPV ~ clearing, data = endline_farmers)
-lm(mid_OPV ~ clearing, data = midline_farmers)
-lm(yield_per_acre ~ end_OPV + clearing, data = endline_farmers)
-lm(maize_income ~ end_OPV + clearing, data = endline_farmers)
-
-
-
-#2bought-from agroinput shop - endline 
-endline_farmers$end_Bought_from_agro_input_shop<-ifelse(endline_farmers$check.maize.q32=="d",1,0)
-#2bought-from agroinput shop - midline 
-midline_farmers$mid_Bought_from_agro_input_shop<-ifelse(midline_farmers$check.maize.q32=="d",1,0)
-
-#2boughtfrom agroinput shop test of Iv and exclusion restictrion 
-lm(yield_per_acre ~ end_OPV + clearing, data = endline_farmers)
-lm(maize_income ~ end_OPV + clearing, data = endline_farmers)
-lm(yield_per_acre ~ end_Bought_from_agro_input_shop + clearing, data = endline_farmers)
-lm(maize_income ~ end_Bought_from_agro_input_shop + clearing, data = endline_farmers)
-
-#3 improved seed - midline
-midline_farmers$mid_improved <- (
-  midline_farmers$check.maize.q31 == "Longe_10H" |
-    midline_farmers$check.maize.q31 == "Longe_7H" |
-    midline_farmers$check.maize.q31 == "Longe_7R_K" |
-    midline_farmers$check.maize.q31 == "Bazooka" |
-    midline_farmers$check.maize.q31 == "Longe_6H" |
-    midline_farmers$check.maize.q31 == "Panner" |
-    midline_farmers$check.maize.q31 == "Wema" |
-    midline_farmers$check.maize.q31 == "KH_series" |
-    midline_farmers$check.maize.q31 == "Longe_5" |
-    midline_farmers$check.maize.q31 == "Longe_4" |
-    midline_farmers$check.maize.q31 == "Other_hybrid"
+tab_fe_twofold_agg <- make_twofold_agg_fe(
+  boot_prod_fe,
+  boot_inc_fe
 )
 
-midline_farmers$mid_improved <- ifelse(midline_farmers$mid_improved, 1, 0)
+# ============================================================
+# 8. TABLE 2: THREEFOLD AGGREGATE WITH FIXED EFFECTS
+# ============================================================
 
-#3improved seeds endline
-endline_farmers$end_improved <- (
-  endline_farmers$check.maize.q31 == "Longe_10H" |
-    endline_farmers$check.maize.q31 == "Longe_7H" |
-    endline_farmers$check.maize.q31 == "Longe_7R_K" |
-    endline_farmers$check.maize.q31 == "Bazooka" |
-    endline_farmers$check.maize.q31 == "Longe_6H" |
-    endline_farmers$check.maize.q31 == "Panner" |
-    endline_farmers$check.maize.q31 == "Wema" |
-    endline_farmers$check.maize.q31 == "KH_series" |
-    endline_farmers$check.maize.q31 == "Longe_5" |
-    endline_farmers$check.maize.q31 == "Longe_4" |
-    endline_farmers$check.maize.q31 == "Other_hybrid"
+make_threefold_agg_fe <- function(boot_prod, boot_inc) {
+  
+  bp <- boot_prod$base
+  bi <- boot_inc$base
+  sp <- boot_prod$se_agg
+  si <- boot_inc$se_agg
+  
+  data.frame(
+    Outcome = c(
+      "Maize productivity (IHS)",
+      "Share of total gap (%)",
+      "Maize income (IHS)",
+      "Share of total gap (%)"
+    ),
+    N = c(
+      as.character(bp$N),
+      "",
+      as.character(bi$N),
+      ""
+    ),
+    Total_gap = c(
+      fmt3(bp$Total_gap),
+      "",
+      fmt3(bi$Total_gap),
+      ""
+    ),
+    Endowment = c(
+      star_cell(bp$Endowment, sp["Endowment"]),
+      fmt3(bp$Share_Endowment * 100),
+      star_cell(bi$Endowment, si["Endowment"]),
+      fmt3(bi$Share_Endowment * 100)
+    ),
+    Male_coefficients = c(
+      star_cell(bp$Male_coef, sp["Male_coef"]),
+      fmt3(bp$Share_Male_coef * 100),
+      star_cell(bi$Male_coef, si["Male_coef"]),
+      fmt3(bi$Share_Male_coef * 100)
+    ),
+    Female_coefficients = c(
+      star_cell(bp$Female_coef, sp["Female_coef"]),
+      fmt3(bp$Share_Female_coef * 100),
+      star_cell(bi$Female_coef, si["Female_coef"]),
+      fmt3(bi$Share_Female_coef * 100)
+    ),
+    stringsAsFactors = FALSE
+  )
+}
+
+tab_fe_threefold_agg <- make_threefold_agg_fe(
+  boot_prod_fe,
+  boot_inc_fe
 )
 
-endline_farmers$end_improved <- ifelse(endline_farmers$end_improved, 1, 0)
+# ============================================================
+# 9. TABLE 3: TWOFOLD DETAILED WITH FIXED EFFECTS
+# ============================================================
 
+make_twofold_det_fe <- function(boot_obj, labels_map, outcome_label) {
+  
+  det <- boot_obj$base$detailed
+  det <- det[det$term != "(Intercept)", , drop = FALSE]
+  
+  se <- boot_obj$se_det
+  
+  det$Variable <- ifelse(
+    det$term %in% names(labels_map),
+    labels_map[det$term],
+    det$term
+  )
+  
+  data.frame(
+    Outcome = outcome_label,
+    Variable = latex_esc(det$Variable),
+    Explained = mapply(
+      star_cell,
+      det$Explained_k,
+      se$Explained[det$term]
+    ),
+    Coefficients = mapply(
+      star_cell,
+      det$Coefficients_k,
+      se$Coefficients[det$term]
+    ),
+    stringsAsFactors = FALSE
+  )
+}
 
-#3IMPROVED test relevance and Exclusion
-lm(end_improved ~ clearing, data = endline_farmers)
-lm(mid_improved ~ clearing, data = midline_farmers)
-
-lm(yield_per_acre ~ end_improved + clearing, data = endline_farmers)
-lm(maize_income ~ end_improved + clearing, data = endline_farmers)
-
-
-#4 farmer saved seed - midline
-midline_farmers$mid_farmer_saved_seed <- (
-  midline_farmers$check.maize.q32 == "a" |
-    midline_farmers$check.maize.q32 == "b"
+tab_fe_twofold_det <- bind_rows(
+  make_twofold_det_fe(
+    boot_prod_fe,
+    labels_prod,
+    "Maize productivity (IHS)"
+  ),
+  make_twofold_det_fe(
+    boot_inc_fe,
+    labels_inc,
+    "Maize income (IHS)"
+  )
 )
 
-midline_farmers$mid_farmer_saved_seed <- ifelse(
-  midline_farmers$mid_farmer_saved_seed, 1, 0
+# ============================================================
+# 10. TABLE 4: THREEFOLD DETAILED WITH FIXED EFFECTS
+# ============================================================
+
+make_threefold_det_fe <- function(boot_obj, labels_map, outcome_label) {
+  
+  det <- boot_obj$base$detailed
+  det <- det[det$term != "(Intercept)", , drop = FALSE]
+  
+  se <- boot_obj$se_det
+  
+  det$Variable <- ifelse(
+    det$term %in% names(labels_map),
+    labels_map[det$term],
+    det$term
+  )
+  
+  data.frame(
+    Outcome = outcome_label,
+    Variable = latex_esc(det$Variable),
+    Endowment = mapply(
+      star_cell,
+      det$Endow_k,
+      se$Endowment[det$term]
+    ),
+    Male_coefficients = mapply(
+      star_cell,
+      det$Male_coef_k,
+      se$Male_coef[det$term]
+    ),
+    Female_coefficients = mapply(
+      star_cell,
+      det$Female_coef_k,
+      se$Female_coef[det$term]
+    ),
+    stringsAsFactors = FALSE
+  )
+}
+
+tab_fe_threefold_det <- bind_rows(
+  make_threefold_det_fe(
+    boot_prod_fe,
+    labels_prod,
+    "Maize productivity (IHS)"
+  ),
+  make_threefold_det_fe(
+    boot_inc_fe,
+    labels_inc,
+    "Maize income (IHS)"
+  )
 )
 
-table(midline_farmers$mid_farmer_saved_seed, useNA = "ifany")
+# ============================================================
+# 11. EXPORT OBJECTS FOR LYX
+# ============================================================
+
+tab_fe_twofold_agg   <<- tab_fe_twofold_agg
+tab_fe_threefold_agg <<- tab_fe_threefold_agg
+tab_fe_twofold_det   <<- tab_fe_twofold_det
+tab_fe_threefold_det <<- tab_fe_threefold_det
+
+boot_prod_fe <<- boot_prod_fe
+boot_inc_fe  <<- boot_inc_fe
+
+cat("\nObjects exported for LyX:\n")
+cat("1. tab_fe_twofold_agg\n")
+cat("2. tab_fe_threefold_agg\n")
+cat("3. tab_fe_twofold_det\n")
+cat("4. tab_fe_threefold_det\n")
+
+# Optional checks
+print(tab_fe_twofold_agg)
+print(tab_fe_threefold_agg)
+head(tab_fe_twofold_det)
+head(tab_fe_threefold_det)
 
 
-#4 farmer saved seed - endline
-endline_farmers$end_farmer_saved_seed <- (
-  endline_farmers$check.maize.q32 == "a" |
-    endline_farmers$check.maize.q32 == "b"
-)
-
-endline_farmers$end_farmer_saved_seed <- ifelse(
-  endline_farmers$end_farmer_saved_seed, 1, 0
-)
-
-table(endline_farmers$end_farmer_saved_seed, useNA = "ifany")
-
-#4SAVEDSEED - relevance exlusion
-lm(mid_farmer_saved_seed ~ clearing, data = midline_farmers)
-lm(end_farmer_saved_seed ~ clearing, data = endline_farmers)
-lm(yield_per_acre ~ mid_farmer_saved_seed + clearing, data = midline_farmers)
-
-lm(maize_income ~ mid_farmer_saved_seed + clearing, data = midline_farmers)
-lm(yield_per_acre ~ end_farmer_saved_seed + clearing, data = endline_farmers)
-lm(maize_income ~ end_farmer_saved_seed + clearing, data = endline_farmers)
-
-
-
-
-#5 adoption of field required OPV saved fourtormore_time used and improved
-# =========================
-# MIDLINE adoption_onfield
-# =========================
-
-# hybrid but saved - midline
-midline_farmers$mid_hybridbutsaved <- NA
-midline_farmers$mid_hybridbutsaved[
-  midline_farmers$mid_hybrid == 1 & midline_farmers$mid_farmer_saved_seed == 1
-] <- 1
-midline_farmers$mid_hybridbutsaved[
-  midline_farmers$mid_hybrid == 1 & midline_farmers$mid_farmer_saved_seed == 0
-] <- 0
-midline_farmers$mid_hybridbutsaved[
-  midline_farmers$mid_hybrid == 0
-] <- 0
-
-
-# fourth or more time used - midline
-midline_farmers$mid_fourthormore_timeused <- (
-  midline_farmers$check.maize.q34 == "d" |
-    midline_farmers$check.maize.q34 == "e" |
-    midline_farmers$check.maize.q34 == "f"
-)
-
-midline_farmers$mid_fourthormore_timeused <- ifelse(
-  midline_farmers$mid_fourthormore_timeused, 1, 0
-)
-
-
-# OPV but fourth or more time used - midline
-midline_farmers$mid_OPVbutfourthormore_timeused <- NA
-midline_farmers$mid_OPVbutfourthormore_timeused[
-  midline_farmers$mid_OPV == 1 &
-    midline_farmers$mid_farmer_saved_seed == 1 &
-    midline_farmers$mid_fourthormore_timeused == 1
-] <- 1
-midline_farmers$mid_OPVbutfourthormore_timeused[
-  midline_farmers$mid_OPV == 1 &
-    midline_farmers$mid_farmer_saved_seed == 1 &
-    midline_farmers$mid_fourthormore_timeused == 0
-] <- 0
-midline_farmers$mid_OPVbutfourthormore_timeused[
-  midline_farmers$mid_OPV == 1 &
-    midline_farmers$mid_farmer_saved_seed == 0
-] <- 0
-midline_farmers$mid_OPVbutfourthormore_timeused[
-  midline_farmers$mid_OPV == 0
-] <- 0
-
-
-# improved - midline
-midline_farmers$mid_improved <- (
-  midline_farmers$check.maize.q31 == "Longe_10H" |
-    midline_farmers$check.maize.q31 == "Longe_7H" |
-    midline_farmers$check.maize.q31 == "Longe_7R_K" |
-    midline_farmers$check.maize.q31 == "Bazooka" |
-    midline_farmers$check.maize.q31 == "Longe_6H" |
-    midline_farmers$check.maize.q31 == "Panner" |
-    midline_farmers$check.maize.q31 == "Wema" |
-    midline_farmers$check.maize.q31 == "KH_series" |
-    midline_farmers$check.maize.q31 == "Longe_5" |
-    midline_farmers$check.maize.q31 == "Longe_4" |
-    midline_farmers$check.maize.q31 == "Other_hybrid"
-)
-
-midline_farmers$mid_improved <- ifelse(midline_farmers$mid_improved, 1, 0)
-
-
-# adoption on field - midline
-midline_farmers$mid_adoption_onfield <- midline_farmers$mid_improved
-midline_farmers$mid_adoption_onfield[
-  midline_farmers$mid_hybridbutsaved == 1
-] <- 0
-midline_farmers$mid_adoption_onfield[
-  midline_farmers$mid_OPVbutfourthormore_timeused == 1
-] <- 0
-
-table(midline_farmers$mid_adoption_onfield, useNA = "ifany")
-
-# =========================
-# ENDLINE adoption_onfield
-# =========================
-
-# hybrid but saved - endline
-endline_farmers$end_hybridbutsaved <- NA
-endline_farmers$end_hybridbutsaved[
-  endline_farmers$end_hybrid == 1 & endline_farmers$end_farmer_saved_seed == 1
-] <- 1
-endline_farmers$end_hybridbutsaved[
-  endline_farmers$end_hybrid == 1 & endline_farmers$end_farmer_saved_seed == 0
-] <- 0
-endline_farmers$end_hybridbutsaved[
-  endline_farmers$end_hybrid == 0
-] <- 0
-
-
-# fourth or more time used - endline
-endline_farmers$end_fourthormore_timeused <- (
-  endline_farmers$check.maize.q34 == "d" |
-    endline_farmers$check.maize.q34 == "e" |
-    endline_farmers$check.maize.q34 == "f"
-)
-
-endline_farmers$end_fourthormore_timeused <- ifelse(
-  endline_farmers$end_fourthormore_timeused, 1, 0
+tab_fe_twofold_det <- bind_rows(
+  make_twofold_det_fe(
+    boot_prod_fe,
+    labels_prod,
+    "Maize productivity (IHS)"
+  ),
+  make_twofold_det_fe(
+    boot_inc_fe,
+    labels_inc,
+    "Maize income (IHS)"
+  )
 )
 
 
-# OPV but fourth or more time used - endline
-endline_farmers$end_OPVbutfourthormore_timeused <- NA
-endline_farmers$end_OPVbutfourthormore_timeused[
-  endline_farmers$end_OPV == 1 &
-    endline_farmers$end_farmer_saved_seed == 1 &
-    endline_farmers$end_fourthormore_timeused == 1
-] <- 1
-endline_farmers$end_OPVbutfourthormore_timeused[
-  endline_farmers$end_OPV == 1 &
-    endline_farmers$end_farmer_saved_seed == 1 &
-    endline_farmers$end_fourthormore_timeused == 0
-] <- 0
-endline_farmers$end_OPVbutfourthormore_timeused[
-  endline_farmers$end_OPV == 1 &
-    endline_farmers$end_farmer_saved_seed == 0
-] <- 0
-endline_farmers$end_OPVbutfourthormore_timeused[
-  endline_farmers$end_OPV == 0
-] <- 0
-
-
-# improved - endline
-endline_farmers$end_improved <- (
-  endline_farmers$check.maize.q31 == "Longe_10H" |
-    endline_farmers$check.maize.q31 == "Longe_7H" |
-    endline_farmers$check.maize.q31 == "Longe_7R_K" |
-    endline_farmers$check.maize.q31 == "Bazooka" |
-    endline_farmers$check.maize.q31 == "Longe_6H" |
-    endline_farmers$check.maize.q31 == "Panner" |
-    endline_farmers$check.maize.q31 == "Wema" |
-    endline_farmers$check.maize.q31 == "KH_series" |
-    endline_farmers$check.maize.q31 == "Longe_5" |
-    endline_farmers$check.maize.q31 == "Longe_4" |
-    endline_farmers$check.maize.q31 == "Other_hybrid"
+tab_fe_threefold_det <- bind_rows(
+  make_threefold_det_fe(
+    boot_prod_fe,
+    labels_prod,
+    "Maize productivity (IHS)"
+  ),
+  make_threefold_det_fe(
+    boot_inc_fe,
+    labels_inc,
+    "Maize income (IHS)"
+  )
 )
 
-endline_farmers$end_improved <- ifelse(endline_farmers$end_improved, 1, 0)
+#twofold and threefold DETAILED prod and income
+
+tab_fe_twofold_det_prod <- subset(
+  tab_fe_twofold_det,
+  Outcome == "Maize productivity (IHS)"
+)
+
+tab_fe_twofold_det_inc <- subset(
+  tab_fe_twofold_det,
+  Outcome == "Maize income (IHS)"
+)
+
+tab_fe_threefold_det_prod <- subset(
+  tab_fe_threefold_det,
+  Outcome == "Maize productivity (IHS)"
+)
+
+tab_fe_threefold_det_inc <- subset(
+  tab_fe_threefold_det,
+  Outcome == "Maize income (IHS)"
+)
+
+make_latex_rows_twofold_simple <- function(tab) {
+  rows <- apply(tab, 1, function(x) {
+    paste0(
+      x["Variable"], " & ",
+      x["Explained"], " & ",
+      x["Coefficients"], " \\\\"
+    )
+  })
+  paste(rows, collapse = "\n")
+}
+
+latex_rows_twofold_prod <- make_latex_rows_twofold_simple(tab_fe_twofold_det_prod)
+latex_rows_twofold_inc  <- make_latex_rows_twofold_simple(tab_fe_twofold_det_inc)
+
+make_latex_rows_threefold_simple <- function(tab) {
+  rows <- apply(tab, 1, function(x) {
+    paste0(
+      x["Variable"], " & ",
+      x["Endowment"], " & ",
+      x["Male_coefficients"], " & ",
+      x["Female_coefficients"], " \\\\"
+    )
+  })
+  paste(rows, collapse = "\n")
+}
+
+latex_rows_threefold_prod <- make_latex_rows_threefold_simple(tab_fe_threefold_det_prod)
+latex_rows_threefold_inc  <- make_latex_rows_threefold_simple(tab_fe_threefold_det_inc)
 
 
-# adoption on field - endline
-endline_farmers$end_adoption_onfield <- endline_farmers$end_improved
-endline_farmers$end_adoption_onfield[
-  endline_farmers$end_hybridbutsaved == 1
-] <- 0
-endline_farmers$end_adoption_onfield[
-  endline_farmers$end_OPVbutfourthormore_timeused == 1
-] <- 0
 
-table(endline_farmers$end_adoption_onfield, useNA = "ifany")
-#TEST RELEVANCE AND EXLUSION
-lm(mid_adoption_onfield ~ clearing, data = midline_farmers)
-lm(end_adoption_onfield ~ clearing, data = endline_farmers)
-lm(yield_per_acre ~ mid_adoption_onfield + clearing, data = midline_farmers)
 
-lm(maize_income ~ mid_adoption_onfield + clearing, data = midline_farmers)
-lm(yield_per_acre ~ end_adoption_onfield + clearing, data = endline_farmers)
-lm(maize_income ~ end_adoption_onfield + clearing, data = endline_farmers)
+
+

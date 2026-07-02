@@ -6754,10 +6754,6 @@ textit{Female}.
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Comment
-status open
-
-\begin_layout Plain Layout
 \begin_inset Float table
 placement class
 alignment center
@@ -7539,11 +7535,6 @@ end{minipage}
 
 \end_layout
 
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsubsection
 Quantitative Data Limitations
 \end_layout
@@ -7711,10 +7702,10 @@ Include tests like:
 \end_layout
 
 \begin_layout Standard
-The analysis focuses on the three main outcome described in detailed Section 3.
+The analysis focuses on the three main outcomes described in detailed Section 3.
  Gender gaps in maize productivity,
- gross income from maize and adoption of hybrid seeds varieties are first estimated using an Ordinary Least Squares (OLS) regressions.
- The baseline specification relates to a simple yield function (Udry,
+ gross income from maize and adoption of hybrid seeds varieties are first estimated using Ordinary Least Squares (OLS) regressions.
+ The baseline specification is based on a standarrd agricultural production specification (Udry,
  1996) in the form:
  
 \end_layout
@@ -7765,7 +7756,39 @@ where
  gross income from maize and adoption of hybrid seeds.
  While previous studies model productivity outcomes in logarithmic form (Udry,
  1996),
- we employ the inverse hyperbolic sine transformation to accommodate zero productivity and income observations.
+ we employ the inverse hyperbolic sine transformation to accommodate zero productivity and income observations:
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset Formula 
+\begin{equation}
+ainh(Y)=ln(Y+\sqrt{Y^{2}+1})\label{eq:one-1-3}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+check again and maybe add:
+ The IHS transformation is preferred because it is defined at zero and reduces the influence of extreme values in highly skewed outcome distributions.
+ For larger values of the outcome,
+ it behaves similarly to a logarithmic transformation,
+ although percentage interpretations should be treated as approximate
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -7774,7 +7797,7 @@ When considering the adoption of hybrid seed as an outcome variable,
  While nonlinear models such as logit or probit are often used for binary outcomes,
  the LPM provides a straightforward interpretation and facilitates comparison with the continuous outcomes analyzed in this study.
  However,
- the LPM suffer several problems.
+ the LPM has some limitations.
  The main disadvantage is that the predicted value could fall outside the zero-to-one probability values (Gujarati,
  2021).
  Robustness checks using logit specifications that follow logistic cumulative distribution are reported in the Appendix and present similar results.
@@ -7901,6 +7924,18 @@ Some of the covariates collected at baseline were not re-measured in the midline
  the gender classification observed at baseline and endline was assumed to remain unchanged.
 \end_layout
 
+\begin_layout Standard
+All OLS specifications use robust standard errors.
+ In pooled specifications,
+ standard errors are clustered at the household level to account for repeated observations of the same household over time.
+ Additional diagnostic checks,
+ including tests for heteroskedasticity,
+ functional-form sensitivity,
+ multicollinearity,
+ and influential observations,
+ are used to assess the robustness of the estimates.
+\end_layout
+
 \begin_layout Subsection
 Oaxaca-Blinder Decomposition
 \end_layout
@@ -7924,7 +7959,11 @@ To investigate the sources of gender disparities in productivity and income,
  The Oaxaca–Blinder decomposition therefore quantifies the contribution of observable characteristics commonly available in household survey data while acknowledging that unobserved data not computed in the equation,
  such as agro-ecological conditions may remain captured in the returns component (Fortin et al.,
  2011).
- Based on the work of Kilic et al.
+ 
+\end_layout
+
+\begin_layout Standard
+Based on the work of Kilic et al.
  (2015),
  we derived the average gap between men and women "D",
  expressed as the average difference in productivity and income:
@@ -7955,6 +7994,20 @@ Where
 
  denote the expected outcomes for male and female headed households,
  obtained from linear estimation of agricultural productivity and income expressed in inverse hyperbolic sine (IHS) units.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Do I have to justify better that the male are the non-discriminated group?
+ Maybe Add:
+ Since the gap is defined as male minus female,
+ positive values indicate higher average productivity or income among male-headed households relative to female-headed households.
+ Reversing the order of the groups would produce the same magnitude with the opposite sign
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -7969,7 +8022,7 @@ Equation (1) relies on the restrictive assumption that the returns to observable
 \lang english
 \begin_inset Formula 
 \begin{equation}
-E(Y_{m})=\alpha_{m}+\beta_{m}E(X_{m})\label{eq:one-1-1-1}
+E(Y_{m})=\bar{X}_{m}\hat{\beta}_{m})\label{eq:one-1-1-1}
 \end{equation}
 
 \end_inset
@@ -7977,20 +8030,56 @@ E(Y_{m})=\alpha_{m}+\beta_{m}E(X_{m})\label{eq:one-1-1-1}
  
 \begin_inset Formula 
 \begin{equation}
-E(Y_{f})=\alpha_{f}+\beta_{f}E(X_{f})\label{eq:one-1-1-2}
+E(Y_{f})=\bar{X}_{f}\hat{\beta}_{f})\label{eq:one-1-1-2}
 \end{equation}
 
 \end_inset
 
 
 \lang american
-Where X denotes a vector of observable household and farm characteristics,
+Where 
+\begin_inset Formula $X_{m}$
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+and 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\nospellcheck default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset Formula $X_{f}$
+\end_inset
+
+ are vectors of observable household and farm characteristics for male and female headed households,
  and 
-\begin_inset Formula $𝛽_{m}$
+\begin_inset Formula $\widehat{𝛽}_{m}$
 \end_inset
 
  and 
-\begin_inset Formula $𝛽_{f}$
+\begin_inset Formula $\hat{𝛽}_{f}$
 \end_inset
 
  represent the associated vectors of coefficients for male and female headed households,
@@ -7998,7 +8087,7 @@ Where X denotes a vector of observable household and farm characteristics,
 \end_layout
 
 \begin_layout Standard
-By substituting these expressions into the definition of D,
+By substituting expressions 5 and 6 into the definition of D,
  the overall gender gap can be expressed as a function of disparities in observable characteristics as well as differences in the returns to those characteristics:
 \end_layout
 
@@ -8007,7 +8096,7 @@ By substituting these expressions into the definition of D,
 \lang english
 \begin_inset Formula 
 \begin{equation}
-D=(E(X_{m})-E(X_{f}))\beta^{*}+E(X_{m})(\beta_{m}-\beta^{*})+E(X_{f})(\beta^{*}-\beta_{f})\label{eq:one-1-1-3}
+D=(\bar{X}_{m}-\bar{X}_{f})\beta^{*}+\left[\bar{X}_{m}(\hat{\beta}_{m}-\hat{\beta}^{*})+\bar{X}_{f}(\hat{\beta}^{*}-\hat{\beta}_{f})\right]\label{eq:one-1-1-3}
 \end{equation}
 
 \end_inset
@@ -8016,7 +8105,52 @@ D=(E(X_{m})-E(X_{f}))\beta^{*}+E(X_{m})(\beta_{m}-\beta^{*})+E(X_{f})(\beta^{*}-
 \end_layout
 
 \begin_layout Standard
-To construct the counterfactual non-discriminatory structure,
+The first term,
+ 
+\begin_inset Formula $(\bar{X}_{m}-\bar{X}_{f})\beta^{*}$
+\end_inset
+
+is the explained component,
+ or endowment effect.
+ It captures the part of the gender gap attributable to differences in observable characteristics.
+ The second term,
+ 
+\begin_inset Formula $\left[\bar{X}_{m}(\hat{\beta}_{m}-\hat{\beta}^{*})+\bar{X}_{f}(\hat{\beta}^{*}-\hat{\beta}_{f})\right]$
+\end_inset
+
+represents the structural or coefficient component and it captures the part of gap associated with differences in returns and coefficient structures between male and female headed households.
+ Not only it captures potential structural constraints but also the influence of unobserved heterogeneity,
+ measurement error,
+ and omitted variables,
+ such as land quality or agro-ecological conditions.
+ Therefore,
+ the structural component should be interpreted with caution as reflecting differential returns rather than direct evidence of discrimination (Fortin et al.,
+ 2011).
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+previously said
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Equation 7 represent a classic OB twofold decomposition,
+ while the threefold OB decomposition can be obtained by further separating the coefficient component into male and female sub-components.
+ The male and female coefficient components measure how the coefficient structures differ/deviate from a pooled benchmark 
+\begin_inset Formula $\beta^{*}$
+\end_inset
+
+.
+ To construct the benchmark as a counterfactual non-discriminatory structure 
+\begin_inset Formula $\beta^{*}$
+\end_inset
+
+,
  we use the coefficients from a pooled regression estimated on the combined sample of male- and female-headed households (Jann,
  2008).
  This approach,
@@ -8029,7 +8163,8 @@ To construct the counterfactual non-discriminatory structure,
 status collapsed
 
 \begin_layout Plain Layout
-Evaluate the idea of weightening the two groups based on the observations so it is not unbalanced and to do a twofold oaxaca blinder cause the division female structural disadvantage and male structural advantage really depends from the benchmark considered
+Evaluate the idea of weightening the two groups based on the observations so it is not unbalanced and to do a twofold oaxaca blinder cause the division female structural disadvantage and male structural advantage really depends from the benchmark considered.
+ (the sample is 78% male and 22%female)
 \end_layout
 
 \end_inset
@@ -8039,7 +8174,9 @@ Evaluate the idea of weightening the two groups based on the observations so it 
 
 \begin_layout Standard
 Expanding the decomposition across covariates k= 0,...,
- K (including the intercept) the total gap can be written as the contributions of each observable characteristics.
+ K,
+ including the intercept,
+ the total gap can be written as the contributions of each observable characteristics.
  The result is a detailed decomposition written as:
  
 \end_layout
@@ -8055,45 +8192,66 @@ D=\sum_{k=0}^{K}(\bar{X}_{m,k}-\bar{X}_{f,k})\beta_{k}^{*}+\sum_{k=0}^{K}\bar{X}
 \end_inset
 
 
-\begin_inset Note Comment
-status collapsed
-
-\begin_layout Plain Layout
-parentheses under to be included
-\end_layout
-
-\end_inset
-
-
 \lang american
 where each covariate 𝑘 contributes separately to the endowment effect and to the two structural components.
 \end_layout
 
 \begin_layout Standard
-The explained component captures the portion of the gender gap attributable to differences in observable endowments,
- such as land,
- fertilizer use and access to inputs.
- Formally,
- this corresponds to the first term of the decomposition and aggregates the contributions across all covariates 𝑘.
- The unexplained component reflects differences in returns to observables endowments.
- In the threefold specification adopted here,
- this component is further divided into a male structural advantage term,
- and a female structural disadvantage term,
- which respectively measure how male and female returns deviate from the pooled benchmark.
- Not only it captures potential structural constraints but also the influence of unobserved heterogeneity,
- measurement error,
- and omitted variables,
- such as land quality or agro-ecological conditions.
- Therefore,
- the structural component should be interpreted with caution as reflecting differential returns rather than direct evidence of discrimination.
+Detailed decomposition components should not be interpreted as causal effects of individual covariates.
+ Rather,
+ they show how differences in observable characteristics and differences in estimated coefficient structures contribute mechanically to the overall gap.
 \end_layout
 
 \begin_layout Standard
-Standard errors are estimated using bootstrap replications with resampling performed within gender groups.
+To account for unobserved spatial heterogeneity,
+ the main decomposition includes catchment-area fixed effects.
+ This is implemented by applying a within transformation to the outcome and covariates before estimating the decomposition.
+ For each variable Z,
+ the transformed variable is defined as:
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset Formula 
+\begin{equation}
+\tilde{Z_{hc}}​=Z_{hc}​-\bar{Z}_{c}+\bar{Z}\label{eq:one-1-1-3-1-1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\tilde{Z_{hc}}$
+\end_inset
+
+is the value of the variable Z for household h in catchment area c,
+ 
+\begin_inset Formula $\bar{Z}_{c}$
+\end_inset
+
+is the catchment-area mean,
+ and 
+\begin_inset Formula $\bar{Z}$
+\end_inset
+
+is the overall sample mean.
+ The fixed effect remove average differences across catchment areas.
+ The decomposition is then applied to the transformed variables.
+ This specification compares male and female headed households within similar local production environments and helps accounting for unobserved catchment-level characteristics such as market access,
+ agro-ecological conditions,
+ or other area-specific factors.
+\end_layout
+
+\begin_layout Standard
+Standard errors are estimated using bootstrap replications clustered at the catchment-area level.
  All outcomes are expressed in inverse hyperbolic sine (IHS) units,
  which allows coefficients to be interpreted in a manner comparable to logarithmic transformations,
  particularly for larger values of the outcome.
- The results are presented in Table 5 and discussed in Section 6.
+ The results are presented in Table 5 and 6 and discussed in Section 6.
 \end_layout
 
 \begin_layout Subsubsection
@@ -8116,6 +8274,8 @@ The detailed decomposition additionally depends on the assumptions of additive l
  In our setting,
  the specification tests do not indicate major functional form problems,
  indicating that a linear model provide a reasonable description of the outcomes.
+ Functional-form concerns might be relevant for maize income because of the large mass at zero and its strongly right-skewed distribution.
+ RESET tests and alternative income specifications are therefore used as diagnostic checks and included in the Appendix.
 \end_layout
 
 \begin_layout Standard
@@ -8137,14 +8297,31 @@ The credibility of the decomposition also relies on the plausibility of the igno
 \end_layout
 
 \begin_layout Standard
-Panel-data extensions of the Oaxaca–Blinder decomposition have been used to further address unobserved heterogeneity in other settings (Slavchevska,
+Although panel-data extensions of the Oaxaca–Blinder decomposition have been used in other settings (Slavchevska,
  2015;
  Ali et al.,
  2016),
- but are not applicable here as the decomposition is implemented on a single baseline cross-section and gender is time-invariant.
- Consequently,
- the decomposition results are interpreted in a descriptive rather than causal sense,
- and the unexplained component is understood as capturing differential returns together with residual unobserved heterogeneity.
+ the main decomposition in this study is implemented on the baseline cross-section because the baseline survey contains the richest and most consistently measured set of household,
+ plot,
+ input,
+ and market-access covariates.
+ Midline and endline observations are used in pooled OLS specifications to assess the persistence of gender gaps over time,
+ but they are not used for the main Oaxaca decomposition because several key endowment variables are not consistently re-measured across rounds.
+ Carrying baseline covariates forward is acceptable in pooled OLS as a way to control for relatively stable household characteristics,
+ but it is less appropriate in an Oaxaca decomposition because these covariates directly determine the endowment component.
+ A pooled Oaxaca would risk attributing later-round gender gaps to baseline characteristics,
+ making the interpretation of the explained and coefficient components less clear.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+maybe too detailed and not too useful
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -8163,20 +8340,37 @@ As stated previously,
 
 \begin_layout Standard
 \begin_inset Note Comment
-status collapsed
+status open
 
 \begin_layout Plain Layout
 A further empirical issue concerns the distribution of maize income,
  which exhibits a substantial mass at zero because a sizeable share of households report no maize sales during the reference period.
  As a result,
  the income outcome combines market participation (whether any maize is sold) and sales intensity/earnings conditional on participating.
- This structure can induce strong non-linearities and misspecification in linear models,
+ At baseline,
+ 48.8 percent of households report zero maize income.
+ This share is substantially higher among female-headed households,
+ 60.5 percent,
+ than among male-headed households,
+ 45.3 percent.
+ Therefore,
+ the maize income outcome captures both the probability of selling maize and the amount earned conditional on selling.
+ Missing information on quantity sold or price among sellers is very limited,
+ affecting only seven observations.
+ The main concern in the income variable is therefore the large share of zero sales and the strong right-skewness of positive income values.
+ Consequently,
+ the Oaxaca–Blinder decomposition of maize income should be interpreted as a decomposition of overall maize commercialization income rather than of earnings among sellers only.
+ It reflects both differences in market participation and differences in sales intensity conditional on participation
+\end_layout
+
+\begin_layout Plain Layout
+(((This structure can induce strong non-linearities and misspecification in linear models,
  which is consistent with the RESET test indicating specification problems across alternative income regressions.
  Consequently,
  the Oaxaca–Blinder decomposition of maize income should be interpreted with caution,
  as it captures differences in overall income that reflect both the decision to sell maize and the amount earned from sales,
  rather than a single,
- uniform income-generating process.
+ uniform income-generating process))).
 \end_layout
 
 \end_inset
@@ -8206,20 +8400,28 @@ Qualitative Analytical Approach
 Qualitative data were analyzed using a thematic coding approach aimed at identifying recurring patterns related to gendered constraints in maize production and commercialization.
  Qualitative data were coded using the analysis software package ATLAS.ti,
  which facilitated systematic data organization.
- A coding structure was developed based on the interviews questions and the study’s analytical focus,
- while remaining open to themes emerging during the analysis of the data.
+ A deductive coding structure was developed based on the interviews questions and the study’s analytical focus,
+ while remaining open to inductive coding during the analysis.
  
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 The final coding structure included themes related to bargaining power,
  decision-making over inputs and income,
  labor allocation,
  market access,
  technology adoption,
  time constraints,
- and gender norms and roles.
- We allowed the overlapping of the codes to reflect the interconnected nature of the themes and particular attention was paid to patterns of co-occurrence across codes.
+ and gender norms and roles
+\end_layout
+
+\end_inset
+
+We allowed the overlapping of the codes to reflect the interconnected nature of the themes and particular attention was paid to patterns of co-occurrence across codes.
  The results are presented in section 5.2 and discussed in section 6.
  Selected excerpts were used to illustrate the main themes and support the interpretation of the quantitative results.
 \end_layout
@@ -8403,7 +8605,7 @@ placement H
 alignment left
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -16514,13 +16716,17 @@ end{minipage}
 Decomposition of Gender Gaps - Oaxaca-Blinder results
 \end_layout
 
+\begin_layout Subsubsection*
+5.2.1 Aggregate Decomposition Results
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float table
 placement H
 alignment left
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -16528,7 +16734,7 @@ status open
 \begin_layout Plain Layout
 
 \series bold
-Aggregate decomposition in maize productivity and income
+Twofold aggregate decomposition in maize productivity and income with fixed effects
 \end_layout
 
 \end_inset
@@ -16558,7 +16764,7 @@ small
 
 
 \backslash
-begin{tabular}{lrrccc}
+begin{tabular}{lrrrr}
 \end_layout
 
 \begin_layout Plain Layout
@@ -16576,7 +16782,7 @@ hline
 
 \begin_layout Plain Layout
 
-& $N$ & Total & Endowment & Male structural & Female structural 
+& $N$ & Total & Explained & Coefficients 
 \backslash
 
 \backslash
@@ -16585,7 +16791,7 @@ hline
 
 \begin_layout Plain Layout
 
-&&gap& effect & advantage & disadvantage 
+&& gap & effect & effect 
 \backslash
 
 \backslash
@@ -16601,44 +16807,41 @@ hline
 
 \begin_layout Plain Layout
 
-
-\backslash
-Sexpr{tab_agg_kilic_star$Outcome[1]} &
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-Sexpr{tab_agg_kilic_star$N[1]} &
+Sexpr{tab_fe_twofold_agg$Outcome[1]} &
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-Sexpr{tab_agg_kilic_star$Total_gap[1]} &
+Sexpr{tab_fe_twofold_agg$N[1]} &
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-Sexpr{tab_agg_kilic_star$Endowment[1]} &
+Sexpr{tab_fe_twofold_agg$Total_gap[1]} &
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-Sexpr{tab_agg_kilic_star$Male_adv[1]} &
+Sexpr{tab_fe_twofold_agg$Explained[1]} &
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-Sexpr{tab_agg_kilic_star$Female_dis[1]} 
+Sexpr{tab_fe_twofold_agg$Coefficients[1]} 
 \backslash
 
 \backslash
@@ -16647,9 +16850,13 @@ Sexpr{tab_agg_kilic_star$Female_dis[1]}
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\begin_layout Plain Layout
+
 
 \backslash
-Sexpr{tab_agg_kilic_star$Outcome[2]} &
+Sexpr{tab_fe_twofold_agg$Outcome[2]} &
 \end_layout
 
 \begin_layout Plain Layout
@@ -16661,7 +16868,7 @@ Sexpr{tab_agg_kilic_star$Outcome[2]} &
 
 
 \backslash
-Sexpr{tab_agg_kilic_star$Endowment[2]}
+Sexpr{tab_fe_twofold_agg$Explained[2]}
 \backslash
 % &
 \end_layout
@@ -16670,16 +16877,7 @@ Sexpr{tab_agg_kilic_star$Endowment[2]}
 
 
 \backslash
-Sexpr{tab_agg_kilic_star$Male_adv[2]}
-\backslash
-% &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_agg_kilic_star$Female_dis[2]}
+Sexpr{tab_fe_twofold_agg$Coefficients[2]}
 \backslash
 % 
 \backslash
@@ -16690,6 +16888,10 @@ Sexpr{tab_agg_kilic_star$Female_dis[2]}
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\begin_layout Plain Layout
+
 
 \backslash
 hline
@@ -16697,44 +16899,41 @@ hline
 
 \begin_layout Plain Layout
 
-
-\backslash
-Sexpr{tab_agg_kilic_star$Outcome[3]} &
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-Sexpr{tab_agg_kilic_star$N[3]} &
+Sexpr{tab_fe_twofold_agg$Outcome[3]} &
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-Sexpr{tab_agg_kilic_star$Total_gap[3]} &
+Sexpr{tab_fe_twofold_agg$N[3]} &
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-Sexpr{tab_agg_kilic_star$Endowment[3]} &
+Sexpr{tab_fe_twofold_agg$Total_gap[3]} &
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-Sexpr{tab_agg_kilic_star$Male_adv[3]} &
+Sexpr{tab_fe_twofold_agg$Explained[3]} &
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-Sexpr{tab_agg_kilic_star$Female_dis[3]} 
+Sexpr{tab_fe_twofold_agg$Coefficients[3]} 
 \backslash
 
 \backslash
@@ -16743,9 +16942,13 @@ Sexpr{tab_agg_kilic_star$Female_dis[3]}
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\begin_layout Plain Layout
+
 
 \backslash
-Sexpr{tab_agg_kilic_star$Outcome[4]} &
+Sexpr{tab_fe_twofold_agg$Outcome[4]} &
 \end_layout
 
 \begin_layout Plain Layout
@@ -16757,7 +16960,7 @@ Sexpr{tab_agg_kilic_star$Outcome[4]} &
 
 
 \backslash
-Sexpr{tab_agg_kilic_star$Endowment[4]}
+Sexpr{tab_fe_twofold_agg$Explained[4]}
 \backslash
 % &
 \end_layout
@@ -16766,16 +16969,7 @@ Sexpr{tab_agg_kilic_star$Endowment[4]}
 
 
 \backslash
-Sexpr{tab_agg_kilic_star$Male_adv[4]}
-\backslash
-% &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_agg_kilic_star$Female_dis[4]}
+Sexpr{tab_fe_twofold_agg$Coefficients[4]}
 \backslash
 % 
 \backslash
@@ -16832,7 +17026,7 @@ Note:
  Shares are expressed in 
 \backslash
 %.
- Standard errors are bootstrapped;
+ Standard errors are bootstrapped at the catchment-area level.
  ***,
  **,
  and * denote significance at the 1
@@ -16844,10 +17038,7 @@ Note:
  and 10
 \backslash
 % levels.
-\backslash
-
-\backslash
-
+ The decomposition is estimated after applying catchment-area fixed effects.
 \end_layout
 
 \end_inset
@@ -16861,12 +17052,6 @@ Note:
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-original:
- 
 \begin_inset Float table
 placement H
 alignment left
@@ -16880,7 +17065,7 @@ status collapsed
 \begin_layout Plain Layout
 
 \series bold
-Oaxaca – Blinder aggregate decomposition of the gender gap in maize productivity and gross income
+Threefold aggregate decomposition in maize productivity and income with fixed effects
 \end_layout
 
 \end_inset
@@ -16896,36 +17081,14 @@ status open
 
 
 \backslash
-centering
+begin{center}
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-footnotesize
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-setlength{
-\backslash
-tabcolsep}{4pt}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-renewcommand{
-\backslash
-arraystretch}{1.1}
-\end_layout
-
-\begin_layout Plain Layout
-
+small
 \end_layout
 
 \begin_layout Plain Layout
@@ -16940,11 +17103,26 @@ begin{tabular}{lrrccc}
 
 \backslash
 hline
+\backslash
+hline
 \end_layout
 
 \begin_layout Plain Layout
 
-Outcome & $N$ & Total gap & Endowment effect & Male structural advantage & Female structural disadvantage 
+\end_layout
+
+\begin_layout Plain Layout
+
+& $N$ & Total & Endowment & Male & Female 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+&& gap & effect & coefficients & coefficients 
 \backslash
 
 \backslash
@@ -16960,44 +17138,48 @@ hline
 
 \begin_layout Plain Layout
 
-
-\backslash
-Sexpr{tab_agg_kilic_star$Outcome[1]} &
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-Sexpr{tab_agg_kilic_star$N[1]} &
+Sexpr{tab_fe_threefold_agg$Outcome[1]} &
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-Sexpr{tab_agg_kilic_star$Total_gap[1]} &
+Sexpr{tab_fe_threefold_agg$N[1]} &
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-Sexpr{tab_agg_kilic_star$Endowment[1]} &
+Sexpr{tab_fe_threefold_agg$Total_gap[1]} &
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-Sexpr{tab_agg_kilic_star$Male_adv[1]} &
+Sexpr{tab_fe_threefold_agg$Endowment[1]} &
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-Sexpr{tab_agg_kilic_star$Female_dis[1]} 
+Sexpr{tab_fe_threefold_agg$Male_coefficients[1]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_fe_threefold_agg$Female_coefficients[1]} 
 \backslash
 
 \backslash
@@ -17006,9 +17188,13 @@ Sexpr{tab_agg_kilic_star$Female_dis[1]}
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\begin_layout Plain Layout
+
 
 \backslash
-Sexpr{tab_agg_kilic_star$Outcome[2]} &
+Sexpr{tab_fe_threefold_agg$Outcome[2]} &
 \end_layout
 
 \begin_layout Plain Layout
@@ -17020,7 +17206,7 @@ Sexpr{tab_agg_kilic_star$Outcome[2]} &
 
 
 \backslash
-Sexpr{tab_agg_kilic_star$Endowment[2]}
+Sexpr{tab_fe_threefold_agg$Endowment[2]}
 \backslash
 % &
 \end_layout
@@ -17029,7 +17215,7 @@ Sexpr{tab_agg_kilic_star$Endowment[2]}
 
 
 \backslash
-Sexpr{tab_agg_kilic_star$Male_adv[2]}
+Sexpr{tab_fe_threefold_agg$Male_coefficients[2]}
 \backslash
 % &
 \end_layout
@@ -17038,12 +17224,16 @@ Sexpr{tab_agg_kilic_star$Male_adv[2]}
 
 
 \backslash
-Sexpr{tab_agg_kilic_star$Female_dis[2]}
+Sexpr{tab_fe_threefold_agg$Female_coefficients[2]}
 \backslash
 % 
 \backslash
 
 \backslash
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 
@@ -17056,44 +17246,48 @@ hline
 
 \begin_layout Plain Layout
 
-
-\backslash
-Sexpr{tab_agg_kilic_star$Outcome[3]} &
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-Sexpr{tab_agg_kilic_star$N[3]} &
+Sexpr{tab_fe_threefold_agg$Outcome[3]} &
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-Sexpr{tab_agg_kilic_star$Total_gap[3]} &
+Sexpr{tab_fe_threefold_agg$N[3]} &
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-Sexpr{tab_agg_kilic_star$Endowment[3]} &
+Sexpr{tab_fe_threefold_agg$Total_gap[3]} &
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-Sexpr{tab_agg_kilic_star$Male_adv[3]} &
+Sexpr{tab_fe_threefold_agg$Endowment[3]} &
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-Sexpr{tab_agg_kilic_star$Female_dis[3]} 
+Sexpr{tab_fe_threefold_agg$Male_coefficients[3]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_fe_threefold_agg$Female_coefficients[3]} 
 \backslash
 
 \backslash
@@ -17102,9 +17296,13 @@ Sexpr{tab_agg_kilic_star$Female_dis[3]}
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\begin_layout Plain Layout
+
 
 \backslash
-Sexpr{tab_agg_kilic_star$Outcome[4]} &
+Sexpr{tab_fe_threefold_agg$Outcome[4]} &
 \end_layout
 
 \begin_layout Plain Layout
@@ -17116,7 +17314,7 @@ Sexpr{tab_agg_kilic_star$Outcome[4]} &
 
 
 \backslash
-Sexpr{tab_agg_kilic_star$Endowment[4]}
+Sexpr{tab_fe_threefold_agg$Endowment[4]}
 \backslash
 % &
 \end_layout
@@ -17125,7 +17323,7 @@ Sexpr{tab_agg_kilic_star$Endowment[4]}
 
 
 \backslash
-Sexpr{tab_agg_kilic_star$Male_adv[4]}
+Sexpr{tab_fe_threefold_agg$Male_coefficients[4]}
 \backslash
 % &
 \end_layout
@@ -17134,7 +17332,7 @@ Sexpr{tab_agg_kilic_star$Male_adv[4]}
 
 
 \backslash
-Sexpr{tab_agg_kilic_star$Female_dis[4]}
+Sexpr{tab_fe_threefold_agg$Female_coefficients[4]}
 \backslash
 % 
 \backslash
@@ -17145,32 +17343,13 @@ Sexpr{tab_agg_kilic_star$Female_dis[4]}
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\begin_layout Plain Layout
+
 
 \backslash
 hline
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-multicolumn{6}{l}{
-\backslash
-footnotesize Notes:
- Shares are in percent.
- Stars denote significance based on bootstrapped SEs:
- *** p<0.01,
- ** p<0.05,
- * p<0.10.} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
 \backslash
 hline
 \end_layout
@@ -17184,11 +17363,45 @@ end{tabular}
 
 \begin_layout Plain Layout
 
+
+\backslash
+end{center}
 \end_layout
 
-\end_inset
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
 
 
+\backslash
+footnotesize
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Note:
+ Shares are expressed in 
+\backslash
+%.
+ Standard errors are bootstrapped at the catchment-area level.
+ ***,
+ **,
+ and * denote significance at the 1
+\backslash
+%,
+ 5
+\backslash
+%,
+ and 10
+\backslash
+% levels.
+ The decomposition is estimated after applying catchment-area fixed effects.
 \end_layout
 
 \end_inset
@@ -17202,12 +17415,24 @@ end{tabular}
 \end_layout
 
 \begin_layout Standard
-Given that both maize productivity and maize income are expressed in inverse hyperbolic sine (IHS) units,
- the estimated gaps can be interpreted approximately as percentage differences.
+Tables X and Y report the twofold and threefold Oaxaca–Blinder decompositions of the gender gaps in maize productivity and maize income.
+ Both outcomes are expressed in inverse hyperbolic sine units and the estimated gaps can be interpreted approximately as percentage differences.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Since the gender gap is defined as the mean outcome of male-headed households minus that of female-headed households,
+ positive values indicate higher average outcomes among male-headed households.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-The estimated productivity gap of 0.201 implies that on average female-headed households have about 20% lower maize productivity compared to male-headed households.
+The fixed-effects adjusted decomposition indicates a maize productivity gap of 0.197 IHS units,
+ suggesting that on average female-headed households have about 20% lower maize productivity compared to male-headed households.
  This result is consistent with De la O Campos et al.
  (2016),
  who report a difference in mean log productivity between plots managed by male and female headed households of 0.177,
@@ -17215,22 +17440,30 @@ The estimated productivity gap of 0.201 implies that on average female-headed ho
 \end_layout
 
 \begin_layout Standard
-The Oaxaca–Blinder decomposition indicates that only a small fraction of the productivity gap (0.034,
- approximately 17%) is explained by observable differences in endowments,
- such as land size,
- input use,
- and household characteristics.
- The remaining 83% of the gap is attributed to differences in returns to these characteristics,
+The twofold decomposition shows that 0.051 IHS units,
+ corresponding to 26.2 % of the productivity gap,
+ are explained by observable differences in endowments.
+ The remaining 0.145 IHS units,
+ or 73.8 % of the gap is attributed to differences in returns to these characteristics,
  suggesting that gender disparities in maize productivity could be driven primarily by structural factors,
  differential returns to inputs,
- and gender-specific constraints rather than by unequal access to productive resources alone.
+ and gender-specific constraints (or with residual unobserved factors) rather than by unequal access to resources alone.
 \end_layout
 
 \begin_layout Standard
-Through the threefold decomposition,
- the structural component reflects both male structural advantage and female structural disadvantage,
- with the latter accounting for the larger share of the unexplained gap.
- As highlighted in the literature,
+The threefold decomposition further separates the coefficient component into male and female coefficient components.
+ For productivity,
+ the endowment component is 0.051,
+ the male coefficient component is 0.032,
+ and the female coefficient component is 0.114.
+ Both coefficient components contribute positively to the productivity gap,
+ with the female coefficient component accounting for the larger share of the coefficient effect.
+ This indicates that the productivity gap is not only associated with differences in observed characteristics,
+ but also with the way these characteristics translate into productivity for female-headed households relative to the pooled benchmark.
+\end_layout
+
+\begin_layout Standard
+As highlighted in the literature,
  aggregate decomposition results vary across crops and contexts,
  and the relative contribution of endowment and structural effects depends on how gender is conceptualized,
  whether in terms of household heads,
@@ -17238,21 +17471,47 @@ Through the threefold decomposition,
  or farm managers (De la O Campos et al.,
  2016).
  Moreover,
- the threefold decomposition results are sensitive to the choice of the reference group.
- While the aggregate explained and unexplained shares stay unaffected,
- the decomposition of the structural component into male structural advantage and female structural disadvantage is sensitive to the chosen benchmark.
+ the allocation of the coefficient component into male and female coefficient components is sensitive to the choice of benchmark.
+ For this reason,
+ these components are interpreted descriptively as deviations from the pooled coefficient structure rather than as direct measures of male advantage or female disadvantage.
 \end_layout
 
 \begin_layout Standard
-The gender gap in maize income is substantially larger.
+The gender gap in maize income is substantially larger than the productivity gap.
  The estimated income gap of 0.975 corresponds to nearly 97% lower maize income among female-headed households relative to male-headed households.
- A sizable share of this gap (0.410,
- approximately 42%) is explained by differences in observable characteristics,
- particularly those related to land size and input use.
+ A sizable share of this gap (approximately 43%) is explained by differences in observable characteristics.
  Nevertheless,
- about 58% of the income gap remains unexplained,
- pointing to possible gender-based inequalities in market access and the ability to translate production into monetary returns.
- Due to the zero maize income and the non-linearity caused by participation decisions,
+ about 57% of the income gap is associated with differences in the coefficient structure.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+pointing to possible gender-based inequalities in market access and the ability to translate production into monetary returns
+\end_layout
+
+\end_inset
+
+.
+ Compared with productivity,
+ observable endowments explain a larger share of the income gap,
+ suggesting that differences in plot area,
+ input use,
+ and other household and farm characteristics play an important role in shaping income disparities.
+ Nevertheless,
+ more than half of the income gap remains associated with coefficient differences.
+\end_layout
+
+\begin_layout Standard
+The threefold income decomposition shows that the endowment component is 0.319,
+ the male coefficient component is 0.093,
+ and the female coefficient component is 0.331.
+ As in the productivity decomposition,
+ the female coefficient component represents the largest part of the coefficient effect.
+ This pattern suggests that income disparities may be related not only to differences in productive resources,
+ but also to gendered differences in the ability to convert those resources into monetary returns.
+ However,
+ due to the zero because maize income contains many zero observations,
  the income decomposition should be interpreted as reflecting both market participation and conditional earnings,
  rather than a single income generating process.
 \end_layout
@@ -17264,7 +17523,7 @@ The detailed decomposition provides additional insight into which specific covar
 
 \begin_layout Standard
 \begin_inset Note Comment
-status collapsed
+status open
 
 \begin_layout Plain Layout
 In the literature,
@@ -17280,7 +17539,7 @@ In the literature,
 
 \begin_layout Standard
 \begin_inset Note Comment
-status collapsed
+status open
 
 \begin_layout Plain Layout
 The detailed decomposition provides additional insight into which specific covariates contribute the most to the explained and unexplained components of the gap.
@@ -17320,6 +17579,609 @@ These detailed results should be interpreted as descriptive accounting exercises
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsubsection*
+5.2.1 Detailed Decomposition Results
+\end_layout
+
+\begin_layout Standard
+The detailed decompositions provide additional insight into which covariates contribute most to the explained and coefficient components of the gap.
+ These detailed contributions are not causal effects of individual covariates;
+ rather,
+ they show how differences in observable characteristics and differences in estimated coefficient structures contribute mechanically to the overall gap.
+\end_layout
+
+\begin_layout Standard
+For maize productivity,
+ table x shows that 
+\series bold
+education
+\series default
+ contributes positively and significantly to the endowment component,
+ indicating that differences in education levels widen the productivity gap.
+ However,
+ the coefficient component for education is negative,
+ suggesting that differences in the education-productivity relationship reduce rather than widen the gap.
+ Urea application shows a similar pattern:
+ its endowment contribution is close to zero,
+ while its coefficient component is negative and statistically significant.
+ This suggests that differences in the coefficient structure associated with urea application reduce rather than amplify productivity disparities.
+ Overall,
+ through the detailed decomposition the productivity gap appears to reflect a combination of small endowment differences and differences in coefficient structures.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement class
+alignment document
+wide false
+sideways true
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+Detailed twofold decomposition of maize productivity
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+scriptsize
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{lcc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+Variable & Explained & Coefficients 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{latex_rows_twofold_prod}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+footnotesize
+\end_layout
+
+\begin_layout Plain Layout
+
+Note:
+ The table reports the detailed twofold Oaxaca--Blinder decomposition for maize productivity with catchment-area fixed effects.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float table
+placement class
+alignment document
+wide false
+sideways true
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+Detailed threefold decomposition of maize productivity
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+scriptsize
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{lccc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+Variable & Endowment & Male & Female 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& effect & coefficients & coefficients 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{latex_rows_threefold_prod}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+footnotesize
+\end_layout
+
+\begin_layout Plain Layout
+
+Note:
+ The table reports the detailed threefold Oaxaca--Blinder decomposition for maize productivity with catchment-area fixed effects.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For maize income,
+ the detailed decomposition shows a clearer role for observable endowments.
+ Plot area is the largest positive contributor to the explained component,
+ indicating that differences in cultivated area account for an important part of the income gap.
+ Education plays a dual role in the income decomposition.
+ On the one hand,
+ the positive endowment component indicates that differences in educational attainment contribute to widening the income gap.
+ On the other hand,
+ the coefficient components associated with education are negative and statistically significant,
+ suggesting that differences in the estimated returns to education reduce the gap.
+ This pattern is consistent with the gender-specific OLS results,
+ where education appears more strongly associated with maize income among female-headed households.
+ In substantive terms,
+ education may help female-headed households overcome some constraints in production and commercialization,
+ although this interpretation remains descriptive rather than causal.
+ The household size has a negative and statistically significant endowment contribution,
+ indicating that differences in household size reduce rather than widen the income gap.
+ By contrast,
+ the coefficient component for the age of the household head is large,
+ positive,
+ and statistically significant,
+ suggesting that differences in the age-income relationship contribute to widening the gap.
+ Hybrid seed use does not emerge as a large or statistically significant contributor in the detailed decomposition,
+ either for productivity or income.
+ Instead,
+ the broader quality seed variable appears more relevant for income,
+ where it contributes positively to the explained component.
+\end_layout
+
+\begin_layout Standard
+Overall,
+ the decomposition results indicate that gender gaps in maize productivity and income are only partly explained by observable differences in household and farm characteristics.
+ Income disparities are more strongly linked to observable endowment differences,
+ especially plot area and quality seed use,
+ while productivity disparities appear less driven by any single observable input.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement class
+alignment document
+wide false
+sideways true
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+Detailed twofold decomposition of maize income
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+scriptsize
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{lcc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+Variable & Explained & Coefficients 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{latex_rows_twofold_inc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+footnotesize
+\end_layout
+
+\begin_layout Plain Layout
+
+Note:
+ The table reports the detailed twofold Oaxaca--Blinder decomposition for maize income with catchment-area fixed effects.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement class
+alignment document
+wide false
+sideways true
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+Detailed threefold decomposition of maize income
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+scriptsize
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{lccc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+Variable & Endowment & Male & Female 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& effect & coefficients & coefficients 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{latex_rows_threefold_inc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+footnotesize
+\end_layout
+
+\begin_layout Plain Layout
+
+Note:
+ The table reports the detailed threefold Oaxaca--Blinder decomposition for maize income with catchment-area fixed effects.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The twofold detailed decomposition will be put in the appendix.
 \end_layout
 
 \begin_layout Subsection
@@ -17669,9 +18531,18 @@ This section will be further developed in the final version of the MSc thesis.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
 The study advances the literature by giving new context-specific evidence on potential gender-differentiated outcomes in smallholder maize farming,
  with particular attention to the role of hybrid seed varieties adoption as a key driver of agricultural performance.
  The findings have policy implications for equitable productivity and income outcomes in maize production in Eastern Uganda.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -18446,824 +19317,8 @@ This section will be further developed in the final version of the MSc thesis.
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float table
-placement class
-alignment document
-wide false
-sideways true
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-
-\series bold
-Detailed decomposition in maize productivity
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-small
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}  
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{tabular}{lccc}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& Endowment & Male structural & Female structural  
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& effect & advantage & disadvantage 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_prod_star$Variable[1]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Endowment[1]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Male_adv[1]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Female_dis[1]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_prod_star$Variable[2]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Endowment[2]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Male_adv[2]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Female_dis[2]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_prod_star$Variable[3]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Endowment[3]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Male_adv[3]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Female_dis[3]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_prod_star$Variable[4]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Endowment[4]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Male_adv[4]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Female_dis[4]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_prod_star$Variable[5]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Endowment[5]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Male_adv[5]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Female_dis[5]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_prod_star$Variable[6]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Endowment[6]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Male_adv[6]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Female_dis[6]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_prod_star$Variable[7]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Endowment[7]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Male_adv[7]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Female_dis[7]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_prod_star$Variable[8]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Endowment[8]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Male_adv[8]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Female_dis[8]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_prod_star$Variable[9]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Endowment[9]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Male_adv[9]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Female_dis[9]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_prod_star$Variable[10]} & 
-\backslash
-Sexpr{tab_det_prod_star$Endowment[10]} & 
-\backslash
-Sexpr{tab_det_prod_star$Male_adv[10]} & 
-\backslash
-Sexpr{tab_det_prod_star$Female_dis[10]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_prod_star$Variable[11]} & 
-\backslash
-Sexpr{tab_det_prod_star$Endowment[11]} & 
-\backslash
-Sexpr{tab_det_prod_star$Male_adv[11]} & 
-\backslash
-Sexpr{tab_det_prod_star$Female_dis[11]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_prod_star$Variable[12]} & 
-\backslash
-Sexpr{tab_det_prod_star$Endowment[12]} & 
-\backslash
-Sexpr{tab_det_prod_star$Male_adv[12]} & 
-\backslash
-Sexpr{tab_det_prod_star$Female_dis[12]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_prod_star$Variable[13]} & 
-\backslash
-Sexpr{tab_det_prod_star$Endowment[13]} & 
-\backslash
-Sexpr{tab_det_prod_star$Male_adv[13]} & 
-\backslash
-Sexpr{tab_det_prod_star$Female_dis[13]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_prod_star$Variable[14]} & 
-\backslash
-Sexpr{tab_det_prod_star$Endowment[14]} & 
-\backslash
-Sexpr{tab_det_prod_star$Male_adv[14]} & 
-\backslash
-Sexpr{tab_det_prod_star$Female_dis[14]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_prod_star$Variable[15]} & 
-\backslash
-Sexpr{tab_det_prod_star$Endowment[15]} & 
-\backslash
-Sexpr{tab_det_prod_star$Male_adv[15]} & 
-\backslash
-Sexpr{tab_det_prod_star$Female_dis[15]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{tabular}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-footnotesize
-\end_layout
-
-\begin_layout Plain Layout
-
-Note:
-  Maize productivity is transformed using the IHS.
- Standard errors are bootstrapped;
- ***,
- **,
- and * denote significance at the 1
-\backslash
-%,
- 5
-\backslash
-%,
- and 10
-\backslash
-% levels.
-\backslash
-
-\backslash
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float table
-placement class
-alignment document
-wide false
-sideways true
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-
-\series bold
-Detailed decomposition in maize income
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-small
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}  
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{tabular}{lccc}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& Endowment & Male structural & Female structural  
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& effect & advantage & disadvantage 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_inc_star$Variable[1]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Endowment[1]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Male_adv[1]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Female_dis[1]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_inc_star$Variable[2]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Endowment[2]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Male_adv[2]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Female_dis[2]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_inc_star$Variable[3]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Endowment[3]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Male_adv[3]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Female_dis[3]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_inc_star$Variable[4]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Endowment[4]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Male_adv[4]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Female_dis[4]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_inc_star$Variable[5]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Endowment[5]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Male_adv[5]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Female_dis[5]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_inc_star$Variable[6]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Endowment[6]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Male_adv[6]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Female_dis[6]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_inc_star$Variable[7]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Endowment[7]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Male_adv[7]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Female_dis[7]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_inc_star$Variable[8]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Endowment[8]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Male_adv[8]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Female_dis[8]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_inc_star$Variable[9]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Endowment[9]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Male_adv[9]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Female_dis[9]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_inc_star$Variable[10]} & 
-\backslash
-Sexpr{tab_det_inc_star$Endowment[10]} & 
-\backslash
-Sexpr{tab_det_inc_star$Male_adv[10]} & 
-\backslash
-Sexpr{tab_det_inc_star$Female_dis[10]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_inc_star$Variable[11]} & 
-\backslash
-Sexpr{tab_det_inc_star$Endowment[11]} & 
-\backslash
-Sexpr{tab_det_inc_star$Male_adv[11]} & 
-\backslash
-Sexpr{tab_det_inc_star$Female_dis[11]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_inc_star$Variable[12]} & 
-\backslash
-Sexpr{tab_det_inc_star$Endowment[12]} & 
-\backslash
-Sexpr{tab_det_inc_star$Male_adv[12]} & 
-\backslash
-Sexpr{tab_det_inc_star$Female_dis[12]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_inc_star$Variable[13]} & 
-\backslash
-Sexpr{tab_det_inc_star$Endowment[13]} & 
-\backslash
-Sexpr{tab_det_inc_star$Male_adv[13]} & 
-\backslash
-Sexpr{tab_det_inc_star$Female_dis[13]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_inc_star$Variable[14]} & 
-\backslash
-Sexpr{tab_det_inc_star$Endowment[14]} & 
-\backslash
-Sexpr{tab_det_inc_star$Male_adv[14]} & 
-\backslash
-Sexpr{tab_det_inc_star$Female_dis[14]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_inc_star$Variable[15]} & 
-\backslash
-Sexpr{tab_det_inc_star$Endowment[15]} & 
-\backslash
-Sexpr{tab_det_inc_star$Male_adv[15]} & 
-\backslash
-Sexpr{tab_det_inc_star$Female_dis[15]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{tabular}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-footnotesize
-\end_layout
-
-\begin_layout Plain Layout
-
-Note:
-  Maize income is transformed using the IHS.
- Standard errors are bootstrapped;
- ***,
- **,
- and * denote significance at the 1
-\backslash
-%,
- 5
-\backslash
-%,
- and 10
-\backslash
-% levels.
-\backslash
-
-\backslash
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 original:
@@ -20092,10 +20147,10 @@ end{tabular}
 
 \begin_layout Standard
 \begin_inset Note Comment
-status open
+status collapsed
 
 \begin_layout Plain Layout
-- descriptive statoiistics midline e endline
+- descriptive statistics midline e endline
 \end_layout
 
 \begin_layout Plain Layout

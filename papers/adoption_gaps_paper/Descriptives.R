@@ -442,6 +442,44 @@ aggregate(yield_inkg ~ hh_gender_num, data = baseline_farmers, mean, na.rm = TRU
 
 table(is.na(baseline_farmers$yield_inkg), baseline_farmers$hh_gender_num)
 
+#TRIMMING (TRIAL)
+# Create numeric copies of the three productivity components
+baseline_farmers$q50_bags_untrimmed <- as.numeric(as.character(baseline_farmers$Check2.check.maize.q50))
+baseline_farmers$q51_kg_bag_untrimmed <- as.numeric(as.character(baseline_farmers$Check2.check.maize.q51))
+baseline_farmers$q29_area_untrimmed <- as.numeric(as.character(baseline_farmers$Check2.check.maize.q29))
+
+# Replace special missing codes
+baseline_farmers$q50_bags_untrimmed[baseline_farmers$q50_bags_untrimmed == 999] <- NA
+baseline_farmers$q51_kg_bag_untrimmed[baseline_farmers$q51_kg_bag_untrimmed == 999] <- NA
+baseline_farmers$q29_area_untrimmed[baseline_farmers$q29_area_untrimmed == 999] <- NA
+
+# Define upper cutoffs at the 99th percentile
+q50_upper_cutoff <- quantile(baseline_farmers$q50_bags_untrimmed, 0.99, na.rm = TRUE)
+q29_upper_cutoff <- quantile(baseline_farmers$q29_area_untrimmed, 0.99, na.rm = TRUE)
+q50_upper_cutoff
+q29_upper_cutoff
+
+# Create trimmed copies
+baseline_farmers$q50_bags_trimmed <- baseline_farmers$q50_bags_untrimmed
+baseline_farmers$q51_kg_bag_trimmed <- baseline_farmers$q51_kg_bag_untrimmed
+baseline_farmers$q29_area_trimmed <- baseline_farmers$q29_area_untrimmed
+
+# Trim bags above the 99th percentile
+baseline_farmers$q50_bags_trimmed[baseline_farmers$q50_bags_trimmed > q50_upper_cutoff] <- NA
+
+# Keep all kilograms-per-bag values
+
+# Trim plot areas below 0.25 acres and above the 99th percentile
+baseline_farmers$q29_area_trimmed[baseline_farmers$q29_area_trimmed < 0.25 | baseline_farmers$q29_area_trimmed > q29_upper_cutoff] <- NA
+
+
+
+# Count removed observations
+sum(baseline_farmers$q50_bags_untrimmed > q50_upper_cutoff, na.rm = TRUE)
+sum(baseline_farmers$q29_area_untrimmed < 0.25, na.rm = TRUE)
+sum(baseline_farmers$q29_area_untrimmed > q29_upper_cutoff, na.rm = TRUE)
+
+
 
 #yield per acre (PRODUCTIVITY)
 baseline_farmers$yield_per_acre <- baseline_farmers$yield_inkg / baseline_farmers$r_maize_plot_area
@@ -449,22 +487,31 @@ summary(baseline_farmers$yield_per_acre)
 baseline_farmers$yield_per_acre[baseline_farmers$yield_per_acre %in% c("999","n/a","NA","", 99900)] <- NA
 aggregate(yield_per_acre ~ hh_gender_num, data = baseline_farmers, mean, na.rm = TRUE)
 #analysis of productivity
-#hist(baseline_farmers$yield_per_acre,
-     #main = "Distribution of yield_per_acre",
-     #xlab = "Yield per acre",
-     #col = "lightblue",
-     #breaks = 30)
+hist(baseline_farmers$yield_per_acre,
+main = "Distribution of productivity",
+xlab = "Yield per acre",
+col = "lightblue",
+breaks = 30)
+# Construct output, productivity and IHS productivity
+baseline_farmers$yield_inkg_trimmed <- baseline_farmers$q50_bags_trimmed * baseline_farmers$q51_kg_bag_trimmed
+baseline_farmers$yield_per_acre_trimmed <- baseline_farmers$yield_inkg_trimmed / baseline_farmers$q29_area_trimmed
+baseline_farmers$yield_per_acre_trimmed_ihs <- asinh(baseline_farmers$yield_per_acre_trimmed)
 
+# Compare original and trimmed productivity
+summary(baseline_farmers$yield_per_acre)
+summary(baseline_farmers$yield_per_acre_trimmed)
+summary(baseline_farmers$yield_per_acre_ihs)
+summary(baseline_farmers$yield_per_acre_trimmed_ihs)
 
 
 # SAFE skewness check it in the future
 
 baseline_farmers$yield_per_acre_ihs <- asinh(baseline_farmers$yield_per_acre)
 summary(baseline_farmers$yield_per_acre_ihs)
-#hist(baseline_farmers$yield_per_acre_ihs,
-     #main = "Distribution di IHS(yield_per_acre)",
-     #col = "lightgreen",
-     #breaks = 30)
+hist(baseline_farmers$yield_per_acre_ihs,
+main = "Distribution of IHS Productivity",
+col = "lightgreen",
+breaks = 30)
 
 
 #MAIZE INCOME (bags sold × bag price)
@@ -480,9 +527,6 @@ summary(baseline_farmers$maize_income)
 baseline_farmers$maize_income[baseline_farmers$maize_income %in% c("999","n/a","NA","", 99900)] <- NA
 aggregate(maize_income ~ hh_gender_num, data = baseline_farmers, mean, na.rm = TRUE)
 
-baseline_farmers$maize_income_ihs <- asinh(baseline_farmers$maize_income)
-summary(baseline_farmers$maize_income_ihs)
-table(baseline_farmers$maize_income_ihs)
 
 
 
@@ -493,7 +537,21 @@ baseline_farmers$maize_income[baseline_farmers$maize_sold == 1] <-
   baseline_farmers$bags_sold[baseline_farmers$maize_sold == 1] *
   baseline_farmers$bag_price[baseline_farmers$maize_sold == 1]
 
+baseline_farmers$maize_income_ihs <- asinh(baseline_farmers$maize_income)
+summary(baseline_farmers$maize_income_ihs)
+table(baseline_farmers$maize_income_ihs)
 
+
+
+hist(baseline_farmers$maize_income,
+     main = "Distribution of Maize Income",
+     col = "lightgreen",
+     breaks = 30)
+
+hist(baseline_farmers$maize_income,
+     main = "Distribution of IHS Maize Income",
+     col = "lightgreen",
+     breaks = 30)
 
 
 #some variables to be added
@@ -542,10 +600,6 @@ table(baseline_farmers$farmer_group_member)
 # =========================================================
 # PREPARING MIDLINE & ENDLINE (COMMON VARIABLES ONLY)
 # =========================================================
-
-
-
-
 clean_yesno01 <- function(x){
   x <- tolower(trimws(as.character(x)))
   x[x %in% c("999","99","98","n/a","na","", " ")] <- NA
@@ -2129,6 +2183,41 @@ tab_fe_threefold_agg <<- tab_fe_threefold_agg
 tab_fe_twofold_det   <<- tab_fe_twofold_det
 tab_fe_threefold_det <<- tab_fe_threefold_det
 
+# ============================================================
+# LATEX ROWS FOR AGGREGATE TABLES
+# ============================================================
+
+make_latex_rows_twofold_agg <- function(tab) {
+  rows <- apply(tab, 1, function(x) {
+    paste0(
+      x["Outcome"], " & ",
+      x["N"], " & ",
+      x["Total_gap"], " & ",
+      x["Explained"], " & ",
+      x["Coefficients"], " \\\\"
+    )
+  })
+  paste(rows, collapse = "\n")
+}
+
+latex_rows_twofold_agg <- make_latex_rows_twofold_agg(tab_fe_twofold_agg)
+
+
+make_latex_rows_threefold_agg <- function(tab) {
+  rows <- apply(tab, 1, function(x) {
+    paste0(
+      x["Outcome"], " & ",
+      x["N"], " & ",
+      x["Total_gap"], " & ",
+      x["Endowment"], " & ",
+      x["Male_coefficients"], " & ",
+      x["Female_coefficients"], " \\\\"
+    )
+  })
+  paste(rows, collapse = "\n")
+}
+
+latex_rows_threefold_agg <- make_latex_rows_threefold_agg(tab_fe_threefold_agg)
 boot_prod_fe <<- boot_prod_fe
 boot_inc_fe  <<- boot_inc_fe
 
@@ -2224,7 +2313,17 @@ latex_rows_threefold_prod <- make_latex_rows_threefold_simple(tab_fe_threefold_d
 latex_rows_threefold_inc  <- make_latex_rows_threefold_simple(tab_fe_threefold_det_inc)
 
 
+check_latex_rows <- function(x, expected_ampersands) {
+  rows <- unlist(strsplit(x, "\n"))
+  data.frame(
+    row = seq_along(rows),
+    ampersands = lengths(regmatches(rows, gregexpr("&", rows))),
+    expected = expected_ampersands,
+    problematic = lengths(regmatches(rows, gregexpr("&", rows))) != expected_ampersands,
+    text = rows
+  )
+}
 
-
-
+check_latex_rows(latex_rows_twofold_inc, expected_ampersands = 2)
+check_latex_rows(latex_rows_threefold_inc, expected_ampersands = 3)
 

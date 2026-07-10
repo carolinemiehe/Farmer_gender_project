@@ -111,25 +111,28 @@ Emma Prati
 \end_layout
 
 \begin_layout Abstract
-This study investigates gender differences in maize productivity and income in Eastern Uganda,
+This study investigates gender differences in maize productivity and maize revenue in Eastern Uganda,
  with a focus on the impact of improved seed adoption.
  Using a mixed-methods approach,
  the analysis combines quantitative and qualitative data with a focus on male and female headed households in the Busoga region.
  First,
- ordinary least squares models are estimated to descriptively examine gender gaps across productivity,
- income,
- and adoption.
+ ordinary least squares models are estimated to descriptively examine gender gaps across productivity and income from maize.
  Both baseline and pooled panel data covering three rounds of data collection are used.
  Following that,
- a threefold Oaxaca-Blinder decomposition technique is employed at baseline to decompose gender gaps in productivity and income into differences in endowments and differences in returns to those endowments.
- To further examine the role of technology adoption,
- an instrumental variables (IV) approach is implemented to estimate the causal impact of improved seed adoption on maize productivity and income for female and male headed households.
+ a threefold Oaxaca-Blinder decomposition technique is employed at baseline to decompose gender gaps in productivity and income from maize into differences in endowments and differences in returns to those endowments.
  Qualitative analysis and focus group discussions complement econometric analysis by giving contextual information about gendered dynamics in maize production in the Busoga region.
- 
-\end_layout
-
-\begin_layout Abstract
-Briefly ADD FINDINGS!
+ The findings show that female-headed households have lower maize productivity and substantially lower maize revenue than male-headed households.
+ The decomposition results suggest that these gaps are only partly explained by differences in observable characteristics,
+ while unequal returns to these resources and broader structural constraints remain key components of the gap.
+ Qualitatively,
+ we found that these gaps are shaped by unequal labour division,
+ time constraints,
+ and gendered control over maize-related resources.
+ Women’s agricultural work is often combined with domestic and care responsibilities,
+ limiting their time and productive capacity.
+ Unequal control over maize revenue,
+ social expectations,
+ and discriminatory market dynamics further constrain women’s ability to benefit from maize production.
 \end_layout
 
 \begin_layout Section
@@ -291,6 +294,14 @@ nolink "false"
  both quantitative and qualitative,
  are presented in Section 5 and discussed in Section 6.
  The last section concludes the study.
+\end_layout
+
+\begin_layout Section*
+2 Theoretical Framework and Hypotesis
+\end_layout
+
+\begin_layout Standard
+
 \end_layout
 
 \begin_layout Section
@@ -692,7 +703,7 @@ placement H
 alignment center
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -8605,7 +8616,7 @@ placement H
 alignment left
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -9997,7 +10008,7 @@ placement H
 alignment left
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -11349,7 +11360,7 @@ placement H
 alignment left
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -16726,7 +16737,7 @@ placement H
 alignment left
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -16782,7 +16793,7 @@ hline
 
 \begin_layout Plain Layout
 
-& $N$ & Total & Explained & Coefficients 
+& $N$ & Total & Endowment Effect & Structural Effect 
 \backslash
 
 \backslash
@@ -16854,9 +16865,9 @@ Sexpr{tab_fe_twofold_agg$Coefficients[1]}
 
 \begin_layout Plain Layout
 
-
+Share of total gap (
 \backslash
-Sexpr{tab_fe_twofold_agg$Outcome[2]} &
+%) &
 \end_layout
 
 \begin_layout Plain Layout
@@ -16868,7 +16879,7 @@ Sexpr{tab_fe_twofold_agg$Outcome[2]} &
 
 
 \backslash
-Sexpr{tab_fe_twofold_agg$Explained[2]}
+Sexpr{tab_fe_twofold_agg$Coefficient[2]}
 \backslash
 % &
 \end_layout
@@ -16877,7 +16888,7 @@ Sexpr{tab_fe_twofold_agg$Explained[2]}
 
 
 \backslash
-Sexpr{tab_fe_twofold_agg$Coefficients[2]}
+Sexpr{tab_fe_twofold_agg$Coefficient[2]}
 \backslash
 % 
 \backslash
@@ -16946,9 +16957,9 @@ Sexpr{tab_fe_twofold_agg$Coefficients[3]}
 
 \begin_layout Plain Layout
 
-
+Share of total gap (
 \backslash
-Sexpr{tab_fe_twofold_agg$Outcome[4]} &
+%) &
 \end_layout
 
 \begin_layout Plain Layout
@@ -16960,7 +16971,7 @@ Sexpr{tab_fe_twofold_agg$Outcome[4]} &
 
 
 \backslash
-Sexpr{tab_fe_twofold_agg$Explained[4]}
+Sexpr{tab_fe_twofold_agg$Endowment[4]}
 \backslash
 % &
 \end_layout
@@ -16969,7 +16980,7 @@ Sexpr{tab_fe_twofold_agg$Explained[4]}
 
 
 \backslash
-Sexpr{tab_fe_twofold_agg$Coefficients[4]}
+Sexpr{tab_fe_twofold_agg$Endowment[4]}
 \backslash
 % 
 \backslash
@@ -17057,7 +17068,7 @@ placement H
 alignment left
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -17192,9 +17203,9 @@ Sexpr{tab_fe_threefold_agg$Female_coefficients[1]}
 
 \begin_layout Plain Layout
 
-
+Share of total gap (
 \backslash
-Sexpr{tab_fe_threefold_agg$Outcome[2]} &
+%) &
 \end_layout
 
 \begin_layout Plain Layout
@@ -17300,9 +17311,9 @@ Sexpr{tab_fe_threefold_agg$Female_coefficients[3]}
 
 \begin_layout Plain Layout
 
-
+Share of total gap (
 \backslash
-Sexpr{tab_fe_threefold_agg$Outcome[4]} &
+%) &
 \end_layout
 
 \begin_layout Plain Layout
@@ -17669,7 +17680,7 @@ hline
 
 \begin_layout Plain Layout
 
-Variable & Explained & Coefficients 
+Variable & Endowment & Structural 
 \backslash
 
 \backslash
@@ -17804,7 +17815,7 @@ Variable & Endowment & Male & Female
 
 \begin_layout Plain Layout
 
-& effect & coefficients & coefficients 
+& effect & Structural & Structural 
 \backslash
 
 \backslash
@@ -17919,7 +17930,7 @@ placement class
 alignment document
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -17971,7 +17982,7 @@ hline
 
 \begin_layout Plain Layout
 
-Variable & Explained & Coefficients 
+Variable & Endowment & Structural 
 \backslash
 
 \backslash
@@ -18048,7 +18059,7 @@ placement class
 alignment document
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -18109,7 +18120,7 @@ Variable & Endowment & Male & Female
 
 \begin_layout Plain Layout
 
-& effect & coefficients & coefficients 
+& effect & Structural Advantage & Structural Disadvantage 
 \backslash
 
 \backslash

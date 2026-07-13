@@ -272,15 +272,6 @@ baseline_farmers$seed_qty_kg[baseline_farmers$seed_qty_kg %in% c("999","n/a","NA
 baseline_farmers$seed_qty_kg <- as.numeric(as.character(baseline_farmers$seed_qty_kg))
 summary(baseline_farmers$seed_qty_kg)
 
-#Q38xQ39 seed_total_cost_ugx
-baseline_farmers$seed_total_cost_ugx <- baseline_farmers$seed_qty_kg * baseline_farmers$seed_price_kg_ugx
-
-summary(baseline_farmers$seed_total_cost_ugx)
-
-sum(!is.na(baseline_farmers$seed_qty_kg))
-sum(!is.na(baseline_farmers$seed_price_kg_ugx))
-sum(!is.na(baseline_farmers$seed_total_cost_ugx))
-
 
 #Q43 -fertilizers
 baseline_farmers$dap_npk_applied <- tolower(as.character(baseline_farmers$Check2.check.maize.q43))
@@ -684,7 +675,6 @@ variables <- c(
   "quality_seed_used",
   "farmer_group_member",
   "r_maize_plot_area",
-  "seed_total_cost_ugx",
   "dap_npk_applied",
   "urea_applied",
   "chemicals_applied",
@@ -964,7 +954,7 @@ summary(lm2_semifull_fix)
 resettest(lm2_semifull_fix)
 #crPlots(lm2_semifull_fix)
 
-#lm3 Maize-income (maybe esclude seed_total_cost_ugx, maize sold and bags sold(plots_maize)) - gender is significant just when there are no control variables
+#lm3 Maize-income (maybe esclude maize sold and bags sold(plots_maize)) - gender is significant just when there are no control variables
 
 lm3 <- lm(maize_income ~ hh_gender_num, data = baseline_farmers)
 summary(lm3)

@@ -111,28 +111,23 @@ Emma Prati
 \end_layout
 
 \begin_layout Abstract
-This study investigates gender differences in maize productivity and gross sales revenue in Eastern Uganda,
- with a focus on the impact of improved seed adoption.
+This study investigates gender differences in maize productivity and gross sales revenue in Eastern Uganda.
  Using a mixed-methods approach,
  the analysis combines quantitative and qualitative data with a focus on male and female headed households in the Busoga region.
  First,
  ordinary least squares models are estimated to descriptively examine gender gaps across productivity and gross revenue from maize.
  Both baseline and pooled panel data covering three rounds of data collection are used.
  Following that,
- a threefold Oaxaca-Blinder decomposition technique is employed at baseline to decompose gender gaps in productivity and gross revenue from maize into differences in endowments and differences in returns to those endowments.
- Qualitative analysis and focus group discussions complement econometric analysis by giving contextual information about gendered dynamics in maize production in the Busoga region.
+ the Oaxaca-Blinder decomposition technique is employed at baseline to decompose gender gaps in productivity and gross revenue from maize into differences in endowments and differences in returns to those endowments.
+ The focus group discussions complement econometric analysis by giving contextual information about gendered dynamics in maize production in the Busoga region.
  The findings show that female-headed households have lower maize productivity and substantially lower maize revenue than male-headed households.
  The decomposition results suggest that these gaps are only partly explained by differences in observable characteristics,
- while unequal returns to these resources and broader structural constraints remain key components of the gap.
+ while unequal returns to these resources and structural constraints constitute key components of the gap.
  Qualitatively,
- we found that these gaps are shaped by unequal labour division,
- time constraints,
- and gendered control over maize-related resources.
- Women’s agricultural work is often combined with domestic and care responsibilities,
- limiting their time and productive capacity.
- Unequal control over maize revenue,
- social expectations,
- and discriminatory market dynamics further constrain women’s ability to benefit from maize production.
+ we found that these gaps are shaped by time constraints,
+ technologies adoption,
+ market dynamics and gendered control over maize-related resources.
+ The results imply that reducing these gaps will require policies that go beyond equalizing productive resources and also address the structural constraints faced by female-headed households.
 \end_layout
 
 \begin_layout Section
@@ -151,7 +146,7 @@ In Sub-Saharan Africa,
  In this context,
  understanding underlying causes behind low agricultural performance becomes essential for food security.
  Despite that,
- progress has remained stubbornly slow,
+ progress has remained particularly slow,
  with productivity growth lagging well behind other regions 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -167,7 +162,8 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-One of the most persistent and costly inefficiencies is the gender gap in agricultural productivity (Buehren,
+In this regard,
+ one of the most persistent and costly inefficiencies is the gender gap in agricultural productivity (Buehren,
  2023).
  Although their contribution varies substantially across countries and farming systems,
  women constitute a substantial share of the agricultural labor force in Sub-Saharan Africa that goes over 55% in Uganda
@@ -201,7 +197,7 @@ literal "false"
 
 \begin_layout Standard
 In addition to the gender gap in agricultural productivity,
- agricultural revenue from sales are also not distributed evenly.
+ the agricultural sales revenues are also not distributed evenly.
  Despite agricultural income differ geographically,
  female-headed households remain among the poorest of the poor (Djurfeldt,
  2013).
@@ -253,9 +249,9 @@ Understanding adoption of modern maize seed varieties is important not only beca
 \end_layout
 
 \begin_layout Standard
-The paper contributes to the bulk of evidence on gender differentials in agricultural maize productivity and gross revenue by analyzing household-level panel data from 3,500 smallholder maize farmers from the Busoga region,
+The paper contributes to the bulk of evidence on gender differentials in agricultural maize productivity and gross revenue by analyzing household-level panel data from 3,500 smallholder maize cultivating households in Busoga region,
  in Eastern Uganda.
- I estimate baseline and pooled OLS models and apply Oaxaca–Blinder decomposition to assess the relative contribution of differences in endowments versus structural differences in returns to these endowments in determining productivity and gross revenue gaps from maize.
+ I estimate baseline and pooled OLS models and apply Oaxaca–Blinder decomposition to assess the relative contribution of differences in endowments versus structural differences in returns to these endowments in determining productivity and gross revenues gaps from maize between male headed households (MHH) and female-headed households (FHH).
  
 \begin_inset Note Comment
 status collapsed
@@ -272,10 +268,7 @@ Furthermore,
  In parallel,
  we conducted a qualitative analysis consisting of 16 focus group discussions with smallholder farmers in the same region.
  This mixed-methods approach provide a comprehensive understanding of gendered constraints in agricultural production.
- By jointly examining the descriptive outcomes,
- the causal components,
- and the qualitative data,
- the paper provides policy relevant evidence on the mechanisms through which gender gaps in smallholder maize systems persist.
+ The paper provides policy relevant evidence on the factors underlying the differences in agricultural outcomes between MHH and FHH cultivating maize.
  Understanding these gender differentiated constraints is essential for achieving an inclusive agricultural transformation,
  improving welfare and food security.
 \end_layout
@@ -285,11 +278,9 @@ The results show that female-headed households achieve significantly lower maize
  and that these gaps persist even after accounting for observable differences in household and plot characteristics.
  The Oaxaca–Blinder decomposition indicates that unequal returns to resources,
  rather than unequal access to them,
- account for the majority of both gaps,
- roughly three-quarters of the productivity gap and more than half of the revenue gap.
- The qualitative evidence points to unequal labour division,
- time constraints,
- and gendered market discrimination as key mechanisms underlying these structural disparities.
+ account for the majority of both gaps.
+ The qualitative evidence points to time constraints ,
+ technology adoption and gendered market discrimination as key mechanisms underlying these structural disparities.
 \end_layout
 
 \begin_layout Standard
@@ -342,11 +333,10 @@ nolink "false"
 
 \end_inset
 
- presents the methodological approach,
- detailing the empirical strategy,
+ presents the empirical strategy,
  including the OLS regressions,
  the Oaxaca–Blinder decomposition,
- the causal specification and the qualitative analysis.
+ and the qualitative analysis.
  The results,
  both quantitative and qualitative,
  are presented in 
@@ -375,7 +365,7 @@ nolink "false"
  The last section
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:Conclusions"
+reference "sec:8-Limitations-and"
 plural "false"
 caps "false"
 noprefix "false"
@@ -383,7 +373,8 @@ nolink "false"
 
 \end_inset
 
- concludes the study.
+refelects on the limitations of the study and indicate future research pathways.
+ 
 \end_layout
 
 \begin_layout Section
@@ -397,104 +388,131 @@ name "sec:2-Theoretical-Framework and Hypotesis-1"
 
 \end_layout
 
-\begin_layout Section*
-\begin_inset Note Comment
-status collapsed
+\begin_layout Standard
+Understanding why male-headed (MHH) and female-headed households (FHH) achieve different outcomes in maize production requires distinguishing between two separate sources of inequality:
+ unequal access to productive resources and unequal returns to those same resources.
+ This distinction,
+ formalized in the labour economics literature as the division between endowment and structural components (Oaxaca,
+ 1973;
+ Blinder,
+ 1973),
+ serves as the initial basis for the analysis underlying this study.
+ Insights from the focus group discussions (presented in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Qualitative-Evidence"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
 
-\begin_layout Plain Layout
-shall I mention that my hypotesis change also through the qualitative fieldwork and maybe:
- The literature reviewed above suggests that gender gaps in smallholder agriculture arise from two broad sources:
- unequal access to productive resources,
- or endowments (land,
- inputs,
- credit,
- education,
- labour),
- and unequal returns to those same resources,
- driven by structural and institutional constraints such as discriminatory social norms,
- unequal decision-making power,
- and imperfect markets (Fortin,
- Lemieux,
- & Firpo,
+\end_inset
+
+) also contributed to the development of the theoretical framework and the formulation of the hypotheses presented in this chapter.
+\end_layout
+
+\begin_layout Standard
+Gender gaps are measured by comparing MHH and FHH outcomes.
+ To clarify what being a female-headed household actually entails,
+ the literature distinguishes between de jure FHH,
+ in which women are permanently without a male partner due to widowhood,
+ divorce,
+ or separation,
+ and de facto FHH,
+ in which the male partner is temporarily absent,
+ typically because of labour migration,
+ but may continue to contribute economically through remittances (Raney et al.,
  2011).
- The Oaxaca–Blinder decomposition formalizes this distinction by separating an observed gender gap into an explained (endowment) component and an unexplained (structural/coefficient) component,
- and has been the standard tool for studying gender gaps in agricultural productivity since Kilic,
- Palacios-López,
- and Goldstein (2015) first applied it in this setting.
-\end_layout
-
-\begin_layout Plain Layout
-This study investigates gender gaps between male-headed and female-headed household rather than between male- and female-managed plots within the same household.
- As De la O Campos et al.
- (2016) show,
- the choice of gender indicator materially affects both the magnitude of the estimated gap and its interpretation:
- intra-household approaches capture bargaining and labour allocation within a household,
- while inter-household approaches capture how households headed by women are treated differently by markets and communities around them.
- Given that the data identify gender only at the household-head level,
- we adopt the inter-household framing throughout.
- why do I take it.
-\end_layout
-
-\begin_layout Plain Layout
-I first examine the gender gap in maize productivity.
- Evidence on whether endowment or structural effects dominate this gap is mixed across contexts:
- studies from Malawi and Tanzania find that the productivity gap is mostly explained by unequal access to inputs (endowment effects),
- whereas studies from Ethiopia and southwest Nigeria find that most of the gap remains unexplained after controlling for observable characteristics,
- pointing to structural constraints.
- Notably,
- Bello,
- Baiyegunhi,
- Danso-Abbeam,
- and Ogundeji (2021),
- using an Oaxaca–Blinder decomposition on Nigerian rice farmers in female and male headed households,
- find that 77.7 percent of the productivity gap is structural rather than endowment-driven.
- I hypothesize that Uganda maize data will show a similar pattern because household headship is associated with differential treatment in labour markets,
- care activities,
- extension access,
- and community support networks,
- mechanisms that are not fully captured by observable covariates.
+ In Uganda,
+ the large majority of FHH are de jure,
+ meaning that in most cases there is no male partner contributing labour,
+ income,
+ or negotiating capacity to the household (Raney et al.,
+ 2011).
+ For this reason,
+ I draw on Whitehead’s (1981) concept of the conjugal contract.
+ Whitehead shows that husbands and wives do not necessarily pool their labour and income into a single,
+ jointly managed household economy.
+ Instead,
+ they may operate under an implicit contract,
+ with separate obligations,
+ roles,
+ and claims over decisions,
+ all mediated through the marital relationship.
  Therefore,
- I expect the structural component to exceed the endowment component in the productivity decomposition.
+ I assume the absence of a partner to have important consequences for FHH,
+ which lack a household member socialized into the roles commonly assigned to men within many MHH.
+ In Feminist Africa,
+ Tsikata (2009) further develops the concept of conjugal contract in the context of African agrarian and informal economies.
+ She argues that women often combine agricultural work with their role of caregiver,
+ childcare and household duties,
+ but the time and attention taken away from farming are completely invisible and not captured by standard agricultural productivity covariates.
+ Palacios-López and López (2015) provide an economic explanation of how these differences may affect agricultural outcomes.
+ Following their model,
+ households are assumed to have the same preferences and to derive utility from income 
+\begin_inset Formula $Y$
+\end_inset
+
+ and leisure 
+\begin_inset Formula $l$
+\end_inset
+
+:
+ 
 \end_layout
 
-\begin_layout Plain Layout
-Subsequently,
- I turn to the gender gap in maize revenue,
- arguing that the revenue gap cannot be simply treated as a consequence of the productivity gap.
- First,
- revenue combines two distinct margins:
- the decision to participate in the maize market at all (the extensive margin),
- and,
- conditional on participating,
- the quantity sold and the price obtained (the intensive margin).
- Second,
- these two margins are governed by different mechanisms.
- Marenya,
- Kassie,
- Jaleta,
- and Rahut (2017),
- applying an Oaxaca–Blinder framework to maize market positions of MHH and FHH in Ethiopia,
- find that structural/coefficient effects mostly explain the gap in the probability of being a net seller (check if it's not net buyer).
- This asymmetry suggests that market access is shaped by structural constraints such as information asymmetries,
- exclusion,
- mobility,
- and negotiating power.
- This distinction is directly relevant to our data:
- 48.8 percent of households in our baseline sample report zero maize revenue,
- and this share is substantially higher among FHH than among MHH,
- indicating that the extensive margin is itself an important source of the gender gap in revenue,
- separate from productivity.
- However,
- the analysis also hypothesizes that,
- once having decided to sell,
- also the revenue is shaped by structural constraints (this was confirmed by the qualitative fieldwork and FGD reported in section X).
- Market discrimination could constrain women headed households with price differentiation,
- also with the same productive resources.
- A similar decomposition of maize revenue in the South African cabbage sector (Mkuna & Wale,
- 2023) likewise attributes a substantial share of the income gap to structural effects related to access to markets,
- credit,
- and land tenure security.
+\begin_layout Standard
+\begin_inset Formula 
+\[
+U(Y,l;Z_{hh})=Y+u(l)
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $Z_{h}$
+\end_inset
+
+ represents a vector of exogenous household characteristics.
+ The household allocates its total time endowment,
+ 
+\begin_inset Formula $H$
+\end_inset
+
+,
+ between leisure 
+\begin_inset Formula $l$
+\end_inset
+
+,
+ on-farm labour 
+\begin_inset Formula $L_{f}$
+\end_inset
+
+ and off-farm labour,
+\begin_inset Formula $L_{o}$
+\end_inset
+
+\SpecialChar allowbreak
+:
 \end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+H=l+L_{f}+g(L_{o})
+\]
+
+\end_inset
+
+with
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+g(L_{o})=\alpha_{o}+\alpha_{1}L_{0}
+\]
 
 \end_inset
 
@@ -502,169 +520,161 @@ Subsequently,
 \end_layout
 
 \begin_layout Standard
-Understanding why male-headed and female-headed households achieve different outcomes in maize production requires distinguishing between two related but analytically separate sources of inequality:
- unequal access to productive resources,
- and unequal returns to those same resources once they are held.
- This distinction,
- formalized in the labour economics literature as the split between endowment and structural (or coefficient) effects,
- provides the backbone of the empirical strategy that follows.
+The function 
+\begin_inset Formula $g(L_{0})$
+\end_inset
+
+ captures the effective time cost of off-farm work.
+ The parameter 
+\begin_inset Formula $\alpha_{0}$
+\end_inset
+
+\SpecialChar allowbreak
+ represents fixed costs,
+ such as travelling to work,
+ while 
+\begin_inset Formula $\alpha_{1}$
+\end_inset
+
+\SpecialChar allowbreak
+ captures the time cost of each additional unit of off-farm labour.
+ Palacios-López and López (2015) claim that this cost may be higher for women because they combine income-generating activities with unpaid activities such as childcare and domestic responsibilities assigned to them through social expectations and the conjugal contract previously discussed,
+ reducing the time available for agricultural and income-generating activities (Palacios-López et al.,
+ 2015;
+ Pierotti et al.,
+ 2022;
+ Buehren,
+ 2023).
 \end_layout
 
 \begin_layout Standard
-The starting point is historical.
- Boserup (1970) shows that Sub-Saharan Africa has long been characterized by what she terms "female farming systems",
- in which women historically held direct control over agricultural production,
- decision-making,
- and surplus,
- in contrast to the "male farming systems" typical of much of Asia.
- Colonial administrations and subsequent modernization efforts,
- however,
- systematically redirected credit,
- extension services,
- improved inputs,
- and formal land titles toward men,
- regardless of who was actually farming.
- This process did not simply fail to help women;
- it actively reallocated the institutional infrastructure of agriculture around male farmers.
- The implication for this study is that the endowment gap I expect to observe between MHH and FHH is not an incidental feature of the data,
- but the traceable legacy of a long-run institutional process that continues to shape access to inputs,
- credit,
- and formal recognition today.
+The model also assumes that households with limited access to credit may rely on off-farm earnings to finance agricultural inputs:
 \end_layout
 
 \begin_layout Standard
-This historical account,
- however,
- explains why resources came to be distributed unequally;
- it does not by itself explain why household headship,
- specifically,
- should be the relevant unit of analysis,
- rather than gender more broadly.
- For this,
- I draw on Whitehead's (1981) concept of the conjugal contract,
- developed from fieldwork with the Kusasi in Ghana.
- Whitehead shows that husbands and wives do not typically pool their labour and income into a single,
- jointly managed household economy;
- instead,
- they operate under an implicit and often unequal contract,
- with separate obligations,
- separate plots,
- and separate claims on income,
- mediated through the marital relationship itself.
- Kasente et al.
- (2002),
- applying this framework directly to non-traditional agricultural exports in Uganda,
- show that this negotiated structure continues to organize access to inputs and control over revenue in commercial farming.
- The relevance for this study is direct:
- a female-headed household is not simply a male-headed household with fewer resources.
- It is a household missing the entire negotiating counterpart,
- the person who,
- under normal circumstances,
- mediates with input dealers,
- extension officers,
- creditors,
- and buyers on the household's behalf.
- This is the theoretical basis for treating MHH and FHH as meaningfully different units,
- and for hypothesizing that a gap between them exists in the first place (H1).
+\begin_inset Formula 
+\[
+rX\leq\gamma+wL_{0}
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Having established why a gap should exist,
- the framework turns to why part of that gap should persist even after accounting for observable endowments.
- Kabeer (1999) offers a useful starting point here,
- distinguishing between resources,
- agency,
- and achievements as three separate ingredients of empowerment.
- Her central argument is that possessing a resource is not the same as having the power to decide how it is used:
- a household may report using fertilizer,
- but the survey variable does not tell us who decided to apply it,
- when,
- or how carefully.
- This distinction matters directly for productivity,
- because it implies that equal input use recorded in the data does not guarantee equal outcomes.
- A concrete illustration is time allocated to care work:
- two plots may show identical input levels,
- yet if the person responsible for the plot is also solely responsible for childcare,
- cooking,
- and household maintenance,
- the timing and intensity of labour applied to the plot,
- weeding at the right moment,
- monitoring pest damage,
- will systematically differ,
- without this difference ever appearing in the input variables themselves.
+where 
+\begin_inset Formula $rX$
+\end_inset
+
+ is expenditure on agricultural inputs,
+ 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ represents available credit or initial financial resources,
+ and 
+\begin_inset Formula $wL$
+\end_inset
+
+\SpecialChar allowbreak
+ is off-farm income.
+ 
 \end_layout
 
 \begin_layout Standard
-This is precisely the mechanism that Tsikata (2009) develops further in the context of African agrarian and informal economies.
- Tsikata argues that women's agricultural labour is routinely rendered statistically invisible:
- care responsibilities are not simply an additional burden layered onto farm work,
- they compete directly with it for the same hours,
- and this competition is not captured by any of the standard productivity covariates.
- Because female household heads carry the full weight of domestic and care obligations without a co-resident partner to share or offset them,
- I expect this time constraint to bind more tightly for FHH than for MHH,
- producing a productivity gap that persists even when land,
- seed,
- and fertilizer use are held constant.
+This mechanism may affect productivity through several channels.
+ A higher time cost of off-farm work can reduce both the income available to purchase productive inputs and the time available for agricultural production.
+ As a result,
+ FHH may face stronger labour and liquidity constraints than MHH,
+ which can lead to lower agricultural productivity even when some observed inputs are similar.
+ This argument complements Whitehead’s concept of the conjugal contract and provides an economic formulation of Tsikata’s argument that women’s unpaid domestic and care work reduces the time and attention available for productive activities.
+ Therefore,
+ in this study,
+ these constraints are expected to be particularly important for FHH,
+ especially de jure FHH.
  Taken together,
- Kabeer and Tsikata provide the theoretical basis for expecting that the productivity gap between MHH and FHH will not be fully explained by differences in observable endowments,
- and that the structural,
- unexplained component,
- capturing precisely this kind of unmeasured time and agency constraint,
- will account for a larger share of the gap than endowments do (H2).
+ these theories provide the basis for expecting a productivity gap between MHH and FHH (H1) and for expecting this gap to persist after controlling for observable endowments (H2).
 \end_layout
 
 \begin_layout Standard
-The final piece of the framework addresses revenue,
- which I treat as governed by a distinct mechanism from productivity:
- market discrimination.
- Two classic theories of discrimination,
- taken together,
- describe how this can generate a structural gap in revenue independently of any productivity difference.
- Becker (1957) describes taste-based discrimination,
- in which a buyer or institution holds an outright preference against transacting with a certain group,
- and is willing to forgo an otherwise profitable exchange to avoid it;
- this is consistent with the social stigma,
- at times amounting to accusations of witchcraft,
- directed at economically successful female-headed households in the qualitative fieldwork for this study.
- Arrow (1973) and Phelps (1972) describe statistical discrimination,
- in which a trader who cannot verify an individual seller's reliability or knowledge instead uses group membership,
- being a woman selling independently,
- as a proxy for risk or ignorance,
- resulting in worse prices,
- manipulated scales,
- or exclusion from credit.
- Whether the mechanism is outright prejudice or statistical inference under imperfect information,
- the outcome is the same:
- two households with identical maize output can receive systematically different revenue simply because of who is selling it and under what household structure.
- On this basis,
- I expect that the revenue gap,
- like the productivity gap,
- will persist after controlling for observable endowments such as plot size and input use,
- and that its structural component,
- reflecting these market-level discriminatory mechanisms rather than resource access,
- will exceed the endowment component (H3).
+The same constraints may also affect gross sales revenue through two channels.
+ First,
+ lower access to labour,
+ liquidity,
+ and agricultural inputs may reduce productivity and the quantity of maize available for sale.
+ Therefore,
+ MHH are expected to achieve higher gross sales revenue than FHH (H3).
 \end_layout
 
 \begin_layout Standard
-Based on this conceptual framework,
+Second,
+ the gender norms and roles previously discussed may limit women’s education,
+ mobility,
+ access to information,
+ participation in farmer networks,
+ and experience in market transactions.
+ These disadvantages may be particularly important for de jure FHH,
+ which cannot rely on a male partner to provide market information,
+ contacts,
+ or bargaining support.
+ As a result,
+ FHH may be less likely to participate in maize markets and may face weaker bargaining positions when they sell.
+ Building on the analysis of Mekonnen et al.
+ (2018),
+ Dickinson and Koo (2022) argue that unequal access to information,
+ technology,
+ and education may limit women’s ability to identify profitable selling opportunities,
+ obtain favourable prices and weaken their bargaining power,
+ restricting their ability to increase agricultural earnings.
+ 
+\end_layout
+
+\begin_layout Standard
+Although originally developed in the context of labour markets,
+ Becker’s theory of taste-based discrimination provides an additional lens through which to interpret gendered treatment in maize markets.
+ The theory suggests that market actors may treat individuals differently because of preferences or social stigma.
+ The theory is complemented by the statistical discrimination models developed by Phelps (1972) and Arrow (1973),
+ suggesting that,
+ when knowledge or reliability cannot be perfectly observed,
+ market actors may use group identity as a proxy,
+ including characteristics such as race and sex.
+ Although these theories were originally developed in labour economics,
+ their logic can also apply to agricultural market transactions.
+ Buyers may use gender as a proxy for limited market knowledge or bargaining capacity and may therefore treat women selling independently differently.
+ This may affect whether FHH participates in the market,
+ the terms under which they sell,
+ and the prices they receive.
+ It may also expose them to lower offers and manipulated scales.
+ These mechanisms provide the basis for expecting a gap in gross sales revenue between MHH and FHH (H3) and for expecting this gap to persist after accounting for observable endowments,
+ with the structural component exceeding the endowment component (H4).
+\end_layout
+
+\begin_layout Standard
+Based on this theoretical framework,
  the study tests the following hypotheses:
 \end_layout
 
 \begin_layout Description
 H1:
- MHH and FHH differ in productivity and revenue from maize.
+ MHH are more productive than FHH in maize cultivation.
 \end_layout
 
 \begin_layout Description
 H2:
  The gender gap in maize productivity between MHH and FHH persists after controlling for observable endowments,
- and the structural component of the gap exceeds the endowment component
+ and the structural component of the gap exceeds the endowment component.
 \end_layout
 
 \begin_layout Description
 H3:
- The gender gap in maize revenue between MHH and FHH persists after controlling for observable endowments,
- and the structural component of the gap exceeds the endowment component
+ MHH have higher gross sales revenue from maize than FHH.
+\end_layout
+
+\begin_layout Description
+H4:
+ The gender gap in maize gross sales revenue between MHH and FHH persists after accounting for observable endowments,
+ and the structural component of the gap exceeds the endowment component.
 \end_layout
 
 \begin_layout Section
@@ -681,26 +691,8 @@ name "sec3 -Literature Review"
 \end_layout
 
 \begin_layout Standard
-This paper contributes to the literature on gender gaps in the agricultural sector (Duflo & Udry,
- 2004,
- Peterman et al.,
- 2010,
- Kilic et al.,
- 2015;
- Palacios-López & Lopez,
- 2015;
- Ali et al.,
- 2016).
- Adoptoing an inter-household perspective,
- this study compares male- and female-headed households and contributes to the literature the literature that distinguishes the roles of endowment versus structural effects in driving gender disparities in productivity and gross sales revenue from maize.
- 
-\end_layout
-
-\begin_layout Standard
-Women face two broad categories of constraints:
- first,
- limited access to assets and productive resources and second,
- discriminatory social norms and institutional practices that reduce the returns they can derive from those resources.
+Gender gaps in agricultural productivity and income are typically explained by two sources of inequality:
+ unequal access to resources and unequal returns to those resources.
  A common approach to analyzing such gaps is the Oaxaca–Blinder decomposition of mean differences,
  a well-established empirical strategy in labor economics,
  originally developed by Oaxaca (1973) and Blinder (1973).
@@ -725,9 +717,7 @@ Women face two broad categories of constraints:
 
 \begin_layout Standard
 A first strand of this literature finds that most of the observed gender gap in agricultural productivity is explained by unequal access to productive resources,
- highlighting the key importance of access to inputs in observed yields differentials (Peterman et al.,
- 2014;
- Kilic et al.,
+ highlighting the key importance of access to inputs in observed yields differentials (Kilic et al.,
  2015;
  De la O Campos et al.,
  2016).
@@ -735,70 +725,50 @@ A first strand of this literature finds that most of the observed gender gap in 
  De la O Campos et al.
  (2016) demonstrate that the gender gap in agricultural productivity in Uganda diminishes once differences in access to production factors,
  such as fertilizers and pesticides,
- are taken into account.
- In this regard,
- also Kilic et al.
- (2015) suggest that disparities in asset ownership,
- such as machinery and new technology,
- substantially contribute to the gender gap in agricultural productivity.
+ are taken into account,
+ with the endowment effect explaining between 58% and 96% of the gap,
+ depending on the gender indicator used.
+ Similarly,
+ Kilic et al.
+ (2015) finds that 82% of the average gender productivity gap is explained by differences in observable characteristics,
+ mainly high-value crop cultivation and the availability of adult male household labour.
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Some studies even find an endowment advantage of women (Ali et al,
+ 2015;
+ Oseni et al.,
+ 2016)
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 However,
- other studies find that important differences in agricultural outputs persist even after equalizing for input access,
- identifying structural constraints,
- resource allocation,
- and returns to inputs as the main contributors (Kinkingninhoun-Medagb´e et al.,
- 2010;
- Palacios-López ´ and Lopez ´,
+ other studies find that important differences in agricultural productivity persist even after equalizing for input access,
+ identifying returns to inputs as the main contributors of the gender gap in agricultural productivity (Aguilar et al.,
+ 2014;
+ Slavchevska,
  2015;
  Ali et al.,
- 2016 ;
- Dandonougbo et al.
- 2023).
- Literature shows that child dependency ratio,
- social expectation and time poverty play a key role in shaping these differences (Ali et al.,
- 2016;
- Sell et al.,
- 2018;
- Pierotti et al.,
- 2022;
- Donald et al.,
- 2023).
- According to Sell et al.
- (2018),
- women’s lower level of productivity is negatively associated with the number of household members.
- Time constraints may be more binding for women as a great proportion of their time is devoted to activities that do not generate an income,
- such as childcare,
- elderly care and food preparation and prevent them from engaging in agricultural activities (Buehren,
- 2023 & Pierotti et al.,
- 2022).
- In Uganda,
- for example,
- evidence shows that two fifths of the gender gap in productivity are explained by unequal returns to the child dependency ratio (Ali et al.,
  2016).
- Social norms and expectations in market orientation and risk preferences also contribute in explaining the gender gap in productivity (Duflo & Udry,
- 2004;
- Ali et al,
- 2016;
- Reynolds et al.,
- 2020).
- Women usually place lower value on cash crops,
- overlooking income potential and high market prices,
- while favoring food security (Duflo & Udry,
- 2004).
- Other structural factors that might explain the gender gap in productivity from maize are the discriminations in labour and credit markets (Kilic et al.,
- 2015;
- Palacios-López & Lopez,
- 2015;
- Ali et al.,
- 2016;).
- Palacios-López and Lopez (2015) claim that correcting market failures could positively impact female farmers’ productivity.
- Limited access to financial credit further constrains women’s ability to adopt modern technologies,
- machinery,
- and improved agricultural practices,
- reinforcing existing productivity and income disparities (Buehren,
- 2023).
+ Focusing on Uganda,
+ Ali et al.
+ (2016) finds a stronger structural component through the decomposition,
+ driven mostly by a male structural advantage.
+ Of the total gap the study identifies that two fifths of the gender gap in productivity are explained by unequal returns to the child dependency ratio (Ali et al.,
+ 2016).
+ Similarly,
+ Aguilar et al.
+ (2014) finds that in Ethiopia a higher structural component that amount to 57.6% of the total gap.
+ The gap is largely driven by non-married female managers,
+ especially divorced women and it is mainly driven by (Aguilar et al.,
+ 2014).
  
 \end_layout
 
@@ -807,19 +777,7 @@ Gender gap in agricultural productivity,
  particularly in maize production,
  usually translates into a gender gap in sales,
  as documented by Buehren (2023),
- thereby reinforcing processes of feminiation of poverty.
- 
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-Through a study in Benin on rice production,
- Kinkingninhoun-Mêdagbé et al.
- (2010) show that the average income of men is more than four times that of women.
-\end_layout
-
-\end_inset
-
+ thereby reinforcing processes of feminization of poverty.
  Part of this revenue gap may simply reflect the underlying productivity gap or differences in access to productive inputs;
  however,
  the revenue also depends on whether and how much of the harvest is sold,
@@ -830,7 +788,7 @@ Through a study in Benin on rice production,
 \begin_layout Standard
 Some studies find that endowments constitute the main cause of gender gap in agricultural earnings.
  Mkuna and Wale (2023) records gender income gap of approximately 50% in cabbage farmers in South Africa and explain that differences in observable resources and endowments account for approximately 92% of the farm-income gap.
- They also relate this result to broader previous evidence that female-managed farms face substantial endowment disadvantages,
+ They also relate this result to previous evidence that female-managed farms face substantial endowment disadvantages,
  particularly in farm size and in the use and intensity of non-labour inputs and agricultural services (Mukasa & Salami,
  2015).
  
@@ -847,15 +805,11 @@ Other studies,
  is a distinct source of gendered income disparities.
  Recent researches in Togo,
  suggests that the average agricultural farm income gap observed between men and women is about 66%,
- of thatthe two structural components jointly account for approximately 73% (Dandonougbo et al.,
+ of that the two structural components jointly account for approximately 73% (Dandonougbo et al.,
  2023).
- Similarly,
- evidence from smallholder farmers in northern Ghana indicates that differences in observable characteristics explain around 47% of the gender gap in gross margins,
- whereas the unexplained component accounts for the remaining 53% (Gutierrez Pionce et al.,
- 2015).
  Related evidence from southern Ethiopia also points to structural disadvantages in agricultural market participation:
  Gebre et al.
- (2021) find that significant gender gaps in maize market positions are primarily associated with differences in returns to resources rather than with endowment differences.
+ (2021) find that significant gender gaps in maize market participation are strongly associated with differences in returns to resources rather than with endowment differences.
 \end_layout
 
 \begin_layout Standard
@@ -864,40 +818,25 @@ However,
  evidence on gendered agricultural earnings differentials from farming in Africa remains limited and fragmented (Gebre et al.,
  2021;
  Mkuna & Wale,
- 2023).
- In particular,
- relatively little is known about the respective contributions of endowment and structural effects in gender gap in agricultural earnings in Sub-saharian Africa .
+ 2023),
+ particularly regarding the relative contribution of endowment and structural effects in maize production in Uganda.
  
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-shall I add:
- Especially in maize production in Uganda and particularly regarding the relative contribution of endowment and structural effects.
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
 Although these contributions provide a meaningful overview,
  context-specific analysis is required to effectively guide policy recommendations.
- We extend this body of work by jointly estimating gender gaps in agricultural productivity and gross sales revenue.
- This paper contributes to this literature by extending the analysis of gender gaps beyond productivity alone and jointly examining productivity and gross sales revenue outcomes.
- Moreover,
- existing evidence on this debate,
- however,
- largely relies on intra-household comparisons between male- and female-managed plots (Kilic et al.,
+ This paper contributes to this literature in two ways.
+ First,
+ while existing evidence largely relies on intra-household comparisons between male- and female-managed plots (Kilic et al.,
  2015;
  Ali et al.,
  2016),
- leaving the productivity gap between male- and female-headed households itself less well understood.
- This paper addresses this gap by comparing MHH and FHH directly,
+ we compare male- and female-headed households directly,
  using household-level panel data on maize production in the Busoga region of Uganda.
- By combining decomposition methods and qualitative evidence,
- the study provides new evidence on the mechanisms through which gender disparities in smallholder maize systems arise and persist.
+ Second,
+ we extend the analysis beyond productivity alone by jointly estimating gender gaps in productivity and gross sales revenue,
+ combining decomposition methods with qualitative evidence to shed light on the mechanisms underlying these disparities.
 \end_layout
 
 \begin_layout Standard
@@ -983,10 +922,18 @@ name "sec:Data-and-Context"
 \end_layout
 
 \begin_layout Subsection
-Ugandan Context
+Ugandan Context (Shall I add it?)
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+see Ali et al.(2016)
+\end_layout
+
+\begin_layout Plain Layout
 Maize is cultivated by the majority of rural households in East Africa,
  making the Ugandan experience broadly comparable to that of other African countries (Sell et al.,
  2018).
@@ -999,16 +946,17 @@ Maize is cultivated by the majority of rural households in East Africa,
  understanding underlying causes behind low agricultural performance becomes essential for food security.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 why maize is important
 \end_layout
 
-\begin_layout Standard
-why productivity and revenue are impprtamnt
+\begin_layout Plain Layout
+why productivity and revenue are important
 \end_layout
 
-\begin_layout Standard
-a graph?
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -1020,7 +968,7 @@ Quantitative Sample
 \end_layout
 
 \begin_layout Standard
-The paper uses panel data from three survey rounds with approximately 3,500 smallholder maize farmers in southeastern Uganda.
+The paper uses panel data from three survey rounds with approximately 3,500 smallholder maize farmers in Busoga region.
  The data were originally collected within a broader research project examining agro-input dealers and farmer interactions in Uganda (De et al.,
  2024;
  Miehe et al.,
@@ -1033,12 +981,9 @@ The paper uses panel data from three survey rounds with approximately 3,500 smal
  each agro-dealer was asked to identify the villages where most of their customers reside.
  Enumerators then randomly sampled ten maize-growing households from each of these villages,
  yielding the sample of 3,470 farmers.
- This sampling frame allows us to assume that sampled farmers have reasonable access to improved maize varieties,
- should they choose to adopt them.
-\end_layout
-
-\begin_layout Standard
-Enumerators interviewed the household member most knowledgeable about maize cultivation.
+ The dataset also identifies the catchment area in which each household is located.
+ Catchment areas represent the relevant local spatial units used in the decomposition analysis to account for shared characteristics among households located in the same area.
+ Enumerators interviewed the household member most knowledgeable about maize cultivation.
  A subset of questions specifically targeted the household head,
  who may or may not have been the respondent.
  In addition to general information on agricultural practices,
@@ -1061,9 +1006,8 @@ Measurement of Key Outcome Variables and Covariates
 \end_layout
 
 \begin_layout Standard
-The analysis focuses on three main outcome variables:
- agricultural productivity,
- income from maize and the adoption of improved maize seeds varieties.
+The analysis focuses on two main outcome variables:
+ productivity and gross sales revenues from maize.
  All variables are measured on the randomly selected plot.
  Agricultural productivity is measured as maize yield per unit of cultivated land,
  capturing differences in output across plots.
@@ -1073,9 +1017,9 @@ The analysis focuses on three main outcome variables:
  income is set to zero.
  For households that reported selling maize,
  income is calculated as the quantity sold multiplied by the unit price received.
+ The resulting measure therefore captures both the extensive margin of market participation and the intensive margin of sales among participating households.
  Observations with missing information on sold quantities or bag prices among sellers are left as missing.
- The estimated decomposition reflects differences in both market participation (extensive margin) and conditional revenue (intensive margin),
- as zero income observations represent non-participation in maize sales.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -1101,10 +1045,32 @@ Hybrid seeds adoption is measured as a binary indicator equal to one if the hous
 
 \begin_layout Standard
 Given the skewed distribution and the presence of zero values in the outcome variables,
- maize productivity and gross income are transformed using the inverse hyperbolic sine (IHS) transformation in the empirical analysis.
+ maize productivity and gross sales revenues are transformed using the inverse hyperbolic sine (IHS) transformation in the empirical analysis.
  Skewness is according to the adjusted Fisher-Pearson coefficient of skewness exceeding 1.96.
  To address the recent critiques by Mullahy and Norton (2022) we applied the IHS transformation cautiously when dealing with outcome variables that have many zeros and impacts on the extensive margin.
+ For larger values of the outcomes,
+ the IHS behaves similarly to a logarithmic transformation,
+ although percentage interpretations should be treated as approximates.
+\end_layout
+
+\begin_layout Standard
+The distribution of maize productivity was inspected to identify potentially influential observations arising from unusually high reported harvests relative to plot area.
+ Small plot areas can mechanically increase measured productivity and amplify measurement error.
+ However,
+ most extreme productivity observations are driven primarily by unusually high reported harvest quantities,
+ rather than by a generalized presence of very small plot areas.
+ Since these observations are internally consistent with the original survey responses and have only a small influence on the gender gap in IHS-transformed productivity,
+ they are retained in the main analysis and excluded only in a robustness check in the appendix.
  
+\end_layout
+
+\begin_layout Standard
+Gross maize sales revenue is highly right-skewed.
+ The unconditional mean gap decreases when observations with extreme reported prices are excluded,
+ indicating that the raw mean is partly influenced by a small number of high revenue observations among male-headed households.
+ However,
+ the corresponding gap in IHS-transformed revenue changes only marginally,
+ suggesting that the econometric results are unlikely to be driven by these observations.
 \end_layout
 
 \begin_layout Standard
@@ -1113,7 +1079,18 @@ The main covariates analysed in the dataset cover access to agricultural inputs 
  farm and land endowments,
  plot-level input use and management practices,
  maize sales.
- These covariates were selected based on the literature,
+ These covariates were selected based on the literature (section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec3 -Literature Review"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+),
  as well as their availability in the dataset.
  They capture key observable factors that may influence maize productivity and gross sales revenue.
  However,
@@ -1163,29 +1140,15 @@ Quantitative Data Limitations
 \end_layout
 
 \begin_layout Standard
-The assessment of gender gaps in agriculture generally relies on two different empirical approaches and indicators that significantly influence the analysis of gender differences (De la O Campos et al.,
+This study adopts the inter-household approach because gender information is available only for the household head.
+ Household headship does not necessarily reflect who manages the plot,
+ controls productive assets,
+ or makes agricultural decisions,
+ and may therefore overlook important intra-household dynamics (Udry,
+ 1996;
+ Ali et al.,
  2016).
- This paper makes use of inter-household analyses,
- which compare agricultural production in male and female headed households.
- The alternative approach adopts an intra-household perspective,
- comparing production on female and male managed plots within the same household,
- allowing household characteristics to be held constant.
- As mentioned by Ali et al.
- (2016),
- since most female-managed plots are located within male-headed households,
- the first approach may draw inferences from a non-representative subset of women farmers and misclassify plots by gender.
- The use of household headship is further problematic because it does not capture who makes agricultural decisions or controls productive assets,
- nor does it account for intra-household power dynamics that shape resource allocation (Udry,
- 1996).
- Despite that,
- the intra-household approach requires more detailed data and may face limitations in sample size and external validity.
- In this study,
- the use of an inter-household approach is driven by data availability,
- as gender information was collected at the level of the household head,
- making intra-household quantitative analysis infeasible.
- Nevertheless,
- this limitation is partly addressed through qualitative data,
- which provide insights into intra-household decision-making processes and power relations and complement the inter-household quantitative analysis.
+ The qualitative evidence complements this analysis by providing insights into decision-making and power relations within households.
 \end_layout
 
 \begin_layout Standard
@@ -1227,7 +1190,7 @@ The qualitative component of the data is based on fieldwork conducted in the Bus
  the fieldwork covered 16 villages in the districts of Iganga,
  Bugweri,
  Bugiri and Mayuge.
- Sixteen focus group discussions (FGDs) were held,
+ 16 focus group discussions (FGDs) were held,
  each with 10 participants (160 participants in total).
 \end_layout
 
@@ -1240,8 +1203,7 @@ The composition of the groups was defined to capture specific gender perspective
  On the other hand,
  mixed groups allowed us to observe how intra-family norms and roles are reproduced in the discussion.
  All participants were adults and a different range of ages was ensured.
- All the people selected were plot managers,
- but not necessarily the household head.
+ 
 \end_layout
 
 \begin_layout Subsubsection
@@ -1287,18 +1249,25 @@ The enumerator's male gender may have limited openness in women-only groups,
  particularly on themes like home conflict,
  threats,
  and sexual duties.
- The occasional presence of local leaders (e.g.,
- chairperson) can further influence answers toward "community-approved" narratives and diminish participants' willingness to criticize norms.
- Although the FGD participants came from the same villages as the survey respondents,
- they were not the same people.
- Therefore,
- the qualitative findings should be interpreted as complementary contextual evidence rather than as directly matched to the survey data.
+ Moreover,
+ the occasional presence of local leaders (e.g.
+ chairperson) can further influence answers toward community-approved narratives and diminish participants' willingness to criticize norms.
  
 \end_layout
 
 \begin_layout Standard
-Moreover,
- the qualitative findings are highly context-specific,
+Although the FGD participants came from the same villages as the survey respondents,
+ they were not the same people.
+ Therefore,
+ the qualitative findings should be interpreted as complementary contextual evidence rather than as directly matched to the survey data.
+ Moreover,
+ participants were not necessarily household heads.
+ The qualitative findings therefore do not directly represent the experiences of FHH and MHH,
+ but they provide important insights into what it means to be a woman or a man in the villages included in the study and into the prevailing gendered norms.
+\end_layout
+
+\begin_layout Standard
+The qualitative findings are highly context-specific,
  including gender norms,
  labor arrangements,
  and market interactions unique to the Busoga region in Eastern Uganda.
@@ -1382,25 +1351,6 @@ ainh(Y)=ln(Y+\sqrt{Y^{2}+1})\label{eq:one-1-3}
 \end_layout
 
 \begin_layout Standard
-
-\lang english
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-check again and maybe add:
- The IHS transformation is preferred because it is defined at zero and reduces the influence of extreme values in highly skewed outcome distributions.
- For larger values of the outcome,
- it behaves similarly to a logarithmic transformation,
- although percentage interpretations should be treated as approximate
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset Note Comment
 status collapsed
 
@@ -1453,8 +1403,17 @@ nolink "false"
 \end_inset
 
 ,
- Gh is a binary indicator equal to one if the household head is male and zero otherwise.
- The vector X includes a set of control variables commonly used in the literature on gender gaps in agricultural outcomes (Kinkingninhoun-Mêdagbé et al.,
+ 
+\begin_inset Formula $G_{h}$
+\end_inset
+
+ is a binary indicator equal to one if the household head is male and zero otherwise.
+ The vector 
+\begin_inset Formula $X_{h}$
+\end_inset
+
+ includes a set of control variables measured at the household level,
+ commonly used in the literature on gender gaps in agricultural outcomes (Kinkingninhoun-Mêdagbé et al.,
  2010;
  Peterman et al.
  2010;
@@ -1466,8 +1425,20 @@ nolink "false"
  farm size and input use,
  labor availability,
  and access to markets and agricultural services.
- β measures the conditional effect of X on the outcome between male and female headed households.
- The error term εh captures unobserved factors affecting agricultural outcomes.
+ 
+\begin_inset Formula $\beta$
+\end_inset
+
+ measures the conditional effect of 
+\begin_inset Formula $X_{h}$
+\end_inset
+
+on the outcome between MHH and FHH.
+ The error term 
+\begin_inset Formula $\varepsilon_{h}$
+\end_inset
+
+ captures unobserved factors affecting agricultural outcomes.
  The full set of covariates used in the OLS and the corresponding regression specifications are reported in table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1491,7 +1462,18 @@ nolink "false"
 \end_inset
 
  in the results section.
- Some variables reported in the descriptive statistics are excluded from the regression analysis either because they are highly collinear with included covariates or because they could create problems of endogeneity.
+ Some variables reported in the descriptive statistics in table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "descriptive statistics"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+are excluded from the regression analysis either because they are highly collinear with included covariates or because they could create problems of endogeneity.
  
 \begin_inset Note Comment
 status collapsed
@@ -1520,7 +1502,7 @@ In addition to cross-section specifications based solely on the baseline sample,
 \lang english
 \begin_inset Formula 
 \begin{equation}
-Y_{ht}=\alpha+\beta X_{h}+\gamma G_{h}+\delta_{t}+\varepsilon_{h}\label{eq:one-1-2}
+Y_{ht}=\alpha+\beta X_{h}+\gamma G_{h}+\delta_{t}+\varepsilon_{ht}\label{eq:one-1-2}
 \end{equation}
 
 \end_inset
@@ -1529,7 +1511,15 @@ Y_{ht}=\alpha+\beta X_{h}+\gamma G_{h}+\delta_{t}+\varepsilon_{h}\label{eq:one-1
 \end_layout
 
 \begin_layout Standard
-where 𝑡 denotes the survey round and 𝛿𝑡 represents survey-round fixed effects that capture time-specific factors affecting all households simultaneously,
+where 
+\begin_inset Formula $t$
+\end_inset
+
+ denotes the survey round and 
+\begin_inset Formula $\delta_{t}$
+\end_inset
+
+ represents survey-round fixed effects that capture time-specific factors affecting all households simultaneously,
  such as seasonal conditions,
  price fluctuations,
  or other aggregate shocks.
@@ -1553,9 +1543,9 @@ Fixed effects at the household level are not included in the analysis as these e
 \begin_layout Standard
 Some of the covariates collected at baseline were not re-measured in the midline and endline surveys.
  These variables capture household characteristics,
- which we assume remain constant over the study period.
+ which we assume to remain constant over the study period.
  Accordingly,
- baseline values are carried forward in the pooled panel analysis.
+ baseline values are carried forward in the pooled analysis.
  These include education level,
  household size,
  age of the household head,
@@ -1574,12 +1564,6 @@ Some of the covariates collected at baseline were not re-measured in the midline
 All OLS specifications use robust standard errors.
  In pooled specifications,
  standard errors are clustered at the household level to account for repeated observations of the same household over time.
- Additional diagnostic checks,
- including tests for heteroskedasticity,
- functional-form sensitivity,
- multicollinearity,
- and influential observations,
- are used to assess the robustness of the estimates.
  
 \end_layout
 
@@ -1588,10 +1572,10 @@ Oaxaca-Blinder Decomposition
 \end_layout
 
 \begin_layout Standard
-To investigate the sources of gender disparities in productivity and income,
- we apply the Blinder-Oaxaca decomposition (Blinder,
+To investigate the sources of gender disparities in productivity and gross sales revenue,
+ we apply the Oaxaca-Blinder decomposition (Oaxaca,
  1973;
- Oaxaca,
+ Blinder,
  1973).
  The OLS regressions described provide the basis for the decomposition methods.
  This technique decomposes observed gender gaps into two components:
@@ -1603,17 +1587,14 @@ To investigate the sources of gender disparities in productivity and income,
  and inputs.
  The structural effect accounts for differences in returns to those resources,
  potentially reflecting discriminatory social norms or practices.
- The Oaxaca–Blinder decomposition therefore quantifies the contribution of observable characteristics commonly available in household survey data while acknowledging that unobserved data not computed in the equation,
- such as agro-ecological conditions may remain captured in the returns component (Fortin et al.,
- 2011).
- 
+ The Oaxaca–Blinder decomposition therefore quantifies the contribution of observable characteristics available in the household survey data.
 \end_layout
 
 \begin_layout Standard
 Based on the work of Kilic et al.
  (2015),
- we derived the average gap between men and women "D",
- expressed as the average difference in productivity and income:
+ we derived the average gap between MHH and FHH "D",
+ expressed as the average difference in productivity and gross revenue:
  
 \end_layout
 
@@ -1639,7 +1620,7 @@ Where
 \begin_inset Formula $Y_{f}$
 \end_inset
 
- denote the expected outcomes for male and female headed households,
+ denote the expected outcomes for MHH and FHH,
  obtained from linear estimation of agricultural productivity and income expressed in inverse hyperbolic sine (IHS) units.
 \begin_inset Note Note
 status collapsed
@@ -1658,7 +1639,18 @@ Do I have to justify better that the male are the non-discriminated group?
 \end_layout
 
 \begin_layout Standard
-Equation (1) relies on the restrictive assumption that the returns to observable characteristics are identical for male and female headed households.
+Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:one-1"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ relies on the restrictive assumption that the returns to observable characteristics are identical for male and female headed households.
  To relax this assumption,
  we follow standard practice in the literature and estimate separate linear regressions for each group.
  The expected outcome of the gender-specific regressions can be written as:
@@ -1729,12 +1721,38 @@ and
 \begin_inset Formula $\hat{𝛽}_{f}$
 \end_inset
 
- represent the associated vectors of coefficients for male and female headed households,
+ represent the associated vectors of coefficients for MHH and FHH,
  respectively.
 \end_layout
 
 \begin_layout Standard
-By substituting expressions 5 and 6 into the definition of D,
+By substituting expressions 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:one-1-1-1"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:one-1-1-2"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ into the definition of 
+\begin_inset Formula $D$
+\end_inset
+
+,
  the overall gender gap can be expressed as a function of disparities in observable characteristics as well as differences in the returns to those characteristics:
 \end_layout
 
@@ -1773,22 +1791,23 @@ represents the structural or coefficient component and it captures the part of g
  Therefore,
  the structural component should be interpreted with caution as reflecting differential returns rather than direct evidence of discrimination (Fortin et al.,
  2011).
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-previously said
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
-Equation 7 represent a classic OB twofold decomposition,
- while the threefold OB decomposition can be obtained by further separating the coefficient component into male and female sub-components.
- The male and female coefficient components measure how the coefficient structures differ/deviate from a pooled benchmark 
+Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:one-1-1-3"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ represent a classic O-B twofold decomposition,
+ while the threefold O-B decomposition can be obtained by further separating the coefficient component into male and female sub-components.
+ The male and female coefficient components measure how the coefficient structures deviate from a pooled benchmark 
 \begin_inset Formula $\beta^{*}$
 \end_inset
 
@@ -1798,11 +1817,9 @@ Equation 7 represent a classic OB twofold decomposition,
 \end_inset
 
 ,
- we use the coefficients from a pooled regression estimated on the combined sample of male- and female-headed households (Jann,
+ we use the coefficients from a pooled regression estimated on the combined sample of MHH and FHH (Jann,
  2008).
- This approach,
- commonly adopted in the agricultural gender gap literature,
- avoids privileging either group’s returns structure as the benchmark and instead relies on the average returns observed in the overall production environment,
+ This approach avoids privileging either group’s returns structure as the benchmark and instead relies on the average returns observed in the overall production environment,
  under the assumption that male and female farmers operate within a similar agricultural system and production function.
  As a robustness check decompositions with male structure and female structure as benchmark are reported in the Appendix.
  
@@ -1853,7 +1870,11 @@ Detailed decomposition components should not be interpreted as causal effects of
 To account for unobserved spatial heterogeneity,
  the main decomposition includes catchment-area fixed effects.
  This is implemented by applying a within transformation to the outcome and covariates before estimating the decomposition.
- For each variable Z,
+ For each variable 
+\begin_inset Formula $Z$
+\end_inset
+
+,
  the transformed variable is defined as:
 \end_layout
 
@@ -1875,7 +1896,19 @@ where
 \begin_inset Formula $\tilde{Z_{hc}}$
 \end_inset
 
-is the value of the variable Z for household h in catchment area c,
+is the value of the variable 
+\begin_inset Formula $Z$
+\end_inset
+
+ for household 
+\begin_inset Formula $h$
+\end_inset
+
+ in catchment area 
+\begin_inset Formula $c$
+\end_inset
+
+,
  
 \begin_inset Formula $\bar{Z}_{c}$
 \end_inset
@@ -1888,17 +1921,34 @@ is the catchment-area mean,
 is the overall sample mean.
  The fixed effect remove average differences across catchment areas.
  The decomposition is then applied to the transformed variables.
- This specification compares male and female headed households within similar local production environments and helps accounting for unobserved catchment-level characteristics such as market access,
- agro-ecological conditions,
- or other area-specific factors.
+ This specification compares MHH and FHH within similar local production environments and helps accounting for unobserved catchment-level characteristics such as agro-ecological conditions or other area-specific factors.
 \end_layout
 
 \begin_layout Standard
 Standard errors are estimated using bootstrap replications clustered at the catchment-area level.
- All outcomes are expressed in inverse hyperbolic sine (IHS) units,
- which allows coefficients to be interpreted in a manner comparable to logarithmic transformations,
- particularly for larger values of the outcome.
- The results are presented in Table 5 and 6 and discussed in Section 6.
+ The results are presented in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Results"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ and discussed in section
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Discussion-and-Limitations"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1908,10 +1958,36 @@ Empirical Issues
 \begin_layout Standard
 The Oaxaca Blinder decomposition relies on a set of identifying assumptions (Fortin et al.,
  2011).
- The aggregate decomposition is valid under the assumption of overlapping support,
+ 
+\end_layout
+
+\begin_layout Standard
+The aggregate decomposition is valid under the assumption of overlapping support,
  which requires sufficient similarity in the distribution of observable characteristics across male and female headed households.
  This condition was carefully assessed by inspecting the distribution of key covariates across male and female headed households.
- The Kernel density plots (reported in the Appendix) indicate substantial overlap in the main covariates.
+ The Kernel density plots (reported in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Distribution-of-IHS-transformed"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Results"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+) indicate substantial overlap in the main covariates.
 \end_layout
 
 \begin_layout Standard
@@ -1921,7 +1997,7 @@ The detailed decomposition additionally depends on the assumptions of additive l
  In our setting,
  the specification tests do not indicate major functional form problems,
  indicating that a linear model provide a reasonable description of the outcomes.
- Functional-form concerns might be relevant for maize income because of the large mass at zero and its strongly right-skewed distribution.
+ Functional-form concerns might be relevant for maize revenue because of the large mass at zero and its strongly right-skewed distribution.
  RESET tests and alternative income specifications are therefore used as diagnostic checks and included in the Appendix.
 \end_layout
 
@@ -1948,27 +2024,12 @@ Although panel-data extensions of the Oaxaca–Blinder decomposition have been u
  2015;
  Ali et al.,
  2016),
- the main decomposition in this study is implemented on the baseline cross-section because the baseline survey contains the richest and most consistently measured set of household,
- plot,
- input,
- and market-access covariates.
- Midline and endline observations are used in pooled OLS specifications to assess the persistence of gender gaps over time,
+ the main decomposition in this study is implemented on the baseline cross-section because the baseline survey contains the richest and most consistently measured set of household covariates.
+ Midline and endline observations are used in pooled OLS specifications,
  but they are not used for the main Oaxaca decomposition because several key endowment variables are not consistently re-measured across rounds.
  Carrying baseline covariates forward is acceptable in pooled OLS as a way to control for relatively stable household characteristics,
  but it is less appropriate in an Oaxaca decomposition because these covariates directly determine the endowment component.
- A pooled Oaxaca would risk attributing later-round gender gaps to baseline characteristics,
- making the interpretation of the explained and coefficient components less clear.
  
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-maybe too detailed and not too useful
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -2010,16 +2071,6 @@ A further empirical issue concerns the distribution of maize income,
  It reflects both differences in market participation and differences in sales intensity conditional on participation
 \end_layout
 
-\begin_layout Plain Layout
-(((This structure can induce strong non-linearities and misspecification in linear models,
- which is consistent with the RESET test indicating specification problems across alternative income regressions.
- Consequently,
- the Oaxaca–Blinder decomposition of maize income should be interpreted with caution,
- as it captures differences in overall income that reflect both the decision to sell maize and the amount earned from sales,
- rather than a single,
- uniform income-generating process))).
-\end_layout
-
 \end_inset
 
 
@@ -2029,14 +2080,6 @@ A further empirical issue concerns the distribution of maize income,
 The econometric findings are complemented by qualitative evidence,
  which helps contextualize gendered differences in agricultural production,
  supporting the interpretation of the decomposition results.
-\end_layout
-
-\begin_layout Subsection
-The causal estimation - Instrumental Variable (IV) Strategy
-\end_layout
-
-\begin_layout Standard
-This section will be further developed in the final version of the MSc thesis.
 \end_layout
 
 \begin_layout Subsection
@@ -2054,7 +2097,7 @@ Qualitative data were analyzed using a thematic coding approach aimed at identif
 
 \begin_layout Standard
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 The final coding structure included themes related to bargaining power,
@@ -2129,14 +2172,14 @@ nolink "false"
 
 \end_inset
 
- presents baseline descriptive statistics separately for male- and female-headed households.
+ presents baseline descriptive statistics separately for MHH and FHH.
  For each variable,
  the table reports the mean,
  minimum,
  maximum,
  standard deviation,
  and number of non-missing observations for each group.
- The final column reports the difference in means between male- and female-headed households,
+ The final column reports the difference in means between MHH and FHH,
  together with significance levels from two-sided t-tests of equality of means.
 \end_layout
 
@@ -2146,21 +2189,81 @@ The table covers access to agricultural inputs markets,
  farm and land endowments,
  plot-level input use and management practices,
  maize sales,
- and the three main outcome variables:
- maize production,
- land productivity,
- and maize sales income.
+ and the two main outcome variables:
+ productivity and gross sales revenue from maize.
 \end_layout
 
 \begin_layout Standard
-The table report significant differences in maize productivity,
- gross revenue from maize sales between male and female headed households.
- Productivity is higher for male-headed households,
+Several baseline characteristics differ significantly between MHH and FHH.
+ The formers are usually slightly larger households,
+ with an average of 8.85 members compared with 8.15 members in FHH.
+ MHH are also slightly younger,
+ averaging 48.3 years compared with 49.7 years among female heads,
+ and they are considerably more likely to have completed primary education,
+ at 56% compared with 34%.
+ The largest demographic difference concerns marital status:
+ 98% of male household heads are married,
+ compared with 56% of female household heads.
+ This pattern is consistent with the definition of FHH discussed in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:2-Theoretical-Framework and Hypotesis-1"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ in which female headship is often linked to the absence of a male spouse.
+ The table also shows consistent differences in land endowments.
+ MHH cultivate an average of 3.53 acres,
+ compared with 2.70 acres among female-headed households.
+ They also cultivate slightly more maize plots,
+ 1.48 compared with 1.40,
+ and the randomly selected maize plot is larger among male-headed households,
+ averaging 1.23 acres compared with 1.01 acres.
+ All three differences are statistically significant,
+ already indicating land endowments advantages between MHH.
+ Differences in input use are more mixed.
+ MHH are more likely to use quality seed (51% compared with 42%) and urea fertilizer (42% compared with 38%),
+ and they weed the selected plot more frequently.
+ By contrast,
+ FHH report slightly higher use of DAP/NPK fertilizer (9% compared with 7%),
+ while no significant differences emerge for hybrid seed,
+ pesticides,
+ or organic manure.
+\end_layout
+
+\begin_layout Standard
+Regarding the outcome variables,
+ already from the descriptive statistics,
+ it is possible to observe that significant differences are present both in in maize productivity and gross revenue from maize sales between MHH and FHH.
+ Productivity is higher for MHH,
  both in standard units (kg/acre) and when using the IHS transformation.
  Similarly,
- income from maize sales shows a statistically significant difference in levels and IHS terms,
- favoring male-headed households.
+ gross revenue from maize shows a statistically significant difference in levels and IHS terms,
+ favoring MHH.
  
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Distribution-of-IHS-transformed"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ complements these comparisons of mean outcomes by showing the full distributions of IHS-transformed maize productivity and gross sales revenue through Kernel density estimates.
+ Although substantial overlap exists between MHH and FHH,
+ the distributions for MHH are shifted toward higher values,
+ particularly for gross sales revenue.
 \end_layout
 
 \begin_layout Standard
@@ -2172,6 +2275,7 @@ status open
 <<echo=FALSE,
  results='hide',
  message=FALSE,
+ fig.show='hide',
  warning=FALSE>>=
 \end_layout
 
@@ -4596,9 +4700,6 @@ Sexpr{diff_fmt[23]}
 
 \begin_layout Plain Layout
 
-
-\backslash
-hline
 \end_layout
 
 \begin_layout Plain Layout
@@ -4698,6 +4799,17 @@ Sexpr{diff_fmt[24]}
 
 \backslash
 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
 \end_layout
 
 \begin_layout Plain Layout
@@ -5963,6 +6075,58 @@ end{minipage}
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Distribution of IHS-transformed maize productivity and gross sales revenue by household-head gender
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Distribution-of-IHS-transformed"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename density_productivity_revenue_vertical.png
+	width 12cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Note:
+ Kernel density estimates are based on the baseline sample.
+ Panel A reports IHS-transformed maize productivity and Panel B reports IHS-transformed gross maize sales revenue.
+ Zero revenue identifies households that did not sell maize.
+ The densities are normalized separately for each group;
+ therefore,
+ the height of the curves does not represent the number of observations.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 OLS Estimates
 \end_layout
@@ -5991,8 +6155,7 @@ nolink "false"
 \end_inset
 
 report OLS regression results on the determinants of maize productivity,
- maize income,
- and adoption of hybrid maize seeds varieties respectively,
+ maize gross sales revenue,
  disaggregated by gender of the household head.
  For each outcome,
  Column (1) reports the raw gender gap estimated from a bivariate regression including only an indicator for male-headed households.
@@ -6005,6 +6168,10 @@ report OLS regression results on the determinants of maize productivity,
  Columns (5)–(7) present analogous pooled OLS regressions estimated on the combined sample of all survey rounds,
  including round fixed effects.
  
+\end_layout
+
+\begin_layout Subsubsection
+OLS - Productivity
 \end_layout
 
 \begin_layout Standard
@@ -6035,7 +6202,7 @@ For sufficiently large values of the dependent variable,
 
  higher than on female-headed plots.
  Importantly,
- this gap remains statistically significant and of similar magnitude after controlling for a comprehensive set of household- and plot-level characteristics (Column 2),
+ this gap remains statistically significant and of similar magnitude after controlling for a comprehensive set of household and plot-level characteristics (Column 2),
  indicating that observable endowments explain only a limited share of the productivity differential and pointing instead to differences in returns and unobserved constraints disproportionately affecting female farmers.
 \end_layout
 
@@ -6047,6 +6214,7 @@ Several plot-level inputs are positively associated with maize productivity.
  and the use of organic manure,
  chemical inputs and quality seeds on the randomly selected plot are strongly correlated with higher yields,
  although the gender-differentiated regression reveal some heterogeneity in returns to these inputs.
+ In particular urea usage has really high returns on productivity for FHH.
  Education of the household head is positively associated with maize productivity among female-headed households,
  while the corresponding effect is small and statistically insignificant among male-headed households,
  suggesting that education may play a more important role in increasing productivity among female farmers.
@@ -6063,136 +6231,6 @@ When pooling observations across survey rounds,
  The use of quality seeds and fertilizer inputs,
  including both DAP/NPK and urea,
  remains strongly and positively associated with productivity.
-\end_layout
-
-\begin_layout Standard
-Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:OLS-estimates-of-1"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
- reports analogous results for maize sales revenue derived from the randomly selected plot.
- The raw revenue gap in Column (1) is large and statistically significant,
- with male-headed households earning substantially 1.016 IHS units higher maize gross revenue than female-headed households.
- Once controls are introduced (Column 2),
- the estimated gender gap declines but remains economically large and statistically significant,
- indicating that differences in plot size,
- input use,
- and household characteristics explain only part of the observed income disparity.
- Plot size,
- measured in logarithmic terms,
- emerges as a key determinant of maize gross revenue.
- Input use plays an important role in shaping income outcomes.
- The use of quality seeds,
- fertilizers,
- and chemical inputs is positively associated with maize gross revenue.
-\end_layout
-
-\begin_layout Standard
-However,
- gender-specific regressions reveal heterogeneity in returns across different inputs.
- While urea application is significantly associated with higher maize income among female-headed households,
- chemical inputs are significant only among male-headed households,
- suggesting that returns to specific inputs differ by gender rather than being uniformly higher for one group.
- As we have noticed with productivity,
- education of the household is positively associated with maize income among female-headed households,
- but not among male-headed households,
- indicating higher returns to human capital for female farmers.
- Household characteristics also matter.
- The household size and the age of the household head are negatively associated with income.
-\end_layout
-
-\begin_layout Standard
-The results from the pooled gross revenue specification indicate that the gender gap in gross sales revenue income persists in the pooled bigger sample,
- with the estimated gender coefficient remaining positive and statistically significant.
- Plot size remains positively and statistically significant in the pooled specification,
- confirming that scale effects continue to play an important role in explaining differences in maize income across households over time.
- 
-\begin_inset Note Comment
-status collapsed
-
-\begin_layout Plain Layout
-The pooled estimates reveal that time-varying production decisions play a more prominent role:
- the use of quality seeds,
- fertilizers and chemical inputs remains positively associated with maize income,
- with some coefficients increasing in magnitude relative to the baseline specification.
-\end_layout
-
-\end_inset
-
- In both specifications,
- as expected,
- higher maize productivity is associated with higher income from maize,
- confirming the central role of agricultural performance in determining gross revenue.
- However,
- substantial gender disparities persist even after conditioning on productivity.
- This suggests that gross revenue gender disparities may be influenced by other factors beyond production.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Comment
-status collapsed
-
-\begin_layout Plain Layout
-Table 4 summarizes the factors influencing the adoption of improved maize seed varieties.
- In the raw specification (Column 1),
- male-headed households had a considerably higher likelihood of adoption.
- However,
- the effect disappears when household and plot-level characteristics are controlled for,
- suggesting that the gender differences in adoption are largely explained by unequal access to resources and inputs.
- These results are consistent with previous studies showing that once differences in access to inputs such as land,
- education and inputs are accounted for,
- gender itself does not significantly affect adoption of improved seeds (Doss,
- 2001;
- Horrell & Krishnan,
- 2007).
- The use of agricultural inputs,
- particularly DAP/NPK fertilizer,
- Urea,
- and chemicals,
- is positively and significantly associated with adoption both at baseline and in the pooled models,
- indicating that hybrid seeds are adopted as part of a broader input use.
- Education also increases the probability of adoption,
- with a stronger effect among female-headed households
-\begin_inset Note Comment
-status collapsed
-
-\begin_layout Plain Layout
-,
- confirming the findings of Anang (2020)
-\end_layout
-
-\end_inset
-
-.
- There is also a significant association between membership in a farmer group or cooperative and adoption both for female and male headed households.
- Being part of a farmer organization increases the probability of using hybrid seeds,
- likely reflecting improved access to information,
- markets that reduce uncertainty surrounding new technologies.
- As stated in section 4,
- as a robustness check,
- we estimate logit models for hybrid seed adoption.
- The results,
- reported in the Appendix,
- are consistent with the linear probability model.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Although comparing raw and controlled specifications shows the extent to which observable factors contribute to the gender gap,
- this empirical technique does not identify the underlying mechanisms that drive differences between male and female headed households.
- The heterogeneous returns observed across the regressions motivate an explicit decomposition of productivity and gross revenue gaps,
- which we undertake in the following section using the Oaxaca–Blinder framework.
 \end_layout
 
 \begin_layout Standard
@@ -7594,6 +7632,93 @@ Note:
 
 \end_layout
 
+\begin_layout Subsubsection*
+6.2.2 OLS - Gross Sales Revenue
+\end_layout
+
+\begin_layout Standard
+Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:OLS-estimates-of-1"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ reports analogous results for maize sales revenue derived from the randomly selected plot.
+ The raw revenue gap in Column (1) is large and statistically significant,
+ with MHH earning substantially 1.016 IHS
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Because gross sales revenue includes zero values for non-selling households,
+ the IHS coefficient is reported in transformed units rather than converted into a percentage.
+ The outcome combines market participation and the value of sales among sellers.
+\end_layout
+
+\end_inset
+
+ units higher maize gross revenue than FHH.
+ Once controls are introduced (Column 2),
+ the estimated gender gap declines but remains economically large and statistically significant,
+ indicating that differences in plot size,
+ input use,
+ and household characteristics explain only part of the observed income disparity.
+ Plot size,
+ measured in logarithmic terms,
+ emerges as a key determinant of maize gross revenue.
+ Input use plays an important role in shaping income outcomes.
+ The use of quality seeds,
+ fertilizers,
+ and chemical inputs is positively associated with maize gross revenue.
+\end_layout
+
+\begin_layout Standard
+However,
+ gender-specific regressions reveal heterogeneity in returns across different inputs.
+ While urea application is significantly associated with higher maize income among FHH,
+ chemical inputs are significant only among MHH suggesting that returns to specific inputs differ by gender rather than being uniformly higher for one group.
+ As we have noticed with productivity,
+ education of the household is positively associated with maize income among FHH.
+ Household characteristics also matter.
+ The household size and the age of the household head are negatively associated with gross revenue.
+\end_layout
+
+\begin_layout Standard
+The results from the pooled gross revenue specification indicate that the gender gap in gross sales revenue income persists in the pooled bigger sample,
+ with the estimated gender coefficient remaining positive and statistically significant.
+ Plot size remains positively and statistically significant in the pooled specification,
+ confirming that scale effects continue to play an important role in explaining differences in maize revenue across households over time.
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+If I add productivity:
+ In both specifications,
+ as expected,
+ higher maize productivity is associated with higher income from maize,
+ confirming the central role of agricultural performance in determining gross revenue.
+ However,
+ substantial gender disparities persist even after conditioning on productivity.
+ This suggests that gross revenue gender disparities may be influenced by other factors beyond production.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Although comparing raw and controlled specifications shows the extent to which observable factors contribute to the gender gap,
+ this empirical technique does not identify the underlying mechanisms that drive differences between male and female headed households.
+ The different returns observed across the regressions motivate an explicit decomposition of the gap which we undertake in the following section using the Oaxaca–Blinder framework.
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float table
 placement H
@@ -8761,72 +8886,6 @@ Sexpr{tab_inc$Pooled_Female[30]}
 \end_layout
 
 \begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_inc$Label[31]} & 
-\backslash
-Sexpr{tab_inc$Raw[31]} &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_inc$Full[31]} & 
-\backslash
-Sexpr{tab_inc$Male[31]} & 
-\backslash
-Sexpr{tab_inc$Female[31]} &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_inc$Pooled_Total[31]} & 
-\backslash
-Sexpr{tab_inc$Pooled_Male[31]} & 
-\backslash
-Sexpr{tab_inc$Pooled_Female[31]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_inc$Label[32]} & 
-\backslash
-Sexpr{tab_inc$Raw[32]} &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_inc$Full[32]} & 
-\backslash
-Sexpr{tab_inc$Male[32]} & 
-\backslash
-Sexpr{tab_inc$Female[32]} &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_inc$Pooled_Total[32]} & 
-\backslash
-Sexpr{tab_inc$Pooled_Male[32]} & 
-\backslash
-Sexpr{tab_inc$Pooled_Female[32]} 
-\backslash
-
-\backslash
 
 \end_layout
 
@@ -10179,752 +10238,122 @@ Note:
 \end_inset
 
 
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+Table 4 summarizes the factors influencing the adoption of improved maize seed varieties.
+ In the raw specification (Column 1),
+ male-headed households had a considerably higher likelihood of adoption.
+ However,
+ the effect disappears when household and plot-level characteristics are controlled for,
+ suggesting that the gender differences in adoption are largely explained by unequal access to resources and inputs.
+ These results are consistent with previous studies showing that once differences in access to inputs such as land,
+ education and inputs are accounted for,
+ gender itself does not significantly affect adoption of improved seeds (Doss,
+ 2001;
+ Horrell & Krishnan,
+ 2007).
+ The use of agricultural inputs,
+ particularly DAP/NPK fertilizer,
+ Urea,
+ and chemicals,
+ is positively and significantly associated with adoption both at baseline and in the pooled models,
+ indicating that hybrid seeds are adopted as part of a broader input use.
+ Education also increases the probability of adoption,
+ with a stronger effect among female-headed households
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+,
+ confirming the findings of Anang (2020)
+\end_layout
+
+\end_inset
+
+.
+ There is also a significant association between membership in a farmer group or cooperative and adoption both for female and male headed households.
+ Being part of a farmer organization increases the probability of using hybrid seeds,
+ likely reflecting improved access to information,
+ markets that reduce uncertainty surrounding new technologies.
+ As stated in section 4,
+ as a robustness check,
+ we estimate logit models for hybrid seed adoption.
+ The results,
+ reported in the Appendix,
+ are consistent with the linear probability model.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
 Oaxaca-Blinder Decomposition
 \end_layout
 
-\begin_layout Subsubsection*
-5.2.1 Aggregate Decomposition Results
+\begin_layout Subsubsection
+Oaxaca-Blinder Decomposition - Productivity
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float table
-placement H
-alignment left
-wide false
-sideways false
+Tables 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Twofold-aggregate-decomposition"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Detailed-twofold-decomposition-1"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ report the twofold and threefold Oaxaca–Blinder decompositions of the gender gaps in maize productivity
+\begin_inset Foot
 status collapsed
 
 \begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-
-\series bold
-Twofold aggregate decomposition in maize productivity and gross revenue with fixed effects
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-small
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{tabular}{lrrrr}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& $N$ & Total & Endowment Effect & Structural Effect 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-&& gap & effect & effect 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_fe_twofold_agg$Outcome[1]} &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_fe_twofold_agg$N[1]} &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_fe_twofold_agg$Total_gap[1]} &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_fe_twofold_agg$Explained[1]} &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_fe_twofold_agg$Coefficients[1]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Share of total gap (
-\backslash
-%) &
-\end_layout
-
-\begin_layout Plain Layout
-
-{} & {} &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_fe_twofold_agg$Coefficient[2]}
-\backslash
-% &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_fe_twofold_agg$Coefficient[2]}
-\backslash
-% 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_fe_twofold_agg$Outcome[3]} &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_fe_twofold_agg$N[3]} &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_fe_twofold_agg$Total_gap[3]} &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_fe_twofold_agg$Explained[3]} &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_fe_twofold_agg$Coefficients[3]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Share of total gap (
-\backslash
-%) &
-\end_layout
-
-\begin_layout Plain Layout
-
-{} & {} &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_fe_twofold_agg$Endowment[4]}
-\backslash
-% &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_fe_twofold_agg$Endowment[4]}
-\backslash
-% 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{tabular}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-footnotesize
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Note:
- Shares are expressed in 
-\backslash
-%.
- Standard errors are bootstrapped at the catchment-area level.
- ***,
- **,
- and * denote significance at the 1
-\backslash
-%,
- 5
-\backslash
-%,
- and 10
-\backslash
-% levels.
- The decomposition is estimated after applying catchment-area fixed effects.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float table
-placement H
-alignment left
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-
-\series bold
-Threefold aggregate decomposition in maize productivity and gross revenue with fixed effects
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-small
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{tabular}{lrrccc}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& $N$ & Total & Endowment & Male & Female 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-&& gap & effect & coefficients & coefficients 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_fe_threefold_agg$Outcome[1]} &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_fe_threefold_agg$N[1]} &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_fe_threefold_agg$Total_gap[1]} &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_fe_threefold_agg$Endowment[1]} &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_fe_threefold_agg$Male_coefficients[1]} &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_fe_threefold_agg$Female_coefficients[1]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Share of total gap (
-\backslash
-%) &
-\end_layout
-
-\begin_layout Plain Layout
-
-{} & {} &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_fe_threefold_agg$Endowment[2]}
-\backslash
-% &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_fe_threefold_agg$Male_coefficients[2]}
-\backslash
-% &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_fe_threefold_agg$Female_coefficients[2]}
-\backslash
-% 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_fe_threefold_agg$Outcome[3]} &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_fe_threefold_agg$N[3]} &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_fe_threefold_agg$Total_gap[3]} &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_fe_threefold_agg$Endowment[3]} &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_fe_threefold_agg$Male_coefficients[3]} &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_fe_threefold_agg$Female_coefficients[3]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Share of total gap (
-\backslash
-%) &
-\end_layout
-
-\begin_layout Plain Layout
-
-{} & {} &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_fe_threefold_agg$Endowment[4]}
-\backslash
-% &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_fe_threefold_agg$Male_coefficients[4]}
-\backslash
-% &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_fe_threefold_agg$Female_coefficients[4]}
-\backslash
-% 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{tabular}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-footnotesize
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Note:
- Shares are expressed in 
-\backslash
-%.
- Standard errors are bootstrapped at the catchment-area level.
- ***,
- **,
- and * denote significance at the 1
-\backslash
-%,
- 5
-\backslash
-%,
- and 10
-\backslash
-% levels.
- The decomposition is estimated after applying catchment-area fixed effects.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Tables X and Y report the twofold and threefold Oaxaca–Blinder decompositions of the gender gaps in maize productivity and maize gross revenue.
- Both outcomes are expressed in inverse hyperbolic sine units and the estimated gaps can be interpreted approximately as percentage differences.
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-Since the gender gap is defined as the mean outcome of male-headed households minus that of female-headed households,
+Since the gender gap is defined as the mean productivity of male-headed households minus that of female-headed households,
  positive values indicate higher average outcomes among male-headed households.
+ The same accounts for gross revenue.
 \end_layout
 
 \end_inset
 
-
+.
+ 
 \end_layout
 
 \begin_layout Standard
-The fixed-effects adjusted decomposition indicates a maize productivity gap of 0.197 IHS units,
+Confirming the OLS estimates the decomposition indicates a maize productivity gap of 0.197 IHS units,
  suggesting that on average female-headed households have about 20% lower maize productivity compared to male-headed households.
- This result is consistent with De la O Campos et al.
- (2016),
- who report a difference in mean log productivity between plots managed by male and female headed households of 0.177,
- corresponding to a gap of approximately 19.4%.
-\end_layout
-
-\begin_layout Standard
-The twofold decomposition shows that 0.051 IHS units,
+ The twofold decomposition shows that 0.051 IHS units,
  corresponding to 26.2 % of the productivity gap,
  are explained by observable differences in endowments.
  The remaining 0.145 IHS units,
  or 73.8 % of the gap is attributed to differences in returns to these characteristics,
- suggesting that gender disparities in maize productivity could be driven primarily by structural factors,
+ suggesting that gender disparities in maize productivity are driven primarily by structural factors,
  differential returns to inputs,
- and gender-specific constraints (or with residual unobserved factors) rather than by unequal access to resources alone.
+ and gender-specific constraints rather than by unequal access to resources alone.
 \end_layout
 
 \begin_layout Standard
 The threefold decomposition further separates the coefficient component into male and female coefficient components.
- For productivity,
- the endowment component is 0.051,
- the male coefficient component is 0.032,
- and the female coefficient component is 0.114.
+ The male coefficient component is 0.032 IHS units (≈22%),
+ and the female coefficient component is 0.114 IHS units (≈78%).
  Both coefficient components contribute positively to the productivity gap,
  with the female coefficient component accounting for the larger share of the coefficient effect.
  This indicates that the productivity gap is not only associated with differences in observed characteristics,
@@ -10932,160 +10361,371 @@ The threefold decomposition further separates the coefficient component into mal
 \end_layout
 
 \begin_layout Standard
-As highlighted in the literature,
- aggregate decomposition results vary across crops and contexts,
- and the relative contribution of endowment and structural effects depends on how gender is conceptualized,
- whether in terms of household heads,
- plot holders,
- or farm managers (De la O Campos et al.,
- 2016).
- Moreover,
- the allocation of the coefficient component into male and female coefficient components is sensitive to the choice of benchmark.
- For this reason,
- these components are interpreted descriptively as deviations from the pooled coefficient structure rather than as direct measures of male advantage or female disadvantage.
-\end_layout
+The additive linearity property explained in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Empirical Strategy"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
 
-\begin_layout Standard
-The gender gap in maize gross revenue is substantially larger than the productivity gap.
- The estimated gross revenue gap of 0.975 corresponds to nearly 97% lower maize gross revenue among female-headed households relative to male-headed households.
- A sizable share of this gap (approximately 43%) is explained by differences in observable characteristics.
- Nevertheless,
- about 57% of the gross revenue gap is associated with differences in the coefficient structure.
- 
-\begin_inset Note Note
-status collapsed
+\end_inset
 
-\begin_layout Plain Layout
-pointing to possible gender-based inequalities in market access and the ability to translate production into monetary returns
-\end_layout
+makes it possible to assess the relative contribution of each production factor to both the endowment and structural effect through the detailed decompositions of productivity reported in table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Detailed-twofold-decomposition-1"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
 
 \end_inset
 
 .
- Compared with productivity,
- observable endowments explain a larger share of the gross revenue gap,
- suggesting that differences in plot area,
- input use,
- and other household and farm characteristics play an important role in shaping gross revenue disparities.
- Nevertheless,
- more than half of the gross revenue gap remains associated with coefficient differences.
-\end_layout
-
-\begin_layout Standard
-The threefold gross revenue decomposition shows that the endowment component is 0.319,
- the male coefficient component is 0.093,
- and the female coefficient component is 0.331.
- As in the productivity decomposition,
- the female coefficient component represents the largest part of the coefficient effect.
- This pattern suggests that gross revenue disparities may be related not only to differences in productive resources,
- but also to gendered differences in the ability to convert those resources into monetary returns.
- However,
- due to the zero because maize gross revenue contains many zero observations,
- the gross revenue decomposition should be interpreted as reflecting both market participation and conditional earnings,
- rather than a single gross revenue generating process.
-\end_layout
-
-\begin_layout Standard
-The detailed decomposition provides additional insight into which specific covariates contribute the most to the explained and unexplained components of the gap.
- The detailed decomposition results are reported in the Appendix.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Comment
-status open
-
-\begin_layout Plain Layout
-In the literature,
- despite focusing on male and female plot owners,
- Dandonougbo et al.
- (2023) find that 58.5% of the average farm gross revenue gap in Togo is accounted for by structural advantages enjoyed by male farmers.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Comment
-status open
-
-\begin_layout Plain Layout
-The detailed decomposition provides additional insight into which specific covariates contribute the most to the explained and unexplained components of the gap.
- For maize productivity,
- the differences in education are among the most relevant contributor to the explained component.
- While primary education contributes positively to the explained component of the productivity gap,
- the differential returns appear to play a more substantial role,
- indicating unequal productivity returns from similar schooling levels.
- In the case of urea application,
- the negative structural contribution suggests that differences in returns to fertilizer do not amplify the productivity gap and may instead partially attenuate it.
-\end_layout
-
-\begin_layout Plain Layout
-For maize gross revenue,
- the detailed results indicate that land size (log area) is a major contributor to the explained component,
- confirming that scale remains an important determinant of gross revenue disparities.
- In contrast,
- household size contributes negatively to the endowment component,
- indicating that differences in household composition partially offset the overall gross revenue gap.
- However,
- much of the gross revenue gap is driven by differences in returns across groups.
- Age,
- in particular,
- contributes substantially to this structural component,
- indicating that comparable age levels translate into different gross revenue outcomes for male and female headed households.
-\end_layout
-
-\begin_layout Plain Layout
-These detailed results should be interpreted as descriptive accounting exercises.
- Given the maintained assumptions of additive linearity,
- overlapping support,
- and ignorability,
- the contribution of individual covariates reflects their role within the specified linear model and reference structure,
- rather than isolated structural parameters.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection*
-5.2.1 Detailed Decomposition Results
-\end_layout
-
-\begin_layout Standard
-The detailed decompositions provide additional insight into which covariates contribute most to the explained and coefficient components of the gap.
  These detailed contributions are not causal effects of individual covariates;
  rather,
  they show how differences in observable characteristics and differences in estimated coefficient structures contribute mechanically to the overall gap.
-\end_layout
+ From table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Detailed-twofold-decomposition-1"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
 
-\begin_layout Standard
-For maize productivity,
- table x shows that 
-\series bold
-education
-\series default
- contributes positively and significantly to the endowment component,
+\end_inset
+
+education contributes positively and significantly to the endowment component,
  indicating that differences in education levels widen the productivity gap.
  However,
  the coefficient component for education is negative,
  suggesting that differences in the education-productivity relationship reduce rather than widen the gap.
+ This is consistent with the OLS models,
+ where education has a stronger positive association with productivity among FHH.
  Urea application shows a similar pattern:
  its endowment contribution is close to zero,
  while its coefficient component is negative and statistically significant.
  This suggests that differences in the coefficient structure associated with urea application reduce rather than amplify productivity disparities.
  Overall,
  through the detailed decomposition the productivity gap appears to reflect a combination of small endowment differences and differences in coefficient structures.
+ Other covariates are not significant.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float table
-placement class
+placement h
+alignment left
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+Aggregate Decomposition of Maize Productivity 
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Twofold-aggregate-decomposition"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+small
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{lrr}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & Coefficient & Share of gap (
+\backslash
+%) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_prod$Component[1]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_prod$Coefficient[1]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+multicolumn{1}{r}{---} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_prod$Component[2]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_prod$Coefficient[2]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_prod$Share_pct[2]}
+\backslash
+% 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_prod$Component[3]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_prod$Coefficient[3]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_prod$Share_pct[3]}
+\backslash
+% 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+quad 
+\backslash
+Sexpr{tab_nested_prod$Component[4]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_prod$Coefficient[4]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_prod$Share_pct[4]}
+\backslash
+% 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+quad 
+\backslash
+Sexpr{tab_nested_prod$Component[5]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_prod$Coefficient[5]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_prod$Share_pct[5]}
+\backslash
+% 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+N (male / female) &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+multicolumn{2}{r}{
+\backslash
+Sexpr{N_prod_male} / 
+\backslash
+Sexpr{N_prod_female}} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement h
 alignment document
 wide false
-sideways true
+sideways false
 status collapsed
 
 \begin_layout Plain Layout
@@ -11095,6 +10735,13 @@ status collapsed
 
 \series bold
 Detailed twofold decomposition of maize productivity
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Detailed-twofold-decomposition-1"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -11207,11 +10854,111 @@ Note:
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsubsection*
+6.3.2 Oaxaca-Blinder Decomposition - Gross Sales Revenue
+\end_layout
+
+\begin_layout Standard
+Tables 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Twofold-aggregate-decomposition"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Detailed-twofold-decomposition"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ report the twofold and threefold Oaxaca–Blinder decomposition of the gender gaps in maize gross revenue.
+ As visible in previous results,
+ the total gap here is substantially larger than the productivity gap.
+ The estimated gross revenue gap of 0.711 corresponds to nearly 97% lower maize gross revenue among female-headed households relative to male-headed households.
+ A sizable share of this gap (≈ 41%) is explained by differences in observable characteristics.
+ Nevertheless,
+ about 59% of the gross revenue gap is associated with differences in the coefficient structure.
+ Compared with productivity,
+ observable endowments explain a larger share of the gross revenue gap,
+ suggesting that differences in plot area,
+ input use,
+ and other household and farm characteristics play an important role in shaping gross revenue disparities.
+ Nevertheless,
+ more than half of the gross revenue gap remains associated with coefficient differences.
+\end_layout
+
+\begin_layout Standard
+The threefold gross revenue decomposition show that the male coefficient component amounts to 0.093 IHS units (≈ 22% of the total coefficient component),
+ while the female coefficient component amounts to 0.331 IHS units (≈ 78%).
+ As in the productivity decomposition,
+ the female coefficient component represents the largest part of the coefficient effect.
+ This pattern suggests that gross revenue disparities may be related not only to differences in productive resources,
+ but also to gendered differences in the ability to convert those resources into monetary returns.
+ However,
+ because maize gross revenue contains many zero observations,
+ the gross revenue decomposition should be interpreted as reflecting both market participation and conditional earnings,
+ rather than a single gross revenue generating process.
+\end_layout
+
+\begin_layout Standard
+The detailed decomposition,
+ reported in table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Detailed-twofold-decomposition"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ shows a clearer role for observable endowments.
+ Plot area is the largest positive contributor to the explained component,
+ indicating that differences in cultivated area account for an important part of the gross revenue gap.
+ Education plays a dual role in the gross revenue decomposition.
+ On the one hand,
+ the positive endowment component indicates that differences in educational attainment contribute to widening the gross revenue gap.
+ On the other hand,
+ the coefficient components associated with education are negative and statistically significant,
+ suggesting that differences in the estimated returns to education reduce the gap.
+ This pattern is consistent with the gender-specific OLS results,
+ where education appears more strongly associated with maize gross revenue among female-headed households.
+ Surprisingly,
+ the household size has a negative and statistically significant endowment contribution,
+ indicating that differences in household size reduce rather than widen the gross revenue gap.
+ By contrast,
+ the coefficient component for the age of the household head is large,
+ positive,
+ and statistically significant,
+ suggesting that differences in the age-gross revenue relationship contribute to widening the gap.
+ 
+\end_layout
+
+\begin_layout Standard
+Overall,
+ the decomposition results indicate that gender gaps in gross revenue are only partly explained by observable differences in household and farm characteristics and a strong component of the gap remain structural.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float table
-placement class
-alignment document
+placement h
+alignment left
 wide false
-sideways true
+sideways false
 status collapsed
 
 \begin_layout Plain Layout
@@ -11220,7 +10967,14 @@ status collapsed
 \begin_layout Plain Layout
 
 \series bold
-Detailed threefold decomposition of maize productivity
+Aggregate Decomposition of Gross Sales Revenue 
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Threefold-aggregate-decompositio"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -11243,14 +10997,14 @@ begin{center}
 
 
 \backslash
-scriptsize
+small
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-begin{tabular}{lccc}
+begin{tabular}{lrr}
 \end_layout
 
 \begin_layout Plain Layout
@@ -11264,16 +11018,13 @@ hline
 
 \begin_layout Plain Layout
 
-Variable & Endowment & Male & Female 
-\backslash
-
-\backslash
-
 \end_layout
 
 \begin_layout Plain Layout
 
-& effect & Structural & Structural 
+ & Coefficient & Share of gap (
+\backslash
+%) 
 \backslash
 
 \backslash
@@ -11289,9 +11040,190 @@ hline
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\begin_layout Plain Layout
+
 
 \backslash
-Sexpr{latex_rows_threefold_prod}
+Sexpr{tab_nested_inc$Component[1]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc$Coefficient[1]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+multicolumn{1}{r}{---} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc$Component[2]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc$Coefficient[2]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc$Share_pct[2]}
+\backslash
+% 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc$Component[3]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc$Coefficient[3]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc$Share_pct[3]}
+\backslash
+% 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+quad 
+\backslash
+Sexpr{tab_nested_inc$Component[4]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc$Coefficient[4]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc$Share_pct[4]}
+\backslash
+% 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+quad 
+\backslash
+Sexpr{tab_nested_inc$Component[5]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc$Coefficient[5]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc$Share_pct[5]}
+\backslash
+% 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+N (male / female) &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+multicolumn{2}{r}{
+\backslash
+Sexpr{N_inc_male} / 
+\backslash
+Sexpr{N_inc_female}} 
+\backslash
+
+\backslash
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -11317,23 +11249,6 @@ end{tabular}
 end{center}
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-footnotesize
-\end_layout
-
-\begin_layout Plain Layout
-
-Note:
- The table reports the detailed threefold Oaxaca--Blinder decomposition for maize productivity with catchment-area fixed effects.
-\end_layout
-
 \end_inset
 
 
@@ -11342,53 +11257,12 @@ Note:
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-For maize gross revenue,
- the detailed decomposition shows a clearer role for observable endowments.
- Plot area is the largest positive contributor to the explained component,
- indicating that differences in cultivated area account for an important part of the gross revenue gap.
- Education plays a dual role in the gross revenue decomposition.
- On the one hand,
- the positive endowment component indicates that differences in educational attainment contribute to widening the gross revenue gap.
- On the other hand,
- the coefficient components associated with education are negative and statistically significant,
- suggesting that differences in the estimated returns to education reduce the gap.
- This pattern is consistent with the gender-specific OLS results,
- where education appears more strongly associated with maize gross revenue among female-headed households.
- In substantive terms,
- education may help female-headed households overcome some constraints in production and commercialization,
- although this interpretation remains descriptive rather than causal.
- The household size has a negative and statistically significant endowment contribution,
- indicating that differences in household size reduce rather than widen the gross revenue gap.
- By contrast,
- the coefficient component for the age of the household head is large,
- positive,
- and statistically significant,
- suggesting that differences in the age-gross revenue relationship contribute to widening the gap.
- Hybrid seed use does not emerge as a large or statistically significant contributor in the detailed decomposition,
- either for productivity or gross revenue.
- Instead,
- the broader quality seed variable appears more relevant for gross revenue,
- where it contributes positively to the explained component.
-\end_layout
-
-\begin_layout Standard
-Overall,
- the decomposition results indicate that gender gaps in maize productivity and gross revenue are only partly explained by observable differences in household and farm characteristics.
- Income disparities are more strongly linked to observable endowment differences,
- especially plot area and quality seed use,
- while productivity disparities appear less driven by any single observable input.
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float table
-placement class
+placement h
 alignment document
 wide false
-sideways true
-status open
+sideways false
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -11397,6 +11271,13 @@ status open
 
 \series bold
 Detailed twofold decomposition of maize gross revenue
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Detailed-twofold-decomposition"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -11511,153 +11392,6 @@ Note:
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Float table
-placement class
-alignment document
-wide false
-sideways true
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-
-\series bold
-Detailed threefold decomposition of maize gross revenue
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-scriptsize
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{tabular}{lccc}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-Variable & Endowment & Male & Female 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-& effect & Structural Advantage & Structural Disadvantage 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{latex_rows_threefold_inc}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{tabular}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-footnotesize
-\end_layout
-
-\begin_layout Plain Layout
-
-Note:
- The table reports the detailed threefold Oaxaca--Blinder decomposition for maize gross revenue with catchment-area fixed effects.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-The twofold detailed decomposition will be put in the appendix.
-\end_layout
-
-\begin_layout Subsection
-Impact of Adoption of improved maize seeds varieties:
- IV Results
-\end_layout
-
 \begin_layout Subsection
 Qualitative Evidence 
 \begin_inset CommandInset label
@@ -11666,32 +11400,34 @@ name "subsec:Qualitative-Evidence"
 
 \end_inset
 
-
+ 
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Comment
-status collapsed
-
-\begin_layout Plain Layout
-Interviews opened with participants’ own definitions of a female-headed household (...).
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-The qualitative results are organized around four analytical areas which correspond to the main mechanisms shaping the gender gap in agriculture that emerged during the discussion:
+The qualitative results are organized around four analytical areas which correspond to the main mechanisms shaping the gender gap in the analysed outcomes that emerged during the discussion:
  social norms and labor division;
  decision making processes;
  technology adoption and community perception;
  market dynamics.
+ As explained in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Data-and-Context"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ the contribution where from women-only,
+ male-only and mixed focus group discussion.
+ 
 \end_layout
 
-\begin_layout Paragraph
-Social norms and labor division
+\begin_layout Subsubsection
+Gendered time use and labour division
 \end_layout
 
 \begin_layout Standard
@@ -11700,8 +11436,7 @@ Across all focus groups,
  Both female and male participants consistently described a fixed and rigid division of labour,
  with farming roles framed as natural and socially prescribed.
  As one participant stated,
- “the roles of men are men’s and the ones for women are women’s” (KAWETE,
- male FGD).
+ “the roles of men are men’s and the ones for women are women’s” (men-only FGD).
  Male participants in particular described women as physically weaker and only suitable for lighter agricultural activities,
  such as planting,
  weeding,
@@ -11709,23 +11444,15 @@ Across all focus groups,
  while agricultural tasks requiring physical strength or technical judgment,
  like slashing and spraying,
  were explicitly associated with men:
- “Women are weak and can only manage weeding while the man can do everything” (BULUMWAKI,
- male FGD),
- and “the ones that require energy like preparations,
- slashing,
- removing the maize wastes (\SpecialChar ldots
-) even the ones that need thinking” (WAMULONGO,
- male FGD).
+ “Women are weak and can only manage weeding while the man can do everything” (men-only FGD).
  However,
  some female participants challenged this narrative emphasizing substantial changes over time.
- Particularly in female focus groups,
+ Particularly in women-only focus groups,
  women repeatedly stressed that they now take care of a wide range of agricultural activities traditionally associated with men.
  As one participant explained,
  “Nowadays even the women prepare land,
- burn grass and even slash” (MAWERERE,
- female FGD),
- while another added “what a man can do even the woman can do” (MUGGI,
- mixed FGD).
+ burn grass and even slash” (women-only FGD),
+ while another added “what a man can do even the woman can do” (mixed FGD).
 \end_layout
 
 \begin_layout Standard
@@ -11734,8 +11461,7 @@ Across focus groups,
  often working alongside children in the fields.
  As one female participant noted,
  “I and the children are the ones who work most because since we are done with his garden then he has not time at all to step on the joint garden (\SpecialChar ldots
-) He returns in the night when you are done working” (BUKAYE,
- female FGD).
+) He returns in the night when you are done working” (women-only FGD).
  Women’s agricultural labour remains closely tied to care-giving roles,
  even as they increasingly take on tasks previously considered male and rather than replacing existing domestic responsibilities,
  it was added on top of them,
@@ -11743,9 +11469,9 @@ Across focus groups,
  Women described delayed arrival to maize plots,
  shorter working hours,
  and early departure due to household obligations.
- These qualitative insights suggest that social constraints women's time and labour division contribute to gender gaps in maize productivity and gross revenue,
- especially in female-headed households,
- where husbands are generally absent less involved in daily farming and household activities.
+ These qualitative insights suggest that social constraints limit women's time and labour division and could contribute to gender gaps in maize productivity and gross revenue.
+ These constraints may be particularly significant for FHH,
+ where husbands are generally absent or less involved in daily farming and household activities.
 \end_layout
 
 \begin_layout Standard
@@ -11754,14 +11480,11 @@ Despite this heavy workload,
  framing them as natural and inherent to being a woman.
  As one participant explained,
  “God prepared us as women that you cannot leave home without sweeping the house,
- have not cleaned the compound and the kitchen” (BUDHUBYE,
- female FGD).
+ have not cleaned the compound and the kitchen” (women-only FGD).
  Similarly,
  women across different focus groups emphasized the inevitability of these roles:
- “I see they do affect me but still I have no choice” (MUGGI,
- mixed FGD),
- and “those roles are naturally mine and I have to do them whether I want to or do not want to” (MUGGI,
- mixed FGD).
+ “I see they do affect me but still I have no choice” (mixed FGD),
+ and “those roles are naturally mine and I have to do them whether I want to or do not want to” (mixed FGD).
 \end_layout
 
 \begin_layout Standard
@@ -11773,36 +11496,28 @@ While some men,
  “they want us to have equal share of things but they are lazy (\SpecialChar ldots
 ) and tend to cheat us in that way,
  you may be digging the fourth or fifth row and yet she will do only three rows and say she is heading back home,
- I am going to prepare home” (ITANDA,
- mixed FGD).
+ I am going to prepare home” (mixed FGD).
  These perceptions were directly linked to agricultural outcomes,
- with participants concluding that “This leads to poor farm management and low yields” (ITANDA,
- mixed FGD).
-\end_layout
-
-\begin_layout Standard
-Consistent with this framing,
+ with participants concluding that “This leads to poor farm management and low yields” (mixed FGD).
+ Consistent with this framing,
  male participants often interpreted women’s childcare responsibilities,
  such as breastfeeding,
  not as binding constraints but as excuses for rest or reduced effort.
  As one man put it,
  “When she holds the baby she will be using it as an excuse to sit (\SpecialChar ldots
-) It helps her to just sit there and rest” (WAMULONGO,
- male FGD).
- In more than one female-only interview,
+) It helps her to just sit there and rest” (men-only FGD).
+ In more than one women-only interview,
  we observed that women’s time constraints extend beyond agricultural and domestic labour to include expectations of sexual availability,
  revealing how gender norms structure both productive work and bodily autonomy:
- “By the time you leave the garden then you cook and then bath the children and then you find that you leave the garden when you are tired and eat supper while tired and then go to bed when you are tired and then the man will start saying that I want to have sex.” (BUKAYE,
- female FGD).
- When taken together,
- these dynamics point to unobserved constraints on women's time allocation that shape their productive capacity,
- helping in understanding underlying mechanism explaining gender gaps in maize productivity and gross revenue that standard quantitative measures do not capture.
- The qualitative evidence on women’s time constraints and care responsibilities helps contextualize the differential returns component identified for female-headed households in the decomposition,
+ “By the time you leave the garden then you cook and then bath the children and then you find that you leave the garden when you are tired and eat supper while tired and then go to bed when you are tired and then the man will start saying that I want to have sex.” (women-only FGD).
+ Taken together,
+ these accounts indicate that women’s agricultural work is carried out under substantial time and care constraints that are not directly measured in the quantitative data.
+ The qualitative evidence on women’s time constraints and care responsibilities helps contextualize the differential returns component identified for FHH in the decomposition,
  as similar input levels may translate into lower effective supervision and productivity outcomes.
 \end_layout
 
-\begin_layout Paragraph
-Decision making processes
+\begin_layout Subsubsection
+Decision-making and control over agricultural resources
 \end_layout
 
 \begin_layout Standard
@@ -11830,7 +11545,7 @@ The discussions with the smallholder farmers also suggest that gendered norms ar
 
 \begin_layout Standard
 Income decisions followed similar patterns.
- Female focus groups stressed that men retain control over harvests despite limited labor contribution.
+ Only-women focus groups stressed that men retain control over harvests despite limited labor contribution.
  In jointly managed plots,
  gross revenue from maize sales was often described as discussed within the household,
  yet men frequently had the final say.
@@ -11844,8 +11559,7 @@ My husband is the one who decides because there is no way you can decide for him
 \begin_inset Quotes erd
 \end_inset
 
- (BUDHUBYE,
- female FGD).
+ (women-only FGD).
  Along similar lines,
  some male participants stated that:
  
@@ -11856,7 +11570,7 @@ The household decisions are not made by a woman because it becomes a dead househ
 \begin_inset Quotes erd
 \end_inset
 
-(village) reflecting strict norms about male authority over gross revenue.
+(men-only FGD) reflecting strict norms about male authority over gross revenue.
  In contrast,
  women more often reported control over gross revenue generated from plots they managed independently.
  Women’s control over maize gross revenue is sometimes justified through gendered moral narratives that frame women as more responsible household managers than men.
@@ -11871,12 +11585,24 @@ with that I have the right to decide on my own and that since I have sold this m
 \begin_inset Quotes erd
 \end_inset
 
- (BUDHUBYE,
- female FGD).
+ (women-only FGD).
+ 
 \end_layout
 
-\begin_layout Paragraph
-Technology adoption and community perception
+\begin_layout Standard
+These findings about decision-making process do not directly explain the gross revenue gap between MHH and FHH,
+ but they show that household-level revenue does not necessarily indicate who controls or benefits from the proceeds,
+ particularly within MHH.
+ Additionally,
+ they suggest that female headship may give women more direct control over farming and sales decisions,
+ while women in MHH may contribute substantially without having the final say.
+ However,
+ greater decision-making autonomy in FHH does not necessarily imply greater access to the resources needed to implement those decisions or better agricultural outcomes,
+ as evidence suggests that women who exercise visible autonomy may face suspicion or social disapproval from the wider community.
+\end_layout
+
+\begin_layout Subsubsection
+Technology adoption and social sanctions
 \end_layout
 
 \begin_layout Standard
@@ -11889,31 +11615,27 @@ Participants described the adoption of new technologies,
  witchcraft was mentioned regularly when discussing individuals who achieved higher yields.
  As one participant explained,
  “we start to say that one is a ‘mukuluzi’—
-the one who pulls all other people’s yields to his or her own garden” (BUDHUBYE,
- female FGD),
- while another added that “they say the woman uses witchcraft to collect all the maize from the neighbor’s gardens” (NALWEGOLOILE,
- mixed FGD).
+the one who pulls all other people’s yields to his or her own garden” (women-only FGD),
+ while another added that “they say the woman uses witchcraft to collect all the maize from the neighbor’s gardens” (mixed FGD).
  In particular,
  female headed households were sometimes portrayed as violating accepted gender roles when adopting new technology.
  As participants reported,
  “they say that woman is unmanageable,
- she is a woman who is a man” (BULUMWAKI,
- male FGD),
+ she is a woman who is a man” (men-only FGD),
  and “she is the one wearing the trouser,
- the man is wearing the skirt” (ITANDA,
- mixed FGD).
+ the man is wearing the skirt” (mixed FGD).
  In female-only discussions,
  women underlined that economic success may lead to social scrutiny for women,
- as village members often questioned whether a woman who earned substantial gross revenue through farming would remain manageable within the household (BUKAYE,
- female FGD).
+ as village members often questioned whether a woman who earned substantial gross revenue through farming would remain manageable within the household (women-only FGD).
  Overall,
  social reputation and community moral judgment serve as informal constraints on technology adoption for both women and men,
  resulting in uneven diffusion across households.
  These narratives imply that technology adoption is viewed as a practice grounded in community norms,
  rather than a neutral technical choice.
+ These informal social sanctions may therefore help contextualize both gender differences in access to and adoption of productive technologies and differences in the returns generated from similar endowments.
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Subsubsection
 Market dynamics
 \end_layout
 
@@ -11927,11 +11649,9 @@ Across focus groups,
  especially when interacting with women,
  who are regarded to be less knowledgeable about current market values.
  As one participant noted,
- “there is a difference as women are cheated because they think women are not knowledgeable” (Bubeto,
- male FGD).
+ “there is a difference as women are cheated because they think women are not knowledgeable” (men-only FGD).
  Others linked this directly to mobility and access to information,
- stressing that men are believed to be more informed because “men listen to the radios and get latest price updates” (Kigulamo,
- mixed male,
+ stressing that men are believed to be more informed because “men listen to the radios and get latest price updates” (mixed male,
  FGD).
  Price discrimination was described not only in terms of lower offered prices,
  but through manipulation of weighing scales.
@@ -11940,9 +11660,8 @@ Across focus groups,
  Consequently,
  some men explicitly stated that women should not sell maize independently to avoid being cheated,
  as illustrated by one participant who explained,
- “my wife does not sell without me being around because I don’t want her to be cheated” (Bulumwaki,
- male FGD).
- These market dynamics may lead to structural gross revenue discrepancies between female and male-headed families,
+ “my wife does not sell without me being around because I don’t want her to be cheated” (men-only FGD).
+ These market dynamics may lead to structural gross revenue discrepancies between MHH and FHH,
  as maize sales in female-headed homes are typically handled by women,
  who are thus more vulnerable to gendered forms of price discrimination.
  In these circumstances,
@@ -11952,28 +11671,13 @@ Across focus groups,
  reducing knowledge gaps and limiting opportunistic behavior.
  As one participant explained,
  “that is why you see we want to all join groups,
- in a group\SpecialChar ldots
- they give you the same price—
-the man and I the woman” (BUKAYE,
- female FGD).
+ in a group they give you the same price—
+the man and I the woman” (women-only FGD).
  
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Comment
-status open
-
-\begin_layout Plain Layout
-Add something that is broadly linked to Adoption of new seeds varieties
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
-Discussion and Limitations 
+Discussion and Conclusions 
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Discussion-and-Limitations"
@@ -11984,7 +11688,185 @@ name "sec:Discussion-and-Limitations"
 \end_layout
 
 \begin_layout Standard
-This section will be further developed in the final version of the MSc thesis.
+This study uses a mixed-methods approach to understand the gender gaps in maize productivity and gross sales revenue between male-headed households (MHH) and female-headed households (FHH) in the Busoga region of Eastern Uganda.
+ Despite the extensive literature,
+ there is still no consensus on whether gender gaps in agricultural outcomes are mainly driven by observable differences in resources and input use or by structural factors that remain after these characteristics are taken into account.
+ Some studies find that the gap largely disappears after controlling for endowments access whereas others find that a substantial gap persists.
+ Oseni et al.
+ (2015) further demonstrate that the relative importance of the two components may vary considerably within the same country.
+ This study revisits and expand this debate using mixed-methods evidence from Eastern Uganda.
+\end_layout
+
+\begin_layout Standard
+Regarding productivity,
+ the raw OLS estimates show that MHH achieve higher outcomes in both areas.
+ These gaps remain statistically significant after controlling for household characteristics,
+ farm resources,
+ and input use,
+ and they also persist in the pooled estimates across survey rounds.
+ For maize productivity,
+ the raw estimates indicate that MHH achieve approximately 20% higher productivity than FHH(β=0.199).
+ Despite using a different indicator,
+ this result is consistent with De la O Campos et al.
+ (2016),
+ who report a difference in mean log productivity between plots managed by male and female headed households of 0.177,
+ corresponding to a gap of approximately 19.4%.
+ The results show that the gap decreases after controls but remains positive and statistically significant in the pooled estimates.
+ These results support H1 and show that observable differences do not fully account for the lower productivity of FHH.
+ 
+\end_layout
+
+\begin_layout Standard
+The Oaxaca–Blinder decomposition of the productivity gap provides further support for H1 and H2:
+ endowment differences explain about 22% of the productivity gap,
+ while the coefficient component accounts for about 78%.
+ This result is close to Aguilar et al.
+ (2015),
+ who find that the structural component explains 57.6% of the productivity gap in Ethiopia,
+ and to Slavchevska (2015),
+ who shows that observable characteristics partly offset a larger coefficient disadvantage in Tanzania.
+ It contrasts with Kilic et al.
+ (2015) and de la O Campos et al.
+ (2016),
+ who find that endowments explain most of the productivity gap in Malawi and Uganda.
+ Part of this difference may come from the gender indicator used (De la O campos,
+ 2016).
+ These studies often compare male- and female-managed plots,
+ while this study compares MHH and FHH.
+ Results may also vary with the set of covariates available.
+ The detailed O-B decomposition shows that the coefficient component does not reflect lower estimated returns for FHH across every input.
+ For instance,
+ the lower education among FHH widens the productivity gap through the endowment component,
+ but the coefficient contribution of education reduces the gap.
+ This confirm the OLS estimates,
+ where education is more strongly associated with productivity among FHH.
+ As explained by Croppenstedt et al.
+ (2013) education constitutes an important channel through which women access information,
+ extension services,
+ credit,
+ and agricultural technologies.
+\end_layout
+
+\begin_layout Standard
+Qualitatively,
+ focus-group findings provide useful context to understand the productivity gap.
+ Women described combining farming with childcare,
+ food preparation,
+ and other domestic duties.
+ They reported arriving later at the plot,
+ leaving earlier,
+ and having less time to supervise agricultural work.
+ They also explained that they increasingly perform tasks traditionally assigned to men without giving up their existing household responsibilities.
+ These findings are consistent with research on time poverty and care responsibilities in agriculture (Ali et al.,
+ 2016;
+ Sell et al.,
+ 2018;
+ Pierotti et al.,
+ 2022;
+ Donald et al.,
+ 2023).
+ They are also consistent with the mechanism formalized by Palacios-López and López (2015) discussed in the theoretical framework in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:2-Theoretical-Framework and Hypotesis-1"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ The qualitative evidence points to constraints that are not captured by the survey variables and inform the analysis on the structural mechanism underlying the observed gap.
+\end_layout
+
+\begin_layout Standard
+The results for gross revenue supports H3:
+ the raw estimates indicate that MHH earn approximately 1.016 IHS units more gross sales revenue than FHH.
+ The gap falls to about 0.633 after controls,
+ but remains large and statistically significant.
+ The pooled estimate also remains positive and significant.
+ 
+\end_layout
+
+\begin_layout Standard
+The O-B decomposition provides support for H4:
+ endowments explain about 41% of the revenue gap,
+ while the coefficient component accounts for about 59%.
+ Endowments therefore matter more for revenue than for productivity,
+ but they still do not explain the full gap.
+ This result is consistent with Dandonougbo et al.
+ (2023),
+ Gebre et al.
+ (2021),
+ and Marenya et al.
+ (2017),
+ who also find an important role for coefficient differences in agricultural income and maize market participation.
+ In fact,
+ despite focusing on male and female plot owners,
+ Dandonougbo et al.
+ (2023) find that 58.5% of the average farm gross revenue gap in Togo is accounted for by structural advantages enjoyed by male farmers.
+ Through the detailed decomposition we see that plot area is the main positive contributor to the revenue endowment component.
+ FHH cultivate smaller plots,
+ which limits the amount of maize available for sale.
+ This is consistent with the findings of Mkuna and Wale (2023).
+ Similarly to the effect on productivity,
+ education widen the endowment gap but has negative coefficient contribution because it is more strongly associated with revenue among FHH in the separate OLS estimates.
+ Quality-seed use,
+ by contrast,
+ contributes positively to both the endowment and coefficient components.
+ Overall,
+ the detailed results show several effects working in opposite directions rather than one uniform pattern of lower returns among FHH.
+ 
+\end_layout
+
+\begin_layout Standard
+The focus-group evidence adds further context to the findings about revenue gap.
+ The social stigma surrounding women’s technology adoption may discourage women from adopting investment in new technology and new inputs,
+ such as new quality seeds.
+ Moreover,
+ participants reported that women often had less access to current price information and faced a higher risk of receiving lower offers and being cheated.
+ This is consistent with studies showing that agricultural information often circulates through gendered networks that are more accessible to male farmers (Mekonnen et al.,
+ 2018;
+ Mullally et al.,
+ 2022;
+ Caldarola et al.,
+ 2022;
+ Dickinson & Koo,
+ 2022).
+ This is also consistent with the decomposition results,
+ which show that education plays an important role in the revenue gap,
+ particularly through differences in educational endowments between MHH and FHH.
+ Participants also described the manipulation of weighing scales and the belief among buyers that women were easier to deceive.
+ Some therefore preferred women to sell with a man present,
+ which is particularly difficult for FHH without a resident male partner.
+ The limited access together with women’s weak bargaining power,
+ restrict their ability to increase agricultural earnings,
+ and leave FHH with fewer alternative sources of income (Dickinson & Koo,
+ 2022).
+ 
+\end_layout
+
+\begin_layout Standard
+Overall,
+ the main findings support all four hypotheses.
+ MHH achieves higher maize productivity and gross sales revenue than FHH,
+ and both gaps remain after observable characteristics are taken into account.
+ The coefficient component is larger for both outcomes in the main IHS specifications,
+ although land,
+ education,
+ and input access remain important,
+ especially for revenue.
+ Improving women’s access to productive resources is therefore necessary,
+ but it may not be sufficient.
+ Policies should also address time constraints,
+ access to information and unequal treatment in maize markets.
+ Education stood out as a powerful tool to diminish both gaps thanks to the high returns on both productivity and revenue.
+ The combined quantitative and qualitative evidence supports the broader argument developed in the theoretical framework:
+ gender gaps depend not only on which resources households possess,
+ but also on the social conditions under which FHH can access,
+ use,
+ and benefit from those resources.
 \end_layout
 
 \begin_layout Standard
@@ -12005,11 +11887,11 @@ Given the substantial benefits of modern agricultural technologies,
 
 \end_layout
 
-\begin_layout Section
-Conclusions
+\begin_layout Section*
+8 Limitations and Future Research
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:Conclusions"
+name "sec:8-Limitations-and"
 
 \end_inset
 
@@ -12017,30 +11899,45 @@ name "sec:Conclusions"
 \end_layout
 
 \begin_layout Standard
-This section will be further developed in the final version of the MSc thesis.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Comment
-status open
-
-\begin_layout Plain Layout
-The study advances the literature by giving new context-specific evidence on potential gender-differentiated outcomes in smallholder maize farming,
- with particular attention to the role of hybrid seed varieties adoption as a key driver of agricultural performance.
+The study advances the literature by giving new context-specific evidence on potential gender-differentiated outcomes in smallholder maize farming.
  The findings have policy implications for equitable productivity and gross revenue outcomes in maize production in Eastern Uganda.
 \end_layout
 
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-Acknowledgments
+\begin_layout Standard
+- The benchmark in the threefold decomposition:
+ the allocation of the coefficient component into male and female coefficient components is sensitive to the choice of benchmark.
+ 
 \end_layout
 
 \begin_layout Standard
-This section will be further developed in the final version of the MSc thesis.
+- Interesting to look at the distribution (RIF):
+ Although Aguilar et al.
+ find that more than half of the productivity gap is related to structural issues,
+ age and years of schooling are significant effects only at the higher levels of productivity.
+ 
+\end_layout
+
+\begin_layout Standard
+- Choice of indicator:
+ As highlighted in the literature,
+ aggregate decomposition results vary across crops and contexts,
+ and the relative contribution of endowment and structural effects depends on how gender is conceptualized,
+ whether in terms of household heads,
+ plot holders,
+ or farm managers (De la O Campos et al.,
+ 2016).
+ 
+\end_layout
+
+\begin_layout Standard
+- Unobserved data not computed in the equation,
+ such as agro-ecological conditions may emain captured in the returns component (Fortin et al.,
+ 2011).
+ But also the endowments could be generated by structural disequalities.
+\end_layout
+
+\begin_layout Section
+Acknowledgements
 \end_layout
 
 \begin_layout Standard
@@ -12802,31 +12699,19 @@ World Bank.
 Appendix
 \end_layout
 
-\begin_layout Standard
-This section will be further developed in the final version of the MSc thesis.
+\begin_layout Subsection
+Overlap in estimated propensity scores at baseline for MHH and FHH
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-original:
+Productivity:
  
 \begin_inset Float table
-placement class
-alignment document
+placement H
+alignment left
 wide false
-sideways true
+sideways false
 status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Float table
-placement class
-alignment document
-wide false
-sideways true
-status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -12834,7 +12719,539 @@ status open
 \begin_layout Plain Layout
 
 \series bold
-Oaxaca – Blinder detailed decomposition of the gender gap in maize productivity
+Aggregate Decomposition of Maize Productivity(in levels)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Aggregate Decomposition of Maize Productivity (Levels,
+ Trimmed)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+small
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{lrr}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+ & Coefficient & Share of gap (
+\backslash
+%) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_prod_lvl$Component[1]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_prod_lvl$Coefficient[1]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_prod_lvl$Share_pct[1]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_prod_lvl$Component[2]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_prod_lvl$Coefficient[2]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_prod_lvl$Share_pct[2]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_prod_lvl$Component[3]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_prod_lvl$Coefficient[3]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_prod_lvl$Share_pct[3]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+quad 
+\backslash
+Sexpr{tab_nested_prod_lvl$Component[4]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_prod_lvl$Coefficient[4]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_prod_lvl$Share_pct[4]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+quad 
+\backslash
+Sexpr{tab_nested_prod_lvl$Component[5]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_prod_lvl$Coefficient[5]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_prod_lvl$Share_pct[5]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+N (male / female) & 
+\backslash
+multicolumn{2}{r}{
+\backslash
+Sexpr{N_prod_male_lvl} / 
+\backslash
+Sexpr{N_prod_female_lvl}} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Revenue:
+\begin_inset Float table
+placement H
+alignment left
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+Aggregate Decomposition of Gross Sales Revenue (in levels)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Aggregate Decomposition of Maize Gross Revenue (Levels,
+ Trimmed)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+small
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{lrr}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+ & Coefficient & Share of gap (
+\backslash
+%) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_lvl$Component[1]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_lvl$Coefficient[1]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_lvl$Share_pct[1]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_lvl$Component[2]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_lvl$Coefficient[2]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_lvl$Share_pct[2]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_lvl$Component[3]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_lvl$Coefficient[3]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_lvl$Share_pct[3]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+quad 
+\backslash
+Sexpr{tab_nested_inc_lvl$Component[4]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_lvl$Coefficient[4]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_lvl$Share_pct[4]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+quad 
+\backslash
+Sexpr{tab_nested_inc_lvl$Component[5]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_lvl$Coefficient[5]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_lvl$Share_pct[5]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+N (male / female) & 
+\backslash
+multicolumn{2}{r}{
+\backslash
+Sexpr{N_inc_male_lvl} / 
+\backslash
+Sexpr{N_inc_female_lvl}} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+footnotesize Note:
+ outcome measured in original units (thousands UGX),
+ extreme values trimmed at the 1st/99th percentile of bags sold and bag price.
+ Not directly comparable in magnitude to the IHS-transformed decomposition;
+ only the shares of the gap (
+\backslash
+%) are comparable across specifications.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment left
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+Aggregate Decomposition of Gross Sales Revenue (in levels) among sellers
 \end_layout
 
 \end_inset
@@ -12850,43 +13267,21 @@ status open
 
 
 \backslash
-centering
+begin{center}
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-footnotesize
+small
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-setlength{
-\backslash
-tabcolsep}{4pt}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-renewcommand{
-\backslash
-arraystretch}{1.1}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{tabular}{lrrr}
+begin{tabular}{lrr}
 \end_layout
 
 \begin_layout Plain Layout
@@ -12894,16 +13289,19 @@ begin{tabular}{lrrr}
 
 \backslash
 hline
+\backslash
+hline
 \end_layout
 
 \begin_layout Plain Layout
 
+\end_layout
 
+\begin_layout Plain Layout
+
+ & Coefficient & Share of gap (
 \backslash
-multicolumn{4}{l}{
-\backslash
-textbf{Detailed decomposition —
- Maize productivity (IHS)}}
+%) 
 \backslash
 
 \backslash
@@ -12919,10 +13317,164 @@ hline
 
 \begin_layout Plain Layout
 
-Variable & Endowment effect & Male structural advantage & Female structural disadvantage 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_sellers_lvl$Component[1]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_sellers_lvl$Coefficient[1]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_sellers_lvl$Share_pct[1]}
+\backslash
+% 
 \backslash
 
 \backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_sellers_lvl$Component[2]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_sellers_lvl$Coefficient[2]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_sellers_lvl$Share_pct[2]}
+\backslash
+% 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_sellers_lvl$Component[3]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_sellers_lvl$Coefficient[3]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_sellers_lvl$Share_pct[3]}
+\backslash
+% 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+quad 
+\backslash
+Sexpr{tab_nested_inc_sellers_lvl$Component[4]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_sellers_lvl$Coefficient[4]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_sellers_lvl$Share_pct[4]}
+\backslash
+% 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+quad 
+\backslash
+Sexpr{tab_nested_inc_sellers_lvl$Component[5]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_sellers_lvl$Coefficient[5]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_sellers_lvl$Share_pct[5]}
+\backslash
+% 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 
@@ -12935,15 +13487,33 @@ hline
 
 \begin_layout Plain Layout
 
+N (male / female) &
+\end_layout
+
+\begin_layout Plain Layout
+
 
 \backslash
-Sexpr{tab_det_prod_star$Variable[1]}  & 
+multicolumn{2}{r}{
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
-Sexpr{tab_det_prod_star$Endowment[1]}  & 
+Sexpr{N_inc_sellers_male} /
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
-Sexpr{tab_det_prod_star$Male_adv[1]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Female_dis[1]} 
+Sexpr{N_inc_sellers_female}
+\end_layout
+
+\begin_layout Plain Layout
+
+} 
 \backslash
 
 \backslash
@@ -12951,240 +13521,6 @@ Sexpr{tab_det_prod_star$Female_dis[1]}
 \end_layout
 
 \begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_prod_star$Variable[2]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Endowment[2]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Male_adv[2]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Female_dis[2]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_prod_star$Variable[3]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Endowment[3]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Male_adv[3]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Female_dis[3]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_prod_star$Variable[4]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Endowment[4]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Male_adv[4]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Female_dis[4]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_prod_star$Variable[5]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Endowment[5]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Male_adv[5]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Female_dis[5]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_prod_star$Variable[6]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Endowment[6]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Male_adv[6]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Female_dis[6]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_prod_star$Variable[7]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Endowment[7]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Male_adv[7]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Female_dis[7]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_prod_star$Variable[8]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Endowment[8]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Male_adv[8]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Female_dis[8]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_prod_star$Variable[9]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Endowment[9]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Male_adv[9]}  & 
-\backslash
-Sexpr{tab_det_prod_star$Female_dis[9]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_prod_star$Variable[10]} & 
-\backslash
-Sexpr{tab_det_prod_star$Endowment[10]} & 
-\backslash
-Sexpr{tab_det_prod_star$Male_adv[10]} & 
-\backslash
-Sexpr{tab_det_prod_star$Female_dis[10]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_prod_star$Variable[11]} & 
-\backslash
-Sexpr{tab_det_prod_star$Endowment[11]} & 
-\backslash
-Sexpr{tab_det_prod_star$Male_adv[11]} & 
-\backslash
-Sexpr{tab_det_prod_star$Female_dis[11]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_prod_star$Variable[12]} & 
-\backslash
-Sexpr{tab_det_prod_star$Endowment[12]} & 
-\backslash
-Sexpr{tab_det_prod_star$Male_adv[12]} & 
-\backslash
-Sexpr{tab_det_prod_star$Female_dis[12]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_prod_star$Variable[13]} & 
-\backslash
-Sexpr{tab_det_prod_star$Endowment[13]} & 
-\backslash
-Sexpr{tab_det_prod_star$Male_adv[13]} & 
-\backslash
-Sexpr{tab_det_prod_star$Female_dis[13]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_prod_star$Variable[14]} & 
-\backslash
-Sexpr{tab_det_prod_star$Endowment[14]} & 
-\backslash
-Sexpr{tab_det_prod_star$Male_adv[14]} & 
-\backslash
-Sexpr{tab_det_prod_star$Female_dis[14]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_prod_star$Variable[15]} & 
-\backslash
-Sexpr{tab_det_prod_star$Endowment[15]} & 
-\backslash
-Sexpr{tab_det_prod_star$Male_adv[15]} & 
-\backslash
-Sexpr{tab_det_prod_star$Female_dis[15]} 
-\backslash
-
-\backslash
 
 \end_layout
 
@@ -13193,28 +13529,6 @@ Sexpr{tab_det_prod_star$Female_dis[15]}
 
 \backslash
 hline
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-multicolumn{4}{l}{
-\backslash
-footnotesize Notes:
- Stars denote significance based on bootstrapped SEs:
- *** p<0.01,
- ** p<0.05,
- * p<0.10.} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
 \backslash
 hline
 \end_layout
@@ -13226,9 +13540,38 @@ hline
 end{tabular}
 \end_layout
 
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
 \end_inset
 
 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment left
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+Aggregate Decomposition of participation in the market (in IHS) 
 \end_layout
 
 \end_inset
@@ -13244,43 +13587,21 @@ status open
 
 
 \backslash
-centering
+begin{center}
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-footnotesize
+small
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-setlength{
-\backslash
-tabcolsep}{4pt}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-renewcommand{
-\backslash
-arraystretch}{1.1}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{tabular}{lrrr}
+begin{tabular}{lrr}
 \end_layout
 
 \begin_layout Plain Layout
@@ -13288,16 +13609,19 @@ begin{tabular}{lrrr}
 
 \backslash
 hline
+\backslash
+hline
 \end_layout
 
 \begin_layout Plain Layout
 
+\end_layout
 
+\begin_layout Plain Layout
+
+ & Probability gap & Share of gap (
 \backslash
-multicolumn{4}{l}{
-\backslash
-textbf{Detailed decomposition —
- Maize income (IHS)}}
+%) 
 \backslash
 
 \backslash
@@ -13313,10 +13637,98 @@ hline
 
 \begin_layout Plain Layout
 
-Variable & Endowment effect & Male structural advantage & Female structural disadvantage 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext_logit$Component[1]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext_logit$Coefficient[1]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext_logit$Share_pct[1]}
+\backslash
+% 
 \backslash
 
 \backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext_logit$Component[2]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext_logit$Coefficient[2]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext_logit$Share_pct[2]}
+\backslash
+% 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext_logit$Component[3]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext_logit$Coefficient[3]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext_logit$Share_pct[3]}
+\backslash
+% 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 
@@ -13329,15 +13741,39 @@ hline
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\begin_layout Plain Layout
+
+Participation rate (male / female) &
+\end_layout
+
+\begin_layout Plain Layout
+
 
 \backslash
-Sexpr{tab_det_inc_star$Variable[1]}  & 
+multicolumn{2}{r}{
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
-Sexpr{tab_det_inc_star$Endowment[1]}  & 
+Sexpr{sprintf("%.3f",
+ rate_ext_logit_male)} /
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
-Sexpr{tab_det_inc_star$Male_adv[1]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Female_dis[1]} 
+Sexpr{sprintf("%.3f",
+ rate_ext_logit_female)}
+\end_layout
+
+\begin_layout Plain Layout
+
+} 
 \backslash
 
 \backslash
@@ -13346,15 +13782,37 @@ Sexpr{tab_det_inc_star$Female_dis[1]}
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\begin_layout Plain Layout
+
+N (male / female) &
+\end_layout
+
+\begin_layout Plain Layout
+
 
 \backslash
-Sexpr{tab_det_inc_star$Variable[2]}  & 
+multicolumn{2}{r}{
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
-Sexpr{tab_det_inc_star$Endowment[2]}  & 
+Sexpr{N_ext_logit_male} /
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
-Sexpr{tab_det_inc_star$Male_adv[2]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Female_dis[2]} 
+Sexpr{N_ext_logit_female}
+\end_layout
+
+\begin_layout Plain Layout
+
+} 
 \backslash
 
 \backslash
@@ -13362,223 +13820,6 @@ Sexpr{tab_det_inc_star$Female_dis[2]}
 \end_layout
 
 \begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_inc_star$Variable[3]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Endowment[3]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Male_adv[3]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Female_dis[3]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_inc_star$Variable[4]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Endowment[4]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Male_adv[4]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Female_dis[4]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_inc_star$Variable[5]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Endowment[5]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Male_adv[5]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Female_dis[5]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_inc_star$Variable[6]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Endowment[6]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Male_adv[6]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Female_dis[6]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_inc_star$Variable[7]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Endowment[7]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Male_adv[7]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Female_dis[7]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_inc_star$Variable[8]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Endowment[8]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Male_adv[8]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Female_dis[8]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_inc_star$Variable[9]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Endowment[9]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Male_adv[9]}  & 
-\backslash
-Sexpr{tab_det_inc_star$Female_dis[9]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_inc_star$Variable[10]} & 
-\backslash
-Sexpr{tab_det_inc_star$Endowment[10]} & 
-\backslash
-Sexpr{tab_det_inc_star$Male_adv[10]} & 
-\backslash
-Sexpr{tab_det_inc_star$Female_dis[10]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_inc_star$Variable[11]} & 
-\backslash
-Sexpr{tab_det_inc_star$Endowment[11]} & 
-\backslash
-Sexpr{tab_det_inc_star$Male_adv[11]} & 
-\backslash
-Sexpr{tab_det_inc_star$Female_dis[11]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_inc_star$Variable[12]} & 
-\backslash
-Sexpr{tab_det_inc_star$Endowment[12]} & 
-\backslash
-Sexpr{tab_det_inc_star$Male_adv[12]} & 
-\backslash
-Sexpr{tab_det_inc_star$Female_dis[12]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_inc_star$Variable[13]} & 
-\backslash
-Sexpr{tab_det_inc_star$Endowment[13]} & 
-\backslash
-Sexpr{tab_det_inc_star$Male_adv[13]} & 
-\backslash
-Sexpr{tab_det_inc_star$Female_dis[13]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_inc_star$Variable[14]} & 
-\backslash
-Sexpr{tab_det_inc_star$Endowment[14]} & 
-\backslash
-Sexpr{tab_det_inc_star$Male_adv[14]} & 
-\backslash
-Sexpr{tab_det_inc_star$Female_dis[14]} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_det_inc_star$Variable[15]} & 
-\backslash
-Sexpr{tab_det_inc_star$Endowment[15]} & 
-\backslash
-Sexpr{tab_det_inc_star$Male_adv[15]} & 
-\backslash
-Sexpr{tab_det_inc_star$Female_dis[15]} 
-\backslash
-
-\backslash
 
 \end_layout
 
@@ -13587,28 +13828,6 @@ Sexpr{tab_det_inc_star$Female_dis[15]}
 
 \backslash
 hline
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-multicolumn{4}{l}{
-\backslash
-footnotesize Notes:
- Stars denote significance based on bootstrapped SEs:
- *** p<0.01,
- ** p<0.05,
- * p<0.10.} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
 \backslash
 hline
 \end_layout
@@ -13620,9 +13839,11 @@ hline
 end{tabular}
 \end_layout
 
-\end_inset
+\begin_layout Plain Layout
 
 
+\backslash
+end{center}
 \end_layout
 
 \end_inset
@@ -13632,6 +13853,608 @@ end{tabular}
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment left
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+Aggregate Decomposition of Gross Sales Revenue (in IHS) among sellers
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+small
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{lrr}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & Coefficient & Share of gap (
+\backslash
+%) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_sellers_ihs$Component[1]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_sellers_ihs$Coefficient[1]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_sellers_ihs$Share_pct[1]}
+\backslash
+% 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_sellers_ihs$Component[2]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_sellers_ihs$Coefficient[2]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_sellers_ihs$Share_pct[2]}
+\backslash
+% 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_sellers_ihs$Component[3]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_sellers_ihs$Coefficient[3]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_sellers_ihs$Share_pct[3]}
+\backslash
+% 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+quad 
+\backslash
+Sexpr{tab_nested_inc_sellers_ihs$Component[4]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_sellers_ihs$Coefficient[4]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_sellers_ihs$Share_pct[4]}
+\backslash
+% 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+quad 
+\backslash
+Sexpr{tab_nested_inc_sellers_ihs$Component[5]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_sellers_ihs$Coefficient[5]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_sellers_ihs$Share_pct[5]}
+\backslash
+% 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+N (male / female) &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+multicolumn{2}{r}{
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{N_inc_sellers_ihs_male} /
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{N_inc_sellers_ihs_female}
+\end_layout
+
+\begin_layout Plain Layout
+
+} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Detailed tables threefold:
+\begin_inset Float table
+placement class
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+Detailed threefold decomposition of maize productivity
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+scriptsize
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{lccc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+Variable & Endowment & Male & Female 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& effect & Structural & Structural 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{latex_rows_threefold_prod}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+footnotesize
+\end_layout
+
+\begin_layout Plain Layout
+
+Note:
+ The table reports the detailed threefold Oaxaca--Blinder decomposition for maize productivity with catchment-area fixed effects.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float table
+placement class
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+Detailed threefold decomposition of maize gross revenue
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+scriptsize
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{lccc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+Variable & Endowment & Male & Female 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& effect & Structural Advantage & Structural Disadvantage 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{latex_rows_threefold_inc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+footnotesize
+\end_layout
+
+\begin_layout Plain Layout
+
+Note:
+ The table reports the detailed threefold Oaxaca--Blinder decomposition for maize gross revenue with catchment-area fixed effects.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 
 \end_layout
 
@@ -13640,23 +14463,29 @@ end{tabular}
 status collapsed
 
 \begin_layout Plain Layout
-- descriptive statistics midline e endline
+- Revenue (ols and oaxaca) controlling for productivity 
 \end_layout
 
 \begin_layout Plain Layout
-- logit results of adoption
+- Questions of the Focus Group Discussion
 \end_layout
 
 \begin_layout Plain Layout
-- overlap of main variables at baseline 
+- Check productivity trimming yield and land
 \end_layout
 
 \begin_layout Plain Layout
-- detailed decomposition
+- (RIF) regressions proposed by Firpo,
+ Fortin,
+ and Lemieux (2009) idea of Anusha
 \end_layout
 
 \begin_layout Plain Layout
-- questions of the qualitative 
+- Decomposition in levels
+\end_layout
+
+\begin_layout Plain Layout
+- Wheightened decomposition
 \end_layout
 
 \end_inset

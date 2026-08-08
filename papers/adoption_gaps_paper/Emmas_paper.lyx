@@ -1278,7 +1278,7 @@ The discussions were guided by a semi-structured outline consisting mainly of op
  Moreover,
  to stimulate an open and participatory discussion,
  participants were encouraged to reflect on concrete examples and real-life situations.
- The questions (provided in the Appendix) covered topics related to gender norms,
+ The questions covered topics related to gender norms,
  the division of labour and time use,
  economic empowerment,
  decision-making processes,
@@ -1375,7 +1375,7 @@ We estimate gender gaps at baseline using Ordinary Least Squares (OLS):
 \lang english
 \begin_inset Formula 
 \begin{equation}
-Y_{h}=\alpha+\beta X_{h}+\gamma G_{h}+\varepsilon_{h}\label{eq:one-1}
+Y_{h}=\alpha+\gamma G_{h}+\beta X_{h}+\varepsilon_{h}\label{eq:one-1}
 \end{equation}
 
 \end_inset
@@ -1877,7 +1877,7 @@ nolink "false"
 \end_inset
 
  represent a classic Oaxaca-Blinder twofold decomposition,
- while the threefold O-B decomposition can be obtained by further separating the coefficient component into male and female sub-components.
+ while the threefold Oaxaca-Blinder decomposition can be obtained by further separating the coefficient component into male and female sub-components.
  The male and female coefficient components measure how the coefficient structures deviate from a pooled benchmark 
 \begin_inset Formula $\beta^{*}$
 \end_inset
@@ -1939,7 +1939,7 @@ Detailed decomposition components should not be interpreted as causal effects of
 
 \begin_layout Standard
 To account for unobserved spatial heterogeneity,
- the main decomposition includes catchment-area fixed effects.
+ the decompositions include catchment-area fixed effects.
  This is implemented by applying a within transformation to the outcome and covariates before estimating the decomposition.
  For each variable 
 \begin_inset Formula $Z$
@@ -2014,7 +2014,7 @@ The Oaxaca Blinder decomposition relies on a set of identifying assumptions (For
 The aggregate decomposition is valid under the assumption of overlapping support,
  which requires sufficient similarity in the distribution of observable characteristics across male and female headed households.
  This condition was carefully assessed by inspecting the distribution of key covariates across male and female headed households.
- The Kernel density plots (reported in figure 
+ The kernel density plots reported in Figure
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Distribution-of-IHS-transformed"
@@ -2025,18 +2025,7 @@ nolink "false"
 
 \end_inset
 
- in section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Results"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-) indicate substantial overlap in the main covariates.
+ show substantial overlap in the distributions of the two outcome variables between MHH and FHH.
 \end_layout
 
 \begin_layout Standard
@@ -2161,29 +2150,6 @@ The final coding structure included themes related to bargaining power,
 \end_inset
 
 We allowed the overlapping of the codes to reflect the interconnected nature of the themes and particular attention was paid to patterns of co-occurrence across codes.
- The results are presented in the subsection 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Qualitative-Evidence"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
- and discussed in section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Discussion-and-Limitations"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-.
  Selected excerpts were used to illustrate the main themes and support the interpretation of the quantitative results.
 \end_layout
 
@@ -2271,12 +2237,22 @@ nolink "false"
  compared with 2.70 acres among female-headed households.
  They also cultivate slightly more maize plots,
  1.48 compared with 1.40,
- and the randomly selected maize plot is larger among male-headed households,
+ and the randomly selected maize plot is larger among MHH,
  averaging 1.23 acres compared with 1.01 acres.
  All three differences are statistically significant,
  already indicating land endowments advantages between MHH.
  Differences in input use are more mixed.
- MHH are more likely to use quality seed (51% compared with 42%) and urea fertilizer (42% compared with 38%),
+ MHH are more likely to use quality seed
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+definition of quality seeds
+\end_layout
+
+\end_inset
+
+ (51% compared with 42%) and urea fertilizer (42% compared with 38%),
  and they weed the selected plot more frequently.
  By contrast,
  FHH report slightly higher use of DAP/NPK fertilizer (9% compared with 7%),
@@ -2431,7 +2407,7 @@ small
 \backslash
 setlength{
 \backslash
-tabcolsep}{1 pt}
+tabcolsep}{1pt}
 \end_layout
 
 \begin_layout Plain Layout
@@ -2441,6 +2417,10 @@ tabcolsep}{1 pt}
 renewcommand{
 \backslash
 arraystretch}{1.1}
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -2462,10 +2442,6 @@ hline
 
 \backslash
 hline
-\end_layout
-
-\begin_layout Plain Layout
-
 \end_layout
 
 \begin_layout Plain Layout
@@ -2510,7 +2486,7 @@ hline
 
 \begin_layout Plain Layout
 
-Homestead’s distance to nearest agro-input shop in km
+Homestead's distance to nearest agro-input shop in km
 \end_layout
 
 \begin_layout Plain Layout
@@ -2718,591 +2694,6 @@ Number of household members
 
 & 
 \backslash
-Sexpr{format(round(df_descriptives_male[5,1],2),nsmall=2)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_male[5,2],0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_male[5,3],0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_male[5,4],2),nsmall=2)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_male[5,5],0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_female[5,1],2),nsmall=2)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_female[5,2],0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_female[5,3],0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_female[5,4],2),nsmall=2)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_female[5,5],0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{diff_fmt[5]}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Household head’s age in years
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_male[6,1],2),nsmall=2)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_male[6,2],0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_male[6,3],0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_male[6,4],2),nsmall=2)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_male[6,5],0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_female[6,1],2),nsmall=2)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_female[6,2],0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_female[6,3],0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_female[6,4],2),nsmall=2)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_female[6,5],0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{diff_fmt[6]}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Household head finished primary education (1=yes)
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_male[7,1],2),nsmall=2)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_male[7,2],0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_male[7,3],0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_male[7,4],2),nsmall=2)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_male[7,5],0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_female[7,1],2),nsmall=2)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_female[7,2],0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_female[7,3],0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_female[7,4],2),nsmall=2)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_female[7,5],0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{diff_fmt[7]}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Respondent is household head's spouse (1=yes)
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_male[8,1],2),nsmall=2)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_male[8,2],0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_male[8,3],0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_male[8,4],2),nsmall=2)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_male[8,5],0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_female[8,1],2),nsmall=2)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_female[8,2],0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_female[8,3],0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_female[8,4],2),nsmall=2)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_female[8,5],0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{diff_fmt[8]}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Respondent is household head (1=yes)
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_male[9,1],2),nsmall=2)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_male[9,2],0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_male[9,3],0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_male[9,4],2),nsmall=2)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_male[9,5],0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_female[9,1],2),nsmall=2)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_female[9,2],0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_female[9,3],0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_female[9,4],2),nsmall=2)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_female[9,5],0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{diff_fmt[9]}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Household head is married (1=yes)
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_male[10,1],2),nsmall=2)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_male[10,2],0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_male[10,3],0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_male[10,4],2),nsmall=2)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_male[10,5],0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_female[10,1],2),nsmall=2)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_female[10,2],0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_female[10,3],0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_female[10,4],2),nsmall=2)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{format(round(df_descriptives_female[10,5],0),nsmall=0)}
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
-Sexpr{diff_fmt[10]}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Land for crop production in acres
-\end_layout
-
-\begin_layout Plain Layout
-
-& 
-\backslash
 Sexpr{format(round(df_descriptives_male[3,1],2),nsmall=2)}
 \end_layout
 
@@ -3391,7 +2782,7 @@ Sexpr{diff_fmt[3]}
 
 \begin_layout Plain Layout
 
-Number of maize plots
+Household head's age in years
 \end_layout
 
 \begin_layout Plain Layout
@@ -3486,7 +2877,588 @@ Sexpr{diff_fmt[4]}
 
 \begin_layout Plain Layout
 
-Farmer used quality seed (1=yes)
+Household head finished primary education (1=yes)
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[5,1],2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[5,2],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[5,3],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[5,4],2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[5,5],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[5,1],2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[5,2],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[5,3],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[5,4],2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[5,5],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{diff_fmt[5]}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Respondent is household head's spouse (1=yes)
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[6,1],2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[6,2],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[6,3],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[6,4],2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[6,5],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[6,1],2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[6,2],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[6,3],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[6,4],2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[6,5],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{diff_fmt[6]}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Respondent is household head (1=yes)
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[7,1],2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[7,2],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[7,3],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[7,4],2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[7,5],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[7,1],2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[7,2],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[7,3],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[7,4],2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[7,5],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{diff_fmt[7]}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Household head is married (1=yes)
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[8,1],2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[8,2],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[8,3],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[8,4],2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[8,5],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[8,1],2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[8,2],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[8,3],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[8,4],2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[8,5],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{diff_fmt[8]}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Land for crop production in acres
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[9,1],2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[9,2],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[9,3],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[9,4],2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[9,5],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[9,1],2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[9,2],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[9,3],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[9,4],2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[9,5],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{diff_fmt[9]}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Number of maize plots
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[10,1],2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[10,2],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[10,3],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[10,4],2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_male[10,5],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[10,1],2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[10,2],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[10,3],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[10,4],2),nsmall=2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{format(round(df_descriptives_female[10,5],0),nsmall=0)}
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+Sexpr{diff_fmt[10]}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Farmer used quality seed on any plot (1=yes)
 \end_layout
 
 \begin_layout Plain Layout
@@ -3789,80 +3761,70 @@ Farmer used hybrid seed on this plot (1=yes)
 
 & 
 \backslash
-Sexpr{format(round(df_descriptives_male[14,1],2),
- nsmall=2)} 
+Sexpr{format(round(df_descriptives_male[14,1],2),nsmall=2)}
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_descriptives_male[14,2],0),
- nsmall=0)} 
+Sexpr{format(round(df_descriptives_male[14,2],0),nsmall=0)}
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_descriptives_male[14,3],0),
- nsmall=0)} 
+Sexpr{format(round(df_descriptives_male[14,3],0),nsmall=0)}
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_descriptives_male[14,4],2),
- nsmall=2)} 
+Sexpr{format(round(df_descriptives_male[14,4],2),nsmall=2)}
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_descriptives_male[14,5],0),
- nsmall=0)} 
+Sexpr{format(round(df_descriptives_male[14,5],0),nsmall=0)}
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_descriptives_female[14,1],2),
- nsmall=2)} 
+Sexpr{format(round(df_descriptives_female[14,1],2),nsmall=2)}
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_descriptives_female[14,2],0),
- nsmall=0)} 
+Sexpr{format(round(df_descriptives_female[14,2],0),nsmall=0)}
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_descriptives_female[14,3],0),
- nsmall=0)} 
+Sexpr{format(round(df_descriptives_female[14,3],0),nsmall=0)}
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_descriptives_female[14,4],2),
- nsmall=2)} 
+Sexpr{format(round(df_descriptives_female[14,4],2),nsmall=2)}
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_descriptives_female[14,5],0),
- nsmall=0)} 
+Sexpr{format(round(df_descriptives_female[14,5],0),nsmall=0)}
 \end_layout
 
 \begin_layout Plain Layout
@@ -4753,14 +4715,6 @@ Sexpr{diff_fmt[23]}
 
 \begin_layout Plain Layout
 
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
 Production from this plot in kg
 \end_layout
 
@@ -5159,80 +5113,70 @@ Gross sales revenue from maize on this plot (IHS)
 
 & 
 \backslash
-Sexpr{format(round(df_descriptives_male[28,1],2),
- nsmall=2)} 
+Sexpr{format(round(df_descriptives_male[28,1],2),nsmall=2)}
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_descriptives_male[28,2],0),
- nsmall=0)} 
+Sexpr{format(round(df_descriptives_male[28,2],0),nsmall=0)}
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_descriptives_male[28,3],0),
- nsmall=0)} 
+Sexpr{format(round(df_descriptives_male[28,3],0),nsmall=0)}
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_descriptives_male[28,4],2),
- nsmall=2)} 
+Sexpr{format(round(df_descriptives_male[28,4],2),nsmall=2)}
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_descriptives_male[28,5],0),
- nsmall=0)} 
+Sexpr{format(round(df_descriptives_male[28,5],0),nsmall=0)}
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_descriptives_female[28,1],2),
- nsmall=2)} 
+Sexpr{format(round(df_descriptives_female[28,1],2),nsmall=2)}
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_descriptives_female[28,2],0),
- nsmall=0)} 
+Sexpr{format(round(df_descriptives_female[28,2],0),nsmall=0)}
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_descriptives_female[28,3],0),
- nsmall=0)} 
+Sexpr{format(round(df_descriptives_female[28,3],0),nsmall=0)}
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_descriptives_female[28,4],2),
- nsmall=2)} 
+Sexpr{format(round(df_descriptives_female[28,4],2),nsmall=2)}
 \end_layout
 
 \begin_layout Plain Layout
 
 & 
 \backslash
-Sexpr{format(round(df_descriptives_female[28,5],0),
- nsmall=0)} 
+Sexpr{format(round(df_descriptives_female[28,5],0),nsmall=0)}
 \end_layout
 
 \begin_layout Plain Layout
@@ -5304,22 +5248,22 @@ raggedright
 \begin_layout Plain Layout
 
 Note:
- Columns (1)–(5) report the mean,
+ Columns (1)--(5) report the mean,
  minimum,
  maximum,
  standard deviation,
  and number of non-missing observations for 
 \backslash
 textit{male-headed households};
- columns (6)–(10) report the same statistics for 
+ columns (6)--(10) report the same statistics for 
 \backslash
 textit{female-headed households}.
- Column (11) reports mean differences (male - female),
+ Column (11) reports mean differences (male -- female),
  with significance based on two-sided t-tests of equality of means.
  Significance levels:
- *** p<0.01,
- ** p<0.05,
- * p<0.10.
+ *** $p<0.01$,
+ ** $p<0.05$,
+ * $p<0.10$.
  All statistics are measured at baseline.
 \end_layout
 
@@ -6235,11 +6179,11 @@ nolink "false"
 
 \end_inset
 
- presents regression results for maize productivity measured as yield per acre on the randomly selected plot.
+ presents regression results for maize productivity measured as production per acre on the randomly selected plot.
  Column (1) shows a sizable and statistically significant raw gender gap:
- maize productivity on male-headed households is approximately 20 percent
+ maize productivity on male-headed households is approximately 20 %
 \begin_inset Foot
-status open
+status collapsed
 
 \begin_layout Plain Layout
 For sufficiently large values of the dependent variable,
@@ -6261,7 +6205,7 @@ Several plot-level inputs are positively associated with maize productivity.
  particularly Urea,
  DAP/NPK application,
  and the use of organic manure,
- chemical inputs and quality seeds on the randomly selected plot are strongly correlated with higher yields,
+ chemical inputs and hybrid seeds on the randomly selected plot are strongly correlated with higher yields,
  although the gender-differentiated regression reveal some heterogeneity in returns to these inputs.
  In particular urea usage has really high returns on productivity for FHH.
  Education of the household head is positively associated with maize productivity among female-headed households,
@@ -6280,6 +6224,12 @@ When pooling observations across survey rounds,
  The use of quality seeds and fertilizer inputs,
  including both DAP/NPK and urea,
  remains strongly and positively associated with productivity.
+\end_layout
+
+\begin_layout Standard
+The reduction in the estimation sample is primarily driven by missing information on the number of agro-input shops and the distance to the nearest agro-input shop.
+ Of the 362 observations excluded from the full specification,
+ 259 are lost exclusively because one or both of these variables are missing.
 \end_layout
 
 \begin_layout Standard
@@ -7763,9 +7713,9 @@ If I add productivity:
 \end_layout
 
 \begin_layout Standard
-Although comparing raw and controlled specifications shows the extent to which observable factors contribute to the gender gap,
- this empirical technique does not identify the underlying mechanisms that drive differences between male and female headed households.
- The different returns observed across the regressions motivate an explicit decomposition of the gap which we undertake in the following section using the Oaxaca–Blinder framework.
+Although comparing the raw and controlled specifications shows how the estimated gender gap changes after observable characteristics are taken into account,
+ it does not show how much of the gap is associated with differences in endowments and how much with differences in returns to those endowments.
+ The differences observed across the gender-specific regressions therefore motivate the Oaxaca–Blinder decomposition presented in the following section
 \end_layout
 
 \begin_layout Standard
@@ -10370,7 +10320,7 @@ nolink "false"
 
 \end_inset
 
- report the twofold and threefold Oaxaca–Blinder decompositions of the gender gaps in maize productivity
+ report the twofold and threefold Oaxaca–Blinder decompositions of the gender gaps in maize productivity.
 \begin_inset Foot
 status collapsed
 
@@ -10382,18 +10332,17 @@ Since the gender gap is defined as the mean productivity of male-headed househol
 
 \end_inset
 
-.
- 
+
 \end_layout
 
 \begin_layout Standard
 Confirming the OLS estimates the decomposition indicates a maize productivity gap of 0.197 IHS units,
  suggesting that on average female-headed households have about 20% lower maize productivity compared to male-headed households.
- The twofold decomposition shows that 0.051 IHS units,
- corresponding to 26.2 % of the productivity gap,
+ The twofold decomposition shows that 0.039 IHS units,
+ corresponding to 21 % of the productivity gap,
  are explained by observable differences in endowments.
- The remaining 0.145 IHS units,
- or 73.8 % of the gap is attributed to differences in returns to these characteristics,
+ The remaining 0.147 IHS units,
+ or 79% of the gap is attributed to differences in returns to these characteristics,
  suggesting that gender disparities in maize productivity are driven primarily by structural factors,
  differential returns to inputs,
  and gender-specific constraints rather than by unequal access to resources alone.
@@ -10401,8 +10350,8 @@ Confirming the OLS estimates the decomposition indicates a maize productivity ga
 
 \begin_layout Standard
 The threefold decomposition further separates the coefficient component into male and female coefficient components.
- The male coefficient component is 0.032 IHS units (≈22%),
- and the female coefficient component is 0.114 IHS units (≈78%).
+ The male coefficient component is 0.032 IHS units (≈17%),
+ and the female coefficient component is 0.115 IHS units (≈62%).
  Both coefficient components contribute positively to the productivity gap,
  with the female coefficient component accounting for the larger share of the coefficient effect.
  This indicates that the productivity gap is not only associated with differences in observed characteristics,
@@ -10469,7 +10418,7 @@ placement h
 alignment left
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -10759,6 +10708,25 @@ end{tabular}
 end{center}
 \end_layout
 
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+footnotesize
+\end_layout
+
+\begin_layout Plain Layout
+
+Note:
+ The table reports the aggregate twofold and threefold Oaxaca–Blinder decomposition of the gender gap in maize productivity,
+ with catchment-area fixed effects.
+ The shares are expressed as percentages of the total gap
+\end_layout
+
 \end_inset
 
 
@@ -10775,7 +10743,7 @@ placement h
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -10783,7 +10751,7 @@ status collapsed
 \begin_layout Plain Layout
 
 \series bold
-Detailed twofold decomposition of maize productivity
+Detailed Twofold Decomposition of Maize Productivity
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:Detailed-twofold-decomposition-1"
@@ -10913,7 +10881,7 @@ Note:
 Tables 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "tab:Twofold-aggregate-decomposition"
+reference "tab:Threefold-aggregate-decompositio"
 plural "false"
 caps "false"
 noprefix "false"
@@ -10935,17 +10903,16 @@ nolink "false"
  report the twofold and threefold Oaxaca–Blinder decomposition of the gender gaps in maize gross revenue.
  As visible in previous results,
  the total gap here is substantially larger than the productivity gap.
- The estimated gross revenue gap of 0.711 corresponds to nearly 97% lower maize gross revenue among female-headed households relative to male-headed households.
- A sizable share of this gap (≈ 41%) is explained by differences in observable characteristics.
- Nevertheless,
- about 59% of the gross revenue gap is associated with differences in the coefficient structure.
+ The estimated gross revenue gap of 0.711 IHS units corresponds to nearly 97% lower maize gross revenue among female-headed households relative to male-headed households.
+ A sizable share of the gross revenue gap,
+ approximately 41%,
+ is explained by differences in observable characteristics,
+ while the remaining 59% is associated with differences in the coefficient structure.
  Compared with productivity,
- observable endowments explain a larger share of the gross revenue gap,
- suggesting that differences in plot area,
+ endowments account for a larger share of the revenue gap,
+ suggesting that plot size,
  input use,
- and other household and farm characteristics play an important role in shaping gross revenue disparities.
- Nevertheless,
- more than half of the gross revenue gap remains associated with coefficient differences.
+ and other household and farm characteristics play a more important role in explaining the differences in revenue.
 \end_layout
 
 \begin_layout Standard
@@ -11555,7 +11522,11 @@ While some men,
  As one man put it,
  “When she holds the baby she will be using it as an excuse to sit (\SpecialChar ldots
 ) It helps her to just sit there and rest” (men-only FGD).
- In more than one women-only interview,
+ 
+\end_layout
+
+\begin_layout Standard
+In more than one women-only interview,
  we observed that women’s time constraints extend beyond agricultural and domestic labour to include expectations of sexual availability,
  revealing how gender norms structure both productive work and bodily autonomy:
  “By the time you leave the garden then you cook and then bath the children and then you find that you leave the garden when you are tired and eat supper while tired and then go to bed when you are tired and then the man will start saying that I want to have sex.” (women-only FGD).
@@ -11748,7 +11719,7 @@ This study uses a mixed-methods approach to understand the gender gaps in maize 
 
 \begin_layout Standard
 Regarding productivity,
- the raw OLS estimates show that MHH achieve higher outcomes in both areas.
+ the raw OLS estimates show that MHH achieve higher outcomes.
  These gaps remain statistically significant after controlling for household characteristics,
  farm resources,
  and input use,
@@ -11787,6 +11758,25 @@ The Oaxaca–Blinder decomposition of the productivity gap provides further supp
  For instance,
  the lower education among FHH widens the productivity gap through the endowment component,
  but the coefficient contribution of education reduces the gap.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Perhaps another way to look at this,
+ is that these two effects reinforce each other:
+ lower education for women (Table 1:
+ 56% vs 34% with primary education) widens the gap through the endowment effect,
+ which is then exacerbated by the structural effect as this 22% lower primary education hits women harder then it would have hit men (i.e.
+ marginal damage from losing education is higher for women).
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Does that make any sense?
+\end_layout
+
+\end_inset
+
  This confirm the OLS estimates,
  where education is more strongly associated with productivity among FHH.
  As explained by Croppenstedt et al.
@@ -11806,7 +11796,18 @@ Qualitatively,
  leaving earlier,
  and having less time to supervise agricultural work.
  They also explained that they increasingly perform tasks traditionally assigned to men without giving up their existing household responsibilities.
- These findings are consistent with research on time poverty and care responsibilities in agriculture (Ali et al.,
+ These findings are consistent with research on time poverty and care responsibilities in agriculture
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Could this explain the endowment effect in Table 7:
+ larger HH means more labour and less time poverty?
+\end_layout
+
+\end_inset
+
+ (Ali et al.,
  2016;
  Sell et al.,
  2018;
@@ -11864,6 +11865,16 @@ The O-B decomposition provides support for H4:
  Quality-seed use,
  by contrast,
  contributes positively to both the endowment and coefficient components.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Can this be related to access to inputs?
+ Because complimentary inputs are crucial for successful use of quality seed.
+\end_layout
+
+\end_inset
+
  Overall,
  the detailed results show several effects working in opposite directions rather than one uniform pattern of lower returns among FHH.
  

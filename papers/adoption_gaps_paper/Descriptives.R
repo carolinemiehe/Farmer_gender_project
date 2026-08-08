@@ -664,23 +664,28 @@ options(scipen = 999)
 variables <- c(
   "distance_agroshops",
   "num_shops",
-  "maize_plot_area",
-  "plots_maize",
+  
   "household_size",
   "hh_age",
   "education_head_num",
   "relationship_hh_num",
   "respondent_is_hh",
   "hh_marital_status_num",
+  
+  "maize_plot_area",
+  "plots_maize",
   "quality_seed_used",
   "farmer_group_member",
+  
   "r_maize_plot_area",
+  "base_hybrid",
   "dap_npk_applied",
   "urea_applied",
   "chemicals_applied",
   "organic_manure_applied",
   "resow",
   "weed_times",
+  
   "maize_sold",
   "bags_sold",
   "bag_price",
@@ -688,8 +693,7 @@ variables <- c(
   "yield_per_acre",
   "yield_per_acre_ihs",
   "maize_income",
-  "maize_income_ihs",
-  "base_hybrid"
+  "maize_income_ihs"
 )
 
 male_idx   <- baseline_farmers$hh_gender_num == 1
@@ -2139,10 +2143,7 @@ p_inc <- ggplot(
 # 4. COMBINE VERTICALLY
 # =========================
 
-fig_density_vertical <- p_prod / p_inc +
-  plot_annotation(
-    title = "Distribution of IHS-transformed maize productivity and gross sales revenue by household-head gender"
-  )
+fig_density_vertical <- p_prod / p_inc
 
 # Show in R
 fig_density_vertical
@@ -2853,3 +2854,5 @@ N_inc_sellers_ihs_male <<-
 
 N_inc_sellers_ihs_female <<-
   N_inc_sellers_ihs_female
+
+

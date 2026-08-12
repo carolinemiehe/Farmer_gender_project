@@ -132,6 +132,24 @@ This study investigates gender differences in maize productivity and gross sales
 
 \begin_layout Section
 Introduction
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+insert my contribution before 
+\begin_inset Quotes eld
+\end_inset
+
+the paper is structured as follows
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -285,6 +303,16 @@ The results show that female-headed households achieve significantly lower maize
 \end_layout
 
 \begin_layout Standard
+This study contributes to the literature on gender gaps in smallholder maize production by drawing on a high-quality household panel dataset with detailed household- and plot-level information from the Busoga region,
+ directly comparing male- and female-headed households.
+ In addition to examining gender gaps in maize productivity and gross sales revenue,
+ the analysis distinguishes between market participation and gross sales revenue conditional on selling,
+ allowing gender disparities in commercialization to be examined along the extensive and intensive margins.
+ Finally,
+ the study combines quantitative decomposition methods with qualitative evidence from focus group discussions to help contextualize the mechanisms underlying these gaps.
+\end_layout
+
+\begin_layout Standard
 The paper is structured as follows.
  Section 
 \begin_inset CommandInset ref
@@ -354,7 +382,7 @@ nolink "false"
  and discussed in 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:Discussion-and-Limitations"
+reference "sec:Discussion-and-Conclusion"
 plural "false"
 caps "false"
 noprefix "false"
@@ -886,8 +914,10 @@ nolink "false"
 \begin_layout Standard
 Although the reviewed studies provide a meaningful overview,
  context-specific analysis is required to effectively guide policy recommendations.
- We extend the existing evidence to the Busoga region using a high-quality household panel dataset covering three survey rounds conducted between April 2021 and August 2022,
- with detailed household- and plot-level information on maize production.
+ This study contributes to the literature in several ways.
+ First,
+ it uses a high-quality household panel dataset covering three survey rounds conducted between April 2021 and August 2022,
+ with detailed household- and plot-level information on maize production in the Busoga region.
  Second,
  while much of the existing evidence relies on intra-household comparisons between male- and female-managed plots (Kilic et al.,
  2015;
@@ -897,8 +927,13 @@ Although the reviewed studies provide a meaningful overview,
  Third,
  it examines gender gaps in both maize productivity and gross sales revenue,
  extending the analysis beyond productivity alone.
+ The revenue analysis further distinguishes between market participation,
+ the extensive margin,
+ and gross sales revenue conditional on selling,
+ the intensive margin,
+ allowing the study to identify whether gender disparities arise primarily from market entry or from outcomes among households that already participate.
  Finally,
- it combines decomposition methods with qualitative evidence from focus group discussions to shed light on the mechanisms underlying these disparities.
+ the study combines decomposition methods with qualitative evidence from focus group discussions to help contextualize the mechanisms underlying these disparities.
 \end_layout
 
 \begin_layout Standard
@@ -977,44 +1012,6 @@ Data and Context
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Data-and-Context"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Ugandan Context 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-see Ali et al.(2016)
-\end_layout
-
-\begin_layout Plain Layout
-Maize is cultivated by the majority of rural households in East Africa,
- making the Ugandan experience broadly comparable to that of other African countries (Sell et al.,
- 2018).
- Previous research suggests that climate change is expected to have a significant negative effect on maize production in Uganda,
- with projected yield losses of around 5% by 2050 (Kikoyo & Norbert,
- 2016).
- mention employment of population and percentage of gdp in agriculture.
- In an agricultural context with such constraints and challenges,
- where increasing yields through cultivated area is not possible,
- understanding underlying causes behind low agricultural performance becomes essential for food security.
-\end_layout
-
-\begin_layout Plain Layout
-why maize is important
-\end_layout
-
-\begin_layout Plain Layout
-why productivity and revenue are important
-\end_layout
 
 \end_inset
 
@@ -1351,7 +1348,7 @@ name "sec:Empirical Strategy"
 \end_layout
 
 \begin_layout Subsection
-OLS Specification 
+Regression Specification 
 \begin_inset Note Comment
 status open
 
@@ -1395,7 +1392,7 @@ where
  denotes the outcome of interest for household h measured alternatively as maize productivity or gross sales revenue from maize.
  While previous studies model productivity outcomes in logarithmic form (Udry,
  1996),
- we employ the inverse hyperbolic sine transformation to accommodate zero productivity and income observations:
+ we employ the inverse hyperbolic sine transformation to accommodate zero observations:
 \end_layout
 
 \begin_layout Standard
@@ -1554,9 +1551,76 @@ shall I put this last sentence somewhere else?
 \end_layout
 
 \begin_layout Standard
+Gross sales revenue combines two distinct dimensions of maize commercialization:
+ whether a household participates in the market and the value of gross sales conditional on participation.
+ To distinguish these two channels,
+ the gross revenue analysis is further separated into an extensive and an intensive margin.
+\end_layout
+
+\begin_layout Standard
+The extensive margin captures maize market participation.
+ Let 
+\begin_inset Formula $S_{h}$
+\end_inset
+
+\SpecialChar allowbreak
+ be a binary variable equal to one if household 
+\begin_inset Formula $h$
+\end_inset
+
+ sold maize from the randomly selected plot and zero otherwise.
+ Since this outcome is binary,
+ market participation is estimated using a logit model:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+P(S_{h}=1\brokenvert G_{h},X_{h})=\Lambda(\alpha+\gamma G_{h}+\beta X_{h})
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\varLambda($
+\end_inset
+
+) denotes the logistic cumulative distribution function.
+ The specification includes the same controls used in the gross revenue regressions.
+ Results are reported as average marginal effects.
+ For binary covariates,
+ these correspond to the average discrete change in the predicted probability when the variable changes from zero to one,
+ while for continuous covariates they represent average marginal changes in the predicted probability.
+\end_layout
+
+\begin_layout Standard
+The intensive margin captures gross sales revenue among households that participate in the maize market.
+ The sample is therefore restricted to households that sold maize and reported positive gross sales revenue.
+ This specification therefore examines gender differences in gross sales revenue conditional on market participation,
+ and is estimated using the same OLS specification described in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:one-1"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ applied to the restricted sample of sellers.
+\end_layout
+
+\begin_layout Standard
 In addition to cross-section specifications based solely on the baseline sample,
  pooled ordinary least squares (OLS) regressions are estimated by combining baseline,
  midline and endline observations into a pooled dataset of household-round observations.
+ The extensive- and intensive-margin specifications are also estimated using the pooled sample.
  Using pooled sample increases the statistical power of the analysis and allows us to estimate the average conditional gender gap across the three survey rounds once the observable characteristics of households have been controlled for.
  In the pooled specification,
  the model takes the form:
@@ -1569,6 +1633,21 @@ In addition to cross-section specifications based solely on the baseline sample,
 \begin_inset Formula 
 \begin{equation}
 Y_{ht}=\alpha+\beta X_{h}+\gamma G_{h}+\delta_{t}+\varepsilon_{ht}\label{eq:one-1-2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and for the logit specification used for the extensive margin:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+P(S_{ht}=1\brokenvert G_{h},X_{h})=\Lambda(\alpha+\gamma G_{h}+\beta X_{h}+\delta_{t})
 \end{equation}
 
 \end_inset
@@ -1621,7 +1700,7 @@ Some of the covariates collected at baseline were not re-measured in the midline
 \end_layout
 
 \begin_layout Standard
-All OLS specifications use heteroskedasticity-robust standard errors.
+All specifications use heteroskedasticity-robust standard errors.
  In pooled specifications,
  standard errors are clustered at the household level to account for repeated observations of the same household over time.
  
@@ -1632,8 +1711,8 @@ Oaxaca-Blinder Decomposition
 \end_layout
 
 \begin_layout Standard
-To investigate the sources of gender disparities in productivity and gross sales revenue,
- we apply the Oaxaca-Blinder decomposition (Oaxaca,
+To investigate the sources of gender disparities in productivity,
+ gross sales revenue and in the intensive margin of gross sales revenue we apply the Oaxaca-Blinder decomposition (Oaxaca,
  1973;
  Blinder,
  1973).
@@ -1967,7 +2046,7 @@ where
 \begin_inset Formula $\tilde{Z_{hc}}$
 \end_inset
 
-is the value of the variable 
+ is the value of the variable 
 \begin_inset Formula $Z$
 \end_inset
 
@@ -1984,12 +2063,12 @@ is the value of the variable
 \begin_inset Formula $\bar{Z}_{c}$
 \end_inset
 
-is the catchment-area mean,
+ is the catchment-area mean,
  and 
 \begin_inset Formula $\bar{Z}$
 \end_inset
 
-is the overall sample mean.
+ is the overall sample mean.
  The fixed effect remove average differences across catchment areas.
  The decomposition is then applied to the transformed variables.
  This specification compares MHH and FHH within similar local production environments and helps accounting for unobserved catchment-level characteristics such as agro-ecological conditions or other area-specific factors.
@@ -2001,7 +2080,185 @@ Standard errors are estimated using bootstrap replications clustered at the catc
 \end_layout
 
 \begin_layout Subsubsection
-Empirical Issues 
+Fairlie Decomposition of Maize Market Participation
+\end_layout
+
+\begin_layout Standard
+The Oaxaca–Blinder decomposition described above is based on linear outcome models and cannot be directly applied to the binary extensive-margin outcome.
+ To decompose the gender gap in maize market participation,
+ we therefore use the nonlinear decomposition proposed by Fairlie (1999,
+ 2005),
+ which extends the logic of the Oaxaca–Blinder approach to binary outcomes estimated using logit or probit models.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset Formula 
+\begin{equation}
+D_{s}=\bar{S_{m}}-\bar{S_{f}}\label{eq:one-1-1-4}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $S_{h}$
+\end_inset
+
+ is equal to one if household h sold maize and zero otherwise.
+ The participation gap is therefore defined as the difference in the average probability of selling maize between MHH and FHH.
+ This gap can be decomposed into an explained and an unexplained component,
+ following Fairlie's (1999,
+ 2005) extension of the Oaxaca–Blinder approach to binary outcomes:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+D_{S}^{E}=\frac{1}{N_{m}}\sum_{i=1}^{N_{m}}\varLambda(X_{mi}\hat{\beta^{*})}-\frac{1}{N_{f}}\sum_{i=1}^{N_{f}}\varLambda(X_{fi}\hat{\beta^{*})}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\varLambda()$
+\end_inset
+
+ denotes the logistic cumulative distribution function,
+\begin_inset Formula $\hat{\beta^{*}}$
+\end_inset
+
+ comes from a logit model estimated on the pooled sample of MHH and FHH (Fairlie,
+ 2005).
+ To compute 
+\begin_inset Formula $D_{s}^{E}$
+\end_inset
+
+,
+ we calculate each group's average predicted probability of market participation using that group's own observed characteristics,
+ but the same pooled coefficients 
+\begin_inset Formula $\hat{\beta}$
+\end_inset
+
+ for both groups.
+ Because both terms share the same coefficients,
+ applying the identical decision rule to both groups,
+ any difference between the two averages can only come from differences in observed characteristics —
+ not from differences in how those characteristics translate into outcomes.
+ 
+\begin_inset Formula $D_{s}^{E}$
+\end_inset
+
+ therefore captures the explained component of the participation gap:
+ the part associated with MHH and FHH differing in observable characteristics such as land,
+ education,
+ or market access.
+ The remaining component,
+ 
+\begin_inset Formula $Ds-D_{s}^{E}$
+\end_inset
+
+,
+ captures the part of the gap that persists even when MHH and FHH share the same distribution of covariates,
+ evaluated under the pooled coefficient structure.
+ 
+\end_layout
+
+\begin_layout Standard
+As previously done with the detailed decomposition,
+ the explained component is further decomposed into contributions associated with individual covariates.
+ This is done by sequentially replacing each covariate's female values with the corresponding male values,
+ one variable at a time,
+ and recording the resulting change in the average predicted probability at each step.
+ Because the logistic function is nonlinear,
+ the estimated contribution of a given covariate depends on the values already substituted for the other covariates at that point,
+ therefore switching education before land,
+ for instance,
+ can have a different contribution than switching land before education,
+ even though the two must sum to the same total.
+ To avoid results driven by an arbitrary sequence,
+ the ordering of covariates is randomized repeatedly and the reported contributions are averaged across repetitions.
+ 
+\end_layout
+
+\begin_layout Standard
+Since the MHH and FHH samples differ in size,
+ the larger group is randomly subsampled to match the size of the smaller group,
+ and observations are then matched after ranking households by their predicted probability of market participation;
+ this subsampling is repeated across randomization draws to avoid dependence on a single random subsample.
+ The validity of this rank-based matching procedure depends on sufficient overlap in predicted probabilities between MHH and FHH;
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:1"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ shows substantial overlap across most of the probability range,
+ supporting the appropriateness of the matching approach.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:1"
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename common_support_ext_margin.png
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Distribution of predicted probabilities of maize market participation by household type
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Catchment-area fixed effects are included directly in the logit specification.
+ Unlike the linear specifications,
+ where catchment-area effects are absorbed through a within transformation,
+ this transformation is not valid for nonlinear models,
+ so fixed effects must instead enter as covariates in their own right.
+ Standard errors are estimated using bootstrap replications clustered at the catchment-area level.
+\end_layout
+
+\begin_layout Subsubsection
+Empirical Considerations and Robustness Checks 
 \end_layout
 
 \begin_layout Standard
@@ -2085,39 +2342,56 @@ As stated previously,
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Comment
-status collapsed
-
-\begin_layout Plain Layout
-A further empirical issue concerns the distribution of maize income,
- which exhibits a substantial mass at zero because a sizeable share of households report no maize sales during the reference period.
- As a result,
- the income outcome combines market participation (whether any maize is sold) and sales intensity/earnings conditional on participating.
- At baseline,
- 48.8 percent of households report zero maize income.
- This share is substantially higher among female-headed households,
- 60.5 percent,
- than among male-headed households,
- 45.3 percent.
- Therefore,
- the maize income outcome captures both the probability of selling maize and the amount earned conditional on selling.
- Missing information on quantity sold or price among sellers is very limited,
- affecting only seven observations.
- The main concern in the income variable is therefore the large share of zero sales and the strong right-skewness of positive income values.
- Consequently,
- the Oaxaca–Blinder decomposition of maize income should be interpreted as a decomposition of overall maize commercialization income rather than of earnings among sellers only.
- It reflects both differences in market participation and differences in sales intensity conditional on participation
-\end_layout
+Another limitation of the standard Oaxaca–Blinder decomposition is that it focuses on differences in mean outcomes.
+ The decomposition therefore identifies how differences in average observed characteristics and estimated coefficients contribute to the average gap between MHH and FHH,
+ but it does not show whether the size or sources of the gap differ across the outcome distribution (Fortin et al.,
+ 2011).
+ This distinction may be relevant if gender disparities are concentrated among households with particularly low or high levels of productivity or revenue.
+ Distributional decomposition methods,
+ such as Recentered Influence Function (RIF) regressions,
+ can extend the analysis to different points of the unconditional outcome distribution.
+ Such an analysis is beyond the scope of this study,
+ which focuses on differences in mean outcomes.
+ As a robustness check,
+ RIF decompositions of maize productivity and overall gross sales revenue are reported in the 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Appendix"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
 
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Standard
-The econometric findings are complemented by qualitative evidence,
- which helps contextualize gendered differences in agricultural production,
- supporting the interpretation of the decomposition results.
+The allocation of the coefficient component also depends on the choice of the reference coefficient structure.
+ The main specification uses a pooled benchmark,
+ while decompositions using the male and female coefficient structures as alternative benchmarks are reported in the 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Appendix"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ The structural components are therefore interpreted relative to the chosen benchmark rather than as absolute measures of male advantage or female disadvantage.
+\end_layout
+
+\begin_layout Standard
+Moreover,
+ because the fixed-effects decomposition relies on within-catchment comparisons,
+ the analysis is restricted to catchment areas containing both MHH and FHH.
+ Eighteen catchments containing only MHH are excluded,
+ while 111 catchments contain both household types and are retained in the decomposition sample.
+ The decomposition results should therefore be interpreted as gender differences within catchment areas where both MHH and FHH are observed.
 \end_layout
 
 \begin_layout Subsection
@@ -6136,7 +6410,7 @@ nolink "false"
 
 \end_inset
 
-and 
+ and 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:OLS-estimates-of-1"
@@ -6147,9 +6421,36 @@ nolink "false"
 
 \end_inset
 
-report OLS regression results on the determinants of maize productivity,
- maize gross sales revenue,
+ report OLS regression results on the determinants of maize productivity and maize gross sales revenue,
  disaggregated by gender of the household head.
+ Gross sales revenue is analyzed along two margins,
+ as described in the empirical strategy.
+ Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:OLS-estimates-of-1-1"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ reports results for the extensive margin,
+ estimated using a logit model as described in the empirical strategy,
+ while Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:OLS-estimates-of-1-1-1"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ reports results for the intensive margin,
+ the gross sales revenue among households that do sell.
  For each outcome,
  Column (1) reports the raw gender gap estimated from a bivariate regression including only an indicator for male-headed households.
  Column (2) presents results from the full baseline sample controlling for household characteristics,
@@ -6189,6 +6490,11 @@ status collapsed
 For sufficiently large values of the dependent variable,
  coefficients from regressions using IHS-transformed outcomes can be interpreted approximately as percentage changes (Bellemare and Wichman,
  2020).
+ using the transformation 
+\end_layout
+
+\begin_layout Plain Layout
+100×(𝑒𝛽^−1)100×(eβ−1).
 \end_layout
 
 \end_inset
@@ -7631,8 +7937,8 @@ Note:
 
 \end_layout
 
-\begin_layout Subsubsection*
-6.2.2 OLS - Gross Sales Revenue
+\begin_layout Subsubsection
+OLS - Gross Sales Revenue
 \end_layout
 
 \begin_layout Standard
@@ -8984,6 +9290,2811 @@ Note:
  Columns (3) and (4) report estimates for the baseline sample separately for male- and female-headed households.
  Columns (5)-(7) report analogous estimates using the pooled sample across all survey rounds and include round fixed effects.
  Maize gross revenue is transformed using the IHS.
+ ***,
+ **,
+ and * denote significance at the 1
+\backslash
+%,
+ 5
+\backslash
+%,
+ and 10
+\backslash
+% levels.
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Extensive and Intensive Margin of Gross Sales Revenue
+\end_layout
+
+\begin_layout Standard
+Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:OLS-estimates-of-1-1"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ examines the extensive margin of maize commercialization at the household level.
+ At baseline,
+ MHH are 15.6 % points more likely than FHH to sell maize.
+ This gap narrows to 9.9 % points once household characteristics,
+ market access,
+ plot size,
+ and input use are controlled for,
+ but remains statistically significant at the 1% level.
+ This shows that observed characteristics explain part of the raw gap,
+ but not all of it,
+ taking these covariates into consideration.
+ The pooled estimates show the same pattern,
+ with MHH remaining 5.9 % points more likely to participate in the maize market after controls.
+\end_layout
+
+\begin_layout Standard
+Plot area and quality-seed use are both strongly and positively associated with market participation,
+ while household size is negatively associated with it in both the baseline and pooled specifications.
+ Age matters specifically for the decision to sell:
+ older household heads are less likely to participate in the market.
+\end_layout
+
+\begin_layout Standard
+Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:OLS-estimates-of-1-1-1"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ turns to the intensive margin,
+ restricting the sample to households that sold maize and reported positive gross sales revenue.
+ Even within this group,
+ MHH earn more than FHH:
+ the raw baseline gap is 0.328 IHS units,
+ or approximately 38.8% in percentage terms²,
+ falling to 0.209 IHS units (23.2%) once household- and plot-level characteristics are included,
+ and remaining significant at the 1% level.
+ The pooled estimate is smaller still,
+ at 0.107 IHS units (11.3%),
+ but remains statistically significant.
+ As with the extensive margin,
+ observed characteristics narrow the conditional gap without closing it,
+ and a statistically significant gap persists in both cases —
+ evidence that observable differences alone cannot account for the full gender gap in maize commercialization.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment left
+wide false
+sideways true
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+OLS estimates (Extensive margin)
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:OLS-estimates-of-1-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+small
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{r|cccc|ccc}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+multicolumn{1}{c}{} & 
+\backslash
+multicolumn{4}{c}{
+\backslash
+textit{Baseline}} & 
+\backslash
+multicolumn{3}{c}{
+\backslash
+textit{Pooled}} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& Raw gap & All & Male & Female & All & Male & Female 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{
+\backslash
+Sexpr{tab_ext$Label[1]}} & 
+\backslash
+Sexpr{tab_ext$Raw[1]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Full[1]} & 
+\backslash
+Sexpr{tab_ext$Male[1]} & 
+\backslash
+Sexpr{tab_ext$Female[1]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Pooled_Total[1]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Male[1]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Female[1]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Label[2]} & 
+\backslash
+Sexpr{tab_ext$Raw[2]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Full[2]} & 
+\backslash
+Sexpr{tab_ext$Male[2]} & 
+\backslash
+Sexpr{tab_ext$Female[2]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Pooled_Total[2]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Male[2]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Female[2]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Label[3]} & 
+\backslash
+Sexpr{tab_ext$Raw[3]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Full[3]} & 
+\backslash
+Sexpr{tab_ext$Male[3]} & 
+\backslash
+Sexpr{tab_ext$Female[3]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Pooled_Total[3]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Male[3]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Female[3]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Label[4]} & 
+\backslash
+Sexpr{tab_ext$Raw[4]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Full[4]} & 
+\backslash
+Sexpr{tab_ext$Male[4]} & 
+\backslash
+Sexpr{tab_ext$Female[4]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Pooled_Total[4]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Male[4]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Female[4]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Label[5]} & 
+\backslash
+Sexpr{tab_ext$Raw[5]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Full[5]} & 
+\backslash
+Sexpr{tab_ext$Male[5]} & 
+\backslash
+Sexpr{tab_ext$Female[5]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Pooled_Total[5]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Male[5]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Female[5]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Label[6]} & 
+\backslash
+Sexpr{tab_ext$Raw[6]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Full[6]} & 
+\backslash
+Sexpr{tab_ext$Male[6]} & 
+\backslash
+Sexpr{tab_ext$Female[6]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Pooled_Total[6]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Male[6]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Female[6]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Label[7]} & 
+\backslash
+Sexpr{tab_ext$Raw[7]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Full[7]} & 
+\backslash
+Sexpr{tab_ext$Male[7]} & 
+\backslash
+Sexpr{tab_ext$Female[7]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Pooled_Total[7]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Male[7]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Female[7]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Label[8]} & 
+\backslash
+Sexpr{tab_ext$Raw[8]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Full[8]} & 
+\backslash
+Sexpr{tab_ext$Male[8]} & 
+\backslash
+Sexpr{tab_ext$Female[8]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Pooled_Total[8]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Male[8]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Female[8]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Label[9]} & 
+\backslash
+Sexpr{tab_ext$Raw[9]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Full[9]} & 
+\backslash
+Sexpr{tab_ext$Male[9]} & 
+\backslash
+Sexpr{tab_ext$Female[9]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Pooled_Total[9]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Male[9]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Female[9]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Label[10]} & 
+\backslash
+Sexpr{tab_ext$Raw[10]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Full[10]} & 
+\backslash
+Sexpr{tab_ext$Male[10]} & 
+\backslash
+Sexpr{tab_ext$Female[10]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Pooled_Total[10]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Male[10]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Female[10]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Label[11]} & 
+\backslash
+Sexpr{tab_ext$Raw[11]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Full[11]} & 
+\backslash
+Sexpr{tab_ext$Male[11]} & 
+\backslash
+Sexpr{tab_ext$Female[11]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Pooled_Total[11]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Male[11]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Female[11]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Label[12]} & 
+\backslash
+Sexpr{tab_ext$Raw[12]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Full[12]} & 
+\backslash
+Sexpr{tab_ext$Male[12]} & 
+\backslash
+Sexpr{tab_ext$Female[12]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Pooled_Total[12]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Male[12]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Female[12]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Label[13]} & 
+\backslash
+Sexpr{tab_ext$Raw[13]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Full[13]} & 
+\backslash
+Sexpr{tab_ext$Male[13]} & 
+\backslash
+Sexpr{tab_ext$Female[13]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Pooled_Total[13]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Male[13]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Female[13]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Label[14]} & 
+\backslash
+Sexpr{tab_ext$Raw[14]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Full[14]} & 
+\backslash
+Sexpr{tab_ext$Male[14]} & 
+\backslash
+Sexpr{tab_ext$Female[14]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Pooled_Total[14]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Male[14]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Female[14]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Label[15]} & 
+\backslash
+Sexpr{tab_ext$Raw[15]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Full[15]} & 
+\backslash
+Sexpr{tab_ext$Male[15]} & 
+\backslash
+Sexpr{tab_ext$Female[15]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Pooled_Total[15]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Male[15]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Female[15]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Label[16]} & 
+\backslash
+Sexpr{tab_ext$Raw[16]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Full[16]} & 
+\backslash
+Sexpr{tab_ext$Male[16]} & 
+\backslash
+Sexpr{tab_ext$Female[16]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Pooled_Total[16]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Male[16]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Female[16]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Label[17]} & 
+\backslash
+Sexpr{tab_ext$Raw[17]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Full[17]} & 
+\backslash
+Sexpr{tab_ext$Male[17]} & 
+\backslash
+Sexpr{tab_ext$Female[17]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Pooled_Total[17]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Male[17]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Female[17]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Label[18]} & 
+\backslash
+Sexpr{tab_ext$Raw[18]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Full[18]} & 
+\backslash
+Sexpr{tab_ext$Male[18]} & 
+\backslash
+Sexpr{tab_ext$Female[18]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Pooled_Total[18]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Male[18]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Female[18]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Label[19]} & 
+\backslash
+Sexpr{tab_ext$Raw[19]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Full[19]} & 
+\backslash
+Sexpr{tab_ext$Male[19]} & 
+\backslash
+Sexpr{tab_ext$Female[19]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Pooled_Total[19]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Male[19]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Female[19]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Label[20]} & 
+\backslash
+Sexpr{tab_ext$Raw[20]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Full[20]} & 
+\backslash
+Sexpr{tab_ext$Male[20]} & 
+\backslash
+Sexpr{tab_ext$Female[20]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Pooled_Total[20]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Male[20]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Female[20]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Label[21]} & 
+\backslash
+Sexpr{tab_ext$Raw[21]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Full[21]} & 
+\backslash
+Sexpr{tab_ext$Male[21]} & 
+\backslash
+Sexpr{tab_ext$Female[21]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Pooled_Total[21]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Male[21]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Female[21]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Label[22]} & 
+\backslash
+Sexpr{tab_ext$Raw[22]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Full[22]} & 
+\backslash
+Sexpr{tab_ext$Male[22]} & 
+\backslash
+Sexpr{tab_ext$Female[22]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Pooled_Total[22]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Male[22]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Female[22]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Label[23]} & 
+\backslash
+Sexpr{tab_ext$Raw[23]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Full[23]} & 
+\backslash
+Sexpr{tab_ext$Male[23]} & 
+\backslash
+Sexpr{tab_ext$Female[23]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Pooled_Total[23]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Male[23]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Female[23]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Label[24]} & 
+\backslash
+Sexpr{tab_ext$Raw[24]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Full[24]} & 
+\backslash
+Sexpr{tab_ext$Male[24]} & 
+\backslash
+Sexpr{tab_ext$Female[24]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Pooled_Total[24]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Male[24]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Female[24]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Label[25]} & 
+\backslash
+Sexpr{tab_ext$Raw[25]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Full[25]} & 
+\backslash
+Sexpr{tab_ext$Male[25]} & 
+\backslash
+Sexpr{tab_ext$Female[25]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Pooled_Total[25]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Male[25]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Female[25]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Label[26]} & 
+\backslash
+Sexpr{tab_ext$Raw[26]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Full[26]} & 
+\backslash
+Sexpr{tab_ext$Male[26]} & 
+\backslash
+Sexpr{tab_ext$Female[26]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Pooled_Total[26]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Male[26]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Female[26]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Label[27]} & 
+\backslash
+Sexpr{tab_ext$Raw[27]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Full[27]} & 
+\backslash
+Sexpr{tab_ext$Male[27]} & 
+\backslash
+Sexpr{tab_ext$Female[27]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Pooled_Total[27]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Male[27]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Female[27]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Label[28]} & 
+\backslash
+Sexpr{tab_ext$Raw[28]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Full[28]} & 
+\backslash
+Sexpr{tab_ext$Male[28]} & 
+\backslash
+Sexpr{tab_ext$Female[28]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Pooled_Total[28]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Male[28]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Female[28]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Label[29]} & 
+\backslash
+Sexpr{tab_ext$Raw[29]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Full[29]} & 
+\backslash
+Sexpr{tab_ext$Male[29]} & 
+\backslash
+Sexpr{tab_ext$Female[29]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Pooled_Total[29]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Male[29]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Female[29]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Label[30]} & 
+\backslash
+Sexpr{tab_ext$Raw[30]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Full[30]} & 
+\backslash
+Sexpr{tab_ext$Male[30]} & 
+\backslash
+Sexpr{tab_ext$Female[30]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext$Pooled_Total[30]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Male[30]} & 
+\backslash
+Sexpr{tab_ext$Pooled_Female[30]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Number of observations &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{N_ext_raw_fmt} & 
+\backslash
+Sexpr{N_ext_full_fmt} & 
+\backslash
+Sexpr{N_ext_male_fmt} & 
+\backslash
+Sexpr{N_ext_female_fmt} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{N_ext_pool_total_fmt} & 
+\backslash
+Sexpr{N_ext_pool_male_fmt} & 
+\backslash
+Sexpr{N_ext_pool_female_fmt} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+footnotesize
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Note:
+ The dependent variable is equal to one if the household sold maize from the randomly selected plot and zero otherwise.
+ The table reports average marginal effects from logit models.
+ For binary covariates,
+ the reported effect is the average discrete change in the predicted probability when the variable changes from zero to one.
+ For continuous covariates,
+ the reported effect is the average marginal effect.
+ Column (1) reports the raw gender gap in market participation.
+ Column (2) reports estimates for the baseline sample adding household- and plot-level controls.
+ Columns (3) and (4) report estimates separately for male- and female-headed households.
+ Columns (5)-(7) report analogous estimates using the pooled sample across all survey rounds and include round fixed effects.
+ Clustered standard errors are reported in parentheses.
+ ***,
+ **,
+ and * denote significance at the 1
+\backslash
+%,
+ 5
+\backslash
+%,
+ and 10
+\backslash
+% levels.
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment left
+wide false
+sideways true
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+OLS estimates (intensive margin) 
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:OLS-estimates-of-1-1-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+small
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{r|cccc|ccc}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+multicolumn{1}{c}{} & 
+\backslash
+multicolumn{4}{c}{
+\backslash
+textit{Baseline}} & 
+\backslash
+multicolumn{3}{c}{
+\backslash
+textit{Pooled}} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& Raw gap & All & Male & Female & All & Male & Female 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{
+\backslash
+Sexpr{tab_int$Label[1]}} & 
+\backslash
+Sexpr{tab_int$Raw[1]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Full[1]} & 
+\backslash
+Sexpr{tab_int$Male[1]} & 
+\backslash
+Sexpr{tab_int$Female[1]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Pooled_Total[1]} & 
+\backslash
+Sexpr{tab_int$Pooled_Male[1]} & 
+\backslash
+Sexpr{tab_int$Pooled_Female[1]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Label[2]} & 
+\backslash
+Sexpr{tab_int$Raw[2]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Full[2]} & 
+\backslash
+Sexpr{tab_int$Male[2]} & 
+\backslash
+Sexpr{tab_int$Female[2]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Pooled_Total[2]} & 
+\backslash
+Sexpr{tab_int$Pooled_Male[2]} & 
+\backslash
+Sexpr{tab_int$Pooled_Female[2]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Label[3]} & 
+\backslash
+Sexpr{tab_int$Raw[3]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Full[3]} & 
+\backslash
+Sexpr{tab_int$Male[3]} & 
+\backslash
+Sexpr{tab_int$Female[3]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Pooled_Total[3]} & 
+\backslash
+Sexpr{tab_int$Pooled_Male[3]} & 
+\backslash
+Sexpr{tab_int$Pooled_Female[3]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Label[4]} & 
+\backslash
+Sexpr{tab_int$Raw[4]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Full[4]} & 
+\backslash
+Sexpr{tab_int$Male[4]} & 
+\backslash
+Sexpr{tab_int$Female[4]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Pooled_Total[4]} & 
+\backslash
+Sexpr{tab_int$Pooled_Male[4]} & 
+\backslash
+Sexpr{tab_int$Pooled_Female[4]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Label[5]} & 
+\backslash
+Sexpr{tab_int$Raw[5]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Full[5]} & 
+\backslash
+Sexpr{tab_int$Male[5]} & 
+\backslash
+Sexpr{tab_int$Female[5]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Pooled_Total[5]} & 
+\backslash
+Sexpr{tab_int$Pooled_Male[5]} & 
+\backslash
+Sexpr{tab_int$Pooled_Female[5]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Label[6]} & 
+\backslash
+Sexpr{tab_int$Raw[6]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Full[6]} & 
+\backslash
+Sexpr{tab_int$Male[6]} & 
+\backslash
+Sexpr{tab_int$Female[6]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Pooled_Total[6]} & 
+\backslash
+Sexpr{tab_int$Pooled_Male[6]} & 
+\backslash
+Sexpr{tab_int$Pooled_Female[6]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Label[7]} & 
+\backslash
+Sexpr{tab_int$Raw[7]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Full[7]} & 
+\backslash
+Sexpr{tab_int$Male[7]} & 
+\backslash
+Sexpr{tab_int$Female[7]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Pooled_Total[7]} & 
+\backslash
+Sexpr{tab_int$Pooled_Male[7]} & 
+\backslash
+Sexpr{tab_int$Pooled_Female[7]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Label[8]} & 
+\backslash
+Sexpr{tab_int$Raw[8]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Full[8]} & 
+\backslash
+Sexpr{tab_int$Male[8]} & 
+\backslash
+Sexpr{tab_int$Female[8]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Pooled_Total[8]} & 
+\backslash
+Sexpr{tab_int$Pooled_Male[8]} & 
+\backslash
+Sexpr{tab_int$Pooled_Female[8]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Label[9]} & 
+\backslash
+Sexpr{tab_int$Raw[9]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Full[9]} & 
+\backslash
+Sexpr{tab_int$Male[9]} & 
+\backslash
+Sexpr{tab_int$Female[9]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Pooled_Total[9]} & 
+\backslash
+Sexpr{tab_int$Pooled_Male[9]} & 
+\backslash
+Sexpr{tab_int$Pooled_Female[9]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Label[10]} & 
+\backslash
+Sexpr{tab_int$Raw[10]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Full[10]} & 
+\backslash
+Sexpr{tab_int$Male[10]} & 
+\backslash
+Sexpr{tab_int$Female[10]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Pooled_Total[10]} & 
+\backslash
+Sexpr{tab_int$Pooled_Male[10]} & 
+\backslash
+Sexpr{tab_int$Pooled_Female[10]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Label[11]} & 
+\backslash
+Sexpr{tab_int$Raw[11]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Full[11]} & 
+\backslash
+Sexpr{tab_int$Male[11]} & 
+\backslash
+Sexpr{tab_int$Female[11]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Pooled_Total[11]} & 
+\backslash
+Sexpr{tab_int$Pooled_Male[11]} & 
+\backslash
+Sexpr{tab_int$Pooled_Female[11]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Label[12]} & 
+\backslash
+Sexpr{tab_int$Raw[12]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Full[12]} & 
+\backslash
+Sexpr{tab_int$Male[12]} & 
+\backslash
+Sexpr{tab_int$Female[12]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Pooled_Total[12]} & 
+\backslash
+Sexpr{tab_int$Pooled_Male[12]} & 
+\backslash
+Sexpr{tab_int$Pooled_Female[12]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Label[13]} & 
+\backslash
+Sexpr{tab_int$Raw[13]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Full[13]} & 
+\backslash
+Sexpr{tab_int$Male[13]} & 
+\backslash
+Sexpr{tab_int$Female[13]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Pooled_Total[13]} & 
+\backslash
+Sexpr{tab_int$Pooled_Male[13]} & 
+\backslash
+Sexpr{tab_int$Pooled_Female[13]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Label[14]} & 
+\backslash
+Sexpr{tab_int$Raw[14]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Full[14]} & 
+\backslash
+Sexpr{tab_int$Male[14]} & 
+\backslash
+Sexpr{tab_int$Female[14]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Pooled_Total[14]} & 
+\backslash
+Sexpr{tab_int$Pooled_Male[14]} & 
+\backslash
+Sexpr{tab_int$Pooled_Female[14]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Label[15]} & 
+\backslash
+Sexpr{tab_int$Raw[15]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Full[15]} & 
+\backslash
+Sexpr{tab_int$Male[15]} & 
+\backslash
+Sexpr{tab_int$Female[15]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Pooled_Total[15]} & 
+\backslash
+Sexpr{tab_int$Pooled_Male[15]} & 
+\backslash
+Sexpr{tab_int$Pooled_Female[15]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Label[16]} & 
+\backslash
+Sexpr{tab_int$Raw[16]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Full[16]} & 
+\backslash
+Sexpr{tab_int$Male[16]} & 
+\backslash
+Sexpr{tab_int$Female[16]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Pooled_Total[16]} & 
+\backslash
+Sexpr{tab_int$Pooled_Male[16]} & 
+\backslash
+Sexpr{tab_int$Pooled_Female[16]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Label[17]} & 
+\backslash
+Sexpr{tab_int$Raw[17]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Full[17]} & 
+\backslash
+Sexpr{tab_int$Male[17]} & 
+\backslash
+Sexpr{tab_int$Female[17]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Pooled_Total[17]} & 
+\backslash
+Sexpr{tab_int$Pooled_Male[17]} & 
+\backslash
+Sexpr{tab_int$Pooled_Female[17]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Label[18]} & 
+\backslash
+Sexpr{tab_int$Raw[18]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Full[18]} & 
+\backslash
+Sexpr{tab_int$Male[18]} & 
+\backslash
+Sexpr{tab_int$Female[18]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Pooled_Total[18]} & 
+\backslash
+Sexpr{tab_int$Pooled_Male[18]} & 
+\backslash
+Sexpr{tab_int$Pooled_Female[18]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Label[19]} & 
+\backslash
+Sexpr{tab_int$Raw[19]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Full[19]} & 
+\backslash
+Sexpr{tab_int$Male[19]} & 
+\backslash
+Sexpr{tab_int$Female[19]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Pooled_Total[19]} & 
+\backslash
+Sexpr{tab_int$Pooled_Male[19]} & 
+\backslash
+Sexpr{tab_int$Pooled_Female[19]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Label[20]} & 
+\backslash
+Sexpr{tab_int$Raw[20]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Full[20]} & 
+\backslash
+Sexpr{tab_int$Male[20]} & 
+\backslash
+Sexpr{tab_int$Female[20]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Pooled_Total[20]} & 
+\backslash
+Sexpr{tab_int$Pooled_Male[20]} & 
+\backslash
+Sexpr{tab_int$Pooled_Female[20]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Label[21]} & 
+\backslash
+Sexpr{tab_int$Raw[21]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Full[21]} & 
+\backslash
+Sexpr{tab_int$Male[21]} & 
+\backslash
+Sexpr{tab_int$Female[21]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Pooled_Total[21]} & 
+\backslash
+Sexpr{tab_int$Pooled_Male[21]} & 
+\backslash
+Sexpr{tab_int$Pooled_Female[21]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Label[22]} & 
+\backslash
+Sexpr{tab_int$Raw[22]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Full[22]} & 
+\backslash
+Sexpr{tab_int$Male[22]} & 
+\backslash
+Sexpr{tab_int$Female[22]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Pooled_Total[22]} & 
+\backslash
+Sexpr{tab_int$Pooled_Male[22]} & 
+\backslash
+Sexpr{tab_int$Pooled_Female[22]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Label[23]} & 
+\backslash
+Sexpr{tab_int$Raw[23]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Full[23]} & 
+\backslash
+Sexpr{tab_int$Male[23]} & 
+\backslash
+Sexpr{tab_int$Female[23]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Pooled_Total[23]} & 
+\backslash
+Sexpr{tab_int$Pooled_Male[23]} & 
+\backslash
+Sexpr{tab_int$Pooled_Female[23]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Label[24]} & 
+\backslash
+Sexpr{tab_int$Raw[24]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Full[24]} & 
+\backslash
+Sexpr{tab_int$Male[24]} & 
+\backslash
+Sexpr{tab_int$Female[24]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Pooled_Total[24]} & 
+\backslash
+Sexpr{tab_int$Pooled_Male[24]} & 
+\backslash
+Sexpr{tab_int$Pooled_Female[24]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Label[25]} & 
+\backslash
+Sexpr{tab_int$Raw[25]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Full[25]} & 
+\backslash
+Sexpr{tab_int$Male[25]} & 
+\backslash
+Sexpr{tab_int$Female[25]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Pooled_Total[25]} & 
+\backslash
+Sexpr{tab_int$Pooled_Male[25]} & 
+\backslash
+Sexpr{tab_int$Pooled_Female[25]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Label[26]} & 
+\backslash
+Sexpr{tab_int$Raw[26]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Full[26]} & 
+\backslash
+Sexpr{tab_int$Male[26]} & 
+\backslash
+Sexpr{tab_int$Female[26]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Pooled_Total[26]} & 
+\backslash
+Sexpr{tab_int$Pooled_Male[26]} & 
+\backslash
+Sexpr{tab_int$Pooled_Female[26]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Label[27]} & 
+\backslash
+Sexpr{tab_int$Raw[27]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Full[27]} & 
+\backslash
+Sexpr{tab_int$Male[27]} & 
+\backslash
+Sexpr{tab_int$Female[27]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Pooled_Total[27]} & 
+\backslash
+Sexpr{tab_int$Pooled_Male[27]} & 
+\backslash
+Sexpr{tab_int$Pooled_Female[27]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Label[28]} & 
+\backslash
+Sexpr{tab_int$Raw[28]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Full[28]} & 
+\backslash
+Sexpr{tab_int$Male[28]} & 
+\backslash
+Sexpr{tab_int$Female[28]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Pooled_Total[28]} & 
+\backslash
+Sexpr{tab_int$Pooled_Male[28]} & 
+\backslash
+Sexpr{tab_int$Pooled_Female[28]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Label[29]} & 
+\backslash
+Sexpr{tab_int$Raw[29]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Full[29]} & 
+\backslash
+Sexpr{tab_int$Male[29]} & 
+\backslash
+Sexpr{tab_int$Female[29]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Pooled_Total[29]} & 
+\backslash
+Sexpr{tab_int$Pooled_Male[29]} & 
+\backslash
+Sexpr{tab_int$Pooled_Female[29]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Label[30]} & 
+\backslash
+Sexpr{tab_int$Raw[30]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Full[30]} & 
+\backslash
+Sexpr{tab_int$Male[30]} & 
+\backslash
+Sexpr{tab_int$Female[30]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_int$Pooled_Total[30]} & 
+\backslash
+Sexpr{tab_int$Pooled_Male[30]} & 
+\backslash
+Sexpr{tab_int$Pooled_Female[30]} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Number of observations &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{N_int_raw_fmt} & 
+\backslash
+Sexpr{N_int_full_fmt} & 
+\backslash
+Sexpr{N_int_male_fmt} & 
+\backslash
+Sexpr{N_int_female_fmt} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{N_int_pool_total_fmt} & 
+\backslash
+Sexpr{N_int_pool_male_fmt} & 
+\backslash
+Sexpr{N_int_pool_female_fmt} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+footnotesize
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Note:
+ The sample is restricted to households that sold maize from the randomly selected plot and reported positive gross sales revenue.
+ Maize gross sales revenue is transformed using the IHS.
+ Column (1) reports the raw gender gap among maize sellers.
+ Column (2) reports estimates for the baseline sample adding household- and plot-level controls;
+ standard errors clustered at the household level are reported below in parentheses.
+ Columns (3) and (4) report estimates separately for male- and female-headed households.
+ Columns (5)-(7) report analogous estimates using the pooled sample across all survey rounds and include round fixed effects.
  ***,
  **,
  and * denote significance at the 1
@@ -10418,7 +13529,7 @@ placement h
 alignment left
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -10743,7 +13854,7 @@ placement h
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -10873,8 +13984,8 @@ Note:
 
 \end_layout
 
-\begin_layout Subsubsection*
-6.3.2 Oaxaca-Blinder Decomposition - Gross Sales Revenue
+\begin_layout Subsubsection
+Oaxaca-Blinder Decomposition - Gross Sales Revenue
 \end_layout
 
 \begin_layout Standard
@@ -11286,7 +14397,7 @@ status collapsed
 \begin_layout Plain Layout
 
 \series bold
-Detailed twofold decomposition of maize gross revenue
+Detailed Twofold Decomposition of Maize Gross Revenue
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:Detailed-twofold-decomposition"
@@ -11396,6 +14507,1284 @@ footnotesize
 
 Note:
  The table reports the detailed twofold Oaxaca--Blinder decomposition for maize gross revenue with catchment-area fixed effects.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Extensive margin and Intensive Margin of Gross Sales Revenue
+\end_layout
+
+\begin_layout Standard
+Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Aggregate-Fairlie-decomposition"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ presents the Fairlie decomposition of the gender gap in maize market participation.
+ MHH sell maize at a rate of 55.1%,
+ compared with 41.0% for FHH —
+ a 14.0 percentage-point gap.
+ Differences in observed characteristics account for 7.4 percentage points of this gap (52.6%),
+ while the remaining 6.7 percentage points (47.4%) are not explained by observed characteristics.
+ Both components are statistically significant at the 1% level,
+ indicating that observable differences and unexplained factors play roughly equal roles in the participation gap.
+\end_layout
+
+\begin_layout Standard
+The detailed decomposition in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Detailed-Fairlie-decomposition"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ shows which characteristics drive the explained portion.
+ Plot area contributes the most,
+ accounting for 3.3 percentage points of the gap.
+ Differences in education and quality-seed use also contribute positively,
+ adding around 1.0 and 0.6 percentage points respectively.
+ Household size works in the opposite direction,
+ narrowing the gap by about 1.0 percentage point.
+ Households with more members are,
+ on average,
+ less likely to sell maize in the market,
+ regardless of gender,
+ and since MHH tend to have larger households than FHH,
+ this works to narrow the participation gap rather than widen it.
+ The remaining characteristics contribute only marginally to the explained gap.
+ Unlike the linear Oaxaca–Blinder decomposition,
+ the Fairlie method does not provide a well-defined procedure for decomposing the coefficient (unexplained) component into contributions from individual covariates,
+ because switching coefficients one at a time is highly sensitive to ordering in a nonlinear model.
+ The detailed decomposition is therefore reported only for the endowment component (Table 11),
+ consistent with standard practice in the literature applying this method (Fairlie,
+ 2005)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment left
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+Aggregate Fairlie decomposition of the gender gap in maize market participation
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Aggregate-Fairlie-decomposition"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+small
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{lrr}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & Probability gap & Share of gap (
+\backslash
+%) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext_logit$Component[1]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext_logit$Coefficient[1]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+-- 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext_logit$Component[2]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext_logit$Coefficient[2]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext_logit$Share_pct[2]}
+\backslash
+% 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext_logit$Component[3]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext_logit$Coefficient[3]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_ext_logit$Share_pct[3]}
+\backslash
+% 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Participation rate (male / female) &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+multicolumn{2}{r}{
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{sprintf("%.3f",
+ rate_ext_logit_male)} /
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{sprintf("%.3f",
+ rate_ext_logit_female)}
+\end_layout
+
+\begin_layout Plain Layout
+
+} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+N (male / female) &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+multicolumn{2}{r}{
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{N_ext_logit_male} /
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{N_ext_logit_female}
+\end_layout
+
+\begin_layout Plain Layout
+
+} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment left
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+Detailed Fairlie decomposition of the gender gap in maize market participation
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Detailed-Fairlie-decomposition"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+small
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{r|c}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Contribution of covariates 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{latex_rows_det_ext_logit}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+MHH / FHH observations &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{boot_det_ext_logit$base$N_male} / 
+\backslash
+Sexpr{boot_det_ext_logit$base$N_female} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+footnotesize
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Note:
+ The table reports the detailed Fairlie decomposition of the gender gap in maize market participation.
+ The dependent variable is equal to one if the household sold maize from the randomly selected plot and zero otherwise.
+ Contributions indicate how differences in each observed characteristic contribute to the explained component of the participation gap under the pooled logit model.
+ Because detailed contributions in nonlinear decompositions can depend on the ordering of covariates,
+ variable order is randomized and contributions are averaged across repeated decompositions.
+ Catchment-area fixed effects are included and reported as a single grouped contribution.
+ Statistical significance is based on standard errors obtained from a catchment-level cluster bootstrap.
+ The contributions are descriptive and should not be interpreted as causal effects.
+ ***,
+ **,
+ and * denote significance at the 1
+\backslash
+%,
+ 5
+\backslash
+%,
+ and 10
+\backslash
+% levels.
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Aggregate-Oaxaca–Blinder-decompo"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ reports the Oaxaca–Blinder decomposition of gross sales revenue among maize sellers.
+ The gender gap here is 0.253 IHS units.
+ Differences in observed characteristics explain 0.071 units of this gap (28.0%),
+ while differences in estimated coefficients explain 0.182 units (72.0%).
+ Therefore,
+ the coefficient component accounts for the larger share of the conditional revenue gap.
+ Within this component,
+ the female coefficient effect alone accounts for 57.6% of the total gap,
+ compared with 14.4% for the male coefficient effect,
+ suggesting that the returns FHH earn from their characteristics,
+ more than the characteristics themselves,
+ drive most of the unexplained gap among sellers
+\end_layout
+
+\begin_layout Standard
+The detailed decomposition in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Detailed-twofold-decomposition-2"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ identifies plot area as the main driver on both sides of the decomposition:
+ it contributes 0.056 IHS units to the endowment component and 0.343 IHS units to the structural component,
+ making it the single largest contributor to the revenue gap among sellers overall.
+ Distance to the nearest agro-input shop and organic manure use also show positive structural contributions,
+ while re-sowing contributes negatively.
+ Urea use has a small but significant negative endowment contribution,
+ meaning that differences in urea use between MHH and FHH sellers slightly narrow,
+ rather than widen,
+ the gap.
+ Most of the remaining variable-level contributions are not statistically significant.
+\end_layout
+
+\begin_layout Standard
+Comparing these results to the full-sample revenue decomposition discussed above (Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Detailed-twofold-decomposition-1"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+) reveals an important nuance:
+ quality-seed use,
+ which contributed significantly to both the endowment and structural components in the full sample,
+ shows no significant contribution among sellers alone (0.017 and -0.083,
+ both not significant).
+ This suggests that quality seed matters primarily for revenue through its association with market participation itself,
+ rather than through returns among households that already sell.
+ Similarly,
+ household size,
+ a significant driver of the participation gap in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Detailed-Fairlie-decomposition"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ is not a significant contributor to the revenue gap among sellers (Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Detailed-twofold-decomposition-2"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+),
+ reinforcing the idea that it operates mainly at the extensive margin.
+ 
+\end_layout
+
+\begin_layout Standard
+Comparing the two margins reveals a different pattern at each stage of commercialization.
+ For market participation,
+ observed differences between MHH and FHH explain slightly more than half of the gap.
+ Among households that already participate in the market,
+ however,
+ observed characteristics explain a much smaller share of the revenue gap,
+ while differences in estimated returns to those characteristics account for most of it.
+ This suggests that the gender gap in maize commercialization operates through two distinct mechanisms:
+ unequal access to resources shapes who enters the market,
+ while unequal returns to those same resources shape how much sellers earn once they are in it.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment left
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+Aggregate Oaxaca–Blinder decomposition of the gender gap in maize gross sales revenue among sellers
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Aggregate-Oaxaca–Blinder-decompo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+small
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{lrr}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & Coefficient & Share of gap (
+\backslash
+%) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_sellers_ihs$Component[1]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_sellers_ihs$Coefficient[1]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+-- 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_sellers_ihs$Component[2]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_sellers_ihs$Coefficient[2]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_sellers_ihs$Share_pct[2]}
+\backslash
+% 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_sellers_ihs$Component[3]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_sellers_ihs$Coefficient[3]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_sellers_ihs$Share_pct[3]}
+\backslash
+% 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+quad 
+\backslash
+Sexpr{tab_nested_inc_sellers_ihs$Component[4]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_sellers_ihs$Coefficient[4]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_sellers_ihs$Share_pct[4]}
+\backslash
+% 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+quad 
+\backslash
+Sexpr{tab_nested_inc_sellers_ihs$Component[5]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_sellers_ihs$Coefficient[5]} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_nested_inc_sellers_ihs$Share_pct[5]}
+\backslash
+% 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+N (male / female) &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+multicolumn{2}{r}{
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{N_inc_sellers_ihs_male} /
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{N_inc_sellers_ihs_female}
+\end_layout
+
+\begin_layout Plain Layout
+
+} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment left
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+Detailed twofold decomposition of maize gross revenue among sellers
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Detailed-twofold-decomposition-2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+small
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{r|cc}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Variable & Endowment & Structural 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{latex_rows_twofold_inc_sellers_ihs}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+MHH / FHH observations &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+multicolumn{2}{c}{
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{N_inc_sellers_ihs_male} / 
+\backslash
+Sexpr{N_inc_sellers_ihs_female}
+\end_layout
+
+\begin_layout Plain Layout
+
+} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+footnotesize
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Note:
+ The table reports the detailed twofold Oaxaca--Blinder decomposition of maize gross sales revenue among market participants.
+ The sample is restricted to households that sold maize from the randomly selected plot and reported positive gross sales revenue.
+ Maize gross sales revenue is transformed using the IHS.
+ The endowment component captures the contribution associated with differences in observed characteristics between male- and female-headed households,
+ while the structural component captures the contribution associated with differences in estimated coefficients.
+ Catchment-area fixed effects are included and standard errors are obtained from a catchment-level cluster bootstrap.
+ The detailed contributions are descriptive and should not be interpreted as causal effects or as direct evidence of discrimination.
+ ***,
+ **,
+ and * denote significance at the 1
+\backslash
+%,
+ 5
+\backslash
+%,
+ and 10
+\backslash
+% levels.
+\backslash
+
+\backslash
+
 \end_layout
 
 \end_inset
@@ -11629,7 +16018,14 @@ Technology adoption and social sanctions
 Participants described the adoption of new technologies,
  such as hybrid seeds or fertilizers,
  as generating both admiration and suspicion in the community.
- While some people are recognized and respected for their productivity outcomes,
+ Participants also described the adoption of improved seeds as costly,
+ particularly because seeds were often discussed together with complementary inputs such as fertilizer.
+ This suggests that adopting quality seed may require not only access to the seed itself,
+ but also the financial capacity to purchase the other inputs needed to use it effectively.
+\end_layout
+
+\begin_layout Standard
+While some people are recognized and respected for their productivity outcomes,
  others were viewed as envious and their success was often solely attributed to supernatural means.
  Throughout all focus groups,
  witchcraft was mentioned regularly when discussing individuals who achieved higher yields.
@@ -11670,9 +16066,18 @@ Across focus groups,
  who are regarded to be less knowledgeable about current market values.
  As one participant noted,
  “there is a difference as women are cheated because they think women are not knowledgeable” (men-only FGD).
- Others linked this directly to mobility and access to information,
+ Others linked this directly to education and access to information,
  stressing that men are believed to be more informed because “men listen to the radios and get latest price updates” (mixed male,
  FGD).
+ Women were also described as having fewer opportunities to leave the household and interact with other farmers and market actors,
+ which may further limit their access to updated information on prices,
+ buyers,
+ and selling conditions.
+ This can directly affect gross sales revenue by weakening women’s bargaining position in the market.
+ It may also have indirect implications for productivity,
+ since lower access to information can reduce exposure to knowledge about inputs,
+ technologies,
+ and farming practices.
  Price discrimination was described not only in terms of lower offered prices,
  but through manipulation of weighing scales.
  Participants reported that similar maize bags could be weighed differently depending on the seller’s gender,
@@ -11700,233 +16105,80 @@ the man and I the woman” (women-only FGD).
 Discussion and Conclusions 
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:Discussion-and-Limitations"
+name "sec:Discussion-and-Conclusion"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-This study uses a mixed-methods approach to understand the gender gaps in maize productivity and gross sales revenue between male-headed households (MHH) and female-headed households (FHH) in the Busoga region of Eastern Uganda.
- Despite the extensive literature,
- there is still no consensus on whether gender gaps in agricultural outcomes are mainly driven by observable differences in resources and input use or by structural factors that remain after these characteristics are taken into account.
- Some studies find that the gap largely disappears after controlling for endowments access whereas others find that a substantial gap persists.
- Oseni et al.
- (2015) further demonstrate that the relative importance of the two components may vary considerably within the same country.
- This study revisits and expand this debate using mixed-methods evidence from Eastern Uganda.
-\end_layout
-
-\begin_layout Standard
-Regarding productivity,
- the raw OLS estimates show that MHH achieve higher outcomes.
- These gaps remain statistically significant after controlling for household characteristics,
- farm resources,
- and input use,
- and they also persist in the pooled estimates across survey rounds.
- For maize productivity,
- the raw estimates indicate that MHH achieve approximately 20% higher productivity than FHH(β=0.199).
- Despite using a different indicator,
- this result is consistent with De la O Campos et al.
- (2016),
- who report a difference in mean log productivity between plots managed by male and female headed households of 0.177,
- corresponding to a gap of approximately 19.4%.
- The results show that the gap decreases after controls but remains positive and statistically significant in the pooled estimates.
- These results support H1 and show that observable differences do not fully account for the lower productivity of FHH.
  
 \end_layout
 
 \begin_layout Standard
-The Oaxaca–Blinder decomposition of the productivity gap provides further support for H1 and H2:
- endowment differences explain about 22% of the productivity gap,
- while the coefficient component accounts for about 78%.
- This result is close to Aguilar et al.
- (2015),
- who find that the structural component explains 57.6% of the productivity gap in Ethiopia,
- and to Slavchevska (2015),
- who shows that observable characteristics partly offset a larger coefficient disadvantage in Tanzania.
- It contrasts with Kilic et al.
- (2015) and de la O Campos et al.
- (2016),
- who find that endowments explain most of the productivity gap in Malawi and Uganda.
- Part of this difference may come from the gender indicator used (De la O campos,
- 2016).
- These studies often compare male- and female-managed plots,
- while this study compares MHH and FHH.
- Results may also vary with the set of covariates available.
- The detailed O-B decomposition shows that the coefficient component does not reflect lower estimated returns for FHH across every input.
- For instance,
- the lower education among FHH widens the productivity gap through the endowment component,
- but the coefficient contribution of education reduces the gap.
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-Perhaps another way to look at this,
- is that these two effects reinforce each other:
- lower education for women (Table 1:
- 56% vs 34% with primary education) widens the gap through the endowment effect,
- which is then exacerbated by the structural effect as this 22% lower primary education hits women harder then it would have hit men (i.e.
- marginal damage from losing education is higher for women).
- 
-\end_layout
-
-\begin_layout Plain Layout
-Does that make any sense?
-\end_layout
-
-\end_inset
-
- This confirm the OLS estimates,
- where education is more strongly associated with productivity among FHH.
- As explained by Croppenstedt et al.
- (2013) education constitutes an important channel through which women access information,
- extension services,
- credit,
- and agricultural technologies.
+This study shows that gender gaps in maize productivity and commercialization reflect both differences in observable resources and differences in the conditions under which those resources can be used.
+ MHH achieve higher maize productivity and gross sales revenue than FHH,
+ and these differences remain after accounting for observed household and farm characteristics.
+ The analysis of gross sales revenue further shows that the gap operates through two distinct margins:
+ FHH are less likely to participate in the maize market,
+ and differences also remain among households that already sell maize.
+ This distinction helps show that gender disparities arise both before market entry and after participation has taken place.
 \end_layout
 
 \begin_layout Standard
-Qualitatively,
- focus-group findings provide useful context to understand the productivity gap.
- Women described combining farming with childcare,
- food preparation,
- and other domestic duties.
- They reported arriving later at the plot,
- leaving earlier,
- and having less time to supervise agricultural work.
- They also explained that they increasingly perform tasks traditionally assigned to men without giving up their existing household responsibilities.
- These findings are consistent with research on time poverty and care responsibilities in agriculture
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Could this explain the endowment effect in Table 7:
- larger HH means more labour and less time poverty?
-\end_layout
-
-\end_inset
-
- (Ali et al.,
- 2016;
- Sell et al.,
- 2018;
- Pierotti et al.,
- 2022;
- Donald et al.,
- 2023).
- They are also consistent with the mechanism formalized by Palacios-López and López (2015) discussed in the theoretical framework in section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:2-Theoretical-Framework and Hypotesis-1"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-.
- The qualitative evidence points to constraints that are not captured by the survey variables and inform the analysis on the structural mechanism underlying the observed gap.
+For productivity,
+ differences in education and input use matter,
+ but the quantitative and qualitative findings suggest that access to resources alone does not explain the gap.
+ Women described combining agricultural work with childcare,
+ food preparation and other domestic responsibilities,
+ which limits the time they can spend on the plot and supervise agricultural activities.
+ This is consistent with the lower frequency of some labour-intensive activities observed among FHH.
+ Household composition also appears to matter in a more complex way.
+ Larger households do not necessarily translate into greater availability of farm labour,
+ as additional household members may also increase care responsibilities and competing demands on women’s time.
+ Technology adoption provides another example.
+ FHH are less likely to use quality seed,
+ while the focus groups show that the use of improved technologies may involve both financial constraints and social scrutiny,
+ particularly when women adopt them successfully.
+ These findings suggest that differences in technology use are shaped not only by access,
+ but also by the wider social and household environment in which adoption takes place.
 \end_layout
 
 \begin_layout Standard
-The results for gross revenue supports H3:
- the raw estimates indicate that MHH earn approximately 1.016 IHS units more gross sales revenue than FHH.
- The gap falls to about 0.633 after controls,
- but remains large and statistically significant.
- The pooled estimate also remains positive and significant.
- 
-\end_layout
-
-\begin_layout Standard
-The O-B decomposition provides support for H4:
- endowments explain about 41% of the revenue gap,
- while the coefficient component accounts for about 59%.
- Endowments therefore matter more for revenue than for productivity,
- but they still do not explain the full gap.
- This result is consistent with Dandonougbo et al.
- (2023),
- Gebre et al.
- (2021),
- and Marenya et al.
- (2017),
- who also find an important role for coefficient differences in agricultural income and maize market participation.
- In fact,
- despite focusing on male and female plot owners,
- Dandonougbo et al.
- (2023) find that 58.5% of the average farm gross revenue gap in Togo is accounted for by structural advantages enjoyed by male farmers.
- Through the detailed decomposition we see that plot area is the main positive contributor to the revenue endowment component.
- FHH cultivate smaller plots,
- which limits the amount of maize available for sale.
- This is consistent with the findings of Mkuna and Wale (2023).
- Similarly to the effect on productivity,
- education widen the endowment gap but has negative coefficient contribution because it is more strongly associated with revenue among FHH in the separate OLS estimates.
- Quality-seed use,
- by contrast,
- contributes positively to both the endowment and coefficient components.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Can this be related to access to inputs?
- Because complimentary inputs are crucial for successful use of quality seed.
-\end_layout
-
-\end_inset
-
- Overall,
- the detailed results show several effects working in opposite directions rather than one uniform pattern of lower returns among FHH.
- 
-\end_layout
-
-\begin_layout Standard
-The focus-group evidence adds further context to the findings about revenue gap.
- The social stigma surrounding women’s technology adoption may discourage women from adopting investment in new technology and new inputs,
- such as new quality seeds.
- Moreover,
- participants reported that women often had less access to current price information and faced a higher risk of receiving lower offers and being cheated.
- This is consistent with studies showing that agricultural information often circulates through gendered networks that are more accessible to male farmers (Mekonnen et al.,
- 2018;
- Mullally et al.,
- 2022;
- Caldarola et al.,
- 2022;
- Dickinson & Koo,
- 2022).
- This is also consistent with the decomposition results,
- which show that education plays an important role in the revenue gap,
- particularly through differences in educational endowments between MHH and FHH.
- Participants also described the manipulation of weighing scales and the belief among buyers that women were easier to deceive.
- Some therefore preferred women to sell with a man present,
- which is particularly difficult for FHH without a resident male partner.
- The limited access together with women’s weak bargaining power,
- restrict their ability to increase agricultural earnings,
- and leave FHH with fewer alternative sources of income (Dickinson & Koo,
- 2022).
- 
+The commercialization results reveal a related but distinct pattern.
+ Plot area is important both for entering the maize market and for gross sales revenue among households that already sell,
+ showing that access to land can affect several stages of commercialization.
+ Education also appears particularly relevant for productivity and market participation.
+ Although the focus groups did not directly discuss formal schooling,
+ they repeatedly described women as having less access to information through radio,
+ mobility and interaction with other farmers and market actors.
+ Women were also perceived as less informed about prices and more vulnerable to lower offers,
+ manipulation of weighing scales and other unfavorable treatment by buyers.
+ These accounts help contextualize why differences in observed characteristics explain an important part of the participation gap,
+ while differences among sellers are less fully captured by the variables available in the survey.
+ Once women enter the market,
+ access to information,
+ bargaining power and treatment by buyers may therefore become particularly important for the revenue they obtain.
 \end_layout
 
 \begin_layout Standard
 Overall,
  the main findings support all four hypotheses.
- MHH achieves higher maize productivity and gross sales revenue than FHH,
- and both gaps remain after observable characteristics are taken into account.
- The coefficient component is larger for both outcomes in the main IHS specifications,
- although land,
- education,
- and input access remain important,
- especially for revenue.
- Improving women’s access to productive resources is therefore necessary,
- but it may not be sufficient.
- Policies should also address time constraints,
- access to information and unequal treatment in maize markets.
- Education stood out as a powerful tool to diminish both gaps thanks to the high returns on both productivity and revenue.
+ MHH achieve higher maize productivity and gross sales revenue than FHH,
+ and the gaps remain after observable characteristics are taken into account.
+ The decomposition results show that differences in resources remain important,
+ while differences in estimated coefficient structures also account for a substantial part of the gaps.
+ The extensive- and intensive-margin analysis adds an important qualification:
+ observable characteristics appear particularly relevant for explaining differences in market participation,
+ while they account for a smaller part of the revenue gap among households that already sell.
+ Improving women’s access to land,
+ education and productive inputs is therefore necessary,
+ but may not be sufficient.
+ Policies should also address time and care constraints,
+ access to information,
+ the ability to use technologies and complementary inputs,
+ and unequal treatment in maize markets.
  The combined quantitative and qualitative evidence supports the broader argument developed in the theoretical framework:
  gender gaps depend not only on which resources households possess,
- but also on the social conditions under which FHH can access,
- use,
- and benefit from those resources.
+ but also on the social and market conditions under which FHH can access,
+ use and benefit from those resources.
 \end_layout
 
 \begin_layout Standard
@@ -11948,7 +16200,7 @@ Given the substantial benefits of modern agricultural technologies,
 \end_layout
 
 \begin_layout Section*
-8 Future Research
+8 Limitations and Future Research
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:8-Limitations-and"
@@ -11959,41 +16211,37 @@ name "sec:8-Limitations-and"
 \end_layout
 
 \begin_layout Standard
-The study advances the literature by giving new context-specific evidence on potential gender-differentiated outcomes in smallholder maize farming.
- The findings have policy implications for equitable productivity and gross revenue outcomes in maize production in Eastern Uganda.
+This study has several limitations that point to directions for future research.
+ First,
+ the analysis is specific to smallholder maize-producing households in the Busoga region.
+ The findings should therefore be interpreted in their local context and may not generalize to other regions,
+ crops,
+ or farming systems in Uganda.
+ Future research could examine whether similar gender gaps emerge in different agricultural and institutional settings.
 \end_layout
 
 \begin_layout Standard
-- The benchmark in the threefold decomposition:
- the allocation of the coefficient component into male and female coefficient components is sensitive to the choice of benchmark.
- 
+Second,
+ gender is defined according to the sex of the household head.
+ While this distinction is useful for comparing household structures,
+ it does not fully capture the complexity of gender relations within households,
+ including differences in decision-making,
+ labour allocation,
+ and control over productive resources.
+ Future work could use more detailed measures of intra-household roles and responsibilities.
 \end_layout
 
 \begin_layout Standard
-- Interesting to look at the distribution (RIF):
- Although Aguilar et al.
- find that more than half of the productivity gap is related to structural issues,
- age and years of schooling are significant effects only at the higher levels of productivity.
- 
-\end_layout
-
-\begin_layout Standard
-- Choice of indicator:
- As highlighted in the literature,
- aggregate decomposition results vary across crops and contexts,
- and the relative contribution of endowment and structural effects depends on how gender is conceptualized,
- whether in terms of household heads,
- plot holders,
- or farm managers (De la O Campos et al.,
- 2016).
- 
-\end_layout
-
-\begin_layout Standard
-- Unobserved data not computed in the equation,
- such as agro-ecological conditions may emain captured in the returns component (Fortin et al.,
- 2011).
- But also the endowments could be generated by structural disequalities.
+Third,
+ the empirical analysis is primarily descriptive.
+ The decomposition identifies the relative contribution of observed characteristics and differences in estimated coefficient structures,
+ but it cannot establish the causal mechanisms underlying these differences.
+ The qualitative evidence provides important context,
+ particularly on social norms,
+ time constraints,
+ and market dynamics,
+ but these mechanisms are not directly measured in the quantitative data.
+ Future research could combine richer measures of these constraints with research designs that allow for stronger causal identification.
 \end_layout
 
 \begin_layout Section
@@ -12757,6 +17005,13 @@ World Bank.
 
 \begin_layout Section
 Appendix
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Appendix"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -13618,629 +17873,6 @@ end{center}
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float table
-placement H
-alignment left
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-
-\series bold
-Aggregate Decomposition of participation in the market (in IHS) 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-small
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{tabular}{lrr}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
- & Probability gap & Share of gap (
-\backslash
-%) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_ext_logit$Component[1]} &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_ext_logit$Coefficient[1]} &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_ext_logit$Share_pct[1]}
-\backslash
-% 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_ext_logit$Component[2]} &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_ext_logit$Coefficient[2]} &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_ext_logit$Share_pct[2]}
-\backslash
-% 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_ext_logit$Component[3]} &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_ext_logit$Coefficient[3]} &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_ext_logit$Share_pct[3]}
-\backslash
-% 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Participation rate (male / female) &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-multicolumn{2}{r}{
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{sprintf("%.3f",
- rate_ext_logit_male)} /
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{sprintf("%.3f",
- rate_ext_logit_female)}
-\end_layout
-
-\begin_layout Plain Layout
-
-} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-N (male / female) &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-multicolumn{2}{r}{
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{N_ext_logit_male} /
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{N_ext_logit_female}
-\end_layout
-
-\begin_layout Plain Layout
-
-} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{tabular}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float table
-placement H
-alignment left
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-
-\series bold
-Aggregate Decomposition of Gross Sales Revenue (in IHS) among sellers
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-small
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{tabular}{lrr}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
- & Coefficient & Share of gap (
-\backslash
-%) 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_nested_inc_sellers_ihs$Component[1]} &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_nested_inc_sellers_ihs$Coefficient[1]} &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_nested_inc_sellers_ihs$Share_pct[1]}
-\backslash
-% 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_nested_inc_sellers_ihs$Component[2]} &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_nested_inc_sellers_ihs$Coefficient[2]} &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_nested_inc_sellers_ihs$Share_pct[2]}
-\backslash
-% 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_nested_inc_sellers_ihs$Component[3]} &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_nested_inc_sellers_ihs$Coefficient[3]} &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_nested_inc_sellers_ihs$Share_pct[3]}
-\backslash
-% 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-quad 
-\backslash
-Sexpr{tab_nested_inc_sellers_ihs$Component[4]} &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_nested_inc_sellers_ihs$Coefficient[4]} &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_nested_inc_sellers_ihs$Share_pct[4]}
-\backslash
-% 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-quad 
-\backslash
-Sexpr{tab_nested_inc_sellers_ihs$Component[5]} &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_nested_inc_sellers_ihs$Coefficient[5]} &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{tab_nested_inc_sellers_ihs$Share_pct[5]}
-\backslash
-% 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-N (male / female) &
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-multicolumn{2}{r}{
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{N_inc_sellers_ihs_male} /
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{N_inc_sellers_ihs_female}
-\end_layout
-
-\begin_layout Plain Layout
-
-} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{tabular}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 Detailed tables threefold:
 \begin_inset Float table
 placement class
@@ -14502,6 +18134,570 @@ footnotesize
 
 Note:
  The table reports the detailed threefold Oaxaca--Blinder decomposition for maize gross revenue with catchment-area fixed effects.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+RIF:
+ 
+\begin_inset Float table
+placement H
+alignment left
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+“RIF decomposition of the gender gap in maize productivity across unconditional quantiles
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+small
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{lrrrrr}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+Quantile & Total gap & Endowment & Share (
+\backslash
+%) & Coefficient & Share (
+\backslash
+%) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_rif_prod$Quantile[1]} & 
+\backslash
+Sexpr{tab_rif_prod$Total_gap[1]} & 
+\backslash
+Sexpr{tab_rif_prod$Endowment[1]} & 
+\backslash
+Sexpr{tab_rif_prod$Share_Endowment[1]}
+\backslash
+% & 
+\backslash
+Sexpr{tab_rif_prod$Coefficient[1]} & 
+\backslash
+Sexpr{tab_rif_prod$Share_Coefficient[1]}
+\backslash
+% 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_rif_prod$Quantile[2]} & 
+\backslash
+Sexpr{tab_rif_prod$Total_gap[2]} & 
+\backslash
+Sexpr{tab_rif_prod$Endowment[2]} & 
+\backslash
+Sexpr{tab_rif_prod$Share_Endowment[2]}
+\backslash
+% & 
+\backslash
+Sexpr{tab_rif_prod$Coefficient[2]} & 
+\backslash
+Sexpr{tab_rif_prod$Share_Coefficient[2]}
+\backslash
+% 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_rif_prod$Quantile[3]} & 
+\backslash
+Sexpr{tab_rif_prod$Total_gap[3]} & 
+\backslash
+Sexpr{tab_rif_prod$Endowment[3]} & 
+\backslash
+Sexpr{tab_rif_prod$Share_Endowment[3]}
+\backslash
+% & 
+\backslash
+Sexpr{tab_rif_prod$Coefficient[3]} & 
+\backslash
+Sexpr{tab_rif_prod$Share_Coefficient[3]}
+\backslash
+% 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_rif_prod$Quantile[4]} & 
+\backslash
+Sexpr{tab_rif_prod$Total_gap[4]} & 
+\backslash
+Sexpr{tab_rif_prod$Endowment[4]} & 
+\backslash
+Sexpr{tab_rif_prod$Share_Endowment[4]}
+\backslash
+% & 
+\backslash
+Sexpr{tab_rif_prod$Coefficient[4]} & 
+\backslash
+Sexpr{tab_rif_prod$Share_Coefficient[4]}
+\backslash
+% 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_rif_prod$Quantile[5]} & 
+\backslash
+Sexpr{tab_rif_prod$Total_gap[5]} & 
+\backslash
+Sexpr{tab_rif_prod$Endowment[5]} & 
+\backslash
+Sexpr{tab_rif_prod$Share_Endowment[5]}
+\backslash
+% & 
+\backslash
+Sexpr{tab_rif_prod$Coefficient[5]} & 
+\backslash
+Sexpr{tab_rif_prod$Share_Coefficient[5]}
+\backslash
+% 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_rif_prod$Quantile[6]} & 
+\backslash
+Sexpr{tab_rif_prod$Total_gap[6]} & 
+\backslash
+Sexpr{tab_rif_prod$Endowment[6]} & 
+\backslash
+Sexpr{tab_rif_prod$Share_Endowment[6]}
+\backslash
+% & 
+\backslash
+Sexpr{tab_rif_prod$Coefficient[6]} & 
+\backslash
+Sexpr{tab_rif_prod$Share_Coefficient[6]}
+\backslash
+% 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_rif_prod$Quantile[7]} & 
+\backslash
+Sexpr{tab_rif_prod$Total_gap[7]} & 
+\backslash
+Sexpr{tab_rif_prod$Endowment[7]} & 
+\backslash
+Sexpr{tab_rif_prod$Share_Endowment[7]}
+\backslash
+% & 
+\backslash
+Sexpr{tab_rif_prod$Coefficient[7]} & 
+\backslash
+Sexpr{tab_rif_prod$Share_Coefficient[7]}
+\backslash
+% 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_rif_prod$Quantile[8]} & 
+\backslash
+Sexpr{tab_rif_prod$Total_gap[8]} & 
+\backslash
+Sexpr{tab_rif_prod$Endowment[8]} & 
+\backslash
+Sexpr{tab_rif_prod$Share_Endowment[8]}
+\backslash
+% & 
+\backslash
+Sexpr{tab_rif_prod$Coefficient[8]} & 
+\backslash
+Sexpr{tab_rif_prod$Share_Coefficient[8]}
+\backslash
+% 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_rif_prod$Quantile[9]} & 
+\backslash
+Sexpr{tab_rif_prod$Total_gap[9]} & 
+\backslash
+Sexpr{tab_rif_prod$Endowment[9]} & 
+\backslash
+Sexpr{tab_rif_prod$Share_Endowment[9]}
+\backslash
+% & 
+\backslash
+Sexpr{tab_rif_prod$Coefficient[9]} & 
+\backslash
+Sexpr{tab_rif_prod$Share_Coefficient[9]}
+\backslash
+% 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+N (male / female) & 
+\backslash
+multicolumn{5}{r}{
+\backslash
+Sexpr{N_rif_prod_male} / 
+\backslash
+Sexpr{N_rif_prod_female}} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment left
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+RIF decomposition of the gender gap in overall gross sales revenue across selected unconditional quantiles
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+small
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{lrrrrr}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+Quantile & Total gap & Endowment & Share (
+\backslash
+%) & Coefficient & Share (
+\backslash
+%) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_rif_rev$Quantile[1]} & 
+\backslash
+Sexpr{tab_rif_rev$Total_gap[1]} & 
+\backslash
+Sexpr{tab_rif_rev$Endowment[1]} & 
+\backslash
+Sexpr{tab_rif_rev$Share_Endowment[1]}
+\backslash
+% & 
+\backslash
+Sexpr{tab_rif_rev$Coefficient[1]} & 
+\backslash
+Sexpr{tab_rif_rev$Share_Coefficient[1]}
+\backslash
+% 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_rif_rev$Quantile[2]} & 
+\backslash
+Sexpr{tab_rif_rev$Total_gap[2]} & 
+\backslash
+Sexpr{tab_rif_rev$Endowment[2]} & 
+\backslash
+Sexpr{tab_rif_rev$Share_Endowment[2]}
+\backslash
+% & 
+\backslash
+Sexpr{tab_rif_rev$Coefficient[2]} & 
+\backslash
+Sexpr{tab_rif_rev$Share_Coefficient[2]}
+\backslash
+% 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{tab_rif_rev$Quantile[3]} & 
+\backslash
+Sexpr{tab_rif_rev$Total_gap[3]} & 
+\backslash
+Sexpr{tab_rif_rev$Endowment[3]} & 
+\backslash
+Sexpr{tab_rif_rev$Share_Endowment[3]}
+\backslash
+% & 
+\backslash
+Sexpr{tab_rif_rev$Coefficient[3]} & 
+\backslash
+Sexpr{tab_rif_rev$Share_Coefficient[3]}
+\backslash
+% 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+N (male / female) & 
+\backslash
+multicolumn{5}{r}{
+\backslash
+Sexpr{N_rif_rev_male} / 
+\backslash
+Sexpr{N_rif_rev_female}} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
 \end_layout
 
 \end_inset

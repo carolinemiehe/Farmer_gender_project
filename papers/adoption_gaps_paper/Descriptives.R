@@ -3374,18 +3374,22 @@ ggsave("common_support_ext_margin.png", width = 7, height = 5)
 # Productivity + overall gross sales revenue
 # ============================================================
 
-# * RIF for one unconditional quantile
-compute_rif_quantile <- function(y, tau) {
+library(dplyr)
+
+# * Compute and recenter the RIF for one unconditional quantile
+compute_rif <- function(y, tau) {
   y <- as.numeric(y)
   q_tau <- as.numeric(quantile(y, probs = tau, type = 7, na.rm = TRUE))
-  
   dens <- density(y, na.rm = TRUE, bw = "nrd0")
   f_q <- approx(dens$x, dens$y, xout = q_tau, rule = 2)$y
   
   if (!is.finite(f_q) || f_q <= 1e-8)
     stop("Density at the selected quantile is too small.")
   
-  rif <- q_tau + (tau - as.numeric(y <= q_tau)) / f_q
+  rif_raw <- q_tau + (tau - as.numeric(y <= q_tau)) / f_q
+  
+  # * Finite-sample recentering: mean(RIF) must equal the quantile
+  rif <- rif_raw - mean(rif_raw, na.rm = TRUE) + q_tau
   
   list(
     rif = rif,
@@ -3395,134 +3399,116 @@ compute_rif_quantile <- function(y, tau) {
   )
 }
 
-# * Within transformation for catchment fixed effects
-within_transform_rif <- function(df, vars, group_var = "catchID") {
-  out <- df
-  
-  for (v in vars) {
-    group_mean <- ave(
-      out[[v]], out[[group_var]],
-      FUN = function(z) mean(z, na.rm = TRUE)
-    )
-    
-    overall_mean <- mean(out[[v]], na.rm = TRUE)
-    
-    out[[v]] <- out[[v]] - group_mean + overall_mean
-  }
-  
-  out
-}
-
-# * RIF-Oaxaca decomposition at one quantile
+# * RIF-Oaxaca at one quantile
 rif_oaxaca_single <- function(df, y, x_vars, tau,
                               group_var = "hh_gender_num",
-                              male_val = 1,
-                              female_val = 0,
+                              male_val = 1, female_val = 0,
                               cluster = "catchID") {
   
   vars_need <- c(y, group_var, x_vars, cluster)
-  d0 <- df[complete.cases(df[, vars_need]), , drop = FALSE]
+  d <- df[complete.cases(df[, vars_need]), , drop = FALSE]
   
-  # * Keep catchments containing both MHH and FHH
-  valid_catch <- d0 %>%
+  # * Restrict to catchments containing both MHH and FHH
+  catch_check <- d %>%
     group_by(.data[[cluster]]) %>%
     summarise(
       n_male = sum(.data[[group_var]] == male_val),
       n_female = sum(.data[[group_var]] == female_val),
       .groups = "drop"
-    ) %>%
-    filter(n_male > 0 & n_female > 0) %>%
+    )
+  
+  valid_catch <- catch_check %>%
+    filter(n_male > 0, n_female > 0) %>%
     pull(1)
   
-  d0 <- d0[d0[[cluster]] %in% valid_catch, , drop = FALSE]
+  d <- d[d[[cluster]] %in% valid_catch, , drop = FALSE]
+  d[[cluster]] <- factor(d[[cluster]])
   
-  dm0 <- d0[d0[[group_var]] == male_val, , drop = FALSE]
-  df0 <- d0[d0[[group_var]] == female_val, , drop = FALSE]
+  dm <- d[d[[group_var]] == male_val, , drop = FALSE]
+  dfem <- d[d[[group_var]] == female_val, , drop = FALSE]
   
-  # * Group-specific and pooled RIFs
-  r_m <- compute_rif_quantile(dm0[[y]], tau)
-  r_f <- compute_rif_quantile(df0[[y]], tau)
-  r_p <- compute_rif_quantile(d0[[y]], tau)
+  # * Group-specific RIFs and pooled RIF
+  rm <- compute_rif(dm[[y]], tau)
+  rf <- compute_rif(dfem[[y]], tau)
+  rp <- compute_rif(d[[y]], tau)
   
-  dm0$rif_y <- r_m$rif
-  df0$rif_y <- r_f$rif
-  d0$rif_y  <- r_p$rif
+  dm$rif_y <- rm$rif
+  dfem$rif_y <- rf$rif
+  d$rif_y <- rp$rif
   
-  # * Catchment fixed effects
-  dm <- within_transform_rif(dm0, c("rif_y", x_vars), cluster)
-  dfem <- within_transform_rif(df0, c("rif_y", x_vars), cluster)
-  dp <- within_transform_rif(d0, c("rif_y", x_vars), cluster)
+  # * Common regressors include catchment fixed effects
+  common_rhs <- paste(
+    c(x_vars, paste0("factor(", cluster, ")")),
+    collapse = " + "
+  )
   
-  rhs <- paste(x_vars, collapse = " + ")
-  form_y <- as.formula(paste("rif_y ~", rhs))
-  form_x <- as.formula(paste("~", rhs))
+  form_group <- as.formula(paste("rif_y ~", common_rhs))
+  form_pool <- as.formula(
+    paste("rif_y ~", group_var, "+", common_rhs)
+  )
+  form_x <- as.formula(paste("~", common_rhs))
   
-  beta_m <- coef(lm(form_y, data = dm))
-  beta_f <- coef(lm(form_y, data = dfem))
-  beta_p <- coef(lm(form_y, data = dp))
+  fit_m <- lm(form_group, data = dm)
+  fit_f <- lm(form_group, data = dfem)
   
-  if (anyNA(beta_m) || anyNA(beta_f) || anyNA(beta_p))
-    stop("One RIF regression contains aliased coefficients.")
+  # * Aguilar-style pooled benchmark includes the gender dummy
+  fit_p <- lm(form_pool, data = d)
+  
+  beta_m_all <- coef(fit_m)
+  beta_f_all <- coef(fit_f)
+  beta_p_all <- coef(fit_p)
   
   X_m <- colMeans(model.matrix(form_x, data = dm))
   X_f <- colMeans(model.matrix(form_x, data = dfem))
   
-  all_names <- Reduce(
-    union,
-    list(names(beta_m), names(beta_f), names(beta_p), names(X_m), names(X_f))
-  )
+  common_names <- names(X_m)
   
-  align <- function(x) {
-    out <- setNames(rep(0, length(all_names)), all_names)
-    out[names(x)] <- x
-    out
-  }
+  beta_m <- beta_m_all[common_names]
+  beta_f <- beta_f_all[common_names]
+  beta_p <- beta_p_all[common_names]
   
-  beta_m <- align(beta_m)
-  beta_f <- align(beta_f)
-  beta_p <- align(beta_p)
-  X_m <- align(X_m)
-  X_f <- align(X_f)
+  if (anyNA(beta_m) || anyNA(beta_f) || anyNA(beta_p))
+    stop("Aliased coefficients detected. Check collinearity with catchment fixed effects.")
   
-  # * Oaxaca components
+  # * Aggregate and detailed decomposition
   Endow_k <- (X_m - X_f) * beta_p
   Male_coef_k <- X_m * (beta_m - beta_p)
   Female_coef_k <- X_f * (beta_p - beta_f)
-  Coefficients_k <- Male_coef_k + Female_coef_k
+  Coef_k <- Male_coef_k + Female_coef_k
   
   Endowment <- sum(Endow_k)
   Male_coef <- sum(Male_coef_k)
   Female_coef <- sum(Female_coef_k)
-  Coefficients <- Male_coef + Female_coef
+  Coefficient <- sum(Coef_k)
   
-  Total_gap <- r_m$q - r_f$q
+  Total_gap <- rm$q - rf$q
+  Reconstruction_error <- Endowment + Coefficient - Total_gap
   
   detailed <- data.frame(
-    term = all_names,
-    Endow_k = Endow_k,
-    Male_coef_k = Male_coef_k,
-    Female_coef_k = Female_coef_k,
-    Coefficients_k = Coefficients_k,
+    term = common_names,
+    Endowment = Endow_k,
+    Male_coef = Male_coef_k,
+    Female_coef = Female_coef_k,
+    Coefficient = Coef_k,
     stringsAsFactors = FALSE
   )
   
   list(
     tau = tau,
-    N = nrow(d0),
-    N_male = nrow(dm0),
-    N_female = nrow(df0),
-    Q_male = r_m$q,
-    Q_female = r_f$q,
+    N_male = nrow(dm),
+    N_female = nrow(dfem),
+    Q_male = rm$q,
+    Q_female = rf$q,
     Total_gap = Total_gap,
     Endowment = Endowment,
-    Coefficients = Coefficients,
+    Coefficient = Coefficient,
     Male_coef = Male_coef,
     Female_coef = Female_coef,
     Share_Endowment = safe_share(Endowment, Total_gap),
-    Share_Coefficients = safe_share(Coefficients, Total_gap),
-    Reconstruction_error = Endowment + Coefficients - Total_gap,
-    Mass_male = r_m$mass,
-    Mass_female = r_f$mass,
+    Share_Coefficient = safe_share(Coefficient, Total_gap),
+    Reconstruction_error = Reconstruction_error,
+    Mass_male = rm$mass,
+    Mass_female = rf$mass,
     detailed = detailed
   )
 }
@@ -3530,16 +3516,29 @@ rif_oaxaca_single <- function(df, y, x_vars, tau,
 # * Catchment-clustered bootstrap
 bootstrap_rif_oaxaca <- function(df, y, x_vars, tau,
                                  group_var = "hh_gender_num",
-                                 male_val = 1,
-                                 female_val = 0,
+                                 male_val = 1, female_val = 0,
                                  cluster = "catchID",
-                                 R = 300,
-                                 seed = 123) {
+                                 R = 300, seed = 123) {
   
   set.seed(seed)
   
   vars_need <- c(y, group_var, x_vars, cluster)
   d <- df[complete.cases(df[, vars_need]), , drop = FALSE]
+  
+  # * Apply the mixed-catchment restriction before bootstrap sampling
+  catch_check <- d %>%
+    group_by(.data[[cluster]]) %>%
+    summarise(
+      n_male = sum(.data[[group_var]] == male_val),
+      n_female = sum(.data[[group_var]] == female_val),
+      .groups = "drop"
+    )
+  
+  valid_catch <- catch_check %>%
+    filter(n_male > 0, n_female > 0) %>%
+    pull(1)
+  
+  d <- d[d[[cluster]] %in% valid_catch, , drop = FALSE]
   
   base <- rif_oaxaca_single(
     d, y, x_vars, tau,
@@ -3551,30 +3550,23 @@ bootstrap_rif_oaxaca <- function(df, y, x_vars, tau,
   n_cl <- length(clusters)
   
   agg_names <- c(
-    "Total_gap", "Endowment",
-    "Coefficients", "Male_coef", "Female_coef"
-  )
-  
-  agg_draws <- matrix(
-    NA_real_, R, length(agg_names),
-    dimnames = list(NULL, agg_names)
-  )
-  
-  det_names <- c(
-    "Endowment", "Coefficients",
+    "Total_gap", "Endowment", "Coefficient",
     "Male_coef", "Female_coef"
   )
   
-  det_draws <- setNames(
-    lapply(
-      det_names,
-      function(x)
-        matrix(
-          NA_real_, R, length(terms),
-          dimnames = list(NULL, terms)
-        )
-    ),
-    det_names
+  agg_draws <- matrix(
+    NA_real_, nrow = R, ncol = length(agg_names),
+    dimnames = list(NULL, agg_names)
+  )
+  
+  det_draws_endow <- matrix(
+    NA_real_, R, length(terms),
+    dimnames = list(NULL, terms)
+  )
+  
+  det_draws_coef <- matrix(
+    NA_real_, R, length(terms),
+    dimnames = list(NULL, terms)
   )
   
   for (r in seq_len(R)) {
@@ -3584,10 +3576,9 @@ bootstrap_rif_oaxaca <- function(df, y, x_vars, tau,
     dd <- do.call(
       rbind,
       lapply(seq_along(sampled), function(i) {
-        
         tmp <- d[d[[cluster]] == sampled[i], , drop = FALSE]
         
-        # * Give duplicated bootstrap clusters a unique ID
+        # * Duplicated bootstrap clusters receive new IDs
         tmp[[cluster]] <- paste0("boot_", i)
         
         tmp
@@ -3607,7 +3598,7 @@ bootstrap_rif_oaxaca <- function(df, y, x_vars, tau,
     agg_draws[r, ] <- c(
       rr$Total_gap,
       rr$Endowment,
-      rr$Coefficients,
+      rr$Coefficient,
       rr$Male_coef,
       rr$Female_coef
     )
@@ -3618,31 +3609,25 @@ bootstrap_rif_oaxaca <- function(df, y, x_vars, tau,
       drop = FALSE
     ]
     
-    det_draws$Endowment[r, ] <- det$Endow_k
-    det_draws$Coefficients[r, ] <- det$Coefficients_k
-    det_draws$Male_coef[r, ] <- det$Male_coef_k
-    det_draws$Female_coef[r, ] <- det$Female_coef_k
+    det_draws_endow[r, ] <- det$Endowment
+    det_draws_coef[r, ] <- det$Coefficient
   }
   
   list(
     base = base,
     se_agg = apply(agg_draws, 2, sd, na.rm = TRUE),
-    se_det = lapply(
-      det_draws,
-      function(m) apply(m, 2, sd, na.rm = TRUE)
-    ),
+    se_endow = apply(det_draws_endow, 2, sd, na.rm = TRUE),
+    se_coef = apply(det_draws_coef, 2, sd, na.rm = TRUE),
     successful_boot = sum(complete.cases(agg_draws))
   )
 }
 
-# * Run RIF decompositions over several quantiles
+# * Run several unconditional quantiles
 run_rif_grid <- function(df, y, x_vars, quantiles,
                          group_var = "hh_gender_num",
-                         male_val = 1,
-                         female_val = 0,
+                         male_val = 1, female_val = 0,
                          cluster = "catchID",
-                         R = 300,
-                         seed = 123) {
+                         R = 300, seed = 123) {
   
   out <- lapply(
     quantiles,
@@ -3666,109 +3651,63 @@ run_rif_grid <- function(df, y, x_vars, quantiles,
 # RUN
 # ============================================================
 
-# * Productivity: Aguilar-style deciles
+# * Aguilar-style deciles for productivity
 q_prod <- seq(0.10, 0.90, by = 0.10)
 
-# * Overall revenue: only quantiles above the large zero mass
+# * Positive part of the overall revenue distribution
 q_rev <- c(0.70, 0.80, 0.90)
 
-# * Check revenue quantiles before estimation
-rev_vars <- c(y_inc, group_var, x_inc, "catchID")
+# * Run 50 bootstrap replications first if you want a quick test
+R_rif <- R_boot
 
-rev_check <- baseline_fe[
-  complete.cases(baseline_fe[, rev_vars]),
-  ,
-  drop = FALSE
-]
-
-rev_quantile_check <- data.frame(
-  Quantile = q_rev,
-  MHH = sapply(
-    q_rev,
-    function(q)
-      quantile(
-        rev_check[rev_check[[group_var]] == male_value, y_inc],
-        q,
-        na.rm = TRUE
-      )
-  ),
-  FHH = sapply(
-    q_rev,
-    function(q)
-      quantile(
-        rev_check[rev_check[[group_var]] == female_value, y_inc],
-        q,
-        na.rm = TRUE
-      )
-  )
-)
-
-print(rev_quantile_check)
-
-# * Final estimation
 rif_prod_fe <- run_rif_grid(
-  baseline_fe,
-  y_prod,
-  x_prod,
-  q_prod,
-  group_var,
-  male_value,
-  female_value,
-  "catchID",
-  R = R_boot,
-  seed = seed_boot
+  baseline_fe, y_prod, x_prod, q_prod,
+  group_var, male_value, female_value,
+  "catchID", R = R_rif, seed = seed_boot
 )
 
 rif_rev_fe <- run_rif_grid(
-  baseline_fe,
-  y_inc,
-  x_inc,
-  q_rev,
-  group_var,
-  male_value,
-  female_value,
-  "catchID",
-  R = R_boot,
-  seed = seed_boot
+  baseline_fe, y_inc, x_inc, q_rev,
+  group_var, male_value, female_value,
+  "catchID", R = R_rif, seed = seed_boot
 )
 
 # ============================================================
 # AGGREGATE TABLES
 # ============================================================
 
-make_rif_table <- function(rif_obj) {
+fmt_share_rif <- function(x) {
+  if (is.na(x) || !is.finite(x)) return("--")
+  sprintf("%.1f", 100 * x)
+}
+
+make_rif_table <- function(obj) {
   
-  rows <- lapply(rif_obj, function(r) {
+  rows <- lapply(obj, function(r) {
     
     b <- r$base
     se <- r$se_agg
     
     data.frame(
       Quantile = paste0(
-        as.integer(round(100 * b$tau)),
-        "th"
+        as.integer(round(100 * b$tau)), "th"
       ),
       MHH = fmt3(b$Q_male),
       FHH = fmt3(b$Q_female),
       Total_gap = star_cell(
-        b$Total_gap,
-        se["Total_gap"]
+        b$Total_gap, se["Total_gap"]
       ),
       Endowment = star_cell(
-        b$Endowment,
-        se["Endowment"]
+        b$Endowment, se["Endowment"]
       ),
-      Share_Endowment = sprintf(
-        "%.1f",
-        100 * b$Share_Endowment
+      Share_Endowment = fmt_share_rif(
+        b$Share_Endowment
       ),
       Coefficient = star_cell(
-        b$Coefficients,
-        se["Coefficients"]
+        b$Coefficient, se["Coefficient"]
       ),
-      Share_Coefficient = sprintf(
-        "%.1f",
-        100 * b$Share_Coefficients
+      Share_Coefficient = fmt_share_rif(
+        b$Share_Coefficient
       ),
       stringsAsFactors = FALSE
     )
@@ -3782,7 +3721,6 @@ tab_rif_rev <- make_rif_table(rif_rev_fe)
 
 N_rif_prod_male <- rif_prod_fe[[1]]$base$N_male
 N_rif_prod_female <- rif_prod_fe[[1]]$base$N_female
-
 N_rif_rev_male <- rif_rev_fe[[1]]$base$N_male
 N_rif_rev_female <- rif_rev_fe[[1]]$base$N_female
 
@@ -3793,69 +3731,68 @@ print(tab_rif_rev)
 # DETAILED TABLES
 # ============================================================
 
-make_rif_detailed_table <- function(rif_obj,
-                                    labels_map,
-                                    quantiles) {
+make_rif_detailed <- function(obj, labels_map, quantiles) {
   
   qnames <- paste0(
     "q",
     as.integer(round(100 * quantiles))
   )
   
-  terms <- rif_obj[[qnames[1]]]$base$detailed$term
-  terms <- terms[terms != "(Intercept)"]
+  first_det <- obj[[qnames[1]]]$base$detailed
   
-  variable_labels <- ifelse(
-    terms %in% names(labels_map),
-    labels_map[terms],
-    terms
+  # * Do not display the intercept or catchment fixed effects
+  keep_terms <- first_det$term[
+    first_det$term != "(Intercept)" &
+      !grepl("^factor\\(catchID\\)", first_det$term)
+  ]
+  
+  labels <- ifelse(
+    keep_terms %in% names(labels_map),
+    labels_map[keep_terms],
+    keep_terms
   )
   
   out <- data.frame(
-    Variable = latex_esc(variable_labels),
+    Variable = latex_esc(labels),
     stringsAsFactors = FALSE
   )
   
   for (qn in qnames) {
     
-    r <- rif_obj[[qn]]
-    
+    r <- obj[[qn]]
     det <- r$base$detailed[
-      match(terms, r$base$detailed$term),
+      match(keep_terms, r$base$detailed$term),
       ,
       drop = FALSE
     ]
     
-    se <- r$se_det
-    qlab <- toupper(qn)
-    
-    out[[paste0("Endowment_", qlab)]] <-
+    out[[paste0("Endowment_", toupper(qn))]] <-
       mapply(
         star_cell,
-        det$Endow_k,
-        se$Endowment[terms]
+        det$Endowment,
+        r$se_endow[keep_terms]
       )
     
-    out[[paste0("Coefficient_", qlab)]] <-
+    out[[paste0("Coefficient_", toupper(qn))]] <-
       mapply(
         star_cell,
-        det$Coefficients_k,
-        se$Coefficients[terms]
+        det$Coefficient,
+        r$se_coef[keep_terms]
       )
   }
   
   out
 }
 
-# * Aguilar: detailed productivity at 10th, 50th and 90th
-tab_rif_prod_det <- make_rif_detailed_table(
+# * Detailed productivity decomposition like Aguilar
+tab_rif_prod_det <- make_rif_detailed(
   rif_prod_fe,
   labels_prod,
   c(0.10, 0.50, 0.90)
 )
 
-# * Revenue detailed decomposition at selected positive quantiles
-tab_rif_rev_det <- make_rif_detailed_table(
+# * Selected positive revenue quantiles
+tab_rif_rev_det <- make_rif_detailed(
   rif_rev_fe,
   labels_inc,
   c(0.70, 0.80, 0.90)
@@ -3865,34 +3802,54 @@ print(tab_rif_prod_det)
 print(tab_rif_rev_det)
 
 # ============================================================
-# DIAGNOSTICS
+# ESSENTIAL CHECKS
 # ============================================================
 
-# * These should be approximately zero
-sapply(
+# * Must be essentially zero
+reconstruction_prod <- sapply(
   rif_prod_fe,
   function(x) x$base$Reconstruction_error
 )
 
-sapply(
+reconstruction_rev <- sapply(
   rif_rev_fe,
   function(x) x$base$Reconstruction_error
 )
 
-# * Ideally close to R_boot
-sapply(
+print(reconstruction_prod)
+print(reconstruction_rev)
+
+# * Number of successful bootstrap replications
+successful_prod <- sapply(
   rif_prod_fe,
   function(x) x$successful_boot
 )
 
-sapply(
+successful_rev <- sapply(
   rif_rev_fe,
   function(x) x$successful_boot
 )
 
-# * Check mass points at the estimated quantiles
-data.frame(
+print(successful_prod)
+print(successful_rev)
+
+# * Inspect heaping at each productivity quantile
+mass_prod <- data.frame(
   Quantile = names(rif_prod_fe),
-  Mass_MHH = sapply(rif_prod_fe, function(x) x$base$Mass_male),
-  Mass_FHH = sapply(rif_prod_fe, function(x) x$base$Mass_female)
+  MHH = sapply(
+    rif_prod_fe,
+    function(x) x$base$Mass_male
+  ),
+  FHH = sapply(
+    rif_prod_fe,
+    function(x) x$base$Mass_female
+  )
 )
+
+print(mass_prod)
+print(reconstruction_prod)
+print(reconstruction_rev)
+print(successful_prod)
+print(successful_rev)
+tab_rif_prod
+tab_rif_rev

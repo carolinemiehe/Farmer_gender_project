@@ -2164,78 +2164,7 @@ latex_rows_threefold_inc  <<- latex_rows_threefold_inc
 
 
 #I try to devide income in intensive and extensive margin
-# ============================================================
-# FAIRLIE DECOMPOSITION - EXTENSIVE MARGIN (decisione di vendere)
-# ============================================================
 
-fairlie_decomp <- function(df, y, x_vars, group_var,
-                           male_val = 1, female_val = 0,
-                           R = 500, seed = 123) {
-  
-  set.seed(seed)
-  rhs <- paste(x_vars, collapse = " + ")
-  form <- as.formula(paste(y, "~", rhs))
-  
-  vars_need <- c(y, group_var, x_vars)
-  d <- df[complete.cases(df[, vars_need]), ]
-  dm <- d[d[[group_var]] == male_val, ]
-  df_ <- d[d[[group_var]] == female_val, ]
-  
-  # Probit separati per MHH e FHH
-  probit_m <- glm(form, data = dm, family = binomial(link = "probit"))
-  probit_f <- glm(form, data = df_, family = binomial(link = "probit"))
-  
-  n_min <- min(nrow(dm), nrow(df_))
-  
-  endow_draws  <- numeric(R)
-  struct_draws <- numeric(R)
-  
-  for (r in 1:R) {
-    # Ricampiona per pareggiare N tra i due gruppi (necessario per Fairlie)
-    dm_r <- dm[sample(1:nrow(dm), n_min, replace = (nrow(dm) < n_min)), ]
-    df_r <- df_[sample(1:nrow(df_), n_min, replace = (nrow(df_) < n_min)), ]
-    
-    Xm <- model.matrix(as.formula(paste("~", rhs)), data = dm_r)
-    Xf <- model.matrix(as.formula(paste("~", rhs)), data = df_r)
-    
-    bf <- coef(probit_f)
-    bm <- coef(probit_m)
-    
-    # Allinea eventuali colonne mancanti (es. dummy con 0 osservazioni nel resample)
-    common_names <- intersect(colnames(Xm), names(bf))
-    
-    pred_m_bm <- pnorm(Xm[, names(bm)] %*% bm)
-    pred_m_bf <- pnorm(Xm[, names(bf)] %*% bf)
-    pred_f_bf <- pnorm(Xf[, names(bf)] %*% bf)
-    
-    endow_draws[r]  <- mean(pred_m_bf) - mean(pred_f_bf)
-    struct_draws[r] <- mean(pred_m_bm) - mean(pred_m_bf)
-  }
-  
-  list(
-    N_male    = nrow(dm),
-    N_female  = nrow(df_),
-    Endowment_ext     = mean(endow_draws),
-    Structural_ext    = mean(struct_draws),
-    SE_Endowment_ext  = sd(endow_draws),
-    SE_Structural_ext = sd(struct_draws),
-    Total_ext         = mean(endow_draws) + mean(struct_draws),
-    Share_Endowment_ext  = mean(endow_draws) / (mean(endow_draws) + mean(struct_draws)),
-    Share_Structural_ext = mean(struct_draws) / (mean(endow_draws) + mean(struct_draws))
-  )
-}
-
-# ---- USO ----
-result_extensive <- fairlie_decomp(
-  df = baseline_farmers,
-  y = "maize_sold",
-  x_vars = x_inc,              # stessi covariati che usi già per l'income Oaxaca
-  group_var = "hh_gender_num",
-  R = 500,
-  seed = 123
-)
-
-print(result_extensive)
 # ============================================================
 # OAXACA CLASSICO - INTENSIVE MARGIN (solo chi vende)
 # ============================================================
@@ -3372,23 +3301,103 @@ ggsave("common_support_ext_margin.png", width = 7, height = 5)
 # ============================================================
 # RIF-OAXACA DECOMPOSITION
 # Productivity + overall gross sales revenue
-# ============================================================
+
 
 library(dplyr)
 
-# * Compute and recenter the RIF for one unconditional quantile
+# -------------------- SETTINGS --------------------
+
+y_prod       <- "yield_per_acre_ihs"
+y_inc        <- "maize_income_ihs"
+group_var    <- "hh_gender_num"
+male_value   <- 1
+female_value <- 0
+R_rif        <- 300
+seed_rif     <- 123
+
+# Exact productivity specification used in the main Oaxaca
+x_prod_rif <- c(
+  "distance_agroshops", "num_shops", "household_size", "hh_age",
+  "education_head_num", "maize_plot_area", "farmer_group_member",
+  "dap_npk_applied", "urea_applied", "chemicals_applied",
+  "organic_manure_applied", "resow", "weed_times", "base_hybrid"
+)
+
+# Exact gross-revenue specification used in the main Oaxaca
+x_inc_rif <- c(
+  "distance_agroshops", "num_shops", "household_size", "hh_age",
+  "education_head_num", "quality_seed_used", "farmer_group_member",
+  "log_maize_plot_area", "dap_npk_applied", "urea_applied",
+  "chemicals_applied", "organic_manure_applied", "resow", "weed_times"
+)
+
+# -------------------- FORMATTERS --------------------
+
+fmt3 <- function(x) {
+  x <- suppressWarnings(as.numeric(x))
+  if (length(x) == 0 || is.na(x)) return("")
+  format(round(x, 3), nsmall = 3, trim = TRUE)
+}
+
+pstars <- function(p) {
+  if (is.na(p)) return("")
+  if (p < 0.01) return("***")
+  if (p < 0.05) return("**")
+  if (p < 0.10) return("*")
+  ""
+}
+
+star_cell <- function(est, se) {
+  est <- suppressWarnings(as.numeric(est))
+  se  <- suppressWarnings(as.numeric(se))
+  if (is.na(est)) return("")
+  if (is.na(se) || se == 0) return(fmt3(est))
+  p <- 2 * pnorm(-abs(est / se))
+  paste0(fmt3(est), pstars(p))
+}
+
+fmt_share_rif <- function(x) {
+  if (is.na(x) || !is.finite(x)) return("--")
+  sprintf("%.1f", 100 * x)
+}
+
+# -------------------- CHECK SAMPLES --------------------
+
+check_prod <- baseline_fe[
+  complete.cases(baseline_fe[, c(y_prod, group_var, x_prod_rif, "catchID")]),
+  , drop = FALSE
+]
+
+check_inc <- baseline_fe[
+  complete.cases(baseline_fe[, c(y_inc, group_var, x_inc_rif, "catchID")]),
+  , drop = FALSE
+]
+
+cat("\nPRODUCTIVITY SAMPLE\n")
+print(table(check_prod[[group_var]]))
+
+cat("\nREVENUE SAMPLE\n")
+print(table(check_inc[[group_var]]))
+
+# Productivity should be:
+# 0 = 594
+# 1 = 2132
+
+# -------------------- COMPUTE RIF --------------------
+
 compute_rif <- function(y, tau) {
   y <- as.numeric(y)
   q_tau <- as.numeric(quantile(y, probs = tau, type = 7, na.rm = TRUE))
   dens <- density(y, na.rm = TRUE, bw = "nrd0")
   f_q <- approx(dens$x, dens$y, xout = q_tau, rule = 2)$y
   
-  if (!is.finite(f_q) || f_q <= 1e-8)
+  if (!is.finite(f_q) || f_q <= 1e-8) {
     stop("Density at the selected quantile is too small.")
+  }
   
   rif_raw <- q_tau + (tau - as.numeric(y <= q_tau)) / f_q
   
-  # * Finite-sample recentering: mean(RIF) must equal the quantile
+  # finite-sample recentering
   rif <- rif_raw - mean(rif_raw, na.rm = TRUE) + q_tau
   
   list(
@@ -3399,7 +3408,8 @@ compute_rif <- function(y, tau) {
   )
 }
 
-# * RIF-Oaxaca at one quantile
+# -------------------- ONE RIF-OAXACA --------------------
+
 rif_oaxaca_single <- function(df, y, x_vars, tau,
                               group_var = "hh_gender_num",
                               male_val = 1, female_val = 0,
@@ -3408,88 +3418,84 @@ rif_oaxaca_single <- function(df, y, x_vars, tau,
   vars_need <- c(y, group_var, x_vars, cluster)
   d <- df[complete.cases(df[, vars_need]), , drop = FALSE]
   
-  # * Restrict to catchments containing both MHH and FHH
-  catch_check <- d %>%
-    group_by(.data[[cluster]]) %>%
-    summarise(
-      n_male = sum(.data[[group_var]] == male_val),
-      n_female = sum(.data[[group_var]] == female_val),
-      .groups = "drop"
-    )
-  
-  valid_catch <- catch_check %>%
-    filter(n_male > 0, n_female > 0) %>%
-    pull(1)
-  
-  d <- d[d[[cluster]] %in% valid_catch, , drop = FALSE]
+  # baseline_fe is already restricted to catchments containing MHH and FHH
   d[[cluster]] <- factor(d[[cluster]])
   
-  dm <- d[d[[group_var]] == male_val, , drop = FALSE]
+  dm   <- d[d[[group_var]] == male_val, , drop = FALSE]
   dfem <- d[d[[group_var]] == female_val, , drop = FALSE]
   
-  # * Group-specific RIFs and pooled RIF
-  rm <- compute_rif(dm[[y]], tau)
-  rf <- compute_rif(dfem[[y]], tau)
-  rp <- compute_rif(d[[y]], tau)
+  # Group-specific RIFs
+  r_m <- compute_rif(dm[[y]], tau)
+  r_f <- compute_rif(dfem[[y]], tau)
   
-  dm$rif_y <- rm$rif
-  dfem$rif_y <- rf$rif
-  d$rif_y <- rp$rif
+  # Pooled RIF used only to obtain pooled benchmark coefficients
+  r_p <- compute_rif(d[[y]], tau)
   
-  # * Common regressors include catchment fixed effects
-  common_rhs <- paste(
-    c(x_vars, paste0("factor(", cluster, ")")),
-    collapse = " + "
-  )
+  dm$rif_y   <- r_m$rif
+  dfem$rif_y <- r_f$rif
+  d$rif_y    <- r_p$rif
   
-  form_group <- as.formula(paste("rif_y ~", common_rhs))
-  form_pool <- as.formula(
-    paste("rif_y ~", group_var, "+", common_rhs)
-  )
-  form_x <- as.formula(paste("~", common_rhs))
+  # Catchment-area fixed effects
+  rhs <- paste(c(x_vars, paste0("factor(", cluster, ")")), collapse = " + ")
+  
+  form_group <- as.formula(paste("rif_y ~", rhs))
+  
+  # IMPORTANT: pooled benchmark WITHOUT gender dummy
+  form_pool <- as.formula(paste("rif_y ~", rhs))
+  
+  form_x <- as.formula(paste("~", rhs))
   
   fit_m <- lm(form_group, data = dm)
   fit_f <- lm(form_group, data = dfem)
-  
-  # * Aguilar-style pooled benchmark includes the gender dummy
   fit_p <- lm(form_pool, data = d)
   
-  beta_m_all <- coef(fit_m)
-  beta_f_all <- coef(fit_f)
-  beta_p_all <- coef(fit_p)
+  beta_m0 <- coef(fit_m)
+  beta_f0 <- coef(fit_f)
+  beta_p0 <- coef(fit_p)
   
-  X_m <- colMeans(model.matrix(form_x, data = dm))
-  X_f <- colMeans(model.matrix(form_x, data = dfem))
+  X_m0 <- colMeans(model.matrix(form_x, data = dm))
+  X_f0 <- colMeans(model.matrix(form_x, data = dfem))
   
-  common_names <- names(X_m)
+  all_names <- Reduce(
+    union,
+    list(names(beta_m0), names(beta_f0), names(beta_p0), names(X_m0), names(X_f0))
+  )
   
-  beta_m <- beta_m_all[common_names]
-  beta_f <- beta_f_all[common_names]
-  beta_p <- beta_p_all[common_names]
+  align <- function(x) {
+    out <- setNames(rep(0, length(all_names)), all_names)
+    good <- intersect(names(x), all_names)
+    out[good] <- x[good]
+    out
+  }
   
-  if (anyNA(beta_m) || anyNA(beta_f) || anyNA(beta_p))
-    stop("Aliased coefficients detected. Check collinearity with catchment fixed effects.")
+  beta_m <- align(beta_m0)
+  beta_f <- align(beta_f0)
+  beta_p <- align(beta_p0)
+  X_m <- align(X_m0)
+  X_f <- align(X_f0)
   
-  # * Aggregate and detailed decomposition
-  Endow_k <- (X_m - X_f) * beta_p
-  Male_coef_k <- X_m * (beta_m - beta_p)
-  Female_coef_k <- X_f * (beta_p - beta_f)
-  Coef_k <- Male_coef_k + Female_coef_k
+  # Oaxaca components
+  endow_k <- (X_m - X_f) * beta_p
+  male_coef_k <- X_m * (beta_m - beta_p)
+  female_coef_k <- X_f * (beta_p - beta_f)
+  coefficient_k <- male_coef_k + female_coef_k
   
-  Endowment <- sum(Endow_k)
-  Male_coef <- sum(Male_coef_k)
-  Female_coef <- sum(Female_coef_k)
-  Coefficient <- sum(Coef_k)
+  Endowment <- sum(endow_k)
+  Male_coef <- sum(male_coef_k)
+  Female_coef <- sum(female_coef_k)
+  Coefficient <- sum(coefficient_k)
   
-  Total_gap <- rm$q - rf$q
+  # Actual unconditional quantile gap
+  Total_gap <- r_m$q - r_f$q
+  
   Reconstruction_error <- Endowment + Coefficient - Total_gap
   
   detailed <- data.frame(
-    term = common_names,
-    Endowment = Endow_k,
-    Male_coef = Male_coef_k,
-    Female_coef = Female_coef_k,
-    Coefficient = Coef_k,
+    term = all_names,
+    Endowment = endow_k,
+    Male_coef = male_coef_k,
+    Female_coef = female_coef_k,
+    Coefficient = coefficient_k,
     stringsAsFactors = FALSE
   )
   
@@ -3497,23 +3503,24 @@ rif_oaxaca_single <- function(df, y, x_vars, tau,
     tau = tau,
     N_male = nrow(dm),
     N_female = nrow(dfem),
-    Q_male = rm$q,
-    Q_female = rf$q,
+    Q_male = r_m$q,
+    Q_female = r_f$q,
     Total_gap = Total_gap,
     Endowment = Endowment,
     Coefficient = Coefficient,
     Male_coef = Male_coef,
     Female_coef = Female_coef,
-    Share_Endowment = safe_share(Endowment, Total_gap),
-    Share_Coefficient = safe_share(Coefficient, Total_gap),
+    Share_Endowment = ifelse(abs(Total_gap) < 1e-10, NA, Endowment / Total_gap),
+    Share_Coefficient = ifelse(abs(Total_gap) < 1e-10, NA, Coefficient / Total_gap),
     Reconstruction_error = Reconstruction_error,
-    Mass_male = rm$mass,
-    Mass_female = rf$mass,
+    Mass_male = r_m$mass,
+    Mass_female = r_f$mass,
     detailed = detailed
   )
 }
 
-# * Catchment-clustered bootstrap
+# -------------------- CATCHMENT-CLUSTER BOOTSTRAP --------------------
+
 bootstrap_rif_oaxaca <- function(df, y, x_vars, tau,
                                  group_var = "hh_gender_num",
                                  male_val = 1, female_val = 0,
@@ -3524,21 +3531,6 @@ bootstrap_rif_oaxaca <- function(df, y, x_vars, tau,
   
   vars_need <- c(y, group_var, x_vars, cluster)
   d <- df[complete.cases(df[, vars_need]), , drop = FALSE]
-  
-  # * Apply the mixed-catchment restriction before bootstrap sampling
-  catch_check <- d %>%
-    group_by(.data[[cluster]]) %>%
-    summarise(
-      n_male = sum(.data[[group_var]] == male_val),
-      n_female = sum(.data[[group_var]] == female_val),
-      .groups = "drop"
-    )
-  
-  valid_catch <- catch_check %>%
-    filter(n_male > 0, n_female > 0) %>%
-    pull(1)
-  
-  d <- d[d[[cluster]] %in% valid_catch, , drop = FALSE]
   
   base <- rif_oaxaca_single(
     d, y, x_vars, tau,
@@ -3559,28 +3551,25 @@ bootstrap_rif_oaxaca <- function(df, y, x_vars, tau,
     dimnames = list(NULL, agg_names)
   )
   
-  det_draws_endow <- matrix(
-    NA_real_, R, length(terms),
+  det_endow <- matrix(
+    NA_real_, nrow = R, ncol = length(terms),
     dimnames = list(NULL, terms)
   )
   
-  det_draws_coef <- matrix(
-    NA_real_, R, length(terms),
+  det_coef <- matrix(
+    NA_real_, nrow = R, ncol = length(terms),
     dimnames = list(NULL, terms)
   )
   
   for (r in seq_len(R)) {
     
-    sampled <- sample(clusters, n_cl, replace = TRUE)
+    sampled_clusters <- sample(clusters, n_cl, replace = TRUE)
     
     dd <- do.call(
       rbind,
-      lapply(seq_along(sampled), function(i) {
-        tmp <- d[d[[cluster]] == sampled[i], , drop = FALSE]
-        
-        # * Duplicated bootstrap clusters receive new IDs
+      lapply(seq_along(sampled_clusters), function(i) {
+        tmp <- d[d[[cluster]] == sampled_clusters[i], , drop = FALSE]
         tmp[[cluster]] <- paste0("boot_", i)
-        
         tmp
       })
     )
@@ -3605,24 +3594,24 @@ bootstrap_rif_oaxaca <- function(df, y, x_vars, tau,
     
     det <- rr$detailed[
       match(terms, rr$detailed$term),
-      ,
-      drop = FALSE
+      , drop = FALSE
     ]
     
-    det_draws_endow[r, ] <- det$Endowment
-    det_draws_coef[r, ] <- det$Coefficient
+    det_endow[r, ] <- det$Endowment
+    det_coef[r, ] <- det$Coefficient
   }
   
   list(
     base = base,
     se_agg = apply(agg_draws, 2, sd, na.rm = TRUE),
-    se_endow = apply(det_draws_endow, 2, sd, na.rm = TRUE),
-    se_coef = apply(det_draws_coef, 2, sd, na.rm = TRUE),
+    se_endow = apply(det_endow, 2, sd, na.rm = TRUE),
+    se_coef = apply(det_coef, 2, sd, na.rm = TRUE),
     successful_boot = sum(complete.cases(agg_draws))
   )
 }
 
-# * Run several unconditional quantiles
+# -------------------- RUN GRID --------------------
+
 run_rif_grid <- function(df, y, x_vars, quantiles,
                          group_var = "hh_gender_num",
                          male_val = 1, female_val = 0,
@@ -3631,12 +3620,20 @@ run_rif_grid <- function(df, y, x_vars, quantiles,
   
   out <- lapply(
     quantiles,
-    function(tau)
+    function(tau) {
       bootstrap_rif_oaxaca(
-        df, y, x_vars, tau,
-        group_var, male_val, female_val,
-        cluster, R, seed
+        df = df,
+        y = y,
+        x_vars = x_vars,
+        tau = tau,
+        group_var = group_var,
+        male_val = male_val,
+        female_val = female_val,
+        cluster = cluster,
+        R = R,
+        seed = seed
       )
+    }
   )
   
   names(out) <- paste0(
@@ -3647,39 +3644,42 @@ run_rif_grid <- function(df, y, x_vars, quantiles,
   out
 }
 
-# ============================================================
-# RUN
-# ============================================================
+# -------------------- QUANTILES --------------------
 
-# * Aguilar-style deciles for productivity
 q_prod <- seq(0.10, 0.90, by = 0.10)
+q_rev  <- c(0.70, 0.80, 0.90)
 
-# * Positive part of the overall revenue distribution
-q_rev <- c(0.70, 0.80, 0.90)
-
-# * Run 50 bootstrap replications first if you want a quick test
-R_rif <- R_boot
+# -------------------- RUN PRODUCTIVITY --------------------
 
 rif_prod_fe <- run_rif_grid(
-  baseline_fe, y_prod, x_prod, q_prod,
-  group_var, male_value, female_value,
-  "catchID", R = R_rif, seed = seed_boot
+  df = baseline_fe,
+  y = y_prod,
+  x_vars = x_prod_rif,
+  quantiles = q_prod,
+  group_var = group_var,
+  male_val = male_value,
+  female_val = female_value,
+  cluster = "catchID",
+  R = R_rif,
+  seed = seed_rif
 )
+
+# -------------------- RUN REVENUE --------------------
 
 rif_rev_fe <- run_rif_grid(
-  baseline_fe, y_inc, x_inc, q_rev,
-  group_var, male_value, female_value,
-  "catchID", R = R_rif, seed = seed_boot
+  df = baseline_fe,
+  y = y_inc,
+  x_vars = x_inc_rif,
+  quantiles = q_rev,
+  group_var = group_var,
+  male_val = male_value,
+  female_val = female_value,
+  cluster = "catchID",
+  R = R_rif,
+  seed = seed_rif
 )
 
-# ============================================================
-# AGGREGATE TABLES
-# ============================================================
-
-fmt_share_rif <- function(x) {
-  if (is.na(x) || !is.finite(x)) return("--")
-  sprintf("%.1f", 100 * x)
-}
+# -------------------- AGGREGATE TABLES --------------------
 
 make_rif_table <- function(obj) {
   
@@ -3689,26 +3689,14 @@ make_rif_table <- function(obj) {
     se <- r$se_agg
     
     data.frame(
-      Quantile = paste0(
-        as.integer(round(100 * b$tau)), "th"
-      ),
+      Quantile = paste0(as.integer(round(100 * b$tau)), "th"),
       MHH = fmt3(b$Q_male),
       FHH = fmt3(b$Q_female),
-      Total_gap = star_cell(
-        b$Total_gap, se["Total_gap"]
-      ),
-      Endowment = star_cell(
-        b$Endowment, se["Endowment"]
-      ),
-      Share_Endowment = fmt_share_rif(
-        b$Share_Endowment
-      ),
-      Coefficient = star_cell(
-        b$Coefficient, se["Coefficient"]
-      ),
-      Share_Coefficient = fmt_share_rif(
-        b$Share_Coefficient
-      ),
+      Total_gap = star_cell(b$Total_gap, se["Total_gap"]),
+      Endowment = star_cell(b$Endowment, se["Endowment"]),
+      Share_Endowment = fmt_share_rif(b$Share_Endowment),
+      Coefficient = star_cell(b$Coefficient, se["Coefficient"]),
+      Share_Coefficient = fmt_share_rif(b$Share_Coefficient),
       stringsAsFactors = FALSE
     )
   })
@@ -3717,95 +3705,21 @@ make_rif_table <- function(obj) {
 }
 
 tab_rif_prod <- make_rif_table(rif_prod_fe)
-tab_rif_rev <- make_rif_table(rif_rev_fe)
+tab_rif_rev  <- make_rif_table(rif_rev_fe)
 
-N_rif_prod_male <- rif_prod_fe[[1]]$base$N_male
+N_rif_prod_male   <- rif_prod_fe[[1]]$base$N_male
 N_rif_prod_female <- rif_prod_fe[[1]]$base$N_female
-N_rif_rev_male <- rif_rev_fe[[1]]$base$N_male
-N_rif_rev_female <- rif_rev_fe[[1]]$base$N_female
+N_rif_rev_male    <- rif_rev_fe[[1]]$base$N_male
+N_rif_rev_female  <- rif_rev_fe[[1]]$base$N_female
 
 print(tab_rif_prod)
 print(tab_rif_rev)
 
-# ============================================================
-# DETAILED TABLES
-# ============================================================
+cat("\nProductivity N male/female:", N_rif_prod_male, "/", N_rif_prod_female, "\n")
+cat("Revenue N male/female:", N_rif_rev_male, "/", N_rif_rev_female, "\n")
 
-make_rif_detailed <- function(obj, labels_map, quantiles) {
-  
-  qnames <- paste0(
-    "q",
-    as.integer(round(100 * quantiles))
-  )
-  
-  first_det <- obj[[qnames[1]]]$base$detailed
-  
-  # * Do not display the intercept or catchment fixed effects
-  keep_terms <- first_det$term[
-    first_det$term != "(Intercept)" &
-      !grepl("^factor\\(catchID\\)", first_det$term)
-  ]
-  
-  labels <- ifelse(
-    keep_terms %in% names(labels_map),
-    labels_map[keep_terms],
-    keep_terms
-  )
-  
-  out <- data.frame(
-    Variable = latex_esc(labels),
-    stringsAsFactors = FALSE
-  )
-  
-  for (qn in qnames) {
-    
-    r <- obj[[qn]]
-    det <- r$base$detailed[
-      match(keep_terms, r$base$detailed$term),
-      ,
-      drop = FALSE
-    ]
-    
-    out[[paste0("Endowment_", toupper(qn))]] <-
-      mapply(
-        star_cell,
-        det$Endowment,
-        r$se_endow[keep_terms]
-      )
-    
-    out[[paste0("Coefficient_", toupper(qn))]] <-
-      mapply(
-        star_cell,
-        det$Coefficient,
-        r$se_coef[keep_terms]
-      )
-  }
-  
-  out
-}
+# -------------------- DIAGNOSTICS --------------------
 
-# * Detailed productivity decomposition like Aguilar
-tab_rif_prod_det <- make_rif_detailed(
-  rif_prod_fe,
-  labels_prod,
-  c(0.10, 0.50, 0.90)
-)
-
-# * Selected positive revenue quantiles
-tab_rif_rev_det <- make_rif_detailed(
-  rif_rev_fe,
-  labels_inc,
-  c(0.70, 0.80, 0.90)
-)
-
-print(tab_rif_prod_det)
-print(tab_rif_rev_det)
-
-# ============================================================
-# ESSENTIAL CHECKS
-# ============================================================
-
-# * Must be essentially zero
 reconstruction_prod <- sapply(
   rif_prod_fe,
   function(x) x$base$Reconstruction_error
@@ -3816,10 +3730,6 @@ reconstruction_rev <- sapply(
   function(x) x$base$Reconstruction_error
 )
 
-print(reconstruction_prod)
-print(reconstruction_rev)
-
-# * Number of successful bootstrap replications
 successful_prod <- sapply(
   rif_prod_fe,
   function(x) x$successful_boot
@@ -3830,26 +3740,606 @@ successful_rev <- sapply(
   function(x) x$successful_boot
 )
 
-print(successful_prod)
-print(successful_rev)
-
-# * Inspect heaping at each productivity quantile
 mass_prod <- data.frame(
   Quantile = names(rif_prod_fe),
-  MHH = sapply(
-    rif_prod_fe,
-    function(x) x$base$Mass_male
-  ),
-  FHH = sapply(
-    rif_prod_fe,
-    function(x) x$base$Mass_female
-  )
+  MHH = sapply(rif_prod_fe, function(x) x$base$Mass_male),
+  FHH = sapply(rif_prod_fe, function(x) x$base$Mass_female)
 )
 
-print(mass_prod)
+cat("\nRECONSTRUCTION PRODUCTIVITY\n")
 print(reconstruction_prod)
+
+cat("\nRECONSTRUCTION REVENUE\n")
 print(reconstruction_rev)
+
+cat("\nSUCCESSFUL BOOTSTRAPS PRODUCTIVITY\n")
 print(successful_prod)
+
+cat("\nSUCCESSFUL BOOTSTRAPS REVENUE\n")
 print(successful_rev)
-tab_rif_prod
-tab_rif_rev
+
+cat("\nMASS POINTS PRODUCTIVITY\n")
+print(mass_prod)
+
+# -------------------- CHECK AGAINST MAIN MEAN OAXACA --------------------
+# This uses your original main-Oaxaca function and baseline_fe_within.
+# It should reproduce the main productivity Oaxaca, not the q50 RIF.
+
+mean_prod_check <- oaxaca_decomp_nogender(
+  baseline_fe_within,
+  y = y_prod,
+  x_vars = x_prod_rif,
+  group_var = group_var,
+  male_val = male_value,
+  female_val = female_value
+)
+
+cat("\nMAIN MEAN OAXACA CHECK\n")
+
+print(c(
+  N_male = mean_prod_check$N_male,
+  N_female = mean_prod_check$N_female,
+  Total_gap = mean_prod_check$Total_gap,
+  Endowment = mean_prod_check$Explained,
+  Share_Endowment = 100 * mean_prod_check$Share_Explained,
+  Coefficient = mean_prod_check$Coefficients,
+  Share_Coefficient = 100 * mean_prod_check$Share_Coefficients
+))
+
+# RESET TESTS
+library(lmtest)
+
+reset_prod_bl <- resettest(m_prod_full_bl, power = 2:3, type = "fitted")
+reset_inc_bl <- resettest(m_inc_full_bl, power = 2:3, type = "fitted")
+reset_inc_sellers <- resettest(m_inc_full_sellers, power = 2:3, type = "fitted")
+
+tab_reset <- data.frame(
+  Model = c(
+    "Maize productivity, baseline",
+    "Gross sales revenue, baseline",
+    "Gross sales revenue, sellers only"
+  ),
+  Fstat = c(
+    unname(reset_prod_bl$statistic),
+    unname(reset_inc_bl$statistic),
+    unname(reset_inc_sellers$statistic)
+  ),
+  df1 = c(
+    unname(reset_prod_bl$parameter[1]),
+    unname(reset_inc_bl$parameter[1]),
+    unname(reset_inc_sellers$parameter[1])
+  ),
+  df2 = c(
+    unname(reset_prod_bl$parameter[2]),
+    unname(reset_inc_bl$parameter[2]),
+    unname(reset_inc_sellers$parameter[2])
+  ),
+  pvalue = c(
+    reset_prod_bl$p.value,
+    reset_inc_bl$p.value,
+    reset_inc_sellers$p.value
+  )
+)
+# ROBUSTNESS: PROBIT FOR MARKET PARTICIPATION
+
+m_ext_full_bl_probit <- glm(
+  formula(m_ext_full_bl),
+  data = model.frame(m_ext_full_bl),
+  family = binomial(link = "probit")
+)
+
+summary(m_ext_full_bl_probit)
+
+# ============================================================
+# PROBIT AVERAGE MARGINAL EFFECTS - MARKET PARTICIPATION
+# ============================================================
+library(sandwich)
+ame_probit <- function(model, term, data, cluster_id = CLUSTER_ID){
+  mf <- model.frame(model)
+  idx <- as.integer(rownames(mf))
+  d <- data[idx, , drop = FALSE]
+  
+  beta <- coef(model)
+  V <- vcovCL(model, cluster = data[[cluster_id]][idx], type = "HC1")
+  trm <- delete.response(terms(model))
+  
+  vals <- unique(d[[term]][!is.na(d[[term]])])
+  binary <- length(vals) <= 2 && all(vals %in% c(0,1))
+  
+  ame_fun <- function(b){
+    if(binary){
+      d0 <- d
+      d1 <- d
+      d0[[term]] <- 0
+      d1[[term]] <- 1
+      
+      X0 <- model.matrix(trm, d0)
+      X1 <- model.matrix(trm, d1)
+      
+      mean(pnorm(X1 %*% b) - pnorm(X0 %*% b))
+      
+    } else {
+      X <- model.matrix(trm, d)
+      xb <- drop(X %*% b)
+      j <- which(colnames(X) == term)
+      
+      mean(dnorm(xb) * b[j])
+    }
+  }
+  
+  est <- ame_fun(beta)
+  
+  grad <- sapply(seq_along(beta), function(j){
+    h <- 1e-6 * max(1, abs(beta[j]))
+    b1 <- b0 <- beta
+    b1[j] <- b1[j] + h
+    b0[j] <- b0[j] - h
+    (ame_fun(b1) - ame_fun(b0)) / (2 * h)
+  })
+  
+  se <- sqrt(as.numeric(t(grad) %*% V %*% grad))
+  pval <- 2 * pnorm(-abs(est / se))
+  
+  c(est = est, se = se, p = pval)
+}
+
+# Compute Probit AMEs for all variables
+probit_ame_results <- do.call(
+  rbind,
+  lapply(vars_inc, function(v){
+    z <- ame_probit(
+      m_ext_full_bl_probit,
+      v,
+      baseline_farmers,
+      CLUSTER_ID
+    )
+    
+    data.frame(
+      Variable = v,
+      AME = z["est"],
+      SE = z["se"],
+      pvalue = z["p"]
+    )
+  })
+)
+
+rownames(probit_ame_results) <- NULL
+
+probit_ame_results$AME <- round(probit_ame_results$AME, 3)
+probit_ame_results$SE <- round(probit_ame_results$SE, 3)
+probit_ame_results$pvalue <- round(probit_ame_results$pvalue, 4)
+
+print(probit_ame_results)
+# ============================================================
+# ROBUSTNESS TABLE: LOGIT VS PROBIT - MARKET PARTICIPATION
+# ============================================================
+
+cell_probit_ame <- function(model, term, data, cluster_id = CLUSTER_ID){
+  z <- tryCatch(
+    ame_probit(model, term, data, cluster_id),
+    error = function(e) NULL
+  )
+  
+  if(is.null(z)) return(c("—", ""))
+  
+  stars <- ifelse(z["p"] < .01, "***",
+                  ifelse(z["p"] < .05, "**",
+                         ifelse(z["p"] < .10, "*", "")))
+  
+  c(
+    paste0(format(round(z["est"], 3), nsmall = 3), stars),
+    paste0("(", format(round(z["se"], 3), nsmall = 3), ")")
+  )
+}
+
+tab_ext_robust <- data.frame(
+  Label = character(),
+  Logit = character(),
+  Probit = character(),
+  stringsAsFactors = FALSE
+)
+
+for(v in vars_inc){
+  
+  logit <- cell_logit_ame(
+    m_ext_full_bl,
+    v,
+    baseline_farmers
+  )
+  
+  probit <- cell_probit_ame(
+    m_ext_full_bl_probit,
+    v,
+    baseline_farmers
+  )
+  
+  tab_ext_robust <- rbind(
+    tab_ext_robust,
+    data.frame(
+      Label = lab_inc[v],
+      Logit = logit[1],
+      Probit = probit[1]
+    ),
+    data.frame(
+      Label = "",
+      Logit = logit[2],
+      Probit = probit[2]
+    )
+  )
+}
+
+N_ext_robust_logit <- format(nobs(m_ext_full_bl), big.mark = ",")
+N_ext_robust_probit <- format(nobs(m_ext_full_bl_probit), big.mark = ",")
+
+print(tab_ext_robust)
+
+tab_ext_robust <<- tab_ext_robust
+N_ext_robust_logit <<- N_ext_robust_logit
+N_ext_robust_probit <<- N_ext_robust_probit
+
+
+
+# ============================================================
+# ROBUSTNESS: ALTERNATIVE OAXACA-BLINDER BENCHMARKS
+# MHH benchmark + FHH benchmark + equal-group-weight pooled
+# Twofold decomposition only
+# ============================================================
+
+oaxaca_decomp_benchmark <- function(
+    df, y, x_vars,
+    benchmark = c("male", "female", "equal_weight"),
+    group_var = "hh_gender_num",
+    male_val = 1,
+    female_val = 0) {
+  
+  benchmark <- match.arg(benchmark)
+  
+  vars_need <- c(y, group_var, x_vars)
+  d <- df[complete.cases(df[, vars_need]), , drop = FALSE]
+  dm <- d[d[[group_var]] == male_val, , drop = FALSE]
+  dfem <- d[d[[group_var]] == female_val, , drop = FALSE]
+  
+  rhs <- paste(x_vars, collapse = " + ")
+  form_y <- as.formula(paste(y, "~", rhs))
+  form_x <- as.formula(paste("~", rhs))
+  
+  beta_m0 <- coef(lm(form_y, data = dm))
+  beta_f0 <- coef(lm(form_y, data = dfem))
+  
+  # Alternative benchmark beta*
+  if(benchmark == "male"){
+    beta_star0 <- beta_m0
+  }
+  
+  if(benchmark == "female"){
+    beta_star0 <- beta_f0
+  }
+  
+  if(benchmark == "equal_weight"){
+    nm <- nrow(dm)
+    nf <- nrow(dfem)
+    n <- nrow(d)
+    
+    # Each group receives the same total weight
+    w <- ifelse(
+      d[[group_var]] == male_val,
+      n / (2 * nm),
+      n / (2 * nf)
+    )
+    
+    beta_star0 <- coef(
+      lm(form_y, data = d, weights = w)
+    )
+  }
+  
+  X_m0 <- colMeans(model.matrix(form_x, data = dm))
+  X_f0 <- colMeans(model.matrix(form_x, data = dfem))
+  
+  all_names <- Reduce(
+    union,
+    list(
+      names(beta_m0), names(beta_f0),
+      names(beta_star0),
+      names(X_m0), names(X_f0)
+    )
+  )
+  
+  align <- function(x){
+    out <- setNames(rep(0, length(all_names)), all_names)
+    good <- intersect(names(x), all_names)
+    out[good] <- x[good]
+    out
+  }
+  
+  beta_m <- align(beta_m0)
+  beta_f <- align(beta_f0)
+  beta_star <- align(beta_star0)
+  X_m <- align(X_m0)
+  X_f <- align(X_f0)
+  
+  # Twofold Oaxaca-Blinder
+  Endow_k <- (X_m - X_f) * beta_star
+  
+  Coefficients_k <-
+    X_m * (beta_m - beta_star) +
+    X_f * (beta_star - beta_f)
+  
+  Endow <- sum(Endow_k)
+  Coefficients <- sum(Coefficients_k)
+  Total_gap <- Endow + Coefficients
+  
+  detailed <- data.frame(
+    term = all_names,
+    Explained_k = Endow_k,
+    Coefficients_k = Coefficients_k,
+    stringsAsFactors = FALSE
+  )
+  
+  list(
+    N = nrow(d),
+    N_male = nrow(dm),
+    N_female = nrow(dfem),
+    Total_gap = Total_gap,
+    Explained = Endow,
+    Coefficients = Coefficients,
+    Share_Explained = safe_share(Endow, Total_gap),
+    Share_Coefficients = safe_share(Coefficients, Total_gap),
+    detailed = detailed,
+    benchmark = benchmark
+  )
+}
+
+
+# ============================================================
+# CLUSTER BOOTSTRAP AT catchID LEVEL
+# ============================================================
+
+bootstrap_oaxaca_benchmark <- function(
+    df, y, x_vars, benchmark,
+    group_var = "hh_gender_num",
+    male_val = 1,
+    female_val = 0,
+    cluster = "catchID",
+    R = 300,
+    seed = 123) {
+  
+  set.seed(seed)
+  
+  d <- df[
+    complete.cases(df[, c(y, group_var, x_vars, cluster)]),
+    ,
+    drop = FALSE
+  ]
+  
+  base <- oaxaca_decomp_benchmark(
+    d, y, x_vars, benchmark,
+    group_var, male_val, female_val
+  )
+  
+  clusters <- unique(d[[cluster]])
+  n_cl <- length(clusters)
+  
+  draws <- matrix(
+    NA_real_, R, 2,
+    dimnames = list(NULL, c("Explained", "Coefficients"))
+  )
+  
+  for(r in seq_len(R)){
+    
+    sampled <- sample(clusters, n_cl, replace = TRUE)
+    
+    dd <- do.call(
+      rbind,
+      lapply(
+        sampled,
+        function(cl)
+          d[d[[cluster]] == cl, , drop = FALSE]
+      )
+    )
+    
+    rr <- tryCatch(
+      oaxaca_decomp_benchmark(
+        dd, y, x_vars, benchmark,
+        group_var, male_val, female_val
+      ),
+      error = function(e) NULL
+    )
+    
+    if(is.null(rr)) next
+    
+    draws[r, ] <- c(
+      rr$Explained,
+      rr$Coefficients
+    )
+  }
+  
+  list(
+    base = base,
+    se_agg = apply(draws, 2, sd, na.rm = TRUE)
+  )
+}
+
+
+# ============================================================
+# RUN: PRODUCTIVITY
+# ============================================================
+
+boot_prod_bm_male <- bootstrap_oaxaca_benchmark(
+  baseline_fe_within,
+  y_prod, x_prod,
+  benchmark = "male",
+  group_var = group_var,
+  male_val = male_value,
+  female_val = female_value,
+  cluster = "catchID",
+  R = R_boot,
+  seed = seed_boot
+)
+
+boot_prod_bm_female <- bootstrap_oaxaca_benchmark(
+  baseline_fe_within,
+  y_prod, x_prod,
+  benchmark = "female",
+  group_var = group_var,
+  male_val = male_value,
+  female_val = female_value,
+  cluster = "catchID",
+  R = R_boot,
+  seed = seed_boot
+)
+
+boot_prod_bm_equal <- bootstrap_oaxaca_benchmark(
+  baseline_fe_within,
+  y_prod, x_prod,
+  benchmark = "equal_weight",
+  group_var = group_var,
+  male_val = male_value,
+  female_val = female_value,
+  cluster = "catchID",
+  R = R_boot,
+  seed = seed_boot
+)
+
+
+# ============================================================
+# RUN: GROSS SALES REVENUE
+# ============================================================
+
+boot_inc_bm_male <- bootstrap_oaxaca_benchmark(
+  baseline_fe_within,
+  y_inc, x_inc,
+  benchmark = "male",
+  group_var = group_var,
+  male_val = male_value,
+  female_val = female_value,
+  cluster = "catchID",
+  R = R_boot,
+  seed = seed_boot
+)
+
+boot_inc_bm_female <- bootstrap_oaxaca_benchmark(
+  baseline_fe_within,
+  y_inc, x_inc,
+  benchmark = "female",
+  group_var = group_var,
+  male_val = male_value,
+  female_val = female_value,
+  cluster = "catchID",
+  R = R_boot,
+  seed = seed_boot
+)
+
+boot_inc_bm_equal <- bootstrap_oaxaca_benchmark(
+  baseline_fe_within,
+  y_inc, x_inc,
+  benchmark = "equal_weight",
+  group_var = group_var,
+  male_val = male_value,
+  female_val = female_value,
+  cluster = "catchID",
+  R = R_boot,
+  seed = seed_boot
+)
+
+# ============================================================
+# TABLES FOR LYX
+# ============================================================
+
+benchmark_effect_cell <- function(boot, component){
+  
+  if(component == "Explained"){
+    est <- boot$base$Explained
+    se <- boot$se_agg["Explained"]
+    share <- boot$base$Share_Explained
+  } else {
+    est <- boot$base$Coefficients
+    se <- boot$se_agg["Coefficients"]
+    share <- boot$base$Share_Coefficients
+  }
+  
+  paste0(
+    star_cell(est, se),
+    " (",
+    sprintf("%.1f", 100 * share),
+    "\\%)"
+  )
+}
+
+
+make_benchmark_comparison <- function(
+    pooled_boot,
+    male_boot,
+    female_boot,
+    equal_boot) {
+  
+  data.frame(
+    Component = c(
+      "Total gap",
+      "Endowment effect",
+      "Coefficient effect"
+    ),
+    
+    Pooled = c(
+      fmt3(pooled_boot$base$Total_gap),
+      benchmark_effect_cell(pooled_boot, "Explained"),
+      benchmark_effect_cell(pooled_boot, "Coefficients")
+    ),
+    
+    MHH = c(
+      fmt3(male_boot$base$Total_gap),
+      benchmark_effect_cell(male_boot, "Explained"),
+      benchmark_effect_cell(male_boot, "Coefficients")
+    ),
+    
+    FHH = c(
+      fmt3(female_boot$base$Total_gap),
+      benchmark_effect_cell(female_boot, "Explained"),
+      benchmark_effect_cell(female_boot, "Coefficients")
+    ),
+    
+    Equal_weight = c(
+      fmt3(equal_boot$base$Total_gap),
+      benchmark_effect_cell(equal_boot, "Explained"),
+      benchmark_effect_cell(equal_boot, "Coefficients")
+    ),
+    
+    stringsAsFactors = FALSE
+  )
+}
+
+
+tab_benchmark_prod <- make_benchmark_comparison(
+  boot_prod_fe,
+  boot_prod_bm_male,
+  boot_prod_bm_female,
+  boot_prod_bm_equal
+)
+
+tab_benchmark_inc <- make_benchmark_comparison(
+  boot_inc_fe,
+  boot_inc_bm_male,
+  boot_inc_bm_female,
+  boot_inc_bm_equal
+)
+
+
+latex_rows_benchmark_prod <- make_latex_rows(
+  tab_benchmark_prod,
+  c("Component", "Pooled", "MHH", "FHH", "Equal_weight")
+)
+
+latex_rows_benchmark_inc <- make_latex_rows(
+  tab_benchmark_inc,
+  c("Component", "Pooled", "MHH", "FHH", "Equal_weight")
+)
+
+
+tab_benchmark_prod <<- tab_benchmark_prod
+tab_benchmark_inc <<- tab_benchmark_inc
+
+latex_rows_benchmark_prod <<- latex_rows_benchmark_prod
+latex_rows_benchmark_inc <<- latex_rows_benchmark_inc
+
+
+print(tab_benchmark_prod)
+print(tab_benchmark_inc)

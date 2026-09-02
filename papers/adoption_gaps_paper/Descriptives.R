@@ -1,3 +1,6 @@
+setwd("C:/Users/Emma/Desktop/IntershipUganda/GitHub/Farmer_gender_project/papers/adoption_gaps_paper")
+
+
 rm(list=ls())
 path <- getwd()
 path
@@ -26,6 +29,41 @@ endline_farmers <- read.csv(
 
 library(dplyr)
 library(knitr)
+
+
+#to compile faster 
+# ============================================================
+# CARICAMENTO CACHE (se esiste) - evita di ricalcolare i bootstrap
+# ============================================================
+USE_CACHE <- TRUE  # metti FALSE quando vuoi forzare il ricalcolo
+
+if (USE_CACHE && dir.exists("cache")) {
+  cache_files <- list(
+    boot_prod_fe = "cache/boot_prod_fe.rds",
+    boot_inc_fe = "cache/boot_inc_fe.rds",
+    boot_prod_fe_lvl = "cache/boot_prod_fe_lvl.rds",
+    boot_inc_fe_lvl = "cache/boot_inc_fe_lvl.rds",
+    boot_inc_sellers_lvl = "cache/boot_inc_sellers_lvl.rds",
+    boot_inc_sellers_ihs = "cache/boot_inc_sellers_ihs.rds",
+    boot_ext_logit = "cache/boot_ext_logit.rds",
+    boot_ext_probit = "cache/boot_ext_probit.rds",
+    boot_det_ext_logit = "cache/boot_det_ext_logit.rds",
+    rif_prod_fe = "cache/rif_prod_fe.rds",
+    rif_rev_fe = "cache/rif_rev_fe.rds",
+    boot_prod_bm_male = "cache/boot_prod_bm_male.rds",
+    boot_prod_bm_female = "cache/boot_prod_bm_female.rds",
+    boot_prod_bm_equal = "cache/boot_prod_bm_equal.rds",
+    boot_inc_bm_male = "cache/boot_inc_bm_male.rds",
+    boot_inc_bm_female = "cache/boot_inc_bm_female.rds",
+    boot_inc_bm_equal = "cache/boot_inc_bm_equal.rds"
+  )
+  for (nm in names(cache_files)) {
+    if (file.exists(cache_files[[nm]])) {
+      assign(nm, readRDS(cache_files[[nm]]), envir = .GlobalEnv)
+    }
+  }
+}
+
 
 trim <- function(var,dataset,trim_perc=.025){
   dataset[var][dataset[var]<quantile(dataset[var],c(trim_perc/2,1-(trim_perc/2)),na.rm=T)[1]|dataset[var]>quantile(dataset[var],c(trim_perc/2,1-(trim_perc/2)),na.rm=T)[2]] <- NA
@@ -2012,12 +2050,15 @@ bootstrap_oaxaca_fe <- function(df, y, x_vars, group_var = "hh_gender_num",
 
 # ---- 6. RUN DECOMPOSITIONS (with catchID fixed effects) ----
 
-boot_prod_fe <- bootstrap_oaxaca_fe(baseline_fe_within, y_prod, x_prod, group_var,
-                                    male_value, female_value, "catchID", R_boot, seed_boot)
+if (!exists("boot_prod_fe")) {
+  boot_prod_fe <- bootstrap_oaxaca_fe(baseline_fe_within, y_prod, x_prod, group_var,
+                                      male_value, female_value, "catchID", R_boot, seed_boot)
+}
 
-boot_inc_fe <- bootstrap_oaxaca_fe(baseline_fe_within, y_inc, x_inc, group_var,
-                                   male_value, female_value, "catchID", R_boot, seed_boot)
-
+if (!exists("boot_inc_fe")) {
+  boot_inc_fe <- bootstrap_oaxaca_fe(baseline_fe_within, y_inc, x_inc, group_var,
+                                     male_value, female_value, "catchID", R_boot, seed_boot)
+}
 
 # ---- 7. NESTED AGGREGATE TABLE (twofold + threefold in one table) ----
 
@@ -2225,7 +2266,7 @@ p_prod <- ggplot(
     "Female-headed households" = "dashed"
   )) +
   labs(
-    x = "IHS-transformed outcome",
+    x = "Productivity (IHS)",
     y = "Density",
     colour = NULL,
     linetype = NULL
@@ -2254,7 +2295,7 @@ p_inc <- ggplot(
     "Female-headed households" = "dashed"
   )) +
   labs(
-    x = "IHS-transformed outcome",
+    x = "Gross Revenue (IHS)",
     y = "Density",
     colour = NULL,
     linetype = NULL
@@ -2355,11 +2396,15 @@ baseline_fe_within_lvl <- within_transform(baseline_fe_lvl, vars_to_demean_lvl, 
 baseline_fe_within_lvl$catchID <- baseline_fe_lvl$catchID
 
 # ---- Bootstrap Oaxaca-Blinder, livelli trimmati ----
-boot_prod_fe_lvl <- bootstrap_oaxaca_fe(baseline_fe_within_lvl, y_prod_lvl, x_prod, group_var,
-                                        male_value, female_value, "catchID", R_boot, seed_boot)
+if (!exists("boot_prod_fe_lvl")) {
+  boot_prod_fe_lvl <- bootstrap_oaxaca_fe(baseline_fe_within_lvl, y_prod_lvl, x_prod, group_var,
+                                          male_value, female_value, "catchID", R_boot, seed_boot)
+}
 
-boot_inc_fe_lvl <- bootstrap_oaxaca_fe(baseline_fe_within_lvl, y_inc_lvl, x_inc, group_var,
-                                       male_value, female_value, "catchID", R_boot, seed_boot)
+if (!exists("boot_inc_fe_lvl")) {
+  boot_inc_fe_lvl <- bootstrap_oaxaca_fe(baseline_fe_within_lvl, y_inc_lvl, x_inc, group_var,
+                                         male_value, female_value, "catchID", R_boot, seed_boot)
+}
 
 # ---- Tabelle aggregate (nested: twofold + threefold) ----
 tab_nested_prod_lvl <- make_nested_oaxaca_table(boot_prod_fe_lvl)
@@ -2472,17 +2517,19 @@ sellers_fe_within_lvl$catchID <- sellers_fe_lvl$catchID
 
 # ---- 4. Bootstrap Oaxaca among sellers only ----
 
-boot_inc_sellers_lvl <- bootstrap_oaxaca_fe(
-  df = sellers_fe_within_lvl,
-  y = y_inc_lvl,
-  x_vars = x_inc,
-  group_var = group_var,
-  male_val = male_value,
-  female_val = female_value,
-  cluster = "catchID",
-  R = R_boot,
-  seed = seed_boot
-)
+if (!exists("boot_inc_sellers_lvl")) {
+  boot_inc_sellers_lvl <- bootstrap_oaxaca_fe(
+    df = sellers_fe_within_lvl,
+    y = y_inc_lvl,
+    x_vars = x_inc,
+    group_var = group_var,
+    male_val = male_value,
+    female_val = female_value,
+    cluster = "catchID",
+    R = R_boot,
+    seed = seed_boot
+  )
+}
 
 
 # ---- 5. Aggregate table ----
@@ -2799,19 +2846,21 @@ make_fairlie_table <- function(boot_obj) {
   )
 }
 
-boot_ext_logit <- bootstrap_fairlie_twofold(
-  df = baseline_farmers,
-  y = "maize_sold",
-  x_vars = x_inc,
-  group_var = group_var,
-  male_val = male_value,
-  female_val = female_value,
-  cluster = "catchID",
-  link = "logit",
-  catch_fe = TRUE,
-  R = R_boot,
-  seed = seed_boot
-)
+if (!exists("boot_ext_logit")) {
+  boot_ext_logit <- bootstrap_fairlie_twofold(
+    df = baseline_farmers,
+    y = "maize_sold",
+    x_vars = x_inc,
+    group_var = group_var,
+    male_val = male_value,
+    female_val = female_value,
+    cluster = "catchID",
+    link = "logit",
+    catch_fe = TRUE,
+    R = R_boot,
+    seed = seed_boot
+  )
+}
 
 tab_ext_logit <- make_fairlie_table(boot_ext_logit)
 
@@ -2823,19 +2872,21 @@ rate_ext_logit_female <- boot_ext_logit$base$Mean_female
 
 print(tab_ext_logit)
 
-boot_ext_probit <- bootstrap_fairlie_twofold(
-  df = baseline_farmers,
-  y = "maize_sold",
-  x_vars = x_inc,
-  group_var = group_var,
-  male_val = male_value,
-  female_val = female_value,
-  cluster = "catchID",
-  link = "probit",
-  catch_fe = TRUE,
-  R = R_boot,
-  seed = seed_boot
-)
+if (!exists("boot_ext_probit")) {
+  boot_ext_probit <- bootstrap_fairlie_twofold(
+    df = baseline_farmers,
+    y = "maize_sold",
+    x_vars = x_inc,
+    group_var = group_var,
+    male_val = male_value,
+    female_val = female_value,
+    cluster = "catchID",
+    link = "probit",
+    catch_fe = TRUE,
+    R = R_boot,
+    seed = seed_boot
+  )
+}
 
 tab_ext_probit <- make_fairlie_table(boot_ext_probit)
 
@@ -2944,17 +2995,19 @@ sellers_fe_within_ihs$catchID <-
   sellers_fe_ihs$catchID
 
 # 5. Oaxaca with clustered bootstrap
-boot_inc_sellers_ihs <- bootstrap_oaxaca_fe(
-  df = sellers_fe_within_ihs,
-  y = y_inc_sellers_ihs,
-  x_vars = x_inc,
-  group_var = group_var,
-  male_val = male_value,
-  female_val = female_value,
-  cluster = "catchID",
-  R = R_boot,
-  seed = seed_boot
-)
+if (!exists("boot_inc_sellers_ihs")) {
+  boot_inc_sellers_ihs <- bootstrap_oaxaca_fe(
+    df = sellers_fe_within_ihs,
+    y = y_inc_sellers_ihs,
+    x_vars = x_inc,
+    group_var = group_var,
+    male_val = male_value,
+    female_val = female_value,
+    cluster = "catchID",
+    R = R_boot,
+    seed = seed_boot
+  )
+}
 
 # 6. Aggregate table
 tab_nested_inc_sellers_ihs <-
@@ -2981,7 +3034,7 @@ N_inc_sellers_ihs_male <<-
 N_inc_sellers_ihs_female <<-
   N_inc_sellers_ihs_female
 
-#DETAILED SEPRATED
+#DETAILED SEPARATED
 # * DETAILED EXTENSIVE MARGIN: FAIRLIE LOGIT
 
 fairlie_detailed_core <- function(df, y, x_vars, group_var="hh_gender_num",
@@ -3123,21 +3176,23 @@ bootstrap_fairlie_detailed <- function(df, y, x_vars, group_var="hh_gender_num",
 
 # * Run detailed Fairlie
 
-boot_det_ext_logit <- bootstrap_fairlie_detailed(
-  df=baseline_farmers,
-  y="maize_sold",
-  x_vars=x_inc,
-  group_var=group_var,
-  male_val=male_value,
-  female_val=female_value,
-  cluster="catchID",
-  link="logit",
-  catch_fe=TRUE,
-  R=R_boot,
-  reps_order_base=1000,
-  reps_order_boot=100,
-  seed=seed_boot
-)
+if (!exists("boot_det_ext_logit")) {
+  boot_det_ext_logit <- bootstrap_fairlie_detailed(
+    df=baseline_farmers,
+    y="maize_sold",
+    x_vars=x_inc,
+    group_var=group_var,
+    male_val=male_value,
+    female_val=female_value,
+    cluster="catchID",
+    link="logit",
+    catch_fe=TRUE,
+    R=R_boot,
+    reps_order_base=1000,
+    reps_order_boot=100,
+    seed=seed_boot
+  )
+}
 
 
 # * Format detailed Fairlie table
@@ -3274,7 +3329,7 @@ cs <- check_common_support(
   catch_fe = TRUE
 )
 
-# Grafico di densità sovrapposta
+# Graph density
 library(ggplot2)
 
 ggplot(cs$data, aes(x = pred, fill = factor(get(group_var)))) +
@@ -3292,9 +3347,6 @@ ggplot(cs$data, aes(x = pred, fill = factor(get(group_var)))) +
 
 
 ggsave("common_support_ext_margin.png", width = 7, height = 5)
-
-
-
 
 
 #APPENDIX
@@ -3320,7 +3372,7 @@ x_prod_rif <- c(
   "distance_agroshops", "num_shops", "household_size", "hh_age",
   "education_head_num", "maize_plot_area", "farmer_group_member",
   "dap_npk_applied", "urea_applied", "chemicals_applied",
-  "organic_manure_applied", "resow", "weed_times", "base_hybrid"
+  "organic_manure_applied", "resow", "weed_times"
 )
 
 # Exact gross-revenue specification used in the main Oaxaca
@@ -3379,9 +3431,7 @@ print(table(check_prod[[group_var]]))
 cat("\nREVENUE SAMPLE\n")
 print(table(check_inc[[group_var]]))
 
-# Productivity should be:
-# 0 = 594
-# 1 = 2132
+
 
 # -------------------- COMPUTE RIF --------------------
 
@@ -3651,33 +3701,35 @@ q_rev  <- c(0.70, 0.80, 0.90)
 
 # -------------------- RUN PRODUCTIVITY --------------------
 
-rif_prod_fe <- run_rif_grid(
-  df = baseline_fe,
-  y = y_prod,
-  x_vars = x_prod_rif,
-  quantiles = q_prod,
-  group_var = group_var,
-  male_val = male_value,
-  female_val = female_value,
-  cluster = "catchID",
-  R = R_rif,
-  seed = seed_rif
-)
+if (!exists("rif_prod_fe")) {
+  rif_prod_fe <- run_rif_grid(
+    df = baseline_fe,
+    y = y_prod,
+    x_vars = x_prod_rif,
+    quantiles = q_prod,
+    group_var = group_var,
+    male_val = male_value,
+    female_val = female_value,
+    cluster = "catchID",
+    R = R_rif,
+    seed = seed_rif
+  )
+}
 
-# -------------------- RUN REVENUE --------------------
-
-rif_rev_fe <- run_rif_grid(
-  df = baseline_fe,
-  y = y_inc,
-  x_vars = x_inc_rif,
-  quantiles = q_rev,
-  group_var = group_var,
-  male_val = male_value,
-  female_val = female_value,
-  cluster = "catchID",
-  R = R_rif,
-  seed = seed_rif
-)
+if (!exists("rif_rev_fe")) {
+  rif_rev_fe <- run_rif_grid(
+    df = baseline_fe,
+    y = y_inc,
+    x_vars = x_inc_rif,
+    quantiles = q_rev,
+    group_var = group_var,
+    male_val = male_value,
+    female_val = female_value,
+    cluster = "catchID",
+    R = R_rif,
+    seed = seed_rif
+  )
+}
 
 # -------------------- AGGREGATE TABLES --------------------
 
@@ -4164,82 +4216,94 @@ bootstrap_oaxaca_benchmark <- function(
 # RUN: PRODUCTIVITY
 # ============================================================
 
-boot_prod_bm_male <- bootstrap_oaxaca_benchmark(
-  baseline_fe_within,
-  y_prod, x_prod,
-  benchmark = "male",
-  group_var = group_var,
-  male_val = male_value,
-  female_val = female_value,
-  cluster = "catchID",
-  R = R_boot,
-  seed = seed_boot
-)
+if (!exists("boot_prod_bm_male")) {
+  boot_prod_bm_male <- bootstrap_oaxaca_benchmark(
+    baseline_fe_within,
+    y_prod, x_prod,
+    benchmark = "male",
+    group_var = group_var,
+    male_val = male_value,
+    female_val = female_value,
+    cluster = "catchID",
+    R = R_boot,
+    seed = seed_boot
+  )
+}
 
-boot_prod_bm_female <- bootstrap_oaxaca_benchmark(
-  baseline_fe_within,
-  y_prod, x_prod,
-  benchmark = "female",
-  group_var = group_var,
-  male_val = male_value,
-  female_val = female_value,
-  cluster = "catchID",
-  R = R_boot,
-  seed = seed_boot
-)
+if (!exists("boot_prod_bm_female")) {
+  boot_prod_bm_female <- bootstrap_oaxaca_benchmark(
+    baseline_fe_within,
+    y_prod, x_prod,
+    benchmark = "female",
+    group_var = group_var,
+    male_val = male_value,
+    female_val = female_value,
+    cluster = "catchID",
+    R = R_boot,
+    seed = seed_boot
+  )
+}
 
-boot_prod_bm_equal <- bootstrap_oaxaca_benchmark(
-  baseline_fe_within,
-  y_prod, x_prod,
-  benchmark = "equal_weight",
-  group_var = group_var,
-  male_val = male_value,
-  female_val = female_value,
-  cluster = "catchID",
-  R = R_boot,
-  seed = seed_boot
-)
+if (!exists("boot_prod_bm_equal")) {
+  boot_prod_bm_equal <- bootstrap_oaxaca_benchmark(
+    baseline_fe_within,
+    y_prod, x_prod,
+    benchmark = "equal_weight",
+    group_var = group_var,
+    male_val = male_value,
+    female_val = female_value,
+    cluster = "catchID",
+    R = R_boot,
+    seed = seed_boot
+  )
+}
 
 
 # ============================================================
 # RUN: GROSS SALES REVENUE
 # ============================================================
 
-boot_inc_bm_male <- bootstrap_oaxaca_benchmark(
-  baseline_fe_within,
-  y_inc, x_inc,
-  benchmark = "male",
-  group_var = group_var,
-  male_val = male_value,
-  female_val = female_value,
-  cluster = "catchID",
-  R = R_boot,
-  seed = seed_boot
-)
+if (!exists("boot_inc_bm_male")) {
+  boot_inc_bm_male <- bootstrap_oaxaca_benchmark(
+    baseline_fe_within,
+    y_inc, x_inc,
+    benchmark = "male",
+    group_var = group_var,
+    male_val = male_value,
+    female_val = female_value,
+    cluster = "catchID",
+    R = R_boot,
+    seed = seed_boot
+  )
+}
 
-boot_inc_bm_female <- bootstrap_oaxaca_benchmark(
-  baseline_fe_within,
-  y_inc, x_inc,
-  benchmark = "female",
-  group_var = group_var,
-  male_val = male_value,
-  female_val = female_value,
-  cluster = "catchID",
-  R = R_boot,
-  seed = seed_boot
-)
+if (!exists("boot_inc_bm_female")) {
+  boot_inc_bm_female <- bootstrap_oaxaca_benchmark(
+    baseline_fe_within,
+    y_inc, x_inc,
+    benchmark = "female",
+    group_var = group_var,
+    male_val = male_value,
+    female_val = female_value,
+    cluster = "catchID",
+    R = R_boot,
+    seed = seed_boot
+  )
+}
 
-boot_inc_bm_equal <- bootstrap_oaxaca_benchmark(
-  baseline_fe_within,
-  y_inc, x_inc,
-  benchmark = "equal_weight",
-  group_var = group_var,
-  male_val = male_value,
-  female_val = female_value,
-  cluster = "catchID",
-  R = R_boot,
-  seed = seed_boot
-)
+if (!exists("boot_inc_bm_equal")) {
+  boot_inc_bm_equal <- bootstrap_oaxaca_benchmark(
+    baseline_fe_within,
+    y_inc, x_inc,
+    benchmark = "equal_weight",
+    group_var = group_var,
+    male_val = male_value,
+    female_val = female_value,
+    cluster = "catchID",
+    R = R_boot,
+    seed = seed_boot
+  )
+}
 
 # ============================================================
 # TABLES FOR LYX
@@ -4343,3 +4407,109 @@ latex_rows_benchmark_inc <<- latex_rows_benchmark_inc
 
 print(tab_benchmark_prod)
 print(tab_benchmark_inc)
+
+# ============================================================
+# ROBUSTNESS: EXCLUDING TOP 2% OF PRODUCTIVITY
+# ============================================================
+
+# 1. 98th percentile of raw maize productivity
+prod_p98 <- quantile(
+  baseline_farmers$yield_per_acre,
+  0.98,
+  na.rm = TRUE
+)
+
+# 2. Exclude observations strictly above the 98th percentile
+baseline_prod_trim98 <- baseline_farmers[
+  is.na(baseline_farmers$yield_per_acre) |
+    baseline_farmers$yield_per_acre <= prod_p98,
+]
+
+# Important for clustered SE alignment
+rownames(baseline_prod_trim98) <- NULL
+
+# 3. Re-estimate the same baseline productivity specification
+m_prod_full_bl_trim98 <- lm(
+  form_prod_bl,
+  data = baseline_prod_trim98
+)
+
+# 4. Male-headed household coefficient: main specification
+main_gender <- cell_coef_se(
+  m_prod_full_bl,
+  "hh_gender_num",
+  baseline_farmers,
+  CLUSTER_ID
+)
+
+# 5. Male-headed household coefficient: excluding top 2%
+trim98_gender <- cell_coef_se(
+  m_prod_full_bl_trim98,
+  "hh_gender_num",
+  baseline_prod_trim98,
+  CLUSTER_ID
+)
+
+# 6. Number of observations
+N_prod_main_rob <- nobs(m_prod_full_bl)
+N_prod_trim98_rob <- nobs(m_prod_full_bl_trim98)
+
+# 7. Checks
+cat("98th percentile cutoff:", prod_p98, "\n")
+cat(
+  "Observations above cutoff:",
+  sum(baseline_farmers$yield_per_acre > prod_p98, na.rm = TRUE),
+  "\n\n"
+)
+
+cat("MAIN:\n")
+print(main_gender)
+cat("N =", N_prod_main_rob, "\n\n")
+
+cat("EXCLUDING TOP 2%:\n")
+print(trim98_gender)
+cat("N =", N_prod_trim98_rob, "\n")
+
+
+#save things to compile faster
+# ============================================================
+# SALVATAGGIO DI TUTTI GLI OGGETTI PESANTI (bootstrap/RIF)
+# ============================================================
+
+dir.create("cache", showWarnings = FALSE)
+
+# --- Oaxaca-Blinder principali (IHS) ---
+saveRDS(boot_prod_fe, "cache/boot_prod_fe.rds")
+saveRDS(boot_inc_fe,  "cache/boot_inc_fe.rds")
+
+# --- Robustness: livelli, trimmed ---
+saveRDS(boot_prod_fe_lvl,      "cache/boot_prod_fe_lvl.rds")
+saveRDS(boot_inc_fe_lvl,       "cache/boot_inc_fe_lvl.rds")
+saveRDS(boot_inc_sellers_lvl,  "cache/boot_inc_sellers_lvl.rds")
+
+# --- Intensive margin (IHS, sellers only) ---
+saveRDS(boot_inc_sellers_ihs, "cache/boot_inc_sellers_ihs.rds")
+
+# --- Extensive margin: Fairlie logit/probit ---
+saveRDS(boot_ext_logit,  "cache/boot_ext_logit.rds")
+saveRDS(boot_ext_probit, "cache/boot_ext_probit.rds")
+
+# --- Detailed Fairlie (extensive margin, per-covariata) ---
+saveRDS(boot_det_ext_logit, "cache/boot_det_ext_logit.rds")
+
+# --- RIF-Oaxaca (Appendice) — probabilmente il più pesante di tutti ---
+saveRDS(rif_prod_fe, "cache/rif_prod_fe.rds")
+saveRDS(rif_rev_fe,  "cache/rif_rev_fe.rds")
+
+# --- Benchmark alternativi (Appendice) ---
+saveRDS(boot_prod_bm_male,   "cache/boot_prod_bm_male.rds")
+saveRDS(boot_prod_bm_female, "cache/boot_prod_bm_female.rds")
+saveRDS(boot_prod_bm_equal,  "cache/boot_prod_bm_equal.rds")
+
+saveRDS(boot_inc_bm_male,   "cache/boot_inc_bm_male.rds")
+saveRDS(boot_inc_bm_female, "cache/boot_inc_bm_female.rds")
+saveRDS(boot_inc_bm_equal,  "cache/boot_inc_bm_equal.rds")
+
+cat("Tutti gli oggetti pesanti sono stati salvati in /cache\n")
+
+

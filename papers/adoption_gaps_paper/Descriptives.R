@@ -1,4 +1,3 @@
-setwd("C:/Users/Emma/Desktop/IntershipUganda/GitHub/Farmer_gender_project/papers/adoption_gaps_paper")
 
 
 rm(list=ls())
@@ -32,10 +31,8 @@ library(knitr)
 
 
 #to compile faster 
-# ============================================================
-# CARICAMENTO CACHE (se esiste) - evita di ricalcolare i bootstrap
-# ============================================================
-USE_CACHE <- TRUE  # metti FALSE quando vuoi forzare il ricalcolo
+
+USE_CACHE <- TRUE  #FAlse to do the recalculation
 
 if (USE_CACHE && dir.exists("cache")) {
   cache_files <- list(
@@ -156,7 +153,7 @@ farmers_long <- merge(farmers_long, gender_master,
                       all.x = TRUE)
 table(farmers_long$round, is.na(farmers_long$hh_gender_num))
 
-# I stacked (appended) the farmer-level baseline, midline, and endline datasets into a long/panel dataset called `farmers_long`,
+# I stacked the farmer-level baseline, midline, and endline datasets into a long/panel dataset called `farmers_long`,
 # where each row corresponds to a farmer_ID observed in a given survey round (baseline, midline, or endline).
 
 # Household-head gender is treated as a time-invariant characteristic measured at baseline (`hh_gender_num`);
@@ -248,7 +245,7 @@ table(baseline_farmers$Check2.check.maize.q22)
 baseline_farmers$Check2.check.maize.q22 <- as.numeric(as.character(baseline_farmers$Check2.check.maize.q22))
 summary(baseline_farmers$Check2.check.maize.q22)
 
-# values that could be <0.1 o >200 diventano NA
+# values that could be <0.1 o >200 are NA
 baseline_farmers$Check2.check.maize.q22[baseline_farmers$Check2.check.maize.q22 < 0.1 |baseline_farmers$Check2.check.maize.q22 > 200] <- NA
 summary(baseline_farmers$Check2.check.maize.q22)
 mean(baseline_farmers$Check2.check.maize.q22, na.rm = TRUE)
@@ -397,9 +394,6 @@ baseline_farmers$respondent_is_hh <- ifelse(
 )
 table(baseline_farmers$respondent_is_hh)
 
-
-
-
 #Q14(Age of household head)
 baseline_farmers$Check2.check.maize.q14 <- as.character(baseline_farmers$Check2.check.maize.q14)
 baseline_farmers$Check2.check.maize.q14[
@@ -412,8 +406,6 @@ summary(baseline_farmers$hh_age)
 
 
 #Q15(Gender of household head)
-
-
 
 #Q16 (status)
 table(baseline_farmers$Check2.check.maize.q16, useNA = "ifany")
@@ -502,13 +494,10 @@ baseline_farmers$q50_bags_trimmed[baseline_farmers$q50_bags_trimmed > q50_upper_
 baseline_farmers$q29_area_trimmed[baseline_farmers$q29_area_trimmed < 0.25 | baseline_farmers$q29_area_trimmed > q29_upper_cutoff] <- NA
 
 
-
 # Count removed observations
 sum(baseline_farmers$q50_bags_untrimmed > q50_upper_cutoff, na.rm = TRUE)
 sum(baseline_farmers$q29_area_untrimmed < 0.25, na.rm = TRUE)
 sum(baseline_farmers$q29_area_untrimmed > q29_upper_cutoff, na.rm = TRUE)
-
-
 
 #yield per acre (PRODUCTIVITY)
 baseline_farmers$yield_per_acre <- baseline_farmers$yield_inkg / baseline_farmers$r_maize_plot_area
@@ -544,22 +533,8 @@ summary(baseline_farmers$yield_per_acre_ihs)
 
 
 #MAIZE INCOME (bags sold × bag price)
-baseline_farmers$maize_income <- with(baseline_farmers,
-                                      ifelse(is.na(bags_sold) | is.na(bag_price), 0, bags_sold * bag_price)
-)
-table(is.na(baseline_farmers$maize_income), baseline_farmers$hh_gender_num)
-summary(baseline_farmers$maize_income)
 
-#with this definition of income also people that did not sell anything are included
-table(baseline_farmers$maize_income)
-summary(baseline_farmers$maize_income)
-baseline_farmers$maize_income[baseline_farmers$maize_income %in% c("999","n/a","NA","", 99900)] <- NA
-aggregate(maize_income ~ hh_gender_num, data = baseline_farmers, mean, na.rm = TRUE)
-
-
-
-
-# maize income: set to 0 only for confirmed non-sellers; keep NA if sold==1 but missing bags/price
+# Maize income: set to 0 only for confirmed non-sellers; keep NA if sold==1 but missing bags/price
 baseline_farmers$maize_income <- NA_real_
 baseline_farmers$maize_income[baseline_farmers$maize_sold == 0] <- 0
 baseline_farmers$maize_income[baseline_farmers$maize_sold == 1] <-
@@ -568,10 +543,7 @@ baseline_farmers$maize_income[baseline_farmers$maize_sold == 1] <-
 
 baseline_farmers$maize_income_ihs <- asinh(baseline_farmers$maize_income)
 summary(baseline_farmers$maize_income_ihs)
-table(baseline_farmers$maize_income_ihs)
 
-
-# 
 # hist(baseline_farmers$maize_income,
 #      main = "Distribution of Maize Income",
 #      col = "lightgreen",
@@ -622,8 +594,6 @@ baseline_farmers$farmer_group_member[baseline_farmers$farmer_group_member %in% c
 baseline_farmers$farmer_group_member <- ifelse(baseline_farmers$farmer_group_member == "Yes", 1,
                                                ifelse(baseline_farmers$farmer_group_member == "No", 0, NA))
 table(baseline_farmers$farmer_group_member)
-
-
 
 
 # =========================================================
@@ -742,8 +712,8 @@ df_descriptives_male   <- array(NA, dim = c(length(variables), 5))
 df_descriptives_female <- array(NA, dim = c(length(variables), 5))
 ttest_pvalues          <- rep(NA_real_, length(variables))
 
-#added fror lyx problems
-# --- SAFE helpers (incolla prima del for) ---
+#added for lyx problems
+# --- SAFE helpers  ---
 safe_num <- function(x) {
   if (is.factor(x)) x <- as.character(x)
   if (is.character(x)) {
@@ -803,7 +773,7 @@ for (i in seq_along(variables)) {
   df_descriptives_female[i,4] <- safe_sd(v_f)
   df_descriptives_female[i,5] <- safe_n(v_f)
   
-  # T-TEST (usa versioni numeriche, vedi punto 2)
+  # T-TEST 
   if (sum(!is.na(safe_num(v_m))) >= 2 && sum(!is.na(safe_num(v_f))) >= 2) {
     tt <- try(t.test(safe_num(v_m), safe_num(v_f)), silent = TRUE)
     if (!inherits(tt, "try-error")) ttest_pvalues[i] <- tt$p.value
@@ -973,7 +943,7 @@ summary(lm1_full)
 #lm2 IHS TRANSFORMATION OF YIELD PER ACRE - gender is significant until semifull
 lm2 <- lm(yield_per_acre_ihs ~ hh_gender_num, data = baseline_farmers)
 summary(lm2)
-#Semifull: control for agricultural inputs (it includes the indirect effect of discrimination that it is reflecting in input)
+#Semifull: control for agricultural inputs 
 lm2_semifull <- lm(yield_per_acre_ihs ~ hh_gender_num + education_head_num + household_size +
                      hh_age + quality_seed_used + dap_npk_applied + urea_applied +
                      chemicals_applied + r_maize_plot_area, data = baseline_farmers)
@@ -1794,7 +1764,7 @@ bptest(m_prod_full_bl)
 bptest(m_inc_full_bl)
 bptest(m_hybrid_full_bl)
 
-#reset tests: the model is not correctly specified for income shall I do smt?
+#reset tests: the model is not correctly specified for income 
 library(lmtest)
 resettest(m_prod_full_bl)
 resettest(m_inc_full_bl)
@@ -1805,8 +1775,8 @@ resettest(m_inc_full_bl)
 
 # ============================================================
 # OAXACA-BLINDER DECOMPOSITION WITH catchID FIXED EFFECTS
-# Productivity + Gross Revenue | Aggregate (nested) + Detailed
-# Pooled benchmark WITHOUT gender dummy
+# Productivity + Gross Revenue | Aggregate + Detailed
+# Pooled benchmark WITH gender dummy
 # Bootstrap SE clustered at catchID level
 # ============================================================
 
@@ -2224,14 +2194,14 @@ latex_rows_threefold_inc  <<- latex_rows_threefold_inc
 #I try to devide income in intensive and extensive margin
 
 # ============================================================
-# OAXACA CLASSICO - INTENSIVE MARGIN (solo chi vende)
+# OAXACA CLASSICO - INTENSIVE MARGIN 
 # ============================================================
 
 sellers_only <- baseline_farmers[baseline_farmers$maize_sold == 1, ]
 
 result_intensive <- oaxaca_decomp_nogender(
   sellers_only,
-  y = "maize_income_ihs",      # oppure log(bags_sold) se vuoi guardare solo la quantità, non il valore
+  y = "maize_income_ihs",      # or log(bags_sold) 
   x_vars = x_inc,
   group_var = "hh_gender_num",
   male_val = 1,
@@ -2351,7 +2321,7 @@ ggsave(
 # LEVEL (NON-IHS) OUTCOMES, TRIMMED AT EXTREMES
 # ============================================================
 
-# --- Trim components of productivity (se non già create prima nello script) ---
+#Trim components of productivity
 q50_upper_cutoff <- quantile(baseline_farmers$Check2.check.maize.q50, 0.99, na.rm = TRUE)
 q29_upper_cutoff <- quantile(baseline_farmers$Check2.check.maize.q29, 0.99, na.rm = TRUE)
 
@@ -2369,8 +2339,7 @@ baseline_farmers$yield_per_acre_trimmed <- baseline_farmers$yield_inkg_trimmed /
 
 summary(baseline_farmers$yield_per_acre_trimmed)
 
-# --- Trim maize income (level, not IHS) ---
-# --- Trim maize income DIRETTAMENTE sul livello finale, solo tra i venditori ---
+#Trim maize income (level, not IHS) ---
 sellers_income <- baseline_farmers$maize_income[baseline_farmers$maize_sold == 1]
 
 inc_upper_cutoff <- quantile(sellers_income, 0.99, na.rm = TRUE)
@@ -2381,7 +2350,7 @@ baseline_farmers$maize_income_trimmed[baseline_farmers$maize_sold == 0] <- 0
 baseline_farmers$maize_income_trimmed[baseline_farmers$maize_sold == 1] <- 
   baseline_farmers$maize_income[baseline_farmers$maize_sold == 1]
 
-# ora trimma SOLO il livello finale, non i due input separatamente
+#trimming just the value at the end
 baseline_farmers$maize_income_trimmed[
   baseline_farmers$maize_sold == 1 &
     (baseline_farmers$maize_income_trimmed > inc_upper_cutoff |
@@ -2391,28 +2360,28 @@ baseline_farmers$maize_income_trimmed[
 summary(baseline_farmers$maize_income_trimmed)
 
 
-# quante osservazioni perdi rispetto al criterio precedente (componenti separate)?
+#How many obs I lose
 sum(is.na(baseline_farmers$maize_income_trimmed))
 
-# quante osservazioni perdi col trimming rispetto alla versione IHS non trimmata
+#Obs I lose in comaprison to the first IHS version
 sum(is.na(baseline_farmers$yield_per_acre_trimmed)) - sum(is.na(baseline_farmers$yield_per_acre))
 sum(is.na(baseline_farmers$maize_income_trimmed)) - sum(is.na(baseline_farmers$maize_income))
 # ---- Nuovi outcome in livelli ----
 y_prod_lvl <- "yield_per_acre_trimmed"
 y_inc_lvl  <- "maize_income_trimmed"
 
-# ---- Ricostruisci il sotto-campione con catchID che hanno sia MHH sia FHH ----
+#The subsample with MHH and FHH and not catch id qithout one of them
 # (valid_catch è lo stesso di prima, basato su hh_gender_num e catchID)
 baseline_fe_lvl <- baseline_farmers %>% filter(catchID %in% valid_catch)
 
-# ---- Within transformation (demeaning per catchID) sui nuovi outcome + stessi covariati ----
+#Within transformation (demeaning per catchID) 
 vars_to_demean_lvl <- unique(c(y_prod_lvl, y_inc_lvl, x_prod, x_inc))
 vars_to_demean_lvl <- vars_to_demean_lvl[vars_to_demean_lvl %in% names(baseline_fe_lvl)]
 
 baseline_fe_within_lvl <- within_transform(baseline_fe_lvl, vars_to_demean_lvl, "catchID")
 baseline_fe_within_lvl$catchID <- baseline_fe_lvl$catchID
 
-# ---- Bootstrap Oaxaca-Blinder, livelli trimmati ----
+#Bootstrap Oaxaca-Blinder,trimmed levels
 if (!exists("boot_prod_fe_lvl")) {
   boot_prod_fe_lvl <- bootstrap_oaxaca_fe(baseline_fe_within_lvl, y_prod_lvl, x_prod, group_var,
                                           male_value, female_value, "catchID", R_boot, seed_boot)
@@ -2423,7 +2392,7 @@ if (!exists("boot_inc_fe_lvl")) {
                                          male_value, female_value, "catchID", R_boot, seed_boot)
 }
 
-# ---- Tabelle aggregate (nested: twofold + threefold) ----
+# aggregate tables (nested: twofold + threefold) ----
 tab_nested_prod_lvl <- make_nested_oaxaca_table(boot_prod_fe_lvl)
 tab_nested_inc_lvl  <- make_nested_oaxaca_table(boot_inc_fe_lvl)
 
@@ -2432,7 +2401,7 @@ N_prod_female_lvl <- boot_prod_fe_lvl$base$N_female
 N_inc_male_lvl    <- boot_inc_fe_lvl$base$N_male
 N_inc_female_lvl  <- boot_inc_fe_lvl$base$N_female
 
-# ---- Tabelle dettagliate (per covariata) ----
+#detailed tables (for each covariate) ----
 tab_det_twofold_prod_lvl <- make_twofold_det_fe(boot_prod_fe_lvl, labels_prod,
                                                 "Maize productivity (levels, trimmed)")
 tab_det_twofold_inc_lvl  <- make_twofold_det_fe(boot_inc_fe_lvl,  labels_inc,
@@ -2465,7 +2434,7 @@ cat("- tab_det_threefold_prod_lvl, tab_det_threefold_inc_lvl\n")
 # ROBUSTNESS CHECK 2:
 # OAXACA OF GROSS SALES REVENUE AMONG SELLERS ONLY
 # LEVELS, TRIMMED
-# ============================================================
+
 
 # Outcome already created above:
 # y_inc_lvl <- "maize_income_trimmed"
@@ -4488,10 +4457,7 @@ print(trim98_gender)
 cat("N =", N_prod_trim98_rob, "\n")
 
 
-#save things to compile faster
-# ============================================================
-# SALVATAGGIO DI TUTTI GLI OGGETTI PESANTI (bootstrap/RIF)
-# ============================================================
+#save things to compile faster (bootstrap/RIF)
 
 dir.create("cache", showWarnings = FALSE)
 

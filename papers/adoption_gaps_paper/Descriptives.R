@@ -1955,9 +1955,26 @@ oaxaca_decomp_nogender <- function(df, y, x_vars, group_var = "hh_gender_num",
   dfem <- d[d[[group_var]] == female_val, , drop = FALSE]
   rhs  <- paste(x_vars, collapse = " + ")
   
+  # Group-specific coefficients: unchanged
   beta_m <- coef(lm(as.formula(paste(y, "~", rhs)), data = dm))
   beta_f <- coef(lm(as.formula(paste(y, "~", rhs)), data = dfem))
-  beta_p <- coef(lm(as.formula(paste(y, "~", rhs)), data = d))  # pooled benchmark
+  
+  # Within-catchment transformation of gender for pooled benchmark
+  d$gender_within <- d[[group_var]] -
+    ave(d[[group_var]], d$catchID, FUN = mean) +
+    mean(d[[group_var]])
+  
+  # Pooled benchmark including gender indicator
+  form_pool <- as.formula(
+    paste(y, "~", rhs, "+ gender_within")
+  )
+  
+  fit_pool <- lm(form_pool, data = d)
+  
+  beta_p <- coef(fit_pool)
+  
+  # Gender coefficient is NOT part of beta*
+  beta_p <- beta_p[names(beta_p) != "gender_within"]
   
   X_m <- colMeans(model.matrix(as.formula(paste("~", rhs)), data = dm))
   X_f <- colMeans(model.matrix(as.formula(paste("~", rhs)), data = dfem))
